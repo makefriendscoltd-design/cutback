@@ -1,0 +1,5 @@
+# VAD Service Requirements
+pyzmq>=25.1.0
+torch>=2.0.0
+torchaudio>=2.0.0
+onnxruntime>=1.16.0

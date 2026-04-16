@@ -1,0 +1,57 @@
+{
+  "name": "브이로그형",
+  "type": "vlog-style",
+  "version": "1.0.0",
+  "description": "1~5분 일상 브이로그. 친근하고 자연스러운 편집.",
+  "canvas": {
+    "aspect_ratio": "16:9",
+    "width": 1920,
+    "height": 1080
+  },
+  "audio": {
+    "silence_threshold_db": -40,
+    "min_silence_duration_ms": 1000,
+    "pre_cut_padding_ms": 300,
+    "post_cut_padding_ms": 300,
+    "reasoning": "브이로그는 너무 빡빡하면 피곤함. 1초 이상만 무음 제거하고 호흡 충분히 보존."
+  },
+  "filler_words": {
+    "removal_strength": "conservative",
+    "context_aware": true,
+    "preserve_natural_pauses": true,
+    "custom_fillers": ["음", "어"],
+    "reasoning": "브이로그는 자연스러움이 매력. '약간', '진짜', '완전' 같은 표현은 친근함의 일부."
+  },
+  "captions": {
+    "segmentation_mode": "by_time",
+    "max_chars_per_line": 18,
+    "max_lines": 1,
+    "line_break_optimization": false,
+    "emphasis_words": [],
+    "reasoning": "시간 기반 끊기(3~4초 단위)로 시청 리듬 유지. 강조 단어 없이 자연스럽게."
+  },
+  "style": {
+    "font_family": "Pretendard",
+    "font_size": 42,
+    "font_weight": 500,
+    "text_color": "#FFFFFF",
+    "outline_color": "#FFB6C1",
+    "outline_width": 2,
+    "shadow_enabled": true,
+    "shadow_color": "#FFC0CB",
+    "shadow_opacity": 0.3,
+    "position_vertical": "bottom",
+    "position_offset_percent": 18
+  },
+  "pacing": {
+    "target_tempo": 130,
+    "allow_jump_cuts": false,
+    "naturalness_score_min": 0.85,
+    "hook_first_3sec": false,
+    "reasoning": "130 WPM은 느긋한 대화 속도. 점프 컷 최소화로 자연스러운 흐름. 자연스러움 0.85 이상."
+  },
+  "effects": {
+    "auto_zoom_on_emphasis": false,
+    "transition_speed": "slow"
+  }
+}

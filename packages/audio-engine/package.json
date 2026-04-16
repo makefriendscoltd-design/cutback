@@ -1,0 +1,24 @@
+{
+  "name": "@cutback/audio-engine",
+  "version": "0.1.0",
+  "description": "Audio analysis engine with silence detection and VAD",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "clean": "rimraf dist",
+    "lint": "eslint src --ext .ts",
+    "type-check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@cutback/shared": "workspace:*",
+    "ffmpeg-static": "^5.2.0",
+    "fluent-ffmpeg": "^2.1.2"
+  },
+  "devDependencies": {
+    "@types/fluent-ffmpeg": "^2.1.24",
+    "rimraf": "^5.0.5",
+    "typescript": "^5.5.0"
+  }
+}

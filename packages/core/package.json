@@ -1,0 +1,28 @@
+{
+  "name": "@cutback/core",
+  "version": "0.1.0",
+  "description": "Core business logic and pipeline management",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "clean": "rimraf dist",
+    "lint": "eslint src --ext .ts",
+    "type-check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@cutback/shared": "workspace:*",
+    "@cutback/audio-engine": "workspace:*",
+    "@cutback/transcript-engine": "workspace:*",
+    "@cutback/preset-manager": "workspace:*",
+    "better-sqlite3": "^11.0.0",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.8",
+    "@types/uuid": "^9.0.7",
+    "rimraf": "^5.0.5",
+    "typescript": "^5.5.0"
+  }
+}

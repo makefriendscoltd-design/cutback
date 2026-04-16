@@ -1,0 +1,25 @@
+{
+  "name": "@cutback/transcript-engine",
+  "version": "0.1.0",
+  "description": "Transcript engine with STT, filler word detection, and segmentation",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "clean": "rimraf dist",
+    "lint": "eslint src --ext .ts",
+    "type-check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@cutback/shared": "workspace:*",
+    "string-similarity": "^4.0.4",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "@types/string-similarity": "^4.0.2",
+    "rimraf": "^5.0.5",
+    "@types/uuid": "^9.0.7",
+    "typescript": "^5.5.0"
+  }
+}

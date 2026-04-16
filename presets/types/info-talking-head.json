@@ -1,0 +1,55 @@
+{
+  "name": "정보형 토킹헤드",
+  "type": "info-talking-head",
+  "version": "1.0.0",
+  "description": "3~10분 설명/강의형 영상. 이해도 우선, 자연스러운 호흡 유지.",
+  "canvas": {
+    "aspect_ratio": "16:9",
+    "width": 1920,
+    "height": 1080
+  },
+  "audio": {
+    "silence_threshold_db": -38,
+    "min_silence_duration_ms": 800,
+    "pre_cut_padding_ms": 200,
+    "post_cut_padding_ms": 250,
+    "reasoning": "정보형은 호흡이 중요. 0.8초 이상만 무음 제거하여 생각 정리 시간 보존. padding 넉넉히."
+  },
+  "filler_words": {
+    "removal_strength": "balanced",
+    "context_aware": true,
+    "preserve_natural_pauses": true,
+    "custom_fillers": ["음", "어", "어어"],
+    "reasoning": "과한 편집은 기계적. '약간', '사실' 같은 연결어는 보존해 자연스러움 유지."
+  },
+  "captions": {
+    "segmentation_mode": "by_sentence",
+    "max_chars_per_line": 22,
+    "max_lines": 1,
+    "line_break_optimization": false,
+    "emphasis_words": ["중요", "핵심", "정리하면", "결론"],
+    "reasoning": "한 줄 자막 강제. 22자까지 허용. 문장부호/호흡(0.6초)/글자수 한도에서 끊는다."
+  },
+  "style": {
+    "font_family": "Noto Sans KR",
+    "font_size": 40,
+    "font_weight": 600,
+    "text_color": "#FFFFFF",
+    "outline_color": "#000000",
+    "outline_width": 2,
+    "shadow_enabled": false,
+    "position_vertical": "bottom",
+    "position_offset_percent": 15
+  },
+  "pacing": {
+    "target_tempo": 140,
+    "allow_jump_cuts": true,
+    "naturalness_score_min": 0.75,
+    "hook_first_3sec": false,
+    "reasoning": "140 WPM은 이해하기 편한 속도. 자연스러움 점수 0.75 이상 유지로 과편집 방지."
+  },
+  "effects": {
+    "auto_zoom_on_emphasis": false,
+    "transition_speed": "medium"
+  }
+}

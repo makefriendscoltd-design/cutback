@@ -1,0 +1,23 @@
+{
+  "name": "@cutback/capcut-controller",
+  "version": "0.1.0",
+  "description": "CapCut Desktop automation and EDL generation",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "clean": "rimraf dist",
+    "lint": "eslint src --ext .ts",
+    "type-check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@cutback/shared": "workspace:*",
+    "ffmpeg-static": "^5.2.0",
+    "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "rimraf": "^5.0.5",
+    "typescript": "^5.5.0"
+  }
+}

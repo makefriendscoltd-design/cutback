@@ -1,0 +1,7 @@
+# Whisper STT Service Requirements
+
+faster-whisper>=1.0.0
+pyzmq>=25.1.0
+torch>=2.0.0
+# 한국어 자막 맞춤법 교정 (Naver Speller HTTP 직접 호출용)
+requests>=2.31.0

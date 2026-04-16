@@ -1,0 +1,77 @@
+{
+  "$schema_version": "1.0.0",
+  "language": "ko",
+  "description": "한국어 filler/추임새 사전. detector가 정규화(문장부호 제거, 반복음절 축약) 후 매칭하므로 베이스 형태만 등록.",
+
+  "high_confidence": {
+    "_comment": "거의 항상 의미 없는 머뭇거림. base_score 0.95.",
+    "tokens": [
+      "어", "음", "아", "에", "엄", "엥", "응",
+      "어어", "음음", "에에", "으", "으음", "으응", "아아",
+      "뭐랄까", "뭐냐면", "뭐였더라", "뭐지"
+    ]
+  },
+
+  "medium_confidence": {
+    "_comment": "강조어/지시어. 문장 중간일 때만 보통 filler. base_score 0.6.",
+    "tokens": [
+      "약간", "뭔가", "좀", "되게", "진짜", "완전", "엄청", "막",
+      "뭐", "그", "이", "저", "인제", "그게", "저기", "저기요"
+    ]
+  },
+
+  "context_dependent": {
+    "_comment": "접속사/전환어. 문장 시작에 있으면 의미어, 중간 반복이면 filler. base_score 0.4.",
+    "tokens": [
+      "사실", "그니까", "근데", "이제", "그래서", "그럼",
+      "일단", "아무튼", "어쨌든", "그러니까", "하여튼", "뭐든"
+    ]
+  },
+
+  "phrases": {
+    "_comment": "두 단어 이상 연속 패턴. word.text 정규화 후 인접 결합으로 매칭.",
+    "tokens": [
+      "약간 그런",
+      "뭐 그런",
+      "그 뭐",
+      "어 그",
+      "음 그"
+    ]
+  },
+
+  "protected_words": {
+    "_comment": "filler 후보와 발음/표기가 겹치지만 절대 제거하면 안 되는 의미어. exact match로 우선 차단.",
+    "tokens": [
+      "음악", "어제", "사실상", "그분", "이분", "저분",
+      "그것", "이것", "저것", "그건", "이건", "저건",
+      "그래", "그러면", "그러므로", "어른", "어머",
+      "음식", "어디", "어떻게", "어쩌면", "어차피", "어쩐지",
+      "이때", "이런", "저런", "그런",
+      "이미", "이상", "이전", "이후",
+      "저번", "저희",
+      "막상", "막판", "막내",
+      "약속", "약효", "약사",
+      "좀처럼", "좀더",
+      "진짜로", "완전히", "엄청나",
+      "아주", "아빠", "아들", "아무",
+      "에러", "에너지",
+      "응답", "응원"
+    ]
+  },
+
+  "scoring": {
+    "_comment": "최종 confidence = base_score * context_multiplier. threshold 이상만 자동 제거.",
+    "context_multipliers": {
+      "preceding_silence_long":   { "min_sec": 0.5, "factor": 1.20, "_": "앞에 긴 무음 → 분명한 머뭇거림" },
+      "preceding_silence_short":  { "min_sec": 0.2, "factor": 1.05 },
+      "following_silence_long":   { "min_sec": 0.4, "factor": 1.15 },
+      "isolated_short_word":      { "max_dur_sec": 0.25, "factor": 1.10, "_": "단어 자체가 매우 짧으면 (filler 특성)" },
+      "very_short_word":          { "max_dur_sec": 0.15, "factor": 1.20 },
+      "at_sentence_start":        { "factor": 0.7, "_": "문장 시작은 의미어 가능성" },
+      "at_sentence_end":          { "factor": 0.85 },
+      "repeated_within_sec":      { "window_sec": 5.0, "factor": 1.15, "_": "최근 5초 내 같은 filler 반복" }
+    },
+    "default_threshold": 0.65,
+    "review_band":       [0.5, 0.65]
+  }
+}

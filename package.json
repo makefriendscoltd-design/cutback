@@ -1,0 +1,53 @@
+{
+  "name": "cutback-root",
+  "version": "0.1.0",
+  "private": true,
+  "description": "CapCut AI 편집 어시스턴트 - Cutback을 넘어서는 한국어 특화 자동 편집 툴",
+  "author": "CapCut AI Assistant Team",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0",
+    "pnpm": ">=8.0.0"
+  },
+  "scripts": {
+    "dev": "pnpm --filter @cutback/desktop dev",
+    "build": "pnpm -r build",
+    "lint": "pnpm -r lint",
+    "type-check": "pnpm -r type-check",
+    "clean": "pnpm -r clean && rimraf node_modules",
+    "setup": "pnpm install && pnpm run setup:python",
+    "setup:python": "node scripts/setup-python.js",
+    "test": "pnpm -r test",
+    "build:python-exe": "node scripts/build-python-exe.js",
+    "pack": "pnpm -r build && pnpm run build:python-exe && pnpm --filter @cutback/desktop pack",
+    "dist": "pnpm -r build && pnpm run build:python-exe && pnpm --filter @cutback/desktop dist",
+    "release": "pnpm -r build && pnpm run build:python-exe && pnpm --filter @cutback/desktop release"
+  },
+  "devDependencies": {
+    "@electron/rebuild": "^4.0.3",
+    "@types/node": "^22.0.0",
+    "esbuild": "^0.28.0",
+    "prettier": "^3.3.0",
+    "rimraf": "^5.0.5",
+    "typescript": "^5.5.0"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "better-sqlite3",
+      "electron",
+      "esbuild",
+      "ffmpeg-static"
+    ]
+  },
+  "keywords": [
+    "video-editing",
+    "ai",
+    "capcut",
+    "automation",
+    "korean",
+    "subtitles",
+    "speech-to-text",
+    "silence-removal",
+    "filler-words"
+  ]
+}

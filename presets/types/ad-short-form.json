@@ -1,0 +1,58 @@
+{
+  "name": "광고형 숏폼",
+  "type": "ad-short-form",
+  "version": "1.0.0",
+  "description": "15~60초 제품 광고 최적화. 빠른 템포, 후킹 강조, 간결한 자막.",
+  "canvas": {
+    "aspect_ratio": "9:16",
+    "width": 1080,
+    "height": 1920
+  },
+  "audio": {
+    "silence_threshold_db": -35,
+    "min_silence_duration_ms": 400,
+    "pre_cut_padding_ms": 100,
+    "post_cut_padding_ms": 150,
+    "reasoning": "광고는 템포가 빨라야 하므로 0.4초 이상 무음만 제거. padding은 최소화하되 너무 딱딱하지 않게 100~150ms 유지."
+  },
+  "filler_words": {
+    "removal_strength": "aggressive",
+    "context_aware": true,
+    "preserve_natural_pauses": false,
+    "custom_fillers": ["음", "어", "약간", "뭔가", "좀"],
+    "reasoning": "광고는 간결함이 생명. 말버릇 최대한 제거하되, 문맥상 '약간 달콤한' 같은 의미 있는 경우는 보존."
+  },
+  "captions": {
+    "segmentation_mode": "by_breath",
+    "max_chars_per_line": 15,
+    "max_lines": 1,
+    "line_break_optimization": false,
+    "emphasis_words": ["지금", "특가", "단독", "최초", "한정", "무료"],
+    "reasoning": "숏폼은 짧고 강렬한 자막. 한 줄 15자 이내로 가독성 확보. 강조 단어는 자동 스타일링."
+  },
+  "style": {
+    "font_family": "Pretendard",
+    "font_size": 48,
+    "font_weight": 800,
+    "text_color": "#FFFFFF",
+    "outline_color": "#000000",
+    "outline_width": 3,
+    "shadow_enabled": true,
+    "shadow_color": "#000000",
+    "shadow_opacity": 0.5,
+    "position_vertical": "bottom",
+    "position_offset_percent": 20
+  },
+  "pacing": {
+    "target_tempo": 170,
+    "allow_jump_cuts": true,
+    "naturalness_score_min": 0.6,
+    "hook_first_3sec": true,
+    "reasoning": "170 WPM은 빠른 광고 템포. 점프 컷 적극 활용. 첫 3초 후킹 구간은 자동 강조."
+  },
+  "effects": {
+    "auto_zoom_on_emphasis": true,
+    "zoom_intensity": 1.15,
+    "transition_speed": "fast"
+  }
+}

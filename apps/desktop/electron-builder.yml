@@ -1,0 +1,80 @@
+appId: com.cutback.desktop
+productName: Cutback
+copyright: Copyright © 2025 CapCut AI Assistant Team
+
+# 빌드 결과
+directories:
+  output: ../../release
+  buildResources: build
+
+# 패키징할 파일 (Electron 앱 본체)
+# @cutback/* workspace 패키지는 build-main.mjs 가 esbuild 로 인라인 번들링하므로
+# 런타임에 node_modules/@cutback/* 을 참조하지 않음 → 제외해서 asar 트러블 방지
+files:
+  - dist/**/*
+  - package.json
+  - "!**/node_modules/@cutback/**"
+  - "!**/node_modules/*/{CHANGELOG.md,README.md,README,readme.md,readme}"
+  - "!**/node_modules/*/{test,__tests__,tests,powered-test,example,examples}"
+  - "!**/node_modules/*.d.ts"
+  - "!**/node_modules/.bin"
+  - "!**/*.{iml,o,hprof,orig,pyc,pyo,rbc,swp,csproj,sln,xproj}"
+  - "!**/*.map"
+  - "!**/*.tsbuildinfo"
+
+# 외부 리소스 (renderer/main JS 외에 필요한 것들)
+extraResources:
+  # PyInstaller 로 만든 STT 단독 실행 폴더
+  - from: ../../python/stt_service/dist/cutback-stt
+    to: cutback-stt
+    filter: ["**/*"]
+  # 한국어 사전 / 프리셋
+  - from: ../../presets
+    to: presets
+    filter: ["**/*"]
+
+# 자동 업데이트: GitHub Releases
+publish:
+  provider: github
+  owner: makefriendscoltd-design
+  repo: cutback
+  releaseType: release
+
+# Windows NSIS installer
+# 아이콘은 build/icon.ico 가 있으면 자동 사용. 없으면 Electron 기본 아이콘.
+win:
+  target:
+    - target: nsis
+      arch: [x64]
+  artifactName: ${productName}-Setup-${version}.${ext}
+  # 코드 사인 없이도 설치 가능 (SmartScreen 경고는 첫 실행 시 사용자가 "추가 정보 → 실행" 클릭)
+  signAndEditExecutable: false
+
+nsis:
+  oneClick: false                    # 설치 위치 선택 화면 노출
+  perMachine: false                  # 사용자 단위 설치 (관리자 권한 불필요)
+  allowToChangeInstallationDirectory: true
+  createDesktopShortcut: true
+  createStartMenuShortcut: true
+  shortcutName: Cutback
+  uninstallDisplayName: ${productName}
+  deleteAppDataOnUninstall: false   # 사용자 작업물(jobs.db) 보존
+
+# macOS (선택, 추후 지원)
+mac:
+  target:
+    - target: dmg
+      arch: [x64, arm64]
+  category: public.app-category.video
+
+# Linux (선택)
+linux:
+  target:
+    - target: AppImage
+      arch: [x64]
+  category: AudioVideo
+
+# asar 패키징 (PyInstaller 출력은 extraResources 라 영향 없음)
+asar: true
+asarUnpack:
+  - "**/*.node"                      # native 모듈은 unpack
