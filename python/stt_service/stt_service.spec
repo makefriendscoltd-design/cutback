@@ -25,10 +25,18 @@ hidden_imports = [
     'tokenizers',
 ]
 
+# ctranslate2 는 cuDNN/cuBLAS DLL 을 런타임에 동적으로 로드하므로
+# PyInstaller 의 의존성 스캔이 따라가지 못한다. 명시적으로 수집한다.
+# 빠지면 GPU 가 있는 PC 에서도 CUDA 추론이 실패해 CPU 로 폴백된다.
+_ct2_dir = Path('venv') / 'Lib' / 'site-packages' / 'ctranslate2'
+ct2_binaries = [
+    (str(dll), 'ctranslate2') for dll in _ct2_dir.glob('*.dll')
+]
+
 a = Analysis(
     ['main.py'],
     pathex=[],
-    binaries=[],
+    binaries=ct2_binaries,
     datas=[
         # faster_whisper VAD 모델 파일 (silero_vad_v6.onnx) 포함
         (str(Path('venv') / 'Lib' / 'site-packages' / 'faster_whisper' / 'assets'), 'faster_whisper/assets'),
