@@ -1,5 +1,6 @@
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { useJobStore, CutDecisionInfo } from '../store/jobStore';
+import BeforeAfterPreview from '../components/BeforeAfterPreview';
 
 /** 시간 포맷 (초 → MM:SS) */
 function formatTime(seconds: number): string {
@@ -19,9 +20,24 @@ function getScoreLabel(score: number): { label: string; color: string } {
 type CutFilter = 'all' | 'silence' | 'filler_word' | 'retake';
 
 export default function ReviewPage() {
-  const { currentResults, currentJobId, toggleCutDecision, jobs } = useJobStore();
+  const {
+    currentResults,
+    currentJobId,
+    toggleCutDecision,
+    addManualCut,
+    undoCutChange,
+    redoCutChange,
+    cutHistory,
+    jobs,
+  } = useJobStore();
   const currentJob = jobs.find((j) => j.id === currentJobId);
   const [cutFilter, setCutFilter] = useState<CutFilter>('all');
+  /** Descript 스타일 word 선택 (단일 또는 shift-range) */
+  const [selectedWordIndices, setSelectedWordIndices] = useState<Set<number>>(new Set());
+  const [anchorIndex, setAnchorIndex] = useState<number | null>(null);
+
+  const canUndo = cutHistory.past.length > 0;
+  const canRedo = cutHistory.future.length > 0;
 
   // 작업이 아직 진행 중인 경우
   if (currentJob?.status === 'processing') {
@@ -59,6 +75,18 @@ export default function ReviewPage() {
     );
   }
 
+  // Mode B 결과는 ModeBResultPage 가 처리. 여기 도달했는데 Mode A 결과가 없으면 안내.
+  if (!currentResults.transcript || !currentResults.cutDecisions || !currentResults.statistics) {
+    return (
+      <>
+        <div className="page-header">
+          <h1>검수 / 편집</h1>
+          <p>이 작업은 Mode A 결과가 없습니다. (Mode B 작업이면 자동으로 Mode B 뷰어로 갑니다.)</p>
+        </div>
+      </>
+    );
+  }
+
   const { transcript, cutDecisions, statistics } = currentResults;
   const scoreInfo = getScoreLabel(statistics.naturalness_score);
 
@@ -85,8 +113,120 @@ export default function ReviewPage() {
     const cut = cutDecisions.find((c) => c.id === cutId);
     if (!cut) return;
     const newEnabled = !cut.enabled;
-    toggleCutDecision(cutId);
+    // store 갱신 → LiveAnalysisPage 도 자동으로 반영 (같은 객체 참조)
+    toggleCutDecision(cutId, newEnabled);
     await window.api.toggleCut(cutId, newEnabled);
+
+    // Calibration: 사용자가 자동 감지된 filler 를 복원했다면 (enabled=true → false) 그 단어를 학습
+    if (cut.type === 'filler_word' && cut.enabled && !newEnabled && currentJob?.presetId) {
+      const fillerText = cut.metadata?.filler_text;
+      if (typeof fillerText === 'string') {
+        // background — 실패해도 UX 영향 없음
+        void window.api.recordCalibration(currentJob.presetId, {
+          restoredFillerWords: [fillerText],
+        });
+      }
+    }
+  };
+
+  /**
+   * 선택된 단어들에 대해 manual cut 수행 (또는 이미 cut 인 경우 토글).
+   * Descript 스타일: 사용자가 단어를 선택하고 Delete 키를 누르면 그 구간이 비활성화되어 시각적으로 회색이 됨.
+   */
+  const handleDeleteSelectedWords = () => {
+    if (selectedWordIndices.size === 0) return;
+    const indices = Array.from(selectedWordIndices).sort((a, b) => a - b);
+    const firstWord = transcript.words[indices[0]];
+    const lastWord = transcript.words[indices[indices.length - 1]];
+    if (!firstWord || !lastWord) return;
+
+    // 선택 영역 안의 모든 단어가 같은 cut 에 속하면 그 cut 을 토글
+    const cutsAtSelection = indices
+      .map((i) => wordCutMap.get(i))
+      .filter((c): c is CutDecisionInfo => Boolean(c));
+    const allSameCut =
+      cutsAtSelection.length === indices.length &&
+      cutsAtSelection.every((c) => c.id === cutsAtSelection[0].id);
+
+    if (allSameCut && cutsAtSelection.length > 0) {
+      // 토글
+      void handleToggleCut(cutsAtSelection[0].id);
+    } else {
+      // 새 manual cut
+      const text = indices.map((i) => transcript.words[i].text).join(' ');
+      const durationMs = (lastWord.end - firstWord.start) * 1000;
+      addManualCut({
+        start: firstWord.start,
+        end: lastWord.end,
+        text,
+      });
+      // Calibration: 사용자가 직접 추가한 cut 의 길이 기록
+      if (currentJob?.presetId) {
+        void window.api.recordCalibration(currentJob.presetId, {
+          manualCutDurationsMs: [durationMs],
+        });
+      }
+    }
+    setSelectedWordIndices(new Set());
+    setAnchorIndex(null);
+  };
+
+  // 키보드 단축키: Delete / Backspace 로 선택 단어 cut, Cmd/Ctrl+Z 로 undo
+  useEffect(() => {
+    const handler = (e: KeyboardEvent) => {
+      // input 필드에 포커스 있으면 무시
+      const target = e.target as HTMLElement | null;
+      if (target && (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA')) {
+        return;
+      }
+      if ((e.key === 'Delete' || e.key === 'Backspace') && selectedWordIndices.size > 0) {
+        e.preventDefault();
+        handleDeleteSelectedWords();
+      } else if ((e.metaKey || e.ctrlKey) && e.key === 'z' && !e.shiftKey) {
+        e.preventDefault();
+        if (canUndo) undoCutChange();
+      } else if (
+        ((e.metaKey || e.ctrlKey) && e.key === 'z' && e.shiftKey) ||
+        ((e.metaKey || e.ctrlKey) && e.key === 'y')
+      ) {
+        e.preventDefault();
+        if (canRedo) redoCutChange();
+      } else if (e.key === 'Escape') {
+        setSelectedWordIndices(new Set());
+        setAnchorIndex(null);
+      }
+    };
+    window.addEventListener('keydown', handler);
+    return () => window.removeEventListener('keydown', handler);
+  });
+
+  const handleWordClick = (index: number, e: React.MouseEvent) => {
+    if (e.shiftKey && anchorIndex !== null) {
+      // range select
+      const [from, to] =
+        anchorIndex < index ? [anchorIndex, index] : [index, anchorIndex];
+      const next = new Set<number>();
+      for (let i = from; i <= to; i++) next.add(i);
+      setSelectedWordIndices(next);
+    } else if (e.metaKey || e.ctrlKey) {
+      // multi-select (toggle)
+      const next = new Set(selectedWordIndices);
+      if (next.has(index)) next.delete(index);
+      else next.add(index);
+      setSelectedWordIndices(next);
+      setAnchorIndex(index);
+    } else {
+      // single click: cut 위에 있으면 토글, 아니면 단어만 선택
+      const cut = wordCutMap.get(index);
+      if (cut) {
+        void handleToggleCut(cut.id);
+        setSelectedWordIndices(new Set());
+        setAnchorIndex(null);
+      } else {
+        setSelectedWordIndices(new Set([index]));
+        setAnchorIndex(index);
+      }
+    }
   };
 
   const handleExportEDL = async () => {
@@ -182,11 +322,73 @@ export default function ReviewPage() {
           </div>
         </div>
 
+        {/* Before / After Preview */}
+        {currentJob?.videoPath && (
+          <div style={{ marginTop: 24 }}>
+            <BeforeAfterPreview
+              videoPath={currentJob.videoPath}
+              cuts={cutDecisions.map((c) => ({
+                start: c.start,
+                end: c.end,
+                enabled: c.enabled,
+                type: c.type,
+              }))}
+              originalDuration={statistics.original_duration}
+              editedDuration={statistics.edited_duration}
+              kpi={{
+                silenceRemoved: statistics.silence_removed,
+                fillersRemoved: statistics.fillers_removed,
+                retakesRemoved: statistics.retakes_removed,
+              }}
+            />
+          </div>
+        )}
+
         {/* Transcript Viewer */}
         <div style={{ marginTop: 24 }}>
-          <h2 style={{ fontSize: 16, marginBottom: 12 }}>Transcript</h2>
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              marginBottom: 12,
+            }}
+          >
+            <h2 style={{ fontSize: 16, margin: 0 }}>Transcript</h2>
+            <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
+              {selectedWordIndices.size > 0 && (
+                <span style={{ fontSize: 12, color: 'var(--text-secondary)', marginRight: 8 }}>
+                  {selectedWordIndices.size}개 단어 선택됨
+                </span>
+              )}
+              <button
+                className="btn btn-secondary btn-sm"
+                onClick={handleDeleteSelectedWords}
+                disabled={selectedWordIndices.size === 0}
+                title="선택한 단어를 컷으로 추가 (Delete)"
+              >
+                선택 컷 (Delete)
+              </button>
+              <button
+                className="btn btn-secondary btn-sm"
+                onClick={undoCutChange}
+                disabled={!canUndo}
+                title="실행 취소 (Ctrl+Z)"
+              >
+                ↶ Undo {canUndo ? `(${cutHistory.past.length})` : ''}
+              </button>
+              <button
+                className="btn btn-secondary btn-sm"
+                onClick={redoCutChange}
+                disabled={!canRedo}
+                title="다시 실행 (Ctrl+Shift+Z)"
+              >
+                ↷ Redo
+              </button>
+            </div>
+          </div>
           <p style={{ fontSize: 12, color: 'var(--text-secondary)', marginBottom: 8 }}>
-            취소선 = 제거 예정. 클릭하면 되돌릴 수 있습니다.
+            클릭으로 선택, Shift+클릭으로 범위, Delete 로 컷 추가. 취소선이 그어진 단어는 제거 예정.
             <span style={{ marginLeft: 12, padding: '2px 6px', background: 'rgba(239,68,68,0.15)', borderRadius: 2, fontSize: 11 }}>무음</span>
             <span style={{ marginLeft: 4, padding: '2px 6px', background: 'rgba(245,158,11,0.15)', borderRadius: 2, fontSize: 11 }}>말버릇</span>
             <span style={{ marginLeft: 4, padding: '2px 6px', background: 'rgba(59,130,246,0.15)', borderRadius: 2, fontSize: 11 }}>리테이크</span>
@@ -200,6 +402,7 @@ export default function ReviewPage() {
             ) : (
               transcript.words.map((word, index) => {
                 const cut = wordCutMap.get(index);
+                const isSelected = selectedWordIndices.has(index);
                 let className = 'transcript-word';
 
                 if (cut) {
@@ -218,14 +421,21 @@ export default function ReviewPage() {
                   <span
                     key={index}
                     className={className}
+                    style={
+                      isSelected
+                        ? {
+                            background: 'rgba(91, 141, 239, 0.35)',
+                            outline: '1px solid var(--accent-primary)',
+                            borderRadius: 2,
+                          }
+                        : undefined
+                    }
                     title={
                       cut
-                        ? `${cut.type} | ${formatTime(cut.start)}~${formatTime(cut.end)} | ${cut.enabled ? '제거됨 (클릭으로 복원)' : '복원됨 (클릭으로 제거)'}`
-                        : `${formatTime(word.start)}`
+                        ? `${cut.reasonText ?? cut.type} | ${formatTime(cut.start)}~${formatTime(cut.end)} | ${cut.enabled ? '제거됨 (클릭으로 복원)' : '복원됨 (클릭으로 제거)'}`
+                        : `${formatTime(word.start)} (클릭 후 Delete 로 컷 추가)`
                     }
-                    onClick={() => {
-                      if (cut) handleToggleCut(cut.id);
-                    }}
+                    onClick={(e) => handleWordClick(index, e)}
                   >
                     {word.text}{' '}
                   </span>

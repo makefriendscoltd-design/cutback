@@ -109,6 +109,7 @@ export const IPC_CHANNELS = {
   // Job Management
   JOB_CREATE: 'job:create',
   JOB_CANCEL: 'job:cancel',
+  JOB_DELETE: 'job:delete',
   JOB_LIST: 'job:list',
   JOB_GET: 'job:get',
 
@@ -116,6 +117,30 @@ export const IPC_CHANNELS = {
   JOB_PROGRESS: 'job:progress',
   JOB_COMPLETED: 'job:completed',
   JOB_ERROR: 'job:error',
+  /**
+   * Live Analysis Timeline 용. 파이프라인 단계 완료 시점에 부분 결과를 보냄.
+   * payload: { jobId, stage, partial: PipelinePartial }
+   */
+  JOB_PARTIAL: 'job:partial',
+  /** 오디오 파형 peaks 데이터 요청 */
+  AUDIO_PEAKS: 'audio:peaks',
+  /**
+   * Threshold 슬라이더가 호출하는 lightweight cut 재계산.
+   * payload: RecomputeRequest. 결과: RecomputeResult.
+   */
+  CUT_RECOMPUTE: 'cut:recompute',
+
+  /**
+   * Browser-playable preview video 생성 (HEVC 등 미지원 코덱 영상용).
+   * payload: { sourcePath: string }. 결과: { success, previewPath?, fromCache?, error? }.
+   */
+  VIDEO_PREVIEW: 'video:preview',
+
+  // Calibration (preset learning)
+  CALIBRATION_GET: 'calibration:get',
+  CALIBRATION_RECORD: 'calibration:record',
+  CALIBRATION_LIST: 'calibration:list',
+  CALIBRATION_RESET: 'calibration:reset',
 
   // Preset Management
   PRESET_LOAD: 'preset:load',

@@ -48,3 +48,7 @@ tmp/
 
 # Electron
 *.asar
+
+# 롱폼 테스트 산출물
+longform-test-output/
+shorts-output.mp4

@@ -1,6 +1,6 @@
 {
   "name": "@cutback/desktop",
-  "version": "0.1.0",
+  "version": "0.1.5",
   "description": "CapCut AI 편집 어시스턴트 - Electron Desktop App",
   "main": "dist/main/index.js",
   "author": "CapCut AI Assistant Team",
@@ -25,15 +25,17 @@
     "electron-updater": "^6.3.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "zeromq": "^6.5.0",
     "zustand": "^4.5.0"
   },
   "devDependencies": {
-    "@cutback/core": "workspace:*",
     "@cutback/audio-engine": "workspace:*",
-    "@cutback/transcript-engine": "workspace:*",
     "@cutback/capcut-controller": "workspace:*",
+    "@cutback/core": "workspace:*",
     "@cutback/preset-manager": "workspace:*",
     "@cutback/shared": "workspace:*",
+    "@cutback/shorts-composer": "workspace:*",
+    "@cutback/transcript-engine": "workspace:*",
     "@types/better-sqlite3": "^7.6.8",
     "@types/react": "^18.3.0",
     "@types/react-dom": "^18.3.0",

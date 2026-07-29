@@ -30,7 +30,7 @@ const STATUS_LABELS: Record<string, { label: string; color: string }> = {
 };
 
 export default function JobsPage({ onSelectJob }: JobsPageProps) {
-  const { jobs, setJobs, setCurrentJob, setCurrentResults } = useJobStore();
+  const { jobs, setJobs, setCurrentJob, setCurrentResults, removeJob } = useJobStore();
 
   // 페이지 진입 시 작업 목록 새로고침
   useEffect(() => {
@@ -68,6 +68,31 @@ export default function JobsPage({ onSelectJob }: JobsPageProps) {
     onSelectJob();
   };
 
+  const handleDeleteJob = async (e: React.MouseEvent, jobId: string, fileName: string) => {
+    e.stopPropagation(); // job item 클릭 onSelect 막기
+    const ok = window.confirm(`"${fileName}" 작업을 삭제할까요?\n원본 영상 파일은 그대로 두고, DB의 분석 결과만 지웁니다.`);
+    if (!ok) return;
+    const result = await window.api.deleteJob(jobId);
+    if (result.success) {
+      removeJob(jobId);
+    } else {
+      alert(`삭제 실패: ${result.error}`);
+    }
+  };
+
+  const handleClearCompleted = async () => {
+    const completed = jobs.filter((j) => j.status === 'completed' || j.status === 'failed');
+    if (completed.length === 0) return;
+    const ok = window.confirm(
+      `완료/실패한 작업 ${completed.length}개를 모두 삭제할까요?`
+    );
+    if (!ok) return;
+    for (const j of completed) {
+      await window.api.deleteJob(j.id);
+      removeJob(j.id);
+    }
+  };
+
   return (
     <>
       <div className="page-header">
@@ -76,6 +101,17 @@ export default function JobsPage({ onSelectJob }: JobsPageProps) {
       </div>
 
       <div className="page-body">
+        {jobs.length > 0 && (
+          <div style={{ marginBottom: 12, display: 'flex', justifyContent: 'flex-end' }}>
+            <button
+              className="btn btn-secondary btn-sm"
+              onClick={handleClearCompleted}
+              title="완료/실패한 작업 모두 삭제 (원본 영상은 안 건드림)"
+            >
+              완료/실패 전체 삭제
+            </button>
+          </div>
+        )}
         {jobs.length === 0 ? (
           <div style={{ textAlign: 'center', padding: 60, color: 'var(--text-muted)' }}>
             <div style={{ fontSize: 48, marginBottom: 16, opacity: 0.3 }}>
@@ -120,6 +156,30 @@ export default function JobsPage({ onSelectJob }: JobsPageProps) {
                       </div>
                     )}
                   </div>
+                  <button
+                    onClick={(e) => handleDeleteJob(e, job.id, fileName)}
+                    title="이 작업 삭제 (원본 영상은 안 건드림)"
+                    style={{
+                      marginLeft: 12,
+                      background: 'transparent',
+                      border: 'none',
+                      color: 'var(--text-muted)',
+                      cursor: 'pointer',
+                      padding: '6px 8px',
+                      fontSize: 14,
+                      borderRadius: 'var(--radius-sm)',
+                    }}
+                    onMouseEnter={(e) => {
+                      (e.currentTarget as HTMLButtonElement).style.color = 'var(--danger)';
+                      (e.currentTarget as HTMLButtonElement).style.background = 'rgba(239,68,68,0.1)';
+                    }}
+                    onMouseLeave={(e) => {
+                      (e.currentTarget as HTMLButtonElement).style.color = 'var(--text-muted)';
+                      (e.currentTarget as HTMLButtonElement).style.background = 'transparent';
+                    }}
+                  >
+                    ✕
+                  </button>
                 </div>
               );
             })}

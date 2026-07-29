@@ -94,20 +94,53 @@ export class PresetLoader {
    * 베이스 프리셋과 오버라이드 프리셋 병합
    */
   private mergePresets(base: Preset, override: Preset): Preset {
-    return {
+    const merged: Preset = {
       ...base,
       ...override,
       canvas: { ...base.canvas, ...(override.canvas || {}) },
-      audio: { ...base.audio, ...(override.audio || {}) },
-      filler_words: {
-        ...base.filler_words,
-        ...(override.filler_words || {}),
-      },
-      captions: { ...base.captions, ...(override.captions || {}) },
-      style: { ...base.style, ...(override.style || {}) },
-      pacing: { ...base.pacing, ...(override.pacing || {}) },
-      effects: { ...base.effects, ...(override.effects || {}) },
     };
+
+    // Mode A 전용 필드들
+    if (base.audio || override.audio) {
+      merged.audio = { ...(base.audio || {}), ...(override.audio || {}) } as any;
+    }
+    if (base.filler_words || override.filler_words) {
+      merged.filler_words = {
+        ...(base.filler_words || {}),
+        ...(override.filler_words || {}),
+      } as any;
+    }
+    if (base.captions || override.captions) {
+      merged.captions = {
+        ...(base.captions || {}),
+        ...(override.captions || {}),
+      } as any;
+    }
+    if (base.style || override.style) {
+      merged.style = { ...(base.style || {}), ...(override.style || {}) } as any;
+    }
+    if (base.pacing || override.pacing) {
+      merged.pacing = {
+        ...(base.pacing || {}),
+        ...(override.pacing || {}),
+      } as any;
+    }
+    if (base.effects || override.effects) {
+      merged.effects = {
+        ...(base.effects || {}),
+        ...(override.effects || {}),
+      } as any;
+    }
+
+    // Mode B 전용 필드
+    if (base.modeBParams || override.modeBParams) {
+      merged.modeBParams = {
+        ...(base.modeBParams || {}),
+        ...(override.modeBParams || {}),
+      } as any;
+    }
+
+    return merged;
   }
 
   /**

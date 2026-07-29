@@ -6,10 +6,12 @@ import {
   Transcript,
   Caption,
   Preset,
+  EditMode,
   createLogger,
 } from '@cutback/shared';
 import { getDatabase } from './database';
 import { ProcessingPipeline, ProgressCallback } from './pipeline';
+import { ModeBPipeline, ModeBProgressCallback } from './mode-b-pipeline';
 import { presetLoader } from '@cutback/preset-manager';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -18,17 +20,21 @@ const logger = createLogger('job-manager');
 export interface CreateJobParams {
   videoPath: string;
   presetId: string;
+  editMode?: EditMode;
+  assetPaths?: string[]; // Mode B: B-roll 클립 경로
 }
 
 /**
  * 작업(Job) 생명주기 관리
  */
 export class JobManager {
-  private pipeline: ProcessingPipeline;
-  private progressListeners: Map<string, ProgressCallback> = new Map();
+  private modeAPipeline: ProcessingPipeline;
+  private modeBPipeline: ModeBPipeline;
+  private progressListeners: Map<string, ProgressCallback | ModeBProgressCallback> = new Map();
 
   constructor() {
-    this.pipeline = new ProcessingPipeline();
+    this.modeAPipeline = new ProcessingPipeline();
+    this.modeBPipeline = new ModeBPipeline();
   }
 
   /**
@@ -39,12 +45,16 @@ export class JobManager {
     const job: Job = {
       id: uuidv4(),
       videoPath: params.videoPath,
+      assetPaths: params.assetPaths,
       presetId: params.presetId,
+      editMode: params.editMode || 'mode-a',
       status: JobStatus.PENDING,
       progress: 0,
       createdAt: new Date(),
     };
 
+    // TODO: DB 스키마에 edit_mode, asset_paths 컬럼 추가 필요
+    // 현재는 기본 컬럼만 사용
     db.prepare(
       `INSERT INTO jobs (id, video_path, preset_id, status, progress, created_at)
        VALUES (?, ?, ?, ?, ?, ?)`
@@ -89,22 +99,43 @@ export class JobManager {
       throw new Error(`Preset not found: ${job.presetId}`);
     }
 
-    const progressCallback: ProgressCallback = (stage, progress, detail) => {
+    const progressCallback = (
+      stage: string,
+      progress: number,
+      detail?: string,
+      partial?: unknown
+    ) => {
       db.prepare(`UPDATE jobs SET progress = ? WHERE id = ?`).run(
         progress,
         jobId
       );
-      onProgress?.(stage, progress, detail);
-      this.progressListeners.get(jobId)?.(stage, progress, detail);
+      // ProgressCallback 시그니처 (4번째 인자 partial) 와 ModeBProgressCallback (3-arg) 모두 호환
+      (onProgress as (...args: unknown[]) => void)?.(stage, progress, detail, partial);
+      const listener = this.progressListeners.get(jobId);
+      if (listener) {
+        (listener as (...args: unknown[]) => void)(stage, progress, detail || '', partial);
+      }
     };
 
     try {
-      // 파이프라인 실행
-      const results = await this.pipeline.execute(
-        { ...job, status: JobStatus.PROCESSING },
-        preset,
-        progressCallback
-      );
+      let results: JobResults;
+
+      // 편집 모드에 따라 파이프라인 선택
+      if (job.editMode === 'mode-b' || preset.editMode === 'mode-b') {
+        logger.info('Executing Mode B pipeline', { jobId });
+        results = await this.modeBPipeline.execute(
+          { ...job, status: JobStatus.PROCESSING },
+          preset,
+          progressCallback as ModeBProgressCallback
+        );
+      } else {
+        logger.info('Executing Mode A pipeline', { jobId });
+        results = await this.modeAPipeline.execute(
+          { ...job, status: JobStatus.PROCESSING },
+          preset,
+          progressCallback
+        );
+      }
 
       // 결과 DB 저장
       this.saveResults(jobId, results);
@@ -194,17 +225,33 @@ export class JobManager {
       .prepare(`SELECT * FROM cut_decisions WHERE job_id = ? ORDER BY start_time`)
       .all(jobId) as Record<string, unknown>[];
 
-    const cutDecisions: CutDecision[] = cutRows.map((row) => ({
-      id: row.id as string,
-      type: row.type as CutDecision['type'],
-      start: row.start_time as number,
-      end: row.end_time as number,
-      duration: row.duration as number,
-      confidence: row.confidence as number,
-      metadata: row.metadata ? JSON.parse(row.metadata as string) : undefined,
-      enabled: Boolean(row.enabled),
-      user_approved: Boolean(row.user_approved),
-    }));
+    const cutDecisions: CutDecision[] = cutRows.map((row) => {
+      const type = row.type as CutDecision['type'];
+      // legacy DB row 에는 reason/source 가 없을 수 있어 type 기준으로 fallback
+      const fallbackReason: CutDecision['reason'] =
+        type === 'silence'
+          ? 'silence_over_threshold'
+          : type === 'filler_word'
+          ? 'filler_detected'
+          : type === 'retake'
+          ? 'duplicate_phrase'
+          : 'caption_segment';
+      return {
+        id: row.id as string,
+        type,
+        start: row.start_time as number,
+        end: row.end_time as number,
+        duration: row.duration as number,
+        confidence: row.confidence as number,
+        reason: ((row.reason as CutDecision['reason']) ?? fallbackReason),
+        reasonText: (row.reason_text as string | undefined) ?? undefined,
+        source: ((row.source as CutDecision['source']) ?? 'automatic'),
+        presetRule: (row.preset_rule as string | undefined) ?? undefined,
+        metadata: row.metadata ? JSON.parse(row.metadata as string) : undefined,
+        enabled: Boolean(row.enabled),
+        user_approved: Boolean(row.user_approved),
+      };
+    });
 
     // Captions
     const captionRows = db
@@ -277,7 +324,15 @@ export class JobManager {
    */
   deleteJob(jobId: string): void {
     const db = getDatabase();
-    db.prepare(`DELETE FROM jobs WHERE id = ?`).run(jobId);
+    // 관련 테이블 cascade — FK 제약이 없으므로 명시적으로 지움
+    const tx = db.transaction(() => {
+      db.prepare(`DELETE FROM cut_decisions WHERE job_id = ?`).run(jobId);
+      db.prepare(`DELETE FROM captions WHERE job_id = ?`).run(jobId);
+      db.prepare(`DELETE FROM transcripts WHERE job_id = ?`).run(jobId);
+      db.prepare(`DELETE FROM jobs WHERE id = ?`).run(jobId);
+    });
+    tx();
+    this.progressListeners.delete(jobId);
     logger.info('Job deleted', { jobId });
   }
 
@@ -305,55 +360,63 @@ export class JobManager {
     const db = getDatabase();
 
     const insertMany = db.transaction(() => {
-      // Transcript 저장
-      db.prepare(
-        `INSERT OR REPLACE INTO transcripts (job_id, full_text, language, duration, words_json)
-         VALUES (?, ?, ?, ?, ?)`
-      ).run(
-        jobId,
-        results.transcript.full_text,
-        results.transcript.language,
-        results.transcript.duration,
-        JSON.stringify(results.transcript.words)
-      );
-
-      // Cut Decisions 저장
-      const cutStmt = db.prepare(
-        `INSERT INTO cut_decisions (id, job_id, type, start_time, end_time, duration, confidence, metadata, enabled, user_approved)
-         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
-      );
-
-      for (const cut of results.cutDecisions) {
-        cutStmt.run(
-          cut.id,
+      // Transcript 저장 (Mode A)
+      if (results.transcript) {
+        db.prepare(
+          `INSERT OR REPLACE INTO transcripts (job_id, full_text, language, duration, words_json)
+           VALUES (?, ?, ?, ?, ?)`
+        ).run(
           jobId,
-          cut.type,
-          cut.start,
-          cut.end,
-          cut.duration,
-          cut.confidence,
-          cut.metadata ? JSON.stringify(cut.metadata) : null,
-          cut.enabled ? 1 : 0,
-          cut.user_approved ? 1 : 0
+          results.transcript.full_text,
+          results.transcript.language,
+          results.transcript.duration,
+          JSON.stringify(results.transcript.words)
         );
       }
 
-      // Captions 저장
-      const capStmt = db.prepare(
-        `INSERT INTO captions (id, job_id, text, start_time, end_time, style_json)
-         VALUES (?, ?, ?, ?, ?, ?)`
-      );
-
-      for (const cap of results.captions) {
-        capStmt.run(
-          cap.id,
-          jobId,
-          cap.text,
-          cap.start,
-          cap.end,
-          cap.style ? JSON.stringify(cap.style) : null
+      // Cut Decisions 저장 (Mode A)
+      if (results.cutDecisions) {
+        const cutStmt = db.prepare(
+          `INSERT INTO cut_decisions (id, job_id, type, start_time, end_time, duration, confidence, metadata, enabled, user_approved)
+           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
         );
+
+        for (const cut of results.cutDecisions) {
+          cutStmt.run(
+            cut.id,
+            jobId,
+            cut.type,
+            cut.start,
+            cut.end,
+            cut.duration,
+            cut.confidence,
+            cut.metadata ? JSON.stringify(cut.metadata) : null,
+            cut.enabled ? 1 : 0,
+            cut.user_approved ? 1 : 0
+          );
+        }
       }
+
+      // Captions 저장 (Mode A)
+      if (results.captions) {
+        const capStmt = db.prepare(
+          `INSERT INTO captions (id, job_id, text, start_time, end_time, style_json)
+           VALUES (?, ?, ?, ?, ?, ?)`
+        );
+
+        for (const cap of results.captions) {
+          capStmt.run(
+            cap.id,
+            jobId,
+            cap.text,
+            cap.start,
+            cap.end,
+            cap.style ? JSON.stringify(cap.style) : null
+          );
+        }
+      }
+
+      // TODO: Mode B 결과 저장 (sentenceTimeline, assetIndex, roughCutTimeline)
     });
 
     insertMany();

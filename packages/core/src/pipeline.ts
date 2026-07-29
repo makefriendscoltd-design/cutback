@@ -21,10 +21,26 @@ import { v4 as uuidv4 } from 'uuid';
 
 const logger = createLogger('pipeline');
 
+/**
+ * Pipeline 단계별 부분 결과.
+ * Live Analysis Timeline 이 분석 중에도 단계별로 결과를 화면에 그리도록
+ * 각 단계가 끝날 때마다 onProgress 의 4번째 인자로 partial 을 넘긴다.
+ */
+export interface PipelinePartial {
+  /** 추출된 오디오 경로 (waveform 추출용). */
+  audioPath?: string;
+  silenceCuts?: CutDecision[];
+  transcript?: Transcript;
+  fillerCuts?: CutDecision[];
+  retakeCuts?: CutDecision[];
+  captionSegments?: CutDecision[];
+}
+
 export type ProgressCallback = (
   stage: string,
   progress: number,
-  detail?: string
+  detail?: string,
+  partial?: PipelinePartial
 ) => void;
 
 /**
@@ -63,10 +79,17 @@ export class ProcessingPipeline {
     onProgress?.('audio_extract', 5, '오디오 추출 중...');
     const audioPath = await this.extractAudio(videoPath, job.id);
     logger.info('Audio extracted', { audioPath });
+    onProgress?.('audio_extract', 10, '오디오 추출 완료', { audioPath });
 
     // --- Stage 2: 무음 감지 ---
     onProgress?.('silence_detect', 20, '무음 구간 분석 중...');
+    if (!preset.audio) {
+      throw new Error('Mode A preset requires audio parameters');
+    }
     const silenceResults = await detectSilence(audioPath, preset.audio);
+    const silencePresetRule =
+      `audio.silence_threshold_db=${preset.audio.silence_threshold_db}, ` +
+      `min_silence_duration_ms=${preset.audio.min_silence_duration_ms}`;
     const silenceCuts: CutDecision[] = silenceResults.map((s) => ({
       id: uuidv4(),
       type: 'silence',
@@ -74,11 +97,18 @@ export class ProcessingPipeline {
       end: s.timestamp + s.duration,
       duration: s.duration,
       confidence: s.confidence,
+      reason: 'silence_over_threshold',
+      reasonText: `무음 ${s.duration.toFixed(2)}s (${s.db_level.toFixed(1)} dB)`,
+      source: 'automatic',
+      presetRule: silencePresetRule,
       metadata: { db_level: s.db_level },
       enabled: true,
       user_approved: false,
     }));
     logger.info('Silence detected', { count: silenceCuts.length });
+    onProgress?.('silence_detect', 35, `무음 ${silenceCuts.length}개 감지`, {
+      silenceCuts,
+    });
 
     // --- Stage 3: STT ---
     onProgress?.('stt', 40, 'AI 음성 인식 중...');
@@ -95,6 +125,9 @@ export class ProcessingPipeline {
       words: transcript.words.length,
       duration: transcript.duration,
     });
+    onProgress?.('stt', 48, `${transcript.words.length}개 단어 인식 완료`, {
+      transcript,
+    });
 
     // --- Stage 4: Filler word 감지 ---
     // detectFillers 는 confidence 점수를 매겨
@@ -102,7 +135,23 @@ export class ProcessingPipeline {
     //   - review_band: enabled=false + reviewRequired=true (UI 에서 사용자가 토글)
     //   - protected_words 와 너무 짧은 단어는 후보에서 제외
     onProgress?.('filler_detect', 50, '말버릇 분석 중...');
-    const fillerCuts = await detectFillers(transcript, preset.filler_words);
+    if (!preset.filler_words) {
+      throw new Error('Mode A preset requires filler_words parameters');
+    }
+    const fillerCutsRaw = await detectFillers(transcript, preset.filler_words);
+    const fillerPresetRule =
+      `filler_words.removal_strength=${preset.filler_words.removal_strength}` +
+      (preset.filler_words.confidence_threshold !== undefined
+        ? `, confidence_threshold=${preset.filler_words.confidence_threshold}`
+        : '');
+    const fillerCuts: CutDecision[] = fillerCutsRaw.map((c) => ({
+      ...c,
+      reason: c.reason ?? 'filler_detected',
+      reasonText:
+        c.reasonText ?? `말버릇 "${c.metadata?.filler_text ?? '?'}" 감지`,
+      source: c.source ?? 'automatic',
+      presetRule: c.presetRule ?? fillerPresetRule,
+    }));
     const autoFillers = fillerCuts.filter((c) => c.enabled).length;
     const reviewFillers = fillerCuts.filter((c) => c.reviewRequired).length;
     logger.info('Fillers detected', {
@@ -110,11 +159,27 @@ export class ProcessingPipeline {
       auto: autoFillers,
       review: reviewFillers,
     });
+    onProgress?.(
+      'filler_detect',
+      62,
+      `말버릇 ${fillerCuts.length}개 감지 (자동 ${autoFillers}, 검수 ${reviewFillers})`,
+      { fillerCuts }
+    );
 
     // --- Stage 5: Retake 감지 ---
     onProgress?.('retake_detect', 65, '재시도 구간 분석 중...');
-    const retakeCuts = await detectRetakes(transcript);
+    const retakeCutsRaw = await detectRetakes(transcript);
+    const retakeCuts: CutDecision[] = retakeCutsRaw.map((c) => ({
+      ...c,
+      reason: c.reason ?? 'duplicate_phrase',
+      reasonText: c.reasonText ?? '중복 발화 (재시도 후보)',
+      source: c.source ?? 'automatic',
+      presetRule: c.presetRule ?? 'retake.duplicate_detection',
+    }));
     logger.info('Retakes detected', { count: retakeCuts.length });
+    onProgress?.('retake_detect', 72, `재시도 ${retakeCuts.length}개 감지`, {
+      retakeCuts,
+    });
 
     // --- Stage 6: Cut decision 병합 ---
     onProgress?.('merge_cuts', 75, '편집 포인트 계산 중...');
@@ -125,6 +190,32 @@ export class ProcessingPipeline {
     onProgress?.('captions', 85, '자막 생성 중...');
     let captions = this.generateCaptions(transcript, preset, allCuts);
     logger.info('Captions generated', { count: captions.length });
+
+    // 자막 세그먼트 boundary 를 timeline overlay 에서 표시할 수 있도록
+    // CutDecision 형태로도 변환 (enabled=false: 실제 cut 이 아니라 표시용).
+    const captionSegments: CutDecision[] = captions.map((cap) => ({
+      id: `caption-${cap.id}`,
+      type: 'caption_segment',
+      start: cap.start,
+      end: cap.end,
+      duration: cap.end - cap.start,
+      confidence: 1.0,
+      reason: 'caption_segment',
+      reasonText: cap.text,
+      source: 'automatic',
+      presetRule: preset.captions
+        ? `captions.segmentation_mode=${preset.captions.segmentation_mode}, ` +
+          `max_chars_per_line=${preset.captions.max_chars_per_line}`
+        : undefined,
+      metadata: {
+        caption_text: cap.text,
+      },
+      enabled: false, // 자막은 cut 이 아님 (표시용)
+      user_approved: false,
+    }));
+    onProgress?.('captions', 88, `자막 ${captions.length}개 생성`, {
+      captionSegments,
+    });
 
     // --- Stage 7.5: 자막 한국어 맞춤법 교정 ---
     // STT 원본 오타를 자막 단계에서만 후처리로 보정한다.
@@ -311,6 +402,10 @@ export class ProcessingPipeline {
   ): Caption[] {
     const { words } = transcript;
     if (words.length === 0) return [];
+
+    if (!preset.captions) {
+      throw new Error('Mode A preset requires captions parameters');
+    }
 
     const rawCaptions: Caption[] = [];
     // 사용자 요구: 자막은 무조건 한 줄.

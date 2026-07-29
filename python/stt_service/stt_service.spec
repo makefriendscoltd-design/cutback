@@ -29,17 +29,21 @@ a = Analysis(
     ['main.py'],
     pathex=[],
     binaries=[],
-    datas=[],
+    datas=[
+        # faster_whisper VAD 모델 파일 (silero_vad_v6.onnx) 포함
+        (str(Path('venv') / 'Lib' / 'site-packages' / 'faster_whisper' / 'assets'), 'faster_whisper/assets'),
+    ],
     hiddenimports=hidden_imports,
     hookspath=[],
     hooksconfig={},
     runtime_hooks=[],
     excludes=[
-        # 용량 절감: torch dev/test 모듈, matplotlib 등 STT 에서 안 쓰는 거 제외
-        'torch.test',
-        'torch.testing',
-        'torch.utils.tensorboard',
-        'torch.distributions',
+        # torch 완전 제외:
+        #   faster-whisper 는 ctranslate2 를 쓰므로 torch 불필요.
+        #   torch/lib/libiomp5md.dll 과 ctranslate2/libiomp5md.dll 이 동시에
+        #   로드되면 Intel OpenMP 이중 초기화 → 0xc0000409 (fast-fail) 로 크래시.
+        'torch',
+        # 기타 불필요한 거
         'matplotlib',
         'tkinter',
         'IPython',

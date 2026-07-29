@@ -13,8 +13,25 @@
 
 import { execSync } from 'child_process';
 import fs from 'fs';
+import path from 'path';
 
 let cached: string | null | undefined = undefined;
+
+function tryElectronResources(): string | null {
+  try {
+    // Electron main process에서만 존재하는 process.resourcesPath
+    // packaged 앱: resources/ffmpeg/ffmpeg.exe (extraResources로 복사됨)
+    // dev 모드: Electron 자체 resources 폴더라 ffmpeg 없음 → null 반환하여 다음 단계로
+    const rp = (process as NodeJS.Process & { resourcesPath?: string }).resourcesPath;
+    if (!rp) return null;
+    const exe = process.platform === 'win32' ? 'ffmpeg.exe' : 'ffmpeg';
+    const p = path.join(rp, 'ffmpeg', exe);
+    if (fs.existsSync(p)) return p;
+    return null;
+  } catch {
+    return null;
+  }
+}
 
 function tryResolveStatic(): string | null {
   try {
@@ -69,14 +86,21 @@ export function resolveFfmpegPath(forceReload = false): string | null {
     return cached;
   }
 
-  // 2) ffmpeg-static
+  // 2) Electron extraResources (packaged 앱)
+  const electronPath = tryElectronResources();
+  if (electronPath) {
+    cached = electronPath;
+    return cached;
+  }
+
+  // 3) ffmpeg-static (dev 모드)
   const staticPath = tryResolveStatic();
   if (staticPath) {
     cached = staticPath;
     return cached;
   }
 
-  // 3) PATH 의 시스템 ffmpeg
+  // 4) PATH 의 시스템 ffmpeg
   const sys = trySystem();
   if (sys) {
     cached = sys;

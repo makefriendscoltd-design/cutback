@@ -23,6 +23,9 @@ importers:
       rimraf:
         specifier: ^5.0.5
         version: 5.0.10
+      tsx:
+        specifier: ^4.19.0
+        version: 4.23.1
       typescript:
         specifier: ^5.5.0
         version: 5.9.3
@@ -44,6 +47,9 @@ importers:
       react-dom:
         specifier: ^18.3.1
         version: 18.3.1(react@18.3.1)
+      zeromq:
+        specifier: ^6.5.0
+        version: 6.5.0
       zustand:
         specifier: ^4.5.0
         version: 4.5.7(@types/react@18.3.28)(react@18.3.1)
@@ -63,6 +69,9 @@ importers:
       '@cutback/shared':
         specifier: workspace:*
         version: link:../../packages/shared
+      '@cutback/shorts-composer':
+        specifier: workspace:*
+        version: link:../../packages/shorts-composer
       '@cutback/transcript-engine':
         specifier: workspace:*
         version: link:../../packages/transcript-engine
@@ -90,6 +99,19 @@ importers:
       vite:
         specifier: ^5.4.0
         version: 5.4.21(@types/node@22.19.17)
+
+  packages/asset-indexer:
+    dependencies:
+      '@cutback/shared':
+        specifier: workspace:*
+        version: link:../shared
+      uuid:
+        specifier: ^9.0.0
+        version: 9.0.1
+    devDependencies:
+      typescript:
+        specifier: ^5.6.3
+        version: 5.9.3
 
   packages/audio-engine:
     dependencies:
@@ -132,11 +154,27 @@ importers:
         specifier: ^5.5.0
         version: 5.9.3
 
+  packages/clip-matcher:
+    dependencies:
+      '@cutback/shared':
+        specifier: workspace:*
+        version: link:../shared
+    devDependencies:
+      typescript:
+        specifier: ^5.6.3
+        version: 5.9.3
+
   packages/core:
     dependencies:
+      '@cutback/asset-indexer':
+        specifier: workspace:*
+        version: link:../asset-indexer
       '@cutback/audio-engine':
         specifier: workspace:*
         version: link:../audio-engine
+      '@cutback/crosscut-planner':
+        specifier: workspace:*
+        version: link:../crosscut-planner
       '@cutback/preset-manager':
         specifier: workspace:*
         version: link:../preset-manager
@@ -146,12 +184,18 @@ importers:
       '@cutback/transcript-engine':
         specifier: workspace:*
         version: link:../transcript-engine
+      '@cutback/voiceover-engine':
+        specifier: workspace:*
+        version: link:../voiceover-engine
       better-sqlite3:
         specifier: ^11.0.0
         version: 11.10.0
       uuid:
         specifier: ^9.0.1
         version: 9.0.1
+      zeromq:
+        specifier: ^6.5.0
+        version: 6.5.0
     devDependencies:
       '@types/better-sqlite3':
         specifier: ^7.6.8
@@ -164,6 +208,25 @@ importers:
         version: 5.0.10
       typescript:
         specifier: ^5.5.0
+        version: 5.9.3
+
+  packages/crosscut-planner:
+    dependencies:
+      '@cutback/asset-indexer':
+        specifier: workspace:*
+        version: link:../asset-indexer
+      '@cutback/clip-matcher':
+        specifier: workspace:*
+        version: link:../clip-matcher
+      '@cutback/shared':
+        specifier: workspace:*
+        version: link:../shared
+      uuid:
+        specifier: ^9.0.0
+        version: 9.0.1
+    devDependencies:
+      typescript:
+        specifier: ^5.6.3
         version: 5.9.3
 
   packages/preset-manager:
@@ -186,6 +249,16 @@ importers:
         version: 5.0.10
       typescript:
         specifier: ^5.5.0
+        version: 5.9.3
+
+  packages/shorts-composer:
+    dependencies:
+      '@cutback/shared':
+        specifier: workspace:*
+        version: link:../shared
+    devDependencies:
+      typescript:
+        specifier: ^5.6.3
         version: 5.9.3
 
   packages/transcript-engine:
@@ -211,6 +284,19 @@ importers:
         version: 5.0.10
       typescript:
         specifier: ^5.5.0
+        version: 5.9.3
+
+  packages/voiceover-engine:
+    dependencies:
+      '@cutback/shared':
+        specifier: workspace:*
+        version: link:../shared
+      uuid:
+        specifier: ^9.0.0
+        version: 9.0.1
+    devDependencies:
+      typescript:
+        specifier: ^5.6.3
         version: 5.9.3
 
 packages:
@@ -1180,6 +1266,10 @@ packages:
     resolution: {integrity: sha512-JQHZ2QMW6l3aH/j6xCqQThY/9OH4D/9ls34cgkUBiEeocRTU04tHfKPBsUK1PqZCUQM7GiA0IIXJSuXHI64Kbg==}
     engines: {node: '>=0.8'}
 
+  cmake-ts@1.0.2:
+    resolution: {integrity: sha512-5l++JHE7MxFuyV/OwJf3ek7ZZN1aGPFPM5oUz6AnK5inQAPe4TFXRMz5sA2qg2FRgByPWdqO+gSfIPo8GzoKNQ==}
+    hasBin: true
+
   color-convert@2.0.1:
     resolution: {integrity: sha512-RRECPsj7iu/xb5oKYcsFHSppFNnsj/52OVTRKb4zP5onXwVF3zVmmToNcOfGC+CRDpfK/U584fMg38ZHCaElKQ==}
     engines: {node: '>=7.0.0'}
@@ -1939,6 +2029,10 @@ packages:
   node-addon-api@1.7.2:
     resolution: {integrity: sha512-ibPK3iA+vaY1eEjESkQkM0BbCqFOaZMiXRTtdB0u7b4djtY6JnsjvPdUHVMg6xQt3B8fpTTWHI9A+ADjM9frzg==}
 
+  node-addon-api@8.7.0:
+    resolution: {integrity: sha512-9MdFxmkKaOYVTV+XVRG8ArDwwQ77XIgIPyKASB1k3JPq3M8fGQQQE3YpMOrKm6g//Ktx8ivZr8xo1Qmtqub+GA==}
+    engines: {node: ^18 || ^20 || >= 21}
+
   node-api-version@0.2.1:
     resolution: {integrity: sha512-2xP/IGGMmmSQpI1+O/k72jF/ykvZ89JeuKX3TLJAYPDVLUalrshrLHkeVcCCZqG/eEa635cr8IBYzgnDvM2O8Q==}
 
@@ -2348,6 +2442,11 @@ packages:
   truncate-utf8-bytes@1.0.2:
     resolution: {integrity: sha512-95Pu1QXQvruGEhv62XCMO3Mm90GscOCClvrIUwCM0PYOXK3kaF3l3sIHxx71ThJfcbM2O5Au6SO3AWCSEfW4mQ==}
 
+  tsx@4.23.1:
+    resolution: {integrity: sha512-GQHnkIfxyx1wYCOS/wonik5MVRZU9hi1TEZmzGZSCJB1y9YgoZ8H6itNE/u4suE+yLmOzuE4E5S4TZ/ZX2wcWQ==}
+    engines: {node: '>=18.0.0'}
+    hasBin: true
+
   tunnel-agent@0.6.0:
     resolution: {integrity: sha512-McnNiV1l8RYeY8tBgEpuodCC1mLUdbSN+CYBL7kJsJNInOP8UjDDEwdk6Mw60vdLLrr5NHKZhMAOSrR2NZuQ+w==}
 
@@ -2512,6 +2611,10 @@ packages:
   yocto-queue@0.1.0:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
+
+  zeromq@6.5.0:
+    resolution: {integrity: sha512-vWOrt19lvcXTxu5tiHXfEGQuldSlU+qZn2TT+4EbRQzaciWGwNZ99QQTolQOmcwVgZLodv+1QfC6UZs2PX/6pQ==}
+    engines: {node: '>= 12'}
 
   zip-stream@4.1.1:
     resolution: {integrity: sha512-9qv4rlDiopXg4E69k+vMHjNN63YFMe9sZMrdlvKnCjlCRWeCBswPPMPUfx+ipsAWq1LXHe70RcbaHdJJpS6hyQ==}
@@ -3508,6 +3611,8 @@ snapshots:
 
   clone@1.0.4: {}
 
+  cmake-ts@1.0.2: {}
+
   color-convert@2.0.1:
     dependencies:
       color-name: 1.1.4
@@ -4387,6 +4492,8 @@ snapshots:
   node-addon-api@1.7.2:
     optional: true
 
+  node-addon-api@8.7.0: {}
+
   node-api-version@0.2.1:
     dependencies:
       semver: 7.7.4
@@ -4864,6 +4971,12 @@ snapshots:
     dependencies:
       utf8-byte-length: 1.0.5
 
+  tsx@4.23.1:
+    dependencies:
+      esbuild: 0.28.0
+    optionalDependencies:
+      fsevents: 2.3.3
+
   tunnel-agent@0.6.0:
     dependencies:
       safe-buffer: 5.2.1
@@ -4995,6 +5108,11 @@ snapshots:
       fd-slicer: 1.1.0
 
   yocto-queue@0.1.0: {}
+
+  zeromq@6.5.0:
+    dependencies:
+      cmake-ts: 1.0.2
+      node-addon-api: 8.7.0
 
   zip-stream@4.1.1:
     dependencies:

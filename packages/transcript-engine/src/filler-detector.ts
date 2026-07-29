@@ -381,7 +381,9 @@ export class FillerDetector {
           end: m.endWord.end,
           duration: m.endWord.end - m.word.start,
           confidence: m.confidence,
-          reason: reasonParts.join(' '),
+          reason: 'filler_detected' as const,
+          reasonText: reasonParts.join(' '),
+          source: 'automatic' as const,
           reviewRequired: m.reviewRequired,
           metadata: {
             filler_text: m.rawText,

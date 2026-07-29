@@ -1,0 +1,50 @@
+{
+  "name": "정보 전달형 (보이스오버+B-roll)",
+  "type": "custom",
+  "version": "1.0.0",
+  "description": "정보성 콘텐츠용 보이스오버 + B-roll 조합. 안정적인 속도, 자연스러운 전환.",
+  "editMode": "mode-b",
+  "canvas": {
+    "aspect_ratio": "16:9",
+    "width": 1920,
+    "height": 1080
+  },
+  "captions": {
+    "segmentation_mode": "by_sentence",
+    "max_chars_per_line": 24,
+    "max_lines": 2,
+    "line_break_optimization": true,
+    "reasoning": "정보 전달형은 가독성 우선. 24자/줄로 여유 있게, 문장 단위 세그먼트."
+  },
+  "style": {
+    "font_family": "Pretendard",
+    "font_size": 52,
+    "font_weight": 600,
+    "text_color": "#FFFFFF",
+    "outline_color": "#000000",
+    "outline_width": 2,
+    "shadow_enabled": true,
+    "shadow_color": "#000000",
+    "shadow_opacity": 0.3,
+    "position_vertical": "bottom",
+    "position_offset_percent": 15
+  },
+  "modeBParams": {
+    "matchConfig": {
+      "keywordMatching": {
+        "enabled": true,
+        "minScore": 0.4
+      },
+      "speedAdjustment": {
+        "min": 0.9,
+        "max": 1.2
+      },
+      "allowRepeat": true,
+      "allowFreeze": false
+    },
+    "autoApplyThreshold": 0.7,
+    "transitionStyle": "crossfade",
+    "transitionDuration": 300,
+    "reasoning": "정보 전달형은 안정적 템포 유지. 키워드 매칭 최소 0.4 (보수적), 속도 조정 범위 좁게 (0.9~1.2). 반복 허용으로 클립 부족 시 대응. crossfade로 부드러운 전환."
+  }
+}

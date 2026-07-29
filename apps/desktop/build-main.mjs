@@ -11,7 +11,7 @@
  *
  * external:
  *   - electron / electron-log / electron-updater: Node 로 로드되는 electron runtime
- *   - better-sqlite3: native .node 바이너리 (asarUnpack 으로 처리)
+ *   - better-sqlite3 / zeromq: native .node 바이너리 (asarUnpack 으로 처리)
  */
 import { build } from 'esbuild';
 
@@ -20,6 +20,8 @@ const EXTERNAL = [
   'electron-log',
   'electron-updater',
   'better-sqlite3',
+  'zeromq', // native N-API 바이너리 (prebuilds 포함)
+  'ffmpeg-static', // __dirname 기반 경로 반환 → 번들하면 경로 깨짐
   // Node built-ins 는 esbuild 가 자동으로 external 처리
 ];
 

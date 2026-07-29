@@ -32,6 +32,13 @@ extraResources:
   - from: ../../presets
     to: presets
     filter: ["**/*"]
+  # ffmpeg 실행 파일 (ffmpeg-static은 workspace dep이라 asar에 안 들어감 → 직접 복사)
+  - from: ../../node_modules/ffmpeg-static/ffmpeg.exe
+    to: ffmpeg/ffmpeg.exe
+  # Mode C 자막 폰트 (Pretendard/SUIT, SIL OFL — ensure-fonts.js 로 다운로드됨)
+  - from: ../../packages/shorts-composer/assets/fonts
+    to: fonts
+    filter: ["**/*"]
 
 # 자동 업데이트: GitHub Releases
 publish:
@@ -46,7 +53,9 @@ win:
   target:
     - target: nsis
       arch: [x64]
-  artifactName: ${productName}-Setup-${version}.${ext}
+    - target: zip
+      arch: [x64]
+  artifactName: ${productName}-${version}-${arch}.${ext}
   # 코드 사인 없이도 설치 가능 (SmartScreen 경고는 첫 실행 시 사용자가 "추가 정보 → 실행" 클릭)
   signAndEditExecutable: false
 

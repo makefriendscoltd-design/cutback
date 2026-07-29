@@ -12,12 +12,16 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
-    "@cutback/shared": "workspace:*",
+    "@cutback/asset-indexer": "workspace:*",
     "@cutback/audio-engine": "workspace:*",
-    "@cutback/transcript-engine": "workspace:*",
+    "@cutback/crosscut-planner": "workspace:*",
     "@cutback/preset-manager": "workspace:*",
+    "@cutback/shared": "workspace:*",
+    "@cutback/transcript-engine": "workspace:*",
+    "@cutback/voiceover-engine": "workspace:*",
     "better-sqlite3": "^11.0.0",
-    "uuid": "^9.0.1"
+    "uuid": "^9.0.1",
+    "zeromq": "^6.5.0"
   },
   "devDependencies": {
     "@types/better-sqlite3": "^7.6.8",

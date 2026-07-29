@@ -1,0 +1,20 @@
+{
+  "name": "@cutback/crosscut-planner",
+  "version": "0.1.0",
+  "private": true,
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch"
+  },
+  "dependencies": {
+    "@cutback/shared": "workspace:*",
+    "@cutback/asset-indexer": "workspace:*",
+    "@cutback/clip-matcher": "workspace:*",
+    "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.3"
+  }
+}

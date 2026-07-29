@@ -1,0 +1,49 @@
+{
+  "name": "UGC 리뷰 (보이스오버+B-roll)",
+  "type": "custom",
+  "version": "1.0.0",
+  "description": "사용자 리뷰 콘텐츠용. 자연스러운 말투 + 제품/경험 B-roll 조합.",
+  "editMode": "mode-b",
+  "canvas": {
+    "aspect_ratio": "9:16",
+    "width": 1080,
+    "height": 1920
+  },
+  "captions": {
+    "segmentation_mode": "by_breath",
+    "max_chars_per_line": 16,
+    "max_lines": 2,
+    "line_break_optimization": true,
+    "reasoning": "UGC는 자연스러운 호흡 단위 세그먼트. 16자/줄로 숏폼에 최적화."
+  },
+  "style": {
+    "font_family": "Pretendard",
+    "font_size": 46,
+    "font_weight": 700,
+    "text_color": "#FFFFFF",
+    "outline_color": "#000000",
+    "outline_width": 2,
+    "shadow_enabled": true,
+    "shadow_color": "#000000",
+    "shadow_opacity": 0.35,
+    "position_vertical": "center",
+    "position_offset_percent": 40
+  },
+  "modeBParams": {
+    "matchConfig": {
+      "keywordMatching": {
+        "enabled": true,
+        "minScore": 0.35
+      },
+      "speedAdjustment": {
+        "min": 0.85,
+        "max": 1.4
+      },
+      "allowRepeat": true,
+      "allowFreeze": true
+    },
+    "autoApplyThreshold": 0.65,
+    "transitionStyle": "cut",
+    "reasoning": "UGC 리뷰는 다양한 B-roll 활용. 키워드 매칭 최소 0.35 (관대), 속도 조정 범위 넓게 (0.85~1.4). 반복/freeze 모두 허용하여 유연한 편집."
+  }
+}

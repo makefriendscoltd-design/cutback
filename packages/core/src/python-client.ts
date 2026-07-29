@@ -1,4 +1,3 @@
-import { spawn } from 'child_process';
 import {
   createLogger,
   PYTHON_SERVICES,
@@ -6,14 +5,23 @@ import {
   STTRequest,
   STTResponse,
 } from '@cutback/shared';
+import * as zmq from 'zeromq';
 
 const logger = createLogger('python-client');
 
 /**
  * Python 서비스 클라이언트
  *
- * child_process로 Python 스크립트를 호출하여 ZeroMQ 서비스와 통신.
- * Node.js 측에 zeromq 네이티브 모듈이 필요 없으므로 빌드 문제 해소.
+ * cutback-stt.exe (또는 dev 모드 python main.py) 가 띄우는 ZeroMQ REP 서버와
+ * Node.js 측에서 직접 통신한다.
+ *
+ * 중요:
+ *   - 이전 구현은 매 요청마다 `spawn('python', ['-c', ...])` 를 호출했음.
+ *   - 그러면 사용자 PC 에 python 이 PATH 에 없으면 즉시 ENOENT 로 실패.
+ *   - 번들된 cutback-stt.exe 는 '서버'만 돌리므로 클라이언트 통신은 Node 에서.
+ *
+ * zeromq 6.x (N-API) 는 prebuilt 바이너리를 제공하며 electron-builder 의
+ * @electron/rebuild 가 Electron ABI 에 맞춰 자동 처리한다.
  */
 export class PythonClient {
   private sttPort: number;
@@ -127,65 +135,41 @@ export class PythonClient {
   }
 
   /**
-   * child_process로 Python 1-shot 스크립트 실행하여 ZeroMQ 서비스 호출
-   * stdin으로 JSON 전달하여 경로 특수문자 문제 방지
+   * Node.js zeromq 패키지로 직접 REQ/REP 통신
+   *
+   * 매 요청마다 새 소켓을 열고 닫는다. 지속 소켓을 유지할 수도 있지만
+   * zmq REQ 상태 머신이 엄격해서 timeout/error 후 복구가 까다롭다.
+   * short-lived 소켓이 더 안전.
    */
-  private doSend<T>(request: unknown): Promise<T> {
-    return new Promise((resolve, reject) => {
-      const pythonScript = [
-        'import zmq, json, sys',
-        'req = json.loads(sys.stdin.read())',
-        'ctx = zmq.Context()',
-        'sock = ctx.socket(zmq.REQ)',
-        `sock.setsockopt(zmq.RCVTIMEO, ${this.timeout})`,
-        `sock.connect("tcp://127.0.0.1:${this.sttPort}")`,
-        'sock.send_string(json.dumps(req))',
-        'result = sock.recv_string()',
-        'print(result)',
-        'sock.close()',
-        'ctx.term()',
-      ].join('; ');
+  private async doSend<T>(request: unknown): Promise<T> {
+    // zeromq 를 top-level import 로 로드 (동적 require 는 Electron 에서 resolve 실패)
+    const sock = new zmq.Request();
+    sock.receiveTimeout = this.timeout;
+    sock.sendTimeout = this.timeout;
+    // 연결 실패 시 오래 대기하지 않도록
+    sock.linger = 0;
 
-      const proc = spawn('python', ['-X', 'utf8', '-c', pythonScript], {
-        timeout: this.timeout + 5000,
-        env: { ...process.env, PYTHONUTF8: '1' },
-      });
+    const endpoint = `tcp://127.0.0.1:${this.sttPort}`;
 
-      // stdin으로 JSON 전달 (특수문자 안전)
-      proc.stdin.write(JSON.stringify(request));
-      proc.stdin.end();
+    try {
+      sock.connect(endpoint);
+      await sock.send(JSON.stringify(request));
 
-      let stdout = '';
-      let stderr = '';
+      const [replyBuf] = await sock.receive();
+      const replyStr = replyBuf.toString();
 
-      proc.stdout.on('data', (data: Buffer) => {
-        stdout += data.toString();
-      });
-
-      proc.stderr.on('data', (data: Buffer) => {
-        stderr += data.toString();
-      });
-
-      proc.on('close', (code: number | null) => {
-        if (code === 0 && stdout.trim()) {
-          try {
-            resolve(JSON.parse(stdout.trim()) as T);
-          } catch {
-            reject(new Error(`Failed to parse Python output: ${stdout}`));
-          }
-        } else {
-          reject(
-            new Error(
-              `Python process exited with code ${code}: ${stderr}`
-            )
-          );
-        }
-      });
-
-      proc.on('error', (err: Error) => {
-        reject(new Error(`Failed to spawn Python: ${err.message}`));
-      });
-    });
+      try {
+        return JSON.parse(replyStr) as T;
+      } catch {
+        throw new Error(`Failed to parse STT service reply: ${replyStr}`);
+      }
+    } finally {
+      try {
+        sock.close();
+      } catch {
+        // ignore
+      }
+    }
   }
 
   private sleep(ms: number): Promise<void> {

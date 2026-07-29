@@ -9,7 +9,7 @@
 
 ## 🎯 핵심 기능
 
-### ✅ MVP (Phase 1)
+### ✅ Mode A: 단일 영상 편집 (MVP Phase 1)
 - ✨ **자동 무음 제거**: ffmpeg + Silero VAD 기반 정밀 감지
 - 🗣️ **한국어 말버릇 제거**: "어", "음", "약간", "사실" 등 한국어 전용 사전
 - 📝 **자동 자막 생성**: Whisper STT + 한국어 호흡 단위 최적화
@@ -17,11 +17,22 @@
 - 📊 **Transcript 검수 UI**: 텍스트 기반 편집, 컷 되돌리기
 - 📤 **EDL/SRT 내보내기**: CapCut import 가능
 
+### 🎥 Mode B: 보이스오버 + B-roll 자동 조합 (v0.2.0+)
+- 🎙️ **보이스오버 처리**: STT 또는 스크립트 텍스트를 문장 단위 타임라인으로 변환
+- 📹 **B-roll 자동 인덱싱**: 여러 클립의 메타데이터 추출 및 키워드 태깅
+- 🤖 **자동 매칭**: 문장과 B-roll 클립을 키워드 기반으로 자동 매칭
+- ⏱️ **스마트 조정**: 트리밍, 속도 조정, 반복, 프리즈 프레임 전략 자동 선택
+- 🔄 **검수 & 교체**: 낮은 confidence 클립 검수 및 대체 후보로 교체
+- 📤 **EDL 내보내기**: 러프컷 타임라인을 EDL 형식으로 내보내기
+
 ### 🚧 Phase 2 (예정)
-- 🔄 Retake 자동 감지 및 최선 선택
-- 🎬 강조 단어 자동 줌인/아웃
-- 🤖 자연스러움 점수 시스템
-- 🖱️ CapCut UI 완전 자동화
+- 🔄 Retake 자동 감지 및 최선 선택 (Mode A)
+- 🎬 강조 단어 자동 줌인/아웃 (Mode A)
+- 🤖 자연스러움 점수 시스템 (Mode A)
+- 🖱️ CapCut UI 완전 자동화 (Both)
+- 🎞️ 샷 경계 감지 (Mode B)
+- 📝 OCR 텍스트 추출 (Mode B)
+- 🧠 CLIP 임베딩 기반 시맨틱 매칭 (Mode B)
 
 ---
 
@@ -115,15 +126,26 @@ cutback/
 │   ├── transcript-engine/    # STT, filler 감지
 │   ├── capcut-controller/    # CapCut 자동화 (Phase 2)
 │   ├── preset-manager/       # 프리셋 시스템
+│   ├── voiceover-engine/     # Mode B: 보이스오버/스크립트 처리
+│   ├── asset-indexer/        # Mode B: B-roll 에셋 인덱싱
+│   ├── clip-matcher/         # Mode B: 문장-클립 매칭
+│   ├── crosscut-planner/     # Mode B: 러프컷 타임라인 생성
 │   └── shared/               # 공통 타입, 유틸
 ├── python/
 │   ├── stt_service/          # Whisper STT 서비스
 │   └── vad_service/          # VAD 서비스 (Phase 2)
 ├── presets/
-│   ├── types/                # 기본 프리셋 (광고형, 정보형, 브이로그형)
+│   ├── types/                # 기본 프리셋
+│   │   ├── ad-short-form.json        # Mode A: 광고형
+│   │   ├── info-talking-head.json    # Mode A: 정보형
+│   │   ├── vlog-style.json           # Mode A: 브이로그형
+│   │   ├── ad-product-broll.json     # Mode B: 제품 광고
+│   │   ├── info-broll.json           # Mode B: 정보 전달형
+│   │   └── ugc-review.json           # Mode B: UGC 리뷰
 │   ├── brands/               # 브랜드별 프리셋
 │   └── custom/               # 사용자 커스텀 프리셋
-├── PRD.md                    # 제품 요구사항 문서
+├── PRD.md                    # Mode A 제품 요구사항 문서
+├── MODE_B_PRD.md             # Mode B 제품 요구사항 문서
 ├── PRESET_DESIGN.md          # 프리셋 설계 문서
 ├── ARCHITECTURE.md           # 시스템 아키텍처
 └── README.md                 # (이 파일)
@@ -133,7 +155,7 @@ cutback/
 
 ## 🎨 프리셋 시스템
 
-### 기본 프리셋 3종
+### Mode A 프리셋 (단일 영상 편집)
 
 #### 1. 광고형 숏폼 (`ad-short-form`)
 - **타겟**: 15~60초 제품 광고
@@ -142,6 +164,7 @@ cutback/
 
 ```json
 {
+  "editMode": "mode-a",
   "audio": { "silence_threshold_db": -35, "min_silence_duration_ms": 400 },
   "filler_words": { "removal_strength": "aggressive" },
   "pacing": { "target_tempo": 170, "allow_jump_cuts": true }
@@ -157,6 +180,38 @@ cutback/
 - **타겟**: 1~5분 일상 브이로그
 - **특징**: 자연스러움 (130 WPM), conservative filler 제거, 시간 기반 자막 (18자)
 - **사용 예**: 일상 브이로그, 여행 영상
+
+### Mode B 프리셋 (보이스오버 + B-roll)
+
+#### 1. 제품 광고 (`ad-product-broll`)
+- **타겟**: 보이스오버 내레이션 + 제품 B-roll 조합
+- **특징**: 빠른 컷 전환, 키워드 매칭 최소 0.3, 속도 조정 0.8~1.3배
+- **사용 예**: 제품 광고, 쇼핑몰 영상
+
+```json
+{
+  "editMode": "mode-b",
+  "modeBParams": {
+    "matchConfig": {
+      "keywordMatching": { "enabled": true, "minScore": 0.3 },
+      "speedAdjustment": { "min": 0.8, "max": 1.3 },
+      "allowRepeat": false,
+      "allowFreeze": true
+    },
+    "transitionStyle": "cut"
+  }
+}
+```
+
+#### 2. 정보 전달형 (`info-broll`)
+- **타겟**: 설명 콘텐츠 + B-roll 조합
+- **특징**: 안정적 템포, 키워드 매칭 최소 0.4 (보수적), crossfade 전환
+- **사용 예**: 교육 콘텐츠, 튜토리얼
+
+#### 3. UGC 리뷰 (`ugc-review`)
+- **타겟**: 사용자 리뷰 + 제품/경험 B-roll
+- **특징**: 유연한 편집, 넓은 속도 조정 범위 (0.85~1.4배), 반복/freeze 허용
+- **사용 예**: 제품 리뷰, 경험 후기
 
 ### 프리셋 커스터마이징
 
@@ -196,13 +251,14 @@ await presetLoader.save('my-brand', myPreset);
    - **Option 1**: EDL/XML 파일 생성 → CapCut에서 수동 import
    - **Option 2** (Phase 2): CapCut 자동 적용
 
-### 예시: 광고형 숏폼 편집
+### 예시: Mode A - 광고형 숏폼 편집
 
 ```typescript
 // 1. 작업 생성
 const job = await jobManager.createJob({
   videoPath: 'D:/videos/product-ad.mp4',
   presetId: 'ad-short-form',
+  editMode: 'mode-a',
 });
 
 // 2. 자동 처리 (내부적으로 파이프라인 실행)
@@ -216,6 +272,59 @@ console.log(`자연스러움 점수: ${result.statistics.naturalness_score}`);
 
 // 4. EDL 내보내기
 await exportEDL(result.cutDecisions, 'output.edl');
+```
+
+### 예시: Mode B - 보이스오버 + B-roll 자동 조합
+
+```typescript
+import { VoiceoverEngine } from '@cutback/voiceover-engine';
+import { AssetIndexer } from '@cutback/asset-indexer';
+import { ClipMatcher } from '@cutback/clip-matcher';
+import { CrosscutPlanner } from '@cutback/crosscut-planner';
+
+// 1. 보이스오버 STT 처리
+const voEngine = new VoiceoverEngine();
+const transcript = await sttService.transcribe('voiceover.mp3');
+const sentenceTimeline = voEngine.fromTranscript(transcript);
+
+// 또는 스크립트 텍스트로 시작
+// const sentenceTimeline = voEngine.fromScript(scriptText, 'ko');
+
+// 2. B-roll 클립 인덱싱
+const indexer = new AssetIndexer();
+const assetIndex = await indexer.indexAssets([
+  'clips/product-shot1.mp4',
+  'clips/product-shot2.mp4',
+  'clips/hands-demo.mp4',
+], {
+  keywordMap: new Map([
+    ['product-shot1.mp4', ['제품', '패키징']],
+    ['product-shot2.mp4', ['제품', '디자인']],
+    ['hands-demo.mp4', ['사용', '데모']],
+  ]),
+});
+
+// 3. 러프컷 자동 생성
+const planner = new CrosscutPlanner();
+const roughCut = await planner.generateRoughCut(
+  sentenceTimeline,
+  assetIndex,
+  {
+    keywordMatching: { enabled: true, minScore: 0.3 },
+    speedAdjustment: { min: 0.8, max: 1.3 },
+    allowRepeat: false,
+    allowFreeze: true,
+  }
+);
+
+// 4. 결과 확인
+console.log(`문장 수: ${roughCut.metadata.sentenceCount}`);
+console.log(`평균 confidence: ${roughCut.metadata.averageConfidence}`);
+console.log(`검수 필요 클립: ${roughCut.metadata.reviewRequiredCount}`);
+
+// 5. EDL 내보내기
+const edl = planner.exportToEDL(roughCut, assetIndex);
+await fs.writeFile('roughcut.edl', edl);
 ```
 
 ---

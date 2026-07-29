@@ -10,6 +10,7 @@
     "pnpm": ">=8.0.0"
   },
   "scripts": {
+    "postinstall": "node scripts/ensure-ffmpeg.js",
     "dev": "pnpm --filter @cutback/desktop dev",
     "build": "pnpm -r build",
     "lint": "pnpm -r lint",
@@ -21,7 +22,8 @@
     "build:python-exe": "node scripts/build-python-exe.js",
     "pack": "pnpm -r build && pnpm run build:python-exe && pnpm --filter @cutback/desktop pack",
     "dist": "pnpm -r build && pnpm run build:python-exe && pnpm --filter @cutback/desktop dist",
-    "release": "pnpm -r build && pnpm run build:python-exe && pnpm --filter @cutback/desktop release"
+    "release": "pnpm -r build && pnpm run build:python-exe && pnpm --filter @cutback/desktop release",
+    "test:longform": "tsx scripts/test-longform.ts"
   },
   "devDependencies": {
     "@electron/rebuild": "^4.0.3",
@@ -29,6 +31,7 @@
     "esbuild": "^0.28.0",
     "prettier": "^3.3.0",
     "rimraf": "^5.0.5",
+    "tsx": "^4.19.0",
     "typescript": "^5.5.0"
   },
   "pnpm": {

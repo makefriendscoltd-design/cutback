@@ -134,6 +134,9 @@ export class RetakeDetector {
         end: lastWord.end,
         duration: lastWord.end - firstWord.start,
         confidence: match.similarity,
+        reason: 'duplicate_phrase' as const,
+        reasonText: `중복 발화 (similarity ${match.similarity.toFixed(2)})`,
+        source: 'automatic' as const,
         metadata: {
           retake_group_id: match.groupId,
         },

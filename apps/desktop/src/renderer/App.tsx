@@ -4,8 +4,10 @@ import UploadPage from './pages/UploadPage';
 import ReviewPage from './pages/ReviewPage';
 import JobsPage from './pages/JobsPage';
 import PresetsPage from './pages/PresetsPage';
+import LiveAnalysisPage from './pages/LiveAnalysisPage';
+import ModeBResultPage from './pages/ModeBResultPage';
 
-type Page = 'upload' | 'review' | 'jobs' | 'presets';
+type Page = 'upload' | 'live' | 'review' | 'jobs' | 'presets';
 
 export default function App() {
   const [page, setPage] = useState<Page>('upload');
@@ -28,7 +30,8 @@ export default function App() {
           setCurrentResults(results as Parameters<typeof setCurrentResults>[0]);
         }
       }
-      setPage('review');
+      // 분석 완료 후에도 live 페이지에 머물러 사용자가 결과를 검토할 수 있게 하고,
+      // 사이드바의 "검수 / 편집" 버튼으로 ReviewPage 로 넘어가도록 한다.
     });
 
     const offError = window.api.onJobError((data) => {
@@ -43,6 +46,10 @@ export default function App() {
   }, [updateJobProgress, updateJobStatus, setCurrentResults]);
 
   const currentJob = jobs.find((j) => j.id === currentJobId);
+  // Mode 선택: Job 의 editMode 가 'mode-b' 면 검수 페이지를 Mode B 뷰어로 분기.
+  // (results 에 roughCutTimeline 이 있으면 Mode B 결과)
+  const isModeB =
+    (currentJob as { editMode?: string } | undefined)?.editMode === 'mode-b';
 
   return (
     <div className="app-layout">
@@ -59,6 +66,13 @@ export default function App() {
             onClick={() => setPage('upload')}
           >
             + 새 작업
+          </button>
+          <button
+            className={`nav-item ${page === 'live' ? 'active' : ''}`}
+            onClick={() => setPage('live')}
+            disabled={!currentJobId}
+          >
+            라이브 분석
           </button>
           <button
             className={`nav-item ${page === 'review' ? 'active' : ''}`}
@@ -102,8 +116,16 @@ export default function App() {
 
       {/* Main Content */}
       <main className="main-content">
-        {page === 'upload' && <UploadPage onJobStarted={() => { /* stay on upload, progress shows inline */ }} />}
-        {page === 'review' && <ReviewPage />}
+        {page === 'upload' && (
+          <UploadPage
+            onJobStarted={() => {
+              // 분석 시작 즉시 라이브 타임라인으로 전환
+              setPage('live');
+            }}
+          />
+        )}
+        {page === 'live' && <LiveAnalysisPage onAnalysisComplete={() => setPage('review')} />}
+        {page === 'review' && (isModeB ? <ModeBResultPage /> : <ReviewPage />)}
         {page === 'jobs' && <JobsPage onSelectJob={() => setPage('review')} />}
         {page === 'presets' && <PresetsPage />}
       </main>

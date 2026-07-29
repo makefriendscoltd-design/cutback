@@ -103,6 +103,8 @@ class STTService:
                 "success": True,
                 "status": "healthy",
                 "spell_check_available": self.spell_checker.available,
+                "device": getattr(self.transcriber, "device", "unknown"),
+                "model": getattr(self.transcriber, "model_size", "unknown"),
             }
         else:
             return {"success": False, "error": f"Unknown action: {action}"}
