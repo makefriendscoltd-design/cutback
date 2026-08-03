@@ -6,6 +6,7 @@ import {
   STTResponse,
 } from '@cutback/shared';
 import * as zmq from 'zeromq';
+import { stat } from 'fs/promises';
 
 const logger = createLogger('python-client');
 
@@ -50,7 +51,12 @@ export class PythonClient {
       },
     };
 
-    const response = await this.sendRequest<STTResponse>(request);
+    // 고정 10분 타임아웃은 롱폼에서 못 버틴다.
+    // CPU + small 실측이 약 3.6x 실시간이므로 30분 영상이면 8분 남짓 걸리고,
+    // 느린 PC 나 더 긴 영상은 그대로 타임아웃에 걸려 자막이 통째로 날아갔다.
+    // 오디오 길이에 비례해 넉넉히 잡는다. (16kHz mono 16-bit PCM = 32000 B/s)
+    const timeout = await this.estimateTranscribeTimeout(audioPath);
+    const response = await this.sendRequest<STTResponse>(request, timeout);
 
     if (!response.success || !response.transcript) {
       throw new Error(`STT failed: ${response.error || 'Unknown error'}`);
@@ -105,14 +111,39 @@ export class PythonClient {
   }
 
   /**
+   * 오디오 길이에 비례한 STT 타임아웃 (ms).
+   *
+   * 실시간의 1/8 속도(=CPU small 실측 3.6x 의 두 배 이상 여유)까지 버티고,
+   * 최소 10분은 보장한다. 파일을 못 읽으면 기본값으로 폴백.
+   */
+  private async estimateTranscribeTimeout(audioPath: string): Promise<number> {
+    try {
+      const { size } = await stat(audioPath);
+      const seconds = size / 32000; // 16kHz mono 16-bit PCM
+      const budgetMs = seconds * 8 * 1000;
+      const timeout = Math.max(this.timeout, Math.ceil(budgetMs));
+      logger.info('STT timeout budget', {
+        audioSeconds: Math.round(seconds),
+        timeoutMinutes: Math.round(timeout / 60000),
+      });
+      return timeout;
+    } catch {
+      return this.timeout;
+    }
+  }
+
+  /**
    * 재시도 래퍼
    */
-  private async sendRequest<T>(request: unknown): Promise<T> {
+  private async sendRequest<T>(
+    request: unknown,
+    timeoutMs?: number
+  ): Promise<T> {
     let lastError: Error | null = null;
 
     for (let attempt = 1; attempt <= this.retryAttempts; attempt++) {
       try {
-        return await this.doSend<T>(request);
+        return await this.doSend<T>(request, timeoutMs);
       } catch (err) {
         lastError = err instanceof Error ? err : new Error(String(err));
         logger.warn('Request failed, retrying...', {
@@ -141,11 +172,12 @@ export class PythonClient {
    * zmq REQ 상태 머신이 엄격해서 timeout/error 후 복구가 까다롭다.
    * short-lived 소켓이 더 안전.
    */
-  private async doSend<T>(request: unknown): Promise<T> {
+  private async doSend<T>(request: unknown, timeoutMs?: number): Promise<T> {
     // zeromq 를 top-level import 로 로드 (동적 require 는 Electron 에서 resolve 실패)
+    const effectiveTimeout = timeoutMs ?? this.timeout;
     const sock = new zmq.Request();
-    sock.receiveTimeout = this.timeout;
-    sock.sendTimeout = this.timeout;
+    sock.receiveTimeout = effectiveTimeout;
+    sock.sendTimeout = effectiveTimeout;
     // 연결 실패 시 오래 대기하지 않도록
     sock.linger = 0;
 

@@ -44,6 +44,7 @@ export default function ShortsComposeSection() {
   const [fontId, setFontId] = useState('pretendard-extrabold');
   const [fonts, setFonts] = useState<FontInfo[]>([]);
   const [tempo, setTempo] = useState(6);
+  const [chunkMode, setChunkMode] = useState<'syllable' | 'sentence'>('syllable');
   const [chunkSyllables, setChunkSyllables] = useState(3);
   const [clipMin, setClipMin] = useState(1.0);
   const [clipMax, setClipMax] = useState(2.5);
@@ -108,6 +109,7 @@ export default function ShortsComposeSection() {
         script: script.trim() || undefined,
         voiceoverPath: voiceover ?? undefined,
         syllablesPerSecond: tempo,
+        chunkMode,
         chunkSyllables,
       });
       if (res.success) {
@@ -122,7 +124,7 @@ export default function ShortsComposeSection() {
     } finally {
       setIsPreparing(false);
     }
-  }, [voiceover, script, tempo]);
+  }, [voiceover, script, tempo, chunkMode, chunkSyllables]);
 
   const updateEvent = useCallback((idx: number, patch: Partial<SubtitleEvent>) => {
     setEvents((prev) => {
@@ -157,6 +159,7 @@ export default function ShortsComposeSection() {
         subtitle: {
           fontId,
           syllablesPerSecond: tempo,
+          chunkMode,
           chunkSyllables,
           position,
         },
@@ -171,7 +174,7 @@ export default function ShortsComposeSection() {
     } finally {
       setIsComposing(false);
     }
-  }, [clips, events, script, voiceover, resolution, subtitleMode, clipMin, clipMax, fontId, tempo, chunkSyllables, position]);
+  }, [clips, events, script, voiceover, resolution, subtitleMode, clipMin, clipMax, fontId, tempo, chunkMode, chunkSyllables, position]);
 
   const fileName = (p: string) => p.split('\\').pop() || p.split('/').pop() || p;
 
@@ -435,10 +438,24 @@ export default function ShortsComposeSection() {
           </select>
         </div>
         <div>
-          <label style={labelStyle}>
+          <label style={labelStyle}>자막 단위</label>
+          <select
+            value={chunkMode}
+            onChange={(e) => { setChunkMode(e.target.value as 'syllable' | 'sentence'); setEvents(null); }}
+            disabled={isComposing}
+            style={inputStyle}
+          >
+            <option value="syllable">음절 덩어리 (빠른 템포, 팡팡)</option>
+            <option value="sentence">문장 단위 (한 줄 넘으면 자동 분할)</option>
+          </select>
+        </div>
+        <div>
+          <label style={{ ...labelStyle, opacity: chunkMode === 'sentence' ? 0.4 : 1 }}>
             자막 끊기 ({chunkSyllables}음절/자막){' '}
             <span style={{ color: 'var(--text-muted)' }}>
-              {chunkSyllables <= 1 ? '한 음절씩 · 가장 빠름' : chunkSyllables >= 5 ? '길게' : '기본'}
+              {chunkMode === 'sentence'
+                ? '· 문장 단위에선 무시됨'
+                : chunkSyllables <= 1 ? '한 음절씩 · 가장 빠름' : chunkSyllables >= 5 ? '길게' : '기본'}
             </span>
           </label>
           <input
@@ -448,8 +465,8 @@ export default function ShortsComposeSection() {
             step={1}
             value={chunkSyllables}
             onChange={(e) => { setChunkSyllables(Number(e.target.value)); setEvents(null); }}
-            disabled={isComposing}
-            style={{ width: '100%' }}
+            disabled={isComposing || chunkMode === 'sentence'}
+            style={{ width: '100%', opacity: chunkMode === 'sentence' ? 0.4 : 1 }}
           />
         </div>
         <div>

@@ -49,9 +49,58 @@ export interface PreviewProgress {
   total: number;
 }
 
+/** Chromium 이 기본 빌드에서 디코딩 가능한 조합 */
+const PLAYABLE_CONTAINERS = new Set(['mp4', 'm4v', 'mov', 'webm']);
+const PLAYABLE_VIDEO_CODECS = new Set(['h264', 'vp8', 'vp9', 'av1']);
+const PLAYABLE_AUDIO_CODECS = new Set(['aac', 'mp3', 'opus', 'vorbis']);
+
 /**
- * source video → 480p H.264 + AAC MP4 (browser-playable) 생성.
- * 이미 캐시되어 있으면 즉시 리턴.
+ * 원본을 그대로 video element 에 물려도 되는지 판정.
+ *
+ * ffmpeg -i 로 헤더만 읽으므로 1초 이내에 끝난다.
+ * 판정 실패 시에는 false — 트랜스코딩으로 안전하게 폴백한다.
+ */
+async function isSourceBrowserPlayable(sourcePath: string): Promise<boolean> {
+  const ext = path.extname(sourcePath).toLowerCase().replace('.', '');
+  if (!PLAYABLE_CONTAINERS.has(ext)) return false;
+
+  const ffmpegPath = resolveFfmpegPath();
+  if (!ffmpegPath) return false;
+
+  return new Promise<boolean>((resolve) => {
+    // -i 만 주면 ffmpeg 는 스트림 정보를 stderr 로 뱉고 "at least one output" 에러로 종료한다.
+    const proc = spawn(ffmpegPath, ['-i', sourcePath]);
+    let stderr = '';
+    proc.stderr.on('data', (c: Buffer) => (stderr += c.toString()));
+    proc.on('error', () => resolve(false));
+    proc.on('close', () => {
+      const video = stderr.match(/Stream #\d+:\d+.*: Video: (\w+)/);
+      const audio = stderr.match(/Stream #\d+:\d+.*: Audio: (\w+)/);
+      if (!video) return resolve(false);
+
+      const vOk = PLAYABLE_VIDEO_CODECS.has(video[1].toLowerCase());
+      // 무음 영상도 있으므로 오디오 스트림이 없으면 통과로 본다
+      const aOk = !audio || PLAYABLE_AUDIO_CODECS.has(audio[1].toLowerCase());
+
+      logger.info('Source playability probe', {
+        sourcePath,
+        videoCodec: video[1],
+        audioCodec: audio?.[1] ?? '(none)',
+        playable: vOk && aOk,
+      });
+      resolve(vOk && aOk);
+    });
+  });
+}
+
+/**
+ * source video → browser 에서 재생 가능한 파일 경로를 돌려준다.
+ *
+ * 원본이 이미 재생 가능한 코덱(H.264/AAC 등)이면 **트랜스코딩 없이 원본을 그대로 쓴다.**
+ * 예전에는 무조건 480p 로 재인코딩했는데, 30분 영상이면 3분 넘게 걸리는 동안
+ * 플레이어에 아무것도 안 물려서 "미리보기가 아예 안 된다" 로 보였다.
+ *
+ * HEVC/ProRes 처럼 Chromium 이 못 여는 코덱일 때만 480p H.264 로 변환한다.
  */
 export async function generatePreviewVideo(
   sourcePath: string,
@@ -62,6 +111,12 @@ export async function generatePreviewVideo(
   if (existsSync(cachePath)) {
     logger.info('Preview cache hit', { sourcePath, cachePath });
     return { previewPath: cachePath, fromCache: true, durationMs: 0 };
+  }
+
+  // 원본이 그대로 재생 가능하면 변환 자체를 건너뛴다 (대부분의 카메라/화면녹화 H.264)
+  if (await isSourceBrowserPlayable(sourcePath)) {
+    logger.info('Source is browser-playable, skipping transcode', { sourcePath });
+    return { previewPath: sourcePath, fromCache: true, durationMs: 0 };
   }
 
   await mkdir(getCacheDir(), { recursive: true });

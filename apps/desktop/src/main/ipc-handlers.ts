@@ -518,7 +518,9 @@ export function registerIPCHandlers(
       params: {
         script?: string;
         voiceoverPath?: string;
+        chunkMode?: 'syllable' | 'sentence';
         chunkSyllables?: number;
+        maxLineSyllables?: number;
         syllablesPerSecond?: number;
       }
     ): Promise<{
@@ -563,7 +565,9 @@ export function registerIPCHandlers(
           script: params.script,
           wordTimings,
           voiceoverDur,
+          chunkMode: params.chunkMode,
           chunkSyllables: params.chunkSyllables,
+          maxLineSyllables: params.maxLineSyllables,
           syllablesPerSecond: params.syllablesPerSecond,
         });
 

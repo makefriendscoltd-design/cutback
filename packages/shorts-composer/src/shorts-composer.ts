@@ -154,7 +154,9 @@ export class ShortsComposer {
               script: spec.script,
               wordTimings: spec.wordTimings,
               voiceoverDur,
+              chunkMode: spec.subtitle?.chunkMode,
               chunkSyllables: spec.subtitle?.chunkSyllables,
+              maxLineSyllables: spec.subtitle?.maxLineSyllables,
               syllablesPerSecond: spec.subtitle?.syllablesPerSecond,
             });
 

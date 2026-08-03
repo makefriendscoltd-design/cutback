@@ -51,6 +51,17 @@ a = Analysis(
         #   torch/lib/libiomp5md.dll 과 ctranslate2/libiomp5md.dll 이 동시에
         #   로드되면 Intel OpenMP 이중 초기화 → 0xc0000409 (fast-fail) 로 크래시.
         'torch',
+        # PyAV 제외 (번들 약 69MB 절감):
+        #   faster-whisper 는 경로를 받으면 av 로 디코딩하지만,
+        #   whisper_wrapper._load_audio 가 WAV 를 직접 numpy 로 읽어 넘기므로
+        #   av 는 실행 경로에 등장하지 않는다.
+        'av',
+        # HuggingFace 고속 전송 가속기 (약 8MB). 모델 다운로드는 일반 HTTP 로도 된다.
+        'hf_xet',
+        # CUDA 런타임 pip 패키지 (약 730MB).
+        #   ctranslate2 가 cuBLAS 를 못 찾아 CUDA 추론이 실패하는데,
+        #   번들해봐야 용량만 폭증하므로 CPU 경로만 싣는다.
+        'nvidia',
         # 기타 불필요한 거
         'matplotlib',
         'tkinter',

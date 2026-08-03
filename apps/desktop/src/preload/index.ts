@@ -208,7 +208,9 @@ contextBridge.exposeInMainWorld('api', {
   previewShortsSubtitles: (params: {
     script?: string;
     voiceoverPath?: string;
+    chunkMode?: 'syllable' | 'sentence';
     chunkSyllables?: number;
+    maxLineSyllables?: number;
     syllablesPerSecond?: number;
   }) => ipcRenderer.invoke('shorts:previewSubtitles', params),
 
@@ -261,7 +263,9 @@ export interface ShortsComposeParams {
   subtitleMode?: 'burn' | 'srt' | 'both';
   subtitle?: {
     fontId?: string;
+    chunkMode?: 'syllable' | 'sentence';
     chunkSyllables?: number;
+    maxLineSyllables?: number;
     syllablesPerSecond?: number;
     position?: 'center' | 'bottom';
   };
@@ -406,7 +410,9 @@ export interface CutbackAPI {
   previewShortsSubtitles: (params: {
     script?: string;
     voiceoverPath?: string;
+    chunkMode?: 'syllable' | 'sentence';
     chunkSyllables?: number;
+    maxLineSyllables?: number;
     syllablesPerSecond?: number;
   }) => Promise<{
     success: boolean;

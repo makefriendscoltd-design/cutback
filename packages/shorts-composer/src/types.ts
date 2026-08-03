@@ -22,6 +22,13 @@ export interface ClipDurationRange {
 export type SubtitlePosition = 'center' | 'bottom';
 
 /**
+ * 자막 끊기 단위.
+ *  - 'syllable' : 음절 덩어리 (기본 3음절, 빠른 숏폼 템포)
+ *  - 'sentence' : 문장 단위로 유지 (긴 문장은 한 줄 폭을 넘지 않게 단어 경계로 분할)
+ */
+export type SubtitleChunkMode = 'syllable' | 'sentence';
+
+/**
  * 자막 출력 방식.
  *  - 'burn' : 영상에 구움 (예쁨, 수정 불가) — 기본값
  *  - 'srt'  : .srt 파일만 별도 출력 (캡컷에서 편집 가능, 스타일은 캡컷 것)
@@ -34,8 +41,12 @@ export interface SubtitleStyleOptions {
   fontId?: string;
   /** PlayRes 1080x1920 기준 폰트 크기. 기본 96 (4K 출력 시 자동 스케일) */
   fontSize?: number;
-  /** 자막 한 덩어리당 음절 수. 기본 3 */
+  /** 자막 끊기 단위. 기본 'syllable' */
+  chunkMode?: SubtitleChunkMode;
+  /** 자막 한 덩어리당 음절 수 ('syllable' 모드). 기본 3 */
   chunkSyllables?: number;
+  /** 'sentence' 모드에서 한 줄 최대 음절 (넘으면 분할 — 줄바꿈 방지). 기본 9 */
+  maxLineSyllables?: number;
   /** 음성 없을 때 템포: 초당 음절 수. 클수록 빠름. 기본 6 */
   syllablesPerSecond?: number;
   /** '#RRGGBB' 글자색. 기본 '#FFFFFF' */

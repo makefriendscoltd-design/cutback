@@ -112,14 +112,26 @@ export class ProcessingPipeline {
 
     // --- Stage 3: STT ---
     onProgress?.('stt', 40, 'AI 음성 인식 중...');
+    // STT 실패를 빈 transcript 로 대체하면 안 된다.
+    //
+    // 예전에는 여기서 에러를 삼키고 stub 을 넣었다. 그러면 뒤 단계가 전부
+    // "단어 0개" 로 흘러가서 무음 컷만 있고 자막이 하나도 없는 결과가
+    // 성공으로 표시된다. 실제로 GPU 추론이 깨진 빌드에서 사용자는
+    // "무음 제거는 되는데 자막이 안 나온다" 는 원인 불명 증상만 보게 됐다.
+    // 실패는 실패로 드러내고 원인을 그대로 전달한다.
     let transcript: Transcript;
     try {
       transcript = await this.pythonClient.transcribe(audioPath, 'ko');
     } catch (err) {
-      logger.warn('Python STT failed, using stub transcript', {
-        error: (err as Error).message,
-      });
-      transcript = this.createStubTranscript();
+      const detail = (err as Error).message;
+      logger.error('STT failed', { error: detail });
+      throw new Error(
+        `음성 인식에 실패해 자막을 만들 수 없습니다.\n${detail}`
+      );
+    }
+
+    if (transcript.words.length === 0) {
+      logger.warn('STT returned no words', { duration: transcript.duration });
     }
     logger.info('Transcript generated', {
       words: transcript.words.length,
@@ -324,18 +336,6 @@ export class ProcessingPipeline {
   }
 
   /**
-   * STT 실패 시 빈 transcript 반환
-   */
-  private createStubTranscript(): Transcript {
-    return {
-      words: [],
-      full_text: '',
-      language: 'ko',
-      duration: 0,
-    };
-  }
-
-  /**
    * 모든 컷 타입 병합 및 정렬
    * 겹치는 구간은 하나로 합침
    */
@@ -428,31 +428,65 @@ export class ProcessingPipeline {
     if (activeWords.length === 0) return [];
 
     if (mode === 'by_sentence') {
-      // 문장 단위 끊기 (마침표/쉼표/물음표 + 호흡 + 글자 수 한도)
-      // 한국어 STT 는 구두점이 거의 없으므로 호흡(pause)도 끊는 신호로 사용.
+      // 문장 단위 끊기.
+      // 한국어 STT 는 구두점이 드물어 호흡(pause)도 끊는 신호로 함께 쓴다.
+      //
+      // 주의한 것:
+      //   1) 글자 수 한도는 단어를 넣기 **전에** 검사한다. 넣고 나서 재면
+      //      항상 한도를 넘긴 뒤 끊겨서 "이야기해 / 보겠습니다." 처럼
+      //      말이 중간에서 잘린다.
+      //   2) 쉼표에서는 끊지 않는다. "정리하면," 같은 조각 자막만 생긴다.
+      //      문장을 끝내는 . ! ? 에서만 끊는다.
       let buffer: typeof activeWords = [];
+
+      const flush = () => {
+        if (buffer.length === 0) return;
+        rawCaptions.push({
+          id: uuidv4(),
+          text: buffer.map((w) => w.text).join(' '),
+          start: buffer[0].start,
+          end: buffer[buffer.length - 1].end,
+        });
+        buffer = [];
+      };
 
       for (let i = 0; i < activeWords.length; i++) {
         const word = activeWords[i];
+
+        // 이 단어를 더하면 한도를 넘는가? 넘으면 지금까지를 먼저 내보낸다.
+        const projected = [...buffer, word].map((w) => w.text).join(' ');
+        if (buffer.length > 0 && projected.length > maxChars) {
+          flush();
+        }
+
         buffer.push(word);
-        const text = buffer.map((w) => w.text).join(' ');
+
         const nextWord = activeWords[i + 1];
         const gap = nextWord ? nextWord.start - word.end : Infinity;
+        const endsSentence = /[.!?。？！]$/.test(word.text);
 
-        const isSentenceEnd =
-          /[.!?。？！,，、]$/.test(word.text) ||
-          text.length >= maxChars ||
-          gap >= 0.6 ||
-          i === activeWords.length - 1;
+        if (endsSentence || gap >= 0.6 || i === activeWords.length - 1) {
+          flush();
+        }
+      }
+      flush();
 
-        if (isSentenceEnd && buffer.length > 0) {
-          rawCaptions.push({
-            id: uuidv4(),
-            text: buffer.map((w) => w.text).join(' '),
-            start: buffer[0].start,
-            end: buffer[buffer.length - 1].end,
-          });
-          buffer = [];
+      // 조각 자막 병합:
+      // 한 단어짜리 꼬리(예: "것입니다.")는 앞 자막에 붙는 게 읽기 좋다.
+      // 한도를 넘지 않고 시간상 바로 이어질 때만 합친다.
+      const MERGE_MAX_CHARS = 8;
+      for (let i = rawCaptions.length - 1; i > 0; i--) {
+        const cur = rawCaptions[i];
+        const prev = rawCaptions[i - 1];
+        const merged = `${prev.text} ${cur.text}`;
+        if (
+          cur.text.length <= MERGE_MAX_CHARS &&
+          merged.length <= maxChars &&
+          cur.start - prev.end < 0.6
+        ) {
+          prev.text = merged;
+          prev.end = cur.end;
+          rawCaptions.splice(i, 1);
         }
       }
     } else if (mode === 'by_time') {
@@ -571,30 +605,38 @@ export class ProcessingPipeline {
   ): number {
     if (originalDuration === 0 || cuts.length === 0) return 1.0;
 
+    // 감점은 반드시 **비율**로 계산한다.
+    //
+    // 예전에는 짧은 컷 1개당 -0.02, 촘촘한 간격 1개당 -0.03 처럼 개수로 깎았다.
+    // 그러면 영상이 길수록 컷이 늘어나 편집 품질과 무관하게 점수가 0 이 된다.
+    // (실측: 30분 영상 433컷에서 감점 합계가 4.6 → 만점 1.0 이 즉시 바닥)
+    // 같은 편집 밀도라도 3분 영상은 정상 점수가 나와 길이에 따라 값이 뒤집혔다.
     let score = 1.0;
 
-    // 1. 과도한 컷 빈도 페널티 (분당 20회 초과)
+    // 1. 과도한 컷 빈도 (분당 20회 초과)
     const cutsPerMinute = cuts.length / (originalDuration / 60);
     if (cutsPerMinute > 20) {
       score -= (cutsPerMinute - 20) * 0.01;
     }
 
-    // 2. 너무 짧은 구간 페널티
-    for (const cut of cuts) {
-      if (cut.duration < 0.3) {
-        score -= 0.02;
-      }
+    // 2. 너무 짧은 컷의 비율 (30% 초과분만 감점)
+    const shortRatio =
+      cuts.filter((c) => c.duration < 0.3).length / cuts.length;
+    if (shortRatio > 0.3) {
+      score -= (shortRatio - 0.3) * 0.5;
     }
 
-    // 3. 연속 컷 페널티
+    // 3. 컷이 바로 이어지는 비율 (30% 초과분만 감점)
+    let tightGaps = 0;
     for (let i = 0; i < cuts.length - 1; i++) {
-      const gap = cuts[i + 1].start - cuts[i].end;
-      if (gap < 0.5) {
-        score -= 0.03;
-      }
+      if (cuts[i + 1].start - cuts[i].end < 0.5) tightGaps++;
+    }
+    const tightRatio = tightGaps / Math.max(1, cuts.length - 1);
+    if (tightRatio > 0.3) {
+      score -= (tightRatio - 0.3) * 0.5;
     }
 
-    // 4. 전체 제거 비율 페널티 (50% 이상 제거는 과편집)
+    // 4. 전체 제거 비율 (50% 이상 제거는 과편집)
     const totalRemoved = cuts.reduce((sum, c) => sum + c.duration, 0);
     const removalRatio = totalRemoved / originalDuration;
     if (removalRatio > 0.5) {

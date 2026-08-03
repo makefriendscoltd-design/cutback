@@ -4,10 +4,40 @@ Whisper Wrapper using faster-whisper
 
 import logging
 import os
+from pathlib import Path
 from typing import Dict, Any, List
 from faster_whisper import WhisperModel
 
 logger = logging.getLogger(__name__)
+
+
+def _register_cuda_dll_dirs() -> None:
+    """
+    nvidia-* pip 패키지가 설치한 CUDA DLL 폴더를 Windows DLL 검색 경로에 등록한다.
+
+    ctranslate2 는 cuBLAS 를 런타임에 LoadLibrary 로 찾는데, pip 패키지는
+    site-packages/nvidia/<lib>/bin 에 DLL 을 넣을 뿐 PATH 에 추가하지 않는다.
+    등록하지 않으면 모델 로드는 성공하고 **추론 시점에** 다음으로 실패한다:
+        RuntimeError: Library cublas64_12.dll is not found or cannot be loaded
+    """
+    if not hasattr(os, "add_dll_directory"):
+        return  # non-Windows
+
+    try:
+        import nvidia
+    except ImportError:
+        return
+
+    for base in nvidia.__path__:
+        nvidia_root = Path(base)
+        for bin_dir in nvidia_root.glob("*/bin"):
+            if bin_dir.is_dir():
+                try:
+                    os.add_dll_directory(str(bin_dir))
+                    logger.debug(f"Registered CUDA DLL dir: {bin_dir}")
+                except OSError as e:
+                    logger.warning(f"Failed to register {bin_dir}: {e}")
+
 
 class WhisperTranscriber:
     def __init__(self, model_size: str = None, device: str = None):
@@ -30,7 +60,12 @@ class WhisperTranscriber:
         중복되어 Intel OpenMP 이중 초기화 충돌 (STATUS_STACK_BUFFER_OVERRUN,
         0xc0000409 fast-fail) 이 발생한다. CUDA 지원은 ctranslate2 가 자체 제공.
         """
-        model_size = model_size or os.environ.get("CUTBACK_STT_MODEL", "medium")
+        # 기본값 small:
+        #   실측(31.7초 한국어 음성, CPU) medium 26.5s vs small 8.8s 로 3배 빠르고,
+        #   한국어 인식 결과는 띄어쓰기/쉼표 수준의 차이뿐이었다.
+        #   30분 영상 기준 medium 약 25분 → small 약 8분.
+        #   모델 다운로드도 1.5GB → 244MB 로 줄어 첫 실행 대기가 크게 짧아진다.
+        model_size = model_size or os.environ.get("CUTBACK_STT_MODEL", "small")
         device = device or os.environ.get("CUTBACK_STT_DEVICE", "auto")
 
         logger.info(f"Loading Whisper model: {model_size} (device={device})")
@@ -47,31 +82,98 @@ class WhisperTranscriber:
             else [(device, "float16" if device == "cuda" else "int8")]
         )
 
+        _register_cuda_dll_dirs()
+
         last_error = None
         for dev, compute_type in candidates:
             try:
-                self.model = WhisperModel(
+                model = WhisperModel(
                     model_size,
                     device=dev,
                     compute_type=compute_type,
                 )
+
+                # 모델 로드 성공만으로 디바이스를 확정하면 안 된다.
+                # CUDA 는 로드까지는 통과해놓고 첫 추론에서 cuBLAS 를 못 찾아
+                # 터지는 경우가 있다. 그러면 파이프라인이 빈 자막을 받아
+                # "무음 컷은 됐는데 자막이 없는" 결과가 조용히 나간다.
+                # 실제로 1초짜리 더미를 돌려보고 통과한 디바이스만 채택한다.
+                self._smoke_test(model)
+
+                self.model = model
                 self.device = dev
                 self.model_size = model_size
                 logger.info(
-                    f"Whisper model loaded successfully "
+                    f"Whisper model ready "
                     f"(device={dev}, compute_type={compute_type})"
                 )
                 return
             except Exception as e:
                 last_error = e
                 logger.warning(
-                    f"Failed to load Whisper on {dev}/{compute_type}: "
+                    f"Whisper unusable on {dev}/{compute_type}: "
                     f"{type(e).__name__}: {e}"
                 )
 
         raise RuntimeError(
-            f"Whisper 모델 로드 실패 (model={model_size}): {last_error}"
+            f"Whisper 모델을 사용할 수 있는 디바이스가 없습니다 "
+            f"(model={model_size}): {last_error}"
         )
+
+    @staticmethod
+    def _smoke_test(model: WhisperModel) -> None:
+        """1초 무음으로 실제 추론 경로를 한 번 통과시켜 본다."""
+        import numpy as np
+
+        segments, _ = model.transcribe(
+            np.zeros(16000, dtype=np.float32),
+            language="ko",
+            vad_filter=False,
+            beam_size=1,
+        )
+        # generator 이므로 소비해야 실제로 encode 가 돈다
+        for _ in segments:
+            break
+
+    @staticmethod
+    def _load_audio(audio_path: str):
+        """
+        16kHz mono PCM WAV → float32 numpy 배열.
+
+        faster-whisper 에 경로를 넘기면 내부적으로 PyAV 로 디코딩하는데,
+        PyAV 는 번들에 65MB 를 더한다. 파이프라인이 ffmpeg 로 항상
+        16kHz mono PCM WAV 를 뽑아주므로 표준 wave 모듈로 충분하다.
+        """
+        import wave
+        import numpy as np
+
+        with wave.open(audio_path, "rb") as wf:
+            channels = wf.getnchannels()
+            sample_rate = wf.getframerate()
+            sample_width = wf.getsampwidth()
+            frames = wf.readframes(wf.getnframes())
+
+        if sample_width != 2:
+            raise ValueError(
+                f"16-bit PCM WAV 만 지원합니다 (sample_width={sample_width})"
+            )
+
+        audio = np.frombuffer(frames, dtype=np.int16).astype(np.float32) / 32768.0
+        if channels > 1:
+            audio = audio.reshape(-1, channels).mean(axis=1)
+
+        # Whisper 는 16kHz 를 전제한다. 파이프라인은 항상 16kHz 로 뽑지만
+        # 다른 경로로 들어온 WAV 도 조용히 어긋나지 않도록 맞춰준다.
+        if sample_rate != 16000:
+            target_len = int(round(len(audio) * 16000 / sample_rate))
+            audio = np.interp(
+                np.linspace(0, len(audio) - 1, target_len, dtype=np.float32),
+                np.arange(len(audio), dtype=np.float32),
+                audio,
+            ).astype(np.float32)
+            logger.info(f"Resampled audio {sample_rate}Hz → 16000Hz")
+
+        return audio
 
     def transcribe(
         self,
@@ -106,7 +208,7 @@ class WhisperTranscriber:
         )
 
         segments, info = self.model.transcribe(
-            audio_path,
+            self._load_audio(audio_path),
             language=language,
             word_timestamps=word_timestamps,
             beam_size=5,

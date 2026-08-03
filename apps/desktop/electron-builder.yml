@@ -22,6 +22,12 @@ files:
   - "!**/*.map"
   - "!**/*.tsbuildinfo"
 
+# Electron 기본 locales 는 50개 넘는 언어를 싣는다 (약 41MB).
+# 이 앱 UI 는 한국어 전용이므로 ko/en 만 남긴다.
+electronLanguages:
+  - ko
+  - en-US
+
 # 외부 리소스 (renderer/main JS 외에 필요한 것들)
 extraResources:
   # PyInstaller 로 만든 STT 단독 실행 폴더

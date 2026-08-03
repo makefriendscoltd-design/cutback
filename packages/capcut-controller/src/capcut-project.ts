@@ -1,5 +1,6 @@
 import { CutDecision, Caption, createLogger } from '@cutback/shared';
 import fs from 'fs/promises';
+import fsSync from 'fs';
 import path from 'path';
 import { v4 as uuidv4 } from 'uuid';
 import { generateSRT } from './srt-generator';
@@ -976,27 +977,60 @@ export async function saveCapCutProject(
 
 // ─── CapCut Drafts 폴더 탐지 ────────────────────────────────────────
 
+/**
+ * 탐색 대상 CapCut 드래프트 폴더 후보 목록.
+ *
+ * 버전에 따라 위치가 다르다:
+ *   - 구버전:  %LOCALAPPDATA%\CapCut Drafts
+ *   - 최신:    %LOCALAPPDATA%\CapCut\User Data\Projects\com.lveditor.draft
+ *   - 중국판:  JianyingPro
+ *
+ * Local 과 Roaming 을 모두 본다. 예전엔 Roaming 쪽 User Data 경로만 있어서,
+ * 최신 CapCut 만 깔린 PC 에서 "설치되어 있지 않다" 는 오탐이 났다.
+ */
+export function capCutDraftDirCandidates(): string[] {
+  const localAppData =
+    process.env.LOCALAPPDATA ||
+    (process.env.USERPROFILE
+      ? path.join(process.env.USERPROFILE, 'AppData', 'Local')
+      : '');
+  const appData =
+    process.env.APPDATA ||
+    (process.env.USERPROFILE
+      ? path.join(process.env.USERPROFILE, 'AppData', 'Roaming')
+      : '');
+
+  const roots = [localAppData, appData].filter(Boolean);
+  const products = ['CapCut', 'JianyingPro'];
+
+  const candidates: string[] = [];
+  for (const root of roots) {
+    for (const product of products) {
+      // 최신 구조
+      candidates.push(
+        path.join(root, product, 'User Data', 'Projects', 'com.lveditor.draft')
+      );
+      // 구 구조
+      candidates.push(path.join(root, `${product} Drafts`));
+    }
+  }
+  return candidates;
+}
+
 export function findCapCutDraftsDir(): string | null {
-  const appData = process.env.APPDATA || '';
-  const localAppData = process.env.LOCALAPPDATA || '';
-  const userProfile = process.env.USERPROFILE || '';
-
-  const possiblePaths = [
-    localAppData ? path.join(localAppData, 'CapCut Drafts') : '',
-    appData ? path.join(appData, 'CapCut', 'User Data', 'Projects', 'com.lveditor.draft') : '',
-    appData ? path.join(appData, 'JianyingPro Drafts') : '',
-    userProfile ? path.join(userProfile, 'AppData', 'Local', 'CapCut Drafts') : '',
-    userProfile ? path.join(userProfile, 'AppData', 'Roaming', 'CapCut', 'User Data', 'Projects', 'com.lveditor.draft') : '',
-  ].filter(Boolean);
-
-  for (const p of possiblePaths) {
+  for (const p of capCutDraftDirCandidates()) {
     try {
-      const stat = require('fs').statSync(p);
-      if (stat.isDirectory()) return p;
+      if (fsSync.statSync(p).isDirectory()) {
+        logger.info('CapCut drafts dir found', { path: p });
+        return p;
+      }
     } catch {
       continue;
     }
   }
+  logger.warn('CapCut drafts dir not found', {
+    checked: capCutDraftDirCandidates(),
+  });
   return null;
 }
 
@@ -1009,8 +1043,15 @@ export async function installToCapCut(
 ): Promise<{ projectDir: string; draftsDir: string }> {
   const draftsDir = findCapCutDraftsDir();
   if (!draftsDir) {
+    // 어디를 봤는지 알려줘야 사용자가 실제 경로를 찾아 알려줄 수 있다.
+    // ("설치되어 있는데 안 된다" 는 신고가 이 정보 없이는 진단 불가)
     throw new Error(
-      'CapCut Desktop 프로젝트 폴더를 찾을 수 없습니다. CapCut Desktop이 설치되어 있는지 확인하세요.'
+      'CapCut Desktop 프로젝트 폴더를 찾을 수 없습니다.\n' +
+        'CapCut 을 한 번이라도 실행해 프로젝트를 만든 적이 있는지 확인해주세요.\n\n' +
+        '확인한 경로:\n' +
+        capCutDraftDirCandidates()
+          .map((p) => `  - ${p}`)
+          .join('\n')
     );
   }
 

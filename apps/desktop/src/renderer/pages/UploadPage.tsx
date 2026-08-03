@@ -8,6 +8,14 @@ interface UploadPageProps {
 
 type EditMode = 'mode-a' | 'mode-b' | 'mode-c';
 
+/**
+ * Mode B(보이스오버+B-roll)/Mode C(릴스 조립) 진입점 노출 여부.
+ *
+ * 현재 제품 범위는 롱폼 편집 하나로 좁혀둔 상태다. 두 모드의 구현은
+ * 그대로 남아 있으므로 true 로 바꾸면 바로 다시 쓸 수 있다.
+ */
+const SHOW_EXPERIMENTAL_MODES = false;
+
 const MODE_A_PRESETS = [
   {
     id: 'ad-short-form',
@@ -210,7 +218,11 @@ export default function UploadPage({ onJobStarted }: UploadPageProps) {
       </div>
 
       <div className="page-body">
-        {/* Mode Selector */}
+        {/* Mode Selector
+            현재 제품 범위는 롱폼 편집(Mode A) 하나다.
+            Mode B/C 코드는 남아 있지만 진입점을 노출하지 않는다.
+            다시 켜려면 SHOW_EXPERIMENTAL_MODES 를 true 로. */}
+        {SHOW_EXPERIMENTAL_MODES && (
         <div style={{ marginBottom: 24 }}>
           <h2 style={{ fontSize: 16, marginBottom: 12 }}>편집 모드</h2>
           <div style={{ display: 'flex', gap: 12 }}>
@@ -281,6 +293,7 @@ export default function UploadPage({ onJobStarted }: UploadPageProps) {
             </div>
           )}
         </div>
+        )}
 
         {/* Mode C: 릴스 자동 조립 (Job 파이프라인 미사용) */}
         {editMode === 'mode-c' ? (

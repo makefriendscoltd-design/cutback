@@ -10,12 +10,24 @@
  *  3) 템포 (음성 없음) — 초당 음절 수로 순차 배치
  */
 
-import type { SubtitleEvent, SubtitleStyleOptions, WordTiming } from './types.js';
+import type {
+  SubtitleChunkMode,
+  SubtitleEvent,
+  SubtitleStyleOptions,
+  WordTiming,
+} from './types.js';
 import { getFont } from './fonts.js';
 
 /** 한 이벤트의 최소/최대 노출 시간 (초) — 가독성 하한, 늘어짐 상한 */
 const MIN_EVENT_SEC = 0.18;
 const MAX_EVENT_SEC = 1.6;
+
+/**
+ * 문장 모드에서 한 줄에 허용하는 최대 음절 수.
+ * PlayResX 1080, 좌우 마진 60, fontSize 96(≈전각 1글자≈96px) 기준
+ * 대략 9글자면 864px < 960px 사용폭 → 두 번째 줄로 넘어가지 않는다.
+ */
+const MAX_LINE_SYLLABLES = 9;
 
 const HANGUL_SYLLABLE = /[가-힣]/;
 
@@ -86,14 +98,84 @@ export function chunkScript(script: string, chunkSyllables = 3): string[] {
   return chunks;
 }
 
+/**
+ * 문장 단위 청킹.
+ * 문장부호(. ! ? … 줄바꿈)로 끊어 문장을 통째로 유지하되,
+ * 한 문장이 한 줄 폭(maxLine 음절)을 넘으면 단어 경계로 "균등" 분할한다.
+ * (ASS WrapStyle=2 라 자동 줄바꿈이 없으므로, 길면 화면 밖으로 넘침 → 여기서 미리 잘라 방지)
+ */
+export function chunkBySentence(script: string, maxLine = MAX_LINE_SYLLABLES): string[] {
+  const sentences = script
+    .split(/(?<=[.!?…])\s+|\n+/)
+    .map((s) => s.trim())
+    .filter(Boolean);
+
+  const chunks: string[] = [];
+  for (const sentence of sentences) {
+    if (countSyllables(sentence) <= maxLine) {
+      chunks.push(sentence);
+      continue;
+    }
+    // 긴 문장: 줄 수를 먼저 정하고(ceil) 줄당 목표 음절을 균등하게 잡아 분배
+    const words = sentence.split(/\s+/).filter(Boolean);
+    const total = countSyllables(sentence);
+    const lineCount = Math.ceil(total / maxLine);
+    const target = total / lineCount;
+    let current = '';
+
+    for (const word of words) {
+      // 단어 하나가 한 줄 폭을 넘으면(URL·긴 영문 등) 음절 단위로 강제 분할
+      if (countSyllables(word) > maxLine) {
+        if (current) { chunks.push(current); current = ''; }
+        let piece = '';
+        for (const ch of Array.from(word)) {
+          piece += ch;
+          if (countSyllables(piece) >= maxLine) { chunks.push(piece); piece = ''; }
+        }
+        if (piece) current = piece;
+        continue;
+      }
+      const combined = current ? `${current} ${word}` : word;
+      if (
+        current &&
+        (countSyllables(combined) > maxLine || countSyllables(current) >= target)
+      ) {
+        chunks.push(current);
+        current = word;
+      } else {
+        current = combined;
+      }
+    }
+    if (current) chunks.push(current);
+  }
+  return chunks;
+}
+
+/** 끊기 옵션 → 실제 텍스트 덩어리 배열 (음절 모드 vs 문장 모드 분기) */
+function chunkText(
+  script: string,
+  opts: { chunkMode?: SubtitleChunkMode; chunkSyllables?: number; maxLineSyllables?: number }
+): string[] {
+  if (opts.chunkMode === 'sentence') {
+    return chunkBySentence(script, opts.maxLineSyllables ?? MAX_LINE_SYLLABLES);
+  }
+  return chunkScript(script, opts.chunkSyllables ?? 3);
+}
+
+/** 자막 빌더 공통 끊기 옵션 */
+interface ChunkOpts {
+  chunkMode?: SubtitleChunkMode;
+  chunkSyllables?: number;
+  maxLineSyllables?: number;
+}
+
 /** 템포 모드: 초당 음절 수 기준으로 순차 배치 */
 export function buildTempoEvents(
   script: string,
-  opts: { chunkSyllables?: number; syllablesPerSecond?: number } = {}
+  opts: ChunkOpts & { syllablesPerSecond?: number } = {}
 ): SubtitleEvent[] {
-  const chunkSize = opts.chunkSyllables ?? 3;
   const sps = opts.syllablesPerSecond ?? 6;
-  const chunks = chunkScript(script, chunkSize);
+  const chunks = chunkText(script, opts);
 
   const events: SubtitleEvent[] = [];
   let t = 0;
@@ -109,7 +191,7 @@ export function buildTempoEvents(
 export function buildScaledEvents(
   script: string,
   totalDuration: number,
-  opts: { chunkSyllables?: number } = {}
+  opts: ChunkOpts = {}
 ): SubtitleEvent[] {
   const events = buildTempoEvents(script, opts);
   if (events.length === 0) return events;
@@ -132,11 +214,15 @@ export function buildSubtitleEvents(opts: {
   script?: string;
   wordTimings?: WordTiming[];
   voiceoverDur?: number;
+  chunkMode?: SubtitleChunkMode;
   chunkSyllables?: number;
+  maxLineSyllables?: number;
   syllablesPerSecond?: number;
 }): SubtitleEvent[] {
   const subOpts = {
+    chunkMode: opts.chunkMode,
     chunkSyllables: opts.chunkSyllables,
+    maxLineSyllables: opts.maxLineSyllables,
     syllablesPerSecond: opts.syllablesPerSecond,
   };
   if (opts.wordTimings && opts.wordTimings.length > 0) {
@@ -152,9 +238,13 @@ export function buildSubtitleEvents(opts: {
 /** STT 단어 타임스탬프 모드: 덩어리에 속한 단어들의 시작~끝을 그대로 사용 */
 export function buildTimedEvents(
   wordTimings: WordTiming[],
-  opts: { chunkSyllables?: number } = {}
+  opts: ChunkOpts = {}
 ): SubtitleEvent[] {
-  const chunkSize = opts.chunkSyllables ?? 3;
+  const sentenceMode = opts.chunkMode === 'sentence';
+  // 문장 모드면 한 줄 폭까지 모으고 문장부호에서 끊는다. 아니면 음절 덩어리 크기.
+  const cap = sentenceMode
+    ? opts.maxLineSyllables ?? MAX_LINE_SYLLABLES
+    : opts.chunkSyllables ?? 3;
   const events: SubtitleEvent[] = [];
   let group: WordTiming[] = [];
   let groupSyl = 0;
@@ -172,9 +262,11 @@ export function buildTimedEvents(
 
   for (const w of wordTimings) {
     const syl = countSyllables(w.text);
-    if (groupSyl + syl > chunkSize && group.length > 0) flush();
+    if (groupSyl + syl > cap && group.length > 0) flush();
     group.push(w);
     groupSyl += syl;
+    // 문장 모드: STT 텍스트가 문장부호로 끝나면 거기서 문장을 마감
+    if (sentenceMode && /[.!?…]$/.test(w.text)) flush();
   }
   flush();
   return events;
