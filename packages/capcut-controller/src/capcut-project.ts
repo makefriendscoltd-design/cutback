@@ -988,6 +988,45 @@ export async function saveCapCutProject(
  * Local 과 Roaming 을 모두 본다. 예전엔 Roaming 쪽 User Data 경로만 있어서,
  * 최신 CapCut 만 깔린 PC 에서 "설치되어 있지 않다" 는 오탐이 났다.
  */
+/**
+ * CapCut 설정파일(globalSetting)에 기록된 실제 드래프트 폴더 경로.
+ *
+ * 사용자가 CapCut 설정에서 저장 위치를 바꾸면(예: D:\내드래프트) 우리가 추측하는
+ * 기본 경로엔 없지만 여기 `currentCustomDraftPath=...` 로 남는다.
+ * 다른 PC 에서 "폴더 못 찾음" 이 나던 주 원인이라, 추측 경로보다 이걸 먼저 본다.
+ */
+function configuredDraftDirs(): string[] {
+  const localAppData =
+    process.env.LOCALAPPDATA ||
+    (process.env.USERPROFILE
+      ? path.join(process.env.USERPROFILE, 'AppData', 'Local')
+      : '');
+  if (!localAppData) return [];
+
+  const dirs: string[] = [];
+  for (const product of ['CapCut', 'JianyingPro']) {
+    const settingPath = path.join(
+      localAppData,
+      product,
+      'User Data',
+      'Config',
+      'globalSetting'
+    );
+    try {
+      const content = fsSync.readFileSync(settingPath, 'utf8');
+      const m = /currentCustomDraftPath=(.+)/.exec(content);
+      if (m) {
+        // 설정값은 백슬래시가 \\ 로 이스케이프돼 있다 → 실제 경로로 복원
+        const p = m[1].trim().replace(/\\\\/g, '\\');
+        if (p) dirs.push(p);
+      }
+    } catch {
+      // 설정 파일이 없거나 못 읽으면 무시 (추측 경로로 폴백)
+    }
+  }
+  return dirs;
+}
+
 export function capCutDraftDirCandidates(): string[] {
   const localAppData =
     process.env.LOCALAPPDATA ||
@@ -1003,7 +1042,8 @@ export function capCutDraftDirCandidates(): string[] {
   const roots = [localAppData, appData].filter(Boolean);
   const products = ['CapCut', 'JianyingPro'];
 
-  const candidates: string[] = [];
+  // 설정파일에 적힌 실제 경로를 최우선 후보로
+  const candidates: string[] = [...configuredDraftDirs()];
   for (const root of roots) {
     for (const product of products) {
       // 최신 구조
@@ -1014,7 +1054,8 @@ export function capCutDraftDirCandidates(): string[] {
       candidates.push(path.join(root, `${product} Drafts`));
     }
   }
-  return candidates;
+  // 중복 제거 (설정 경로가 추측 경로와 겹칠 수 있음)
+  return [...new Set(candidates)];
 }
 
 export function findCapCutDraftsDir(): string | null {

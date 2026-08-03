@@ -446,8 +446,13 @@ export default function ShortsComposeSection() {
             style={inputStyle}
           >
             <option value="syllable">음절 덩어리 (빠른 템포, 팡팡)</option>
-            <option value="sentence">문장 단위 (한 줄 넘으면 자동 분할)</option>
+            <option value="sentence">문장 단위 (한 문장 = 한 화면)</option>
           </select>
+          {chunkMode === 'sentence' && (
+            <div style={{ fontSize: 11, color: 'var(--text-muted)', marginTop: 4, lineHeight: 1.4 }}>
+              문장 끝(다./요./죠. 등)에서만 끊습니다. 긴 문장은 쪼개지 않고 화면 안에서 줄바꿈돼요.
+            </div>
+          )}
         </div>
         <div>
           <label style={{ ...labelStyle, opacity: chunkMode === 'sentence' ? 0.4 : 1 }}>
