@@ -16,6 +16,9 @@ venv/
 .venv/
 *.egg-info/
 
+# STT 모델 (빌드 시 로컬에서 설치본에 번들 — 464MB, 깃에 올리지 않음)
+python/stt_service/models/
+
 # Logs
 logs/
 *.log

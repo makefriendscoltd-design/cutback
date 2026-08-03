@@ -72,6 +72,30 @@ export class PythonServiceManager {
   }
 
   /**
+   * 설치본에 번들된 Whisper 모델 폴더 경로.
+   *
+   * 이게 있으면 STT 서비스에 CUTBACK_STT_MODEL 로 넘겨 로컬 모델을 쓰게 한다.
+   * → 사용자 PC 첫 실행 때 244MB 모델을 HuggingFace 에서 받느라 40% 에서
+   *   멈춘 것처럼 보이던 문제를 없앤다. (없으면 예전처럼 'small' 이름으로 폴백 = 다운로드)
+   *
+   * packaged: resources/stt-model/faster-whisper-small (electron-builder extraResources)
+   * dev:      python/stt_service/models/faster-whisper-small (있을 때만)
+   */
+  private resolveBundledModelDir(): string | null {
+    const dir = app.isPackaged
+      ? path.join(process.resourcesPath, 'stt-model', 'faster-whisper-small')
+      : path.join(
+          this.findProjectRoot(),
+          'python',
+          'stt_service',
+          'models',
+          'faster-whisper-small'
+        );
+    // model.bin 까지 확인 (폴더만 있고 비어있는 경우 방지)
+    return fs.existsSync(path.join(dir, 'model.bin')) ? dir : null;
+  }
+
+  /**
    * STT 서비스 시작
    *
    * 실패 케이스를 명확하게 분리:
@@ -105,9 +129,12 @@ export class PythonServiceManager {
       throw new Error(msg);
     }
 
+    const bundledModelDir = this.resolveBundledModelDir();
+
     logger.info('Starting Python STT service', {
       mode: target.mode,
       command: target.command,
+      bundledModel: bundledModelDir ?? '(none — 첫 실행 시 다운로드)',
     });
 
     return new Promise((resolve, reject) => {
@@ -128,6 +155,8 @@ export class PythonServiceManager {
             ...process.env,
             PYTHONUNBUFFERED: '1', // 실시간 로그 출력
             PYTHONUTF8: '1',       // Windows에서 UTF-8 강제
+            // 번들 모델이 있으면 로컬 경로를 넘겨 다운로드를 건너뛴다
+            ...(bundledModelDir ? { CUTBACK_STT_MODEL: bundledModelDir } : {}),
           },
         });
 

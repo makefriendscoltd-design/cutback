@@ -34,6 +34,11 @@ extraResources:
   - from: ../../python/stt_service/dist/cutback-stt
     to: cutback-stt
     filter: ["**/*"]
+  # Whisper small 모델 (번들 → 사용자 PC 첫 실행 시 244MB 다운로드 제거)
+  # python-service.ts 가 CUTBACK_STT_MODEL 로 이 경로를 STT 서비스에 넘긴다.
+  - from: ../../python/stt_service/models/faster-whisper-small
+    to: stt-model/faster-whisper-small
+    filter: ["**/*"]
   # 한국어 사전 / 프리셋
   - from: ../../presets
     to: presets
