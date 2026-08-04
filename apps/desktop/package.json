@@ -1,6 +1,6 @@
 {
   "name": "@cutback/desktop",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "CapCut AI 편집 어시스턴트 - Electron Desktop App",
   "main": "dist/main/index.js",
   "author": "CapCut AI Assistant Team",

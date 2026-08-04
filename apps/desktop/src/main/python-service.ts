@@ -155,6 +155,13 @@ export class PythonServiceManager {
             ...process.env,
             PYTHONUNBUFFERED: '1', // 실시간 로그 출력
             PYTHONUTF8: '1',       // Windows에서 UTF-8 강제
+            // 이 빌드는 CUDA 라이브러리를 번들하지 않으므로 GPU 추론이 불가능하다.
+            // device="auto" 로 두면 STT 가 시작 시 cuda 를 먼저 시도하는데,
+            // GPU 가 있는 PC 에서 시스템 CUDA/cuDNN 버전이 안 맞으면 예외로
+            // 안 끝나고 네이티브 크래시로 cutback-stt.exe 가 통째로 죽어
+            // "음성 인식 실패" 가 난다. 애초에 GPU 를 못 쓰니 cpu 로 강제한다.
+            // (사용자가 명시적으로 값을 넣었으면 존중)
+            CUTBACK_STT_DEVICE: process.env.CUTBACK_STT_DEVICE || 'cpu',
             // 번들 모델이 있으면 로컬 경로를 넘겨 다운로드를 건너뛴다
             ...(bundledModelDir ? { CUTBACK_STT_MODEL: bundledModelDir } : {}),
           },
