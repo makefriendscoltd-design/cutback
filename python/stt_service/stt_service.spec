@@ -51,11 +51,13 @@ a = Analysis(
         #   torch/lib/libiomp5md.dll 과 ctranslate2/libiomp5md.dll 이 동시에
         #   로드되면 Intel OpenMP 이중 초기화 → 0xc0000409 (fast-fail) 로 크래시.
         'torch',
-        # PyAV 제외 (번들 약 69MB 절감):
-        #   faster-whisper 는 경로를 받으면 av 로 디코딩하지만,
-        #   whisper_wrapper._load_audio 가 WAV 를 직접 numpy 로 읽어 넘기므로
-        #   av 는 실행 경로에 등장하지 않는다.
-        'av',
+        # ⚠️ av(PyAV)는 제외하면 안 된다.
+        #   faster_whisper/audio.py 가 *import 시점*에 `import av` 를 하므로
+        #   (런타임에 안 쓰더라도) 빼면 `from faster_whisper import WhisperModel`
+        #   자체가 ModuleNotFoundError 로 터져 cutback-stt.exe 가 시작조차 못 한다.
+        #   실제로 v0.1.6~0.1.9 에서 "음성 인식 실패" 의 원인이었다.
+        #   (예전엔 whisper_wrapper._load_audio 가 WAV 를 직접 읽으니 av 가 실행
+        #    경로에 없다고 판단해 제외했으나, import 단계에서 필요하다는 걸 놓쳤다.)
         # HuggingFace 고속 전송 가속기 (약 8MB). 모델 다운로드는 일반 HTTP 로도 된다.
         'hf_xet',
         # CUDA 런타임 pip 패키지 (약 730MB).
