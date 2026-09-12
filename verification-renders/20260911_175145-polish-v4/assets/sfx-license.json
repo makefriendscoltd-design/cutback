@@ -1,0 +1,6 @@
+{
+  "asset": "soft-pop.wav",
+  "source": "Original procedural synthesis in build_visuals.py; seeded noise and sine chirp; no third-party samples",
+  "use": "unrestricted as part of this video",
+  "gain": 0.95
+}

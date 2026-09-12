@@ -617,3 +617,7 @@ MIT License - 자유롭게 사용, 수정, 배포 가능
 ---
 
 **Made with ❤️ for Korean content creators**
+
+## 롱폼 편집 이어하기
+
+사용자 지정 편집 기준과 최종 v6 제작 경로는 [LONGFORM_WORKFLOW.md](LONGFORM_WORKFLOW.md)를 먼저 확인하세요.

@@ -1,0 +1,13 @@
+{
+  "method": "feathered directional 2D lighting correction",
+  "identity_geometry_changed": false,
+  "mask": "assets/relight-mask.png",
+  "background": {
+    "brightness": -0.022,
+    "gamma": 0.98
+  },
+  "key_curve": "0/0 0.12/0.13 0.35/0.40 0.65/0.70 0.9/0.92 1/1",
+  "comparison": "relight-color-compare.png",
+  "reference": "https://www.capcut.com/tools/relight-videos-with-ai",
+  "note": "CapCut-like soft lighting appearance; local masked correction, not use of CapCut proprietary Relight engine"
+}

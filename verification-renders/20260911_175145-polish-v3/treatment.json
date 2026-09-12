@@ -1,0 +1,8 @@
+{
+  "source": "/Users/apple/Downloads/20260911_175145_\ucef7\ud3b8\uc9d1_v2_\ud0c0\uc774\ud2b8.mp4",
+  "intent": "sharpen existing footage while preserving person, original color and geometry",
+  "ffmpeg_filter": "unsharp=5:5:0.65:5:5:0",
+  "identity_changes": false,
+  "ai_generation": false,
+  "comparison": "sharpen-compare.png"
+}

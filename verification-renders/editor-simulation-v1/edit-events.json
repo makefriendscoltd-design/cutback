@@ -1,0 +1,23 @@
+{
+  "project": "aixscool_컷편집",
+  "authorDuration": 36,
+  "sourceWindow": {"start": 28, "end": 52, "scalePxPerSecond": 60},
+  "silenceGaps": [
+    {"start": 4.499688, "end": 5.324604, "widthPx": 49.495},
+    {"start": 7.477833, "end": 8.079542, "widthPx": 36.103},
+    {"start": 8.891833, "end": 9.323313, "widthPx": 25.889}
+  ],
+  "events": [
+    {"at": 0, "action": "review_and_scrub"},
+    {"at": 3, "action": "blade_gap_1"},
+    {"at": 5, "action": "select_linked_gap_1"},
+    {"at": 7, "action": "ripple_delete_gap_1"},
+    {"at": 9, "action": "blade_gap_2"},
+    {"at": 13, "action": "ripple_delete_gap_2"},
+    {"at": 16, "action": "blade_gap_3"},
+    {"at": 19, "action": "ripple_delete_gap_3"},
+    {"at": 22, "action": "trim_audio_seam_and_snap"},
+    {"at": 27, "action": "add_audio_fade"},
+    {"at": 30, "action": "play_tightened_timeline"}
+  ]
+}

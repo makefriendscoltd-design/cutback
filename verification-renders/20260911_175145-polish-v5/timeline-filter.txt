@@ -1,0 +1,13 @@
+[0:v]format=gbrp,split=2[dark][key];
+[dark]eq=brightness=-0.022:gamma=0.98,format=gbrp[bg];
+[key]curves=all='0/0 0.12/0.13 0.35/0.40 0.65/0.70 0.9/0.92 1/1',format=gbrp[light];
+[3:v]format=gbrp[mask];
+[bg][light][mask]maskedmerge,format=yuv420p,split=2[rpre][rpost];
+[rpre]trim=end_frame=1303,setpts=PTS-STARTPTS[vpre];
+[rpost]trim=start_frame=1348:end_frame=12577,setpts=PTS-STARTPTS[vpost];
+[1:a]asplit=2[spre][spost];
+[spre]atrim=end=21.738383333333335,asetpts=PTS-STARTPTS,afade=t=out:st=21.730383333333336:d=0.008[apre];
+[spost]atrim=start=22.489133333333335:end=209.82628333333335,asetpts=PTS-STARTPTS,afade=t=in:d=0.008[apost];
+[2:v]fps=60000/1001,trim=end_frame=2979,setpts=PTS-STARTPTS,format=yuv420p[vp];
+[2:a]atrim=end=49.69965,asetpts=PTS-STARTPTS,volume=1.258925412,afade=t=in:d=0.02,afade=t=out:st=49.57965:d=0.12[ap];
+[vpre][apre][vp][ap][vpost][apost]concat=n=3:v=1:a=1[v][a]

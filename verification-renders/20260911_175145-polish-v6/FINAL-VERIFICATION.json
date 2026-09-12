@@ -1,0 +1,52 @@
+{
+  "output": "/Users/apple/Downloads/20260911_175145_모션그래픽_사진개선_v6.mp4",
+  "frames": 15511,
+  "duration_seconds": 258.775183,
+  "decode_errors": 0,
+  "unique_photos": 8,
+  "photo_uses": 8,
+  "photo_tilt_degrees": [
+    -5.2,
+    4.3,
+    6.1,
+    -3.8,
+    -6.4,
+    3.3,
+    -4.7,
+    5.6
+  ],
+  "visible_photo_credits_removed": true,
+  "motion_graphics": 8,
+  "motion_source": "motion-refined/ with build_motion_refined.py",
+  "final_visual_review": "16 event midpoints plus 16 early/late motion states inspected from delivered MP4; face and caption areas clear",
+  "captions_count": 95,
+  "caption_physical_rows_max": 1,
+  "caption_verification": "90 OCR single-row matches; 5 OCR misses visually inspected, all single row; caption JSON byte-identical to v5",
+  "audio_peak_dbfs": -0.4,
+  "max_measured_audio_offset_ms": 7.75,
+  "audio_sync": [
+    {
+      "segment": "opening",
+      "audio_correlation": 0.999803599755114,
+      "lag_ms": 0.1875
+    },
+    {
+      "segment": "promo",
+      "audio_correlation": 0.9980050617067829,
+      "lag_ms": 5.0
+    },
+    {
+      "segment": "introduction",
+      "audio_correlation": 0.9999163806339213,
+      "lag_ms": 5.0
+    },
+    {
+      "segment": "ending",
+      "audio_correlation": 0.9855634704370438,
+      "lag_ms": 7.75
+    }
+  ],
+  "hyperframes_check": "passed: no lint/runtime/layout findings; media proxy pre-resolve reported6 failures, runtime fallback had zero failed requests; actual delivered MP4 independently verified",
+  "unchanged": "presenter identity, relight, slow zoom, promo, voice, caption wording and timing",
+  "license_evidence": "assets/photos/LICENSE-EVIDENCE.md"
+}

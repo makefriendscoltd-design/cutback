@@ -1,0 +1,22 @@
+[
+  {
+    "segment": "opening",
+    "audio_correlation": 0.999803599755114,
+    "lag_ms": 0.1875
+  },
+  {
+    "segment": "promo",
+    "audio_correlation": 0.9980050617067829,
+    "lag_ms": 5.0
+  },
+  {
+    "segment": "introduction",
+    "audio_correlation": 0.9999163806339213,
+    "lag_ms": 5.0
+  },
+  {
+    "segment": "ending",
+    "audio_correlation": 0.9855634704370438,
+    "lag_ms": 7.75
+  }
+]

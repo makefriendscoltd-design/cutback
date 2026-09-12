@@ -1,0 +1,39 @@
+{
+  "output": "/Users/apple/Downloads/20260911_175145_홍보삽입_줌_재조명_v5.mp4",
+  "frames": 15511,
+  "duration_seconds": 258.775183,
+  "decode_errors": 0,
+  "captions": 95,
+  "caption_max_physical_rows": 1,
+  "caption_validation": "95 final-video midpoint crops; OCR 88 single-row matches; all 7 OCR exceptions visually inspected and single-row, false period is background",
+  "punctuation_removed": true,
+  "brand": "aixscool",
+  "name": "나민수",
+  "audio_peak_dbfs": -0.5,
+  "sync_measurements": [
+    {
+      "segment": "opening",
+      "audio_correlation": 0.9997987137594113,
+      "lag_ms": 0.1875
+    },
+    {
+      "segment": "promo",
+      "audio_correlation": 0.9980027223202071,
+      "lag_ms": 5.0
+    },
+    {
+      "segment": "introduction",
+      "audio_correlation": 0.9999169638386792,
+      "lag_ms": 5.0
+    },
+    {
+      "segment": "ending",
+      "audio_correlation": 0.9855634704370438,
+      "lag_ms": 7.75
+    }
+  ],
+  "maximum_measured_audio_offset_ms": 7.75,
+  "hyperframes_check": "passed; zero runtime and layout errors",
+  "relight": "2D soft masked light correction; no identity regeneration; not native CapCut AI Relight",
+  "promo": "existing complete 49.7s HyperFrames promo; original graphics unchanged"
+}

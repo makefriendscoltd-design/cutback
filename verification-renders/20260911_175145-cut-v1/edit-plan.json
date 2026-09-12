@@ -1,0 +1,543 @@
+{
+  "source": "/Users/apple/Downloads/20260911_175145_편집본.mp4",
+  "fps": 59.94005994005994,
+  "source_duration": 263.079483,
+  "duration": 234.70113333333333,
+  "removed": [
+    [
+      0,
+      8.4,
+      "opening preparation"
+    ],
+    [
+      13.191562000000001,
+      13.286145999999999,
+      "silence, retain 260ms breathing room"
+    ],
+    [
+      13.546167,
+      13.830124999999999,
+      "silence, retain 260ms breathing room"
+    ],
+    [
+      19.489,
+      19.753729,
+      "silence, retain 260ms breathing room"
+    ],
+    [
+      32.584896,
+      33.252145999999996,
+      "silence, retain 260ms breathing room"
+    ],
+    [
+      35.560417,
+      35.949833,
+      "silence, retain 260ms breathing room"
+    ],
+    [
+      37.019458,
+      37.193312999999996,
+      "silence, retain 260ms breathing room"
+    ],
+    [
+      40.172396,
+      40.284499999999994,
+      "silence, retain 260ms breathing room"
+    ],
+    [
+      42.891542,
+      43.110833,
+      "silence, retain 260ms breathing room"
+    ],
+    [
+      46.064875,
+      46.546958,
+      "silence, retain 260ms breathing room"
+    ],
+    [
+      50.053771000000005,
+      50.292812,
+      "silence, retain 260ms breathing room"
+    ],
+    [
+      51.207604,
+      51.589313,
+      "silence, retain 260ms breathing room"
+    ],
+    [
+      60.929,
+      61.0875,
+      "silence, retain 260ms breathing room"
+    ],
+    [
+      69.176833,
+      69.32079200000001,
+      "silence, retain 260ms breathing room"
+    ],
+    [
+      79.058854,
+      79.498917,
+      "silence, retain 260ms breathing room"
+    ],
+    [
+      84.818354,
+      85.17143700000001,
+      "silence, retain 260ms breathing room"
+    ],
+    [
+      86.17260399999999,
+      86.32593700000001,
+      "silence, retain 260ms breathing room"
+    ],
+    [
+      92.08637499999999,
+      92.295125,
+      "silence, retain 260ms breathing room"
+    ],
+    [
+      94.17133299999999,
+      94.414771,
+      "silence, retain 260ms breathing room"
+    ],
+    [
+      113.940625,
+      114.39589600000001,
+      "silence, retain 260ms breathing room"
+    ],
+    [
+      115.71787499999999,
+      115.840458,
+      "silence, retain 260ms breathing room"
+    ],
+    [
+      138.718708,
+      138.816958,
+      "silence, retain 260ms breathing room"
+    ],
+    [
+      144.783729,
+      145.01641700000002,
+      "silence, retain 260ms breathing room"
+    ],
+    [
+      149.55,
+      150.41,
+      "stumbled onset before 쌓아온; keep completed word; silence, retain 260ms breathing room"
+    ],
+    [
+      155.64318699999998,
+      155.747875,
+      "silence, retain 260ms breathing room"
+    ],
+    [
+      164.023417,
+      164.235646,
+      "silence, retain 260ms breathing room"
+    ],
+    [
+      172.812875,
+      172.920125,
+      "silence, retain 260ms breathing room"
+    ],
+    [
+      173.18504199999998,
+      173.5355,
+      "silence, retain 260ms breathing room"
+    ],
+    [
+      183.58975,
+      184.018937,
+      "silence, retain 260ms breathing room"
+    ],
+    [
+      193.720708,
+      194.007917,
+      "silence, retain 260ms breathing room"
+    ],
+    [
+      200.340396,
+      200.576042,
+      "silence, retain 260ms breathing room"
+    ],
+    [
+      202.623,
+      202.722521,
+      "silence, retain 260ms breathing room"
+    ],
+    [
+      205.82,
+      207.49,
+      "abandoned 이미 일하시는; keep 이미 일하고 있는; silence, retain 260ms breathing room"
+    ],
+    [
+      212.780979,
+      213.139354,
+      "silence, retain 260ms breathing room"
+    ],
+    [
+      218.53562499999998,
+      218.942104,
+      "silence, retain 260ms breathing room"
+    ],
+    [
+      221.74,
+      225.14,
+      "abandoned 변화 앞에서 무엇보다 배워나가길; keep completed retake; silence, retain 260ms breathing room"
+    ],
+    [
+      230.011667,
+      230.161375,
+      "silence, retain 260ms breathing room"
+    ],
+    [
+      233.577,
+      233.79681200000002,
+      "silence, retain 260ms breathing room"
+    ],
+    [
+      234.056917,
+      234.183896,
+      "silence, retain 260ms breathing room"
+    ],
+    [
+      239.957854,
+      240.07360400000002,
+      "silence, retain 260ms breathing room"
+    ],
+    [
+      243.881646,
+      244.176792,
+      "silence, retain 260ms breathing room"
+    ],
+    [
+      245.728333,
+      245.9105,
+      "silence, retain 260ms breathing room"
+    ],
+    [
+      251.898187,
+      252.102604,
+      "silence, retain 260ms breathing room"
+    ],
+    [
+      253.59425,
+      253.892083,
+      "silence, retain 260ms breathing room"
+    ],
+    [
+      259.16,
+      263.079483,
+      "ending wait; silence, retain 260ms breathing room"
+    ]
+  ],
+  "clips": [
+    {
+      "source_start": 8.391716666666667,
+      "source_end": 13.196516666666668,
+      "frames": 288,
+      "start": 0.0,
+      "duration": 4.8048
+    },
+    {
+      "source_start": 13.279933333333334,
+      "source_end": 13.546866666666666,
+      "frames": 16,
+      "start": 4.8048,
+      "duration": 0.26693333333333336
+    },
+    {
+      "source_start": 13.830483333333333,
+      "source_end": 19.486133333333335,
+      "frames": 339,
+      "start": 5.071733333333333,
+      "duration": 5.6556500000000005
+    },
+    {
+      "source_start": 19.753066666666665,
+      "source_end": 32.58255,
+      "frames": 769,
+      "start": 10.727383333333334,
+      "duration": 12.829483333333334
+    },
+    {
+      "source_start": 33.24988333333334,
+      "source_end": 35.55218333333333,
+      "frames": 138,
+      "start": 23.556866666666668,
+      "duration": 2.3023000000000002
+    },
+    {
+      "source_start": 35.95258333333334,
+      "source_end": 37.020316666666666,
+      "frames": 64,
+      "start": 25.859166666666667,
+      "duration": 1.0677333333333334
+    },
+    {
+      "source_start": 37.18715,
+      "source_end": 40.17346666666667,
+      "frames": 179,
+      "start": 26.9269,
+      "duration": 2.9863166666666667
+    },
+    {
+      "source_start": 40.29025,
+      "source_end": 42.89285,
+      "frames": 156,
+      "start": 29.913216666666667,
+      "duration": 2.6026000000000002
+    },
+    {
+      "source_start": 43.10973333333333,
+      "source_end": 46.06268333333333,
+      "frames": 177,
+      "start": 32.515816666666666,
+      "duration": 2.95295
+    },
+    {
+      "source_start": 46.5465,
+      "source_end": 50.050000000000004,
+      "frames": 210,
+      "start": 35.46876666666667,
+      "duration": 3.5035000000000003
+    },
+    {
+      "source_start": 50.30025,
+      "source_end": 51.20115,
+      "frames": 54,
+      "start": 38.97226666666667,
+      "duration": 0.9009
+    },
+    {
+      "source_start": 51.58486666666667,
+      "source_end": 60.927533333333336,
+      "frames": 560,
+      "start": 39.87316666666667,
+      "duration": 9.342666666666666
+    },
+    {
+      "source_start": 61.094366666666666,
+      "source_end": 69.1691,
+      "frames": 484,
+      "start": 49.215833333333336,
+      "duration": 8.074733333333333
+    },
+    {
+      "source_start": 69.31925,
+      "source_end": 79.06231666666667,
+      "frames": 584,
+      "start": 57.29056666666667,
+      "duration": 9.743066666666667
+    },
+    {
+      "source_start": 79.49608333333333,
+      "source_end": 84.81806666666667,
+      "frames": 319,
+      "start": 67.03363333333334,
+      "duration": 5.321983333333334
+    },
+    {
+      "source_start": 85.16841666666667,
+      "source_end": 86.16941666666666,
+      "frames": 60,
+      "start": 72.35561666666666,
+      "duration": 1.0010000000000001
+    },
+    {
+      "source_start": 86.31956666666667,
+      "source_end": 92.092,
+      "frames": 346,
+      "start": 73.35661666666667,
+      "duration": 5.772433333333334
+    },
+    {
+      "source_start": 92.29220000000001,
+      "source_end": 94.17741666666667,
+      "frames": 113,
+      "start": 79.12905,
+      "duration": 1.8852166666666668
+    },
+    {
+      "source_start": 94.41098333333333,
+      "source_end": 113.94716666666667,
+      "frames": 1171,
+      "start": 81.01426666666667,
+      "duration": 19.536183333333334
+    },
+    {
+      "source_start": 114.39761666666666,
+      "source_end": 115.71560000000001,
+      "frames": 79,
+      "start": 100.55045,
+      "duration": 1.3179833333333333
+    },
+    {
+      "source_start": 115.83238333333334,
+      "source_end": 138.72191666666666,
+      "frames": 1372,
+      "start": 101.86843333333333,
+      "duration": 22.889533333333333
+    },
+    {
+      "source_start": 138.82201666666666,
+      "source_end": 144.77796666666666,
+      "frames": 357,
+      "start": 124.75796666666668,
+      "duration": 5.9559500000000005
+    },
+    {
+      "source_start": 145.01153333333335,
+      "source_end": 149.5494,
+      "frames": 272,
+      "start": 130.71391666666668,
+      "duration": 4.537866666666667
+    },
+    {
+      "source_start": 150.41693333333333,
+      "source_end": 155.63881666666666,
+      "frames": 313,
+      "start": 135.25178333333335,
+      "duration": 5.221883333333333
+    },
+    {
+      "source_start": 155.75560000000002,
+      "source_end": 164.03053333333332,
+      "frames": 496,
+      "start": 140.47366666666667,
+      "duration": 8.274933333333333
+    },
+    {
+      "source_start": 164.23073333333335,
+      "source_end": 172.80596666666668,
+      "frames": 514,
+      "start": 148.7486,
+      "duration": 8.575233333333333
+    },
+    {
+      "source_start": 172.92275,
+      "source_end": 173.18968333333333,
+      "frames": 16,
+      "start": 157.32383333333334,
+      "duration": 0.26693333333333336
+    },
+    {
+      "source_start": 173.54003333333333,
+      "source_end": 183.5834,
+      "frames": 602,
+      "start": 157.59076666666667,
+      "duration": 10.043366666666667
+    },
+    {
+      "source_start": 184.01716666666667,
+      "source_end": 193.72686666666667,
+      "frames": 582,
+      "start": 167.63413333333332,
+      "duration": 9.7097
+    },
+    {
+      "source_start": 194.01048333333333,
+      "source_end": 200.33346666666668,
+      "frames": 379,
+      "start": 177.34383333333335,
+      "duration": 6.322983333333333
+    },
+    {
+      "source_start": 200.58371666666667,
+      "source_end": 202.61908333333335,
+      "frames": 122,
+      "start": 183.66681666666668,
+      "duration": 2.0353666666666665
+    },
+    {
+      "source_start": 202.71918333333335,
+      "source_end": 205.82228333333333,
+      "frames": 186,
+      "start": 185.70218333333332,
+      "duration": 3.1031
+    },
+    {
+      "source_start": 207.49061666666668,
+      "source_end": 212.77923333333334,
+      "frames": 317,
+      "start": 188.80528333333334,
+      "duration": 5.288616666666667
+    },
+    {
+      "source_start": 213.14626666666666,
+      "source_end": 218.53498333333334,
+      "frames": 323,
+      "start": 194.0939,
+      "duration": 5.388716666666666
+    },
+    {
+      "source_start": 218.93538333333333,
+      "source_end": 221.73818333333332,
+      "frames": 168,
+      "start": 199.48261666666667,
+      "duration": 2.8028
+    },
+    {
+      "source_start": 225.14158333333333,
+      "source_end": 230.01311666666666,
+      "frames": 292,
+      "start": 202.28541666666666,
+      "duration": 4.871533333333334
+    },
+    {
+      "source_start": 230.16326666666666,
+      "source_end": 233.58335,
+      "frames": 205,
+      "start": 207.15695,
+      "duration": 3.4200833333333334
+    },
+    {
+      "source_start": 233.80023333333332,
+      "source_end": 234.05048333333335,
+      "frames": 15,
+      "start": 210.57703333333333,
+      "duration": 0.25025000000000003
+    },
+    {
+      "source_start": 234.18395,
+      "source_end": 239.95638333333335,
+      "frames": 346,
+      "start": 210.82728333333333,
+      "duration": 5.772433333333334
+    },
+    {
+      "source_start": 240.07316666666668,
+      "source_end": 243.87696666666668,
+      "frames": 228,
+      "start": 216.59971666666667,
+      "duration": 3.8038
+    },
+    {
+      "source_start": 244.17726666666667,
+      "source_end": 245.72881666666666,
+      "frames": 93,
+      "start": 220.40351666666666,
+      "duration": 1.55155
+    },
+    {
+      "source_start": 245.91233333333335,
+      "source_end": 251.90165000000002,
+      "frames": 359,
+      "start": 221.95506666666668,
+      "duration": 5.989316666666666
+    },
+    {
+      "source_start": 252.10185,
+      "source_end": 253.58666666666667,
+      "frames": 89,
+      "start": 227.94438333333335,
+      "duration": 1.4848166666666667
+    },
+    {
+      "source_start": 253.88696666666667,
+      "source_end": 259.1589,
+      "frames": 316,
+      "start": 229.4292,
+      "duration": 5.271933333333333
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "brand": "aixscool",
+  "presenter": "나민수",
+  "caption_policy": "one physical line per cue, semantic splits, no wrapping",
+  "image_size": {
+    "photo_width": 620,
+    "photo_height": 500,
+    "target": "at least visible face size"
+  },
+  "opening_events": [
+    0.12,
+    4.35
+  ],
+  "supersedes": "polish-v3"
+}

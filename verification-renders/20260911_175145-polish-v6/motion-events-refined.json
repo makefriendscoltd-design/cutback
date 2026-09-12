@@ -1,0 +1,202 @@
+[
+  {
+    "id": "problem-flow",
+    "start": 10.12,
+    "end": 18.5,
+    "duration": 8.38,
+    "side": "L",
+    "x": 0,
+    "y": 170,
+    "width": 680,
+    "height": 620,
+    "type": "motion",
+    "source_caption_indices": [
+      3,
+      4,
+      5
+    ],
+    "beats": [
+      2.52,
+      3.4,
+      4.84
+    ],
+    "beat_description": "문제 카드가 들어오고 해결 카드와 연결된 뒤 결과 카드가 선택됩니다."
+  },
+  {
+    "id": "learning-loop",
+    "start": 122.15,
+    "end": 131.89,
+    "duration": 9.74,
+    "side": "L",
+    "x": 0,
+    "y": 170,
+    "width": 680,
+    "height": 620,
+    "type": "motion",
+    "source_caption_indices": [
+      31,
+      32,
+      33,
+      34,
+      35,
+      36
+    ],
+    "beats": [
+      0.0,
+      3.5,
+      7.0
+    ],
+    "beat_description": "영상과 따라 하기 카드가 순환하고 만들기 카드로 조립됩니다."
+  },
+  {
+    "id": "automation",
+    "start": 132.25,
+    "end": 136.85,
+    "duration": 4.6,
+    "side": "R",
+    "x": 1240,
+    "y": 170,
+    "width": 680,
+    "height": 620,
+    "type": "motion",
+    "source_caption_indices": [
+      37,
+      38
+    ],
+    "beats": [
+      0.25,
+      1.3,
+      2.35
+    ],
+    "beat_description": "반복 업무 카드가 AI 처리 단계를 지나 자동화 결과로 바뀝니다."
+  },
+  {
+    "id": "overload",
+    "start": 139.05,
+    "end": 153.73,
+    "duration": 14.68,
+    "side": "R",
+    "x": 1240,
+    "y": 170,
+    "width": 680,
+    "height": 620,
+    "type": "motion",
+    "source_caption_indices": [
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46
+    ],
+    "beats": [
+      0.0,
+      6.02,
+      10.34
+    ],
+    "beat_description": "도구·강의·영상 카드가 쌓인 뒤 어디서부터 질문으로 정리되고 내 일이 선택됩니다."
+  },
+  {
+    "id": "school-path",
+    "start": 154.19,
+    "end": 164.13,
+    "duration": 9.94,
+    "side": "L",
+    "x": 0,
+    "y": 170,
+    "width": 680,
+    "height": 620,
+    "type": "motion",
+    "source_caption_indices": [
+      47,
+      48,
+      49,
+      50,
+      51
+    ],
+    "beats": [
+      4.32,
+      6.3,
+      7.3
+    ],
+    "beat_description": "무엇을 할지 정한 뒤 직접 만들고 내 일에 쓰는 경로가 이어집니다."
+  },
+  {
+    "id": "records",
+    "start": 173.25,
+    "end": 180.95,
+    "duration": 7.7,
+    "side": "L",
+    "x": 0,
+    "y": 170,
+    "width": 680,
+    "height": 620,
+    "type": "motion",
+    "source_caption_indices": [
+      56,
+      57,
+      58
+    ],
+    "beats": [
+      0.0,
+      2.4,
+      4.6,
+      6.2
+    ],
+    "beat_description": "경험과 기록 카드가 합쳐져 AI 자료가 되고 직접 만들기로 연결됩니다."
+  },
+  {
+    "id": "outcome",
+    "start": 197.73,
+    "end": 212.23,
+    "duration": 14.5,
+    "side": "L",
+    "x": 0,
+    "y": 170,
+    "width": 680,
+    "height": 620,
+    "type": "motion",
+    "source_caption_indices": [
+      67,
+      68,
+      69,
+      70,
+      71,
+      72
+    ],
+    "beats": [
+      3.04,
+      5.12,
+      10.86
+    ],
+    "beat_description": "내 문제를 선택하고 AI 서비스로 연결해 내 결과물 카드를 완성합니다."
+  },
+  {
+    "id": "tracks",
+    "start": 212.81,
+    "end": 227.25,
+    "duration": 14.44,
+    "side": "R",
+    "x": 1240,
+    "y": 170,
+    "width": 680,
+    "height": 620,
+    "type": "motion",
+    "source_caption_indices": [
+      73,
+      74,
+      75,
+      76,
+      77,
+      78,
+      79
+    ],
+    "beats": [
+      0.0,
+      4.14,
+      9.46
+    ],
+    "beat_description": "세 대상 카드가 차례로 선택되며 각각 결과물·도구·첫 서비스와 연결됩니다."
+  }
+]

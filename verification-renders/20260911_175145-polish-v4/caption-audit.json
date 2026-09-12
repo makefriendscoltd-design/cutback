@@ -1,0 +1,158 @@
+{
+  "status": "caption_text_audit_complete",
+  "scope": "Text-only audit of v3 caption cues. Timing, segmentation, rendering, and source caption files were not modified.",
+  "input_captions": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/captions.json",
+  "accepted_audio": "/Users/apple/Downloads/20260911_175145_컷편집_v2_타이트.mp4",
+  "canonical_overrides": {
+    "brand": "aixscool",
+    "presenter": "나민수",
+    "authority": "direct_user_instruction"
+  },
+  "evidence": {
+    "school_context": "/Users/apple/Library/Application Support/orca/codex-accounts/fc2b43f8-13fa-4d4e-990a-16edf703a1e3/home/skills/ai-school-video-edit/references/school-context.md",
+    "local_script_search": {
+      "roots": [
+        "/Users/apple/orca/workspaces/family_pm/ai학교",
+        "/Users/apple/orca/projects/oracle-sangcheol/aixschool"
+      ],
+      "result": "No authentic local script matching this full 209-second recording was found. Existing cutback transcripts were treated as machine evidence, not as an authoritative script."
+    },
+    "focused_audio_transcription": {
+      "method": "Three narrow mono 16 kHz clips from the accepted audio, transcribed with cached mlx-community/whisper-large-v3-turbo and Korean/domain prompts; wording was also checked against sentence context.",
+      "findings": [
+        {
+          "source_time": "80-90s",
+          "heard_text": "그리고 반복하던 일을 AI가 맡기는 자동화를 만들어서 가르치고 있습니다.",
+          "decision": "Retain AI가 맡기는. It is semantically awkward, but this is what the source audio says."
+        },
+        {
+          "source_time": "146-154s",
+          "heard_text": "저희가 졸업에서 확인하려는 것도 분명합니다.",
+          "decision": "Correct cue 51 from 졸업해서 to 졸업에서."
+        },
+        {
+          "source_time": "196-205s",
+          "heard_text": "카톡방 입장 링크와 내 일 AI 적용 키트를 바로 받아보실 수 있습니다.",
+          "decision": "Retain 내 일 AI 적용 키트; fix only standard auxiliary-verb spacing in the following cue."
+        }
+      ]
+    }
+  },
+  "corrections": [
+    {
+      "cue_index": 7,
+      "start": 22.52,
+      "end": 26.64,
+      "from": "안녕하세요. AI 학교 A스쿨을 설립한 교장 남인수입니다.",
+      "to": "안녕하세요. AI 학교 aixscool을 설립한 교장 나민수입니다.",
+      "reason": "Direct user canonical brand and presenter override."
+    },
+    {
+      "cue_index": 14,
+      "start": 44.1,
+      "end": 46.96,
+      "from": "그 뒤로 부업 강의에 한 3,4천만 원을 썼거든요.",
+      "to": "그 뒤로 부업 강의에 한 3~4천만 원을 썼거든요.",
+      "reason": "Numeric range notation."
+    },
+    {
+      "cue_index": 15,
+      "start": 47.12,
+      "end": 49.14,
+      "from": "스마트 스토어, 부동산, 주식,",
+      "to": "스마트스토어, 부동산, 주식,",
+      "reason": "Official service-name spacing."
+    },
+    {
+      "cue_index": 18,
+      "start": 55.22,
+      "end": 59.14,
+      "from": "로고 하나를 3만원에 직접 만들어서 팔았을 때였습니다.",
+      "to": "로고 하나를 3만 원에 직접 만들어서 팔았을 때였습니다.",
+      "reason": "Korean currency-unit spacing."
+    },
+    {
+      "cue_index": 20,
+      "start": 62.26,
+      "end": 64.46,
+      "from": "한편에 하루가 다 갔어요.",
+      "to": "한 편에 하루가 다 갔어요.",
+      "reason": "Counter noun spacing."
+    },
+    {
+      "cue_index": 40,
+      "start": 115.36,
+      "end": 118.02,
+      "from": "이 학교에서는 먼저 자신을 돌아 봅니다.",
+      "to": "이 학교에서는 먼저 자신을 돌아봅니다.",
+      "reason": "돌아보다 is one word."
+    },
+    {
+      "cue_index": 43,
+      "start": 124.3,
+      "end": 126.7,
+      "from": "그 다음에는 내 경험과 기록을",
+      "to": "그다음에는 내 경험과 기록을",
+      "reason": "Standard spacing for sequential 그다음."
+    },
+    {
+      "cue_index": 51,
+      "start": 148.78,
+      "end": 151.5,
+      "from": "저희가 졸업해서 확인하려는 것도 분명합니다.",
+      "to": "저희가 졸업에서 확인하려는 것도 분명합니다.",
+      "reason": "Focused accepted-audio evidence."
+    },
+    {
+      "cue_index": 60,
+      "start": 174.64,
+      "end": 178.3,
+      "from": "직접 시도해볼 첫 서비스를 만들어가길 바랍니다.",
+      "to": "직접 시도해 볼 첫 서비스를 만들어 가길 바랍니다.",
+      "reason": "Auxiliary-verb spacing."
+    },
+    {
+      "cue_index": 67,
+      "start": 197.16,
+      "end": 198.64,
+      "from": "아래에서 신청해주세요.",
+      "to": "아래에서 신청해 주세요.",
+      "reason": "Auxiliary-verb spacing."
+    },
+    {
+      "cue_index": 69,
+      "start": 202.62,
+      "end": 204.04,
+      "from": "바로 받아보실 수 있습니다.",
+      "to": "바로 받아 보실 수 있습니다.",
+      "reason": "Auxiliary-verb spacing."
+    }
+  ],
+  "verified_retained_cues": [
+    {
+      "cue_index": 30,
+      "text": "그리고 반복하던 일을 AI가 맡기는 자동화를 만들어서 가르치고 있습니다.",
+      "reason": "Focused source audio supports AI가, despite semantic awkwardness."
+    },
+    {
+      "cue_indices": [68, 69],
+      "full_text_after_spacing_fix": "카톡방 입장 링크와 내 일 AI 적용 키트를 바로 받아 보실 수 있습니다.",
+      "reason": "Focused source audio and local school product context support 내 일 AI 적용 키트."
+    }
+  ],
+  "uncertain": [
+    {
+      "cue_index": 5,
+      "text": "그 결과 다른 사람에게 보여줄 수 있는 힘이요.",
+      "issue": "The grammar could invite 결과를, but available transcription and audio phrasing do not establish an omitted object particle strongly enough to rewrite spoken content.",
+      "recommendation": "Retain unless an authentic shooting script is located."
+    },
+    {
+      "cue_index": 30,
+      "text": "그리고 반복하던 일을 AI가 맡기는 자동화를 만들어서 가르치고 있습니다.",
+      "issue": "Source audio says AI가 맡기는, while AI에 맡기는 would be semantically smoother.",
+      "recommendation": "Retain for verbatim captions. Use AI에 맡기는 only if editorial correction of the speaker's wording is explicitly desired."
+    }
+  ],
+  "unchanged_policy": "All dates, counts, amounts, product wording, and remaining cue text stay unchanged unless listed above."
+}

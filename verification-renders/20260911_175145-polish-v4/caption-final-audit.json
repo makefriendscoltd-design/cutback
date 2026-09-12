@@ -1,0 +1,18 @@
+{
+  "user_canonical": {
+    "brand": "aixscool",
+    "presenter": "나민수"
+  },
+  "correction_count": 12,
+  "grammatical_repair": {
+    "source_cue": 30,
+    "from": "AI가 맡기는",
+    "to": "AI에 맡기는",
+    "reason": "Minimal particle correction to express speaker intended meaning; audio unchanged."
+  },
+  "cues": 109,
+  "physical_lines_per_cue": 1,
+  "max_width_px_at_76px": 1281.0,
+  "max_allowed_width_px": 1480,
+  "timing": "Split points aligned to word timestamps, with character alignment for spelling corrections."
+}

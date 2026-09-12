@@ -1,0 +1,21 @@
+{
+  "file": "/Users/apple/Downloads/AI학교_가상편집과정_2배속_18초.mp4",
+  "bytes": 3990238,
+  "duration": 18.0,
+  "width": 1920,
+  "height": 1080,
+  "fps": "60/1",
+  "frames": "1080",
+  "audio": "aac",
+  "decodeErrors": 0,
+  "authoredDuration": 36,
+  "playbackRate": 2,
+  "visualReview": "Actual encoded frames at 0.5,3,4,7,12,17 seconds inspected: presenter preview, cursor, ripple closures, waveform and final playback visible",
+  "hyperframesCheck": {
+    "lintErrors": 0,
+    "runtimeErrors": 0,
+    "motionErrors": 0,
+    "contrastFindings": "10 samples of 2 dim inactive track control labels; retained as editor UI styling after visual inspection",
+    "layoutWarning": "Fade curve intentionally clipped inside audio clip"
+  }
+}

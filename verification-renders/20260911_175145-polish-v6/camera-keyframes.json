@@ -1,0 +1,97 @@
+{
+  "subject": "presenter only; captions and side images fixed",
+  "anchor_normalized": [
+    0.495,
+    0.34
+  ],
+  "ease": "sine.inOut",
+  "poses": [
+    {
+      "time": 0,
+      "scale": 1
+    },
+    {
+      "time": 10,
+      "scale": 1.025
+    },
+    {
+      "time": 20,
+      "scale": 1.045
+    },
+    {
+      "time": 22.4891333333333,
+      "scale": 1.045
+    },
+    {
+      "time": 22.4891333333333,
+      "scale": 1
+    },
+    {
+      "time": 32.4891333333333,
+      "scale": 1.045
+    },
+    {
+      "time": 45,
+      "scale": 1.045
+    },
+    {
+      "time": 55,
+      "scale": 1.075
+    },
+    {
+      "time": 65,
+      "scale": 1.03
+    },
+    {
+      "time": 80,
+      "scale": 1.03
+    },
+    {
+      "time": 90,
+      "scale": 1.085
+    },
+    {
+      "time": 100,
+      "scale": 1.045
+    },
+    {
+      "time": 118,
+      "scale": 1.045
+    },
+    {
+      "time": 128,
+      "scale": 1.075
+    },
+    {
+      "time": 138,
+      "scale": 1.03
+    },
+    {
+      "time": 160,
+      "scale": 1.03
+    },
+    {
+      "time": 170,
+      "scale": 1.06
+    },
+    {
+      "time": 180,
+      "scale": 1.09
+    },
+    {
+      "time": 190,
+      "scale": 1.04
+    },
+    {
+      "time": 209.826283333333,
+      "scale": 1.04
+    }
+  ],
+  "source": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/presenter-sharp.mp4",
+  "fps": 59.94005994005994,
+  "zoom_range": [
+    1,
+    1.09
+  ],
+  "reset_reason": "new shot following inserted promotional video"
+}

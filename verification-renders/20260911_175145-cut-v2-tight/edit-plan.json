@@ -1,0 +1,1023 @@
+{
+  "source": "/Users/apple/Downloads/20260911_175145_편집본.mp4",
+  "fps": 59.94005994005994,
+  "source_duration": 263.079483,
+  "duration": 209.82628333333335,
+  "removed": [
+    [
+      0,
+      8.5,
+      "opening preparation"
+    ],
+    [
+      10.576812,
+      10.879062000000001,
+      "tight silence cut, retain 40ms phoneme safety only"
+    ],
+    [
+      13.04,
+      13.940125,
+      "speech boundary agreement: remove breath/noise pause; tight silence cut, retain 40ms phoneme safety only; tight silence cut, retain 40ms phoneme safety only"
+    ],
+    [
+      19.379,
+      19.863729,
+      "tight silence cut, retain 40ms phoneme safety only; speech boundary agreement: remove breath/noise pause"
+    ],
+    [
+      24.212167,
+      24.440104,
+      "tight silence cut, retain 40ms phoneme safety only"
+    ],
+    [
+      29.045042,
+      29.305708,
+      "tight silence cut, retain 40ms phoneme safety only"
+    ],
+    [
+      32.440000000000005,
+      33.95,
+      "speech boundary agreement: remove breath/noise pause; tight silence cut, retain 40ms phoneme safety only; tight silence cut, retain 40ms phoneme safety only"
+    ],
+    [
+      35.450417,
+      36.059833,
+      "tight silence cut, retain 40ms phoneme safety only"
+    ],
+    [
+      36.909458,
+      37.303312999999996,
+      "tight silence cut, retain 40ms phoneme safety only"
+    ],
+    [
+      39.900000000000006,
+      40.57,
+      "speech boundary agreement: remove breath/noise pause; tight silence cut, retain 40ms phoneme safety only"
+    ],
+    [
+      42.781542,
+      43.220833,
+      "tight silence cut, retain 40ms phoneme safety only"
+    ],
+    [
+      43.317229000000005,
+      43.459958,
+      "tight silence cut, retain 40ms phoneme safety only"
+    ],
+    [
+      45.92,
+      46.69,
+      "speech boundary agreement: remove breath/noise pause; tight silence cut, retain 40ms phoneme safety only"
+    ],
+    [
+      49.120521000000004,
+      49.275458,
+      "tight silence cut, retain 40ms phoneme safety only"
+    ],
+    [
+      49.943771000000005,
+      50.402812,
+      "tight silence cut, retain 40ms phoneme safety only"
+    ],
+    [
+      50.96,
+      51.769999999999996,
+      "speech boundary agreement: remove breath/noise pause; tight silence cut, retain 40ms phoneme safety only"
+    ],
+    [
+      54.816104,
+      55.073603999999996,
+      "tight silence cut, retain 40ms phoneme safety only"
+    ],
+    [
+      60.68,
+      61.25,
+      "speech boundary agreement: remove breath/noise pause; tight silence cut, retain 40ms phoneme safety only"
+    ],
+    [
+      64.52,
+      65.23,
+      "speech boundary agreement: remove breath/noise pause; tight silence cut, retain 40ms phoneme safety only; tight silence cut, retain 40ms phoneme safety only"
+    ],
+    [
+      69.066833,
+      69.43079200000001,
+      "tight silence cut, retain 40ms phoneme safety only"
+    ],
+    [
+      70.67999999999999,
+      71.67,
+      "speech boundary agreement: remove breath/noise pause; tight silence cut, retain 40ms phoneme safety only; tight silence cut, retain 40ms phoneme safety only"
+    ],
+    [
+      78.948854,
+      79.608917,
+      "tight silence cut, retain 40ms phoneme safety only"
+    ],
+    [
+      84.708354,
+      85.28143700000001,
+      "tight silence cut, retain 40ms phoneme safety only; speech boundary agreement: remove breath/noise pause"
+    ],
+    [
+      86.062604,
+      86.43593700000001,
+      "tight silence cut, retain 40ms phoneme safety only"
+    ],
+    [
+      87.622125,
+      87.850271,
+      "tight silence cut, retain 40ms phoneme safety only"
+    ],
+    [
+      90.14,
+      91.28999999999999,
+      "speech boundary agreement: remove breath/noise pause"
+    ],
+    [
+      91.97637499999999,
+      92.405125,
+      "tight silence cut, retain 40ms phoneme safety only"
+    ],
+    [
+      94.06133299999999,
+      94.524771,
+      "tight silence cut, retain 40ms phoneme safety only"
+    ],
+    [
+      96.46591699999999,
+      96.714687,
+      "tight silence cut, retain 40ms phoneme safety only"
+    ],
+    [
+      96.83999999999999,
+      97.01,
+      "speech boundary agreement: remove breath/noise pause"
+    ],
+    [
+      98.67804199999999,
+      98.914229,
+      "tight silence cut, retain 40ms phoneme safety only"
+    ],
+    [
+      99.742646,
+      100.03547900000001,
+      "tight silence cut, retain 40ms phoneme safety only"
+    ],
+    [
+      101.016375,
+      101.47,
+      "tight silence cut, retain 40ms phoneme safety only; speech boundary agreement: remove breath/noise pause"
+    ],
+    [
+      103.60074999999999,
+      103.838333,
+      "tight silence cut, retain 40ms phoneme safety only"
+    ],
+    [
+      105.358667,
+      105.592313,
+      "tight silence cut, retain 40ms phoneme safety only"
+    ],
+    [
+      108.40724999999999,
+      108.56875000000001,
+      "tight silence cut, retain 40ms phoneme safety only"
+    ],
+    [
+      109.92679199999999,
+      110.215146,
+      "tight silence cut, retain 40ms phoneme safety only"
+    ],
+    [
+      113.72,
+      114.69,
+      "speech boundary agreement: remove breath/noise pause; tight silence cut, retain 40ms phoneme safety only"
+    ],
+    [
+      115.60787499999999,
+      115.950458,
+      "tight silence cut, retain 40ms phoneme safety only"
+    ],
+    [
+      117.037667,
+      117.19814600000001,
+      "tight silence cut, retain 40ms phoneme safety only"
+    ],
+    [
+      120.11999999999999,
+      120.65,
+      "speech boundary agreement: remove breath/noise pause"
+    ],
+    [
+      121.718458,
+      121.880437,
+      "tight silence cut, retain 40ms phoneme safety only"
+    ],
+    [
+      122.335771,
+      122.585125,
+      "tight silence cut, retain 40ms phoneme safety only"
+    ],
+    [
+      124.24,
+      124.87,
+      "speech boundary agreement: remove breath/noise pause; tight silence cut, retain 40ms phoneme safety only"
+    ],
+    [
+      138.48000000000002,
+      138.95,
+      "speech boundary agreement: remove breath/noise pause; tight silence cut, retain 40ms phoneme safety only"
+    ],
+    [
+      142.324667,
+      142.469583,
+      "tight silence cut, retain 40ms phoneme safety only"
+    ],
+    [
+      144.673729,
+      145.25,
+      "tight silence cut, retain 40ms phoneme safety only; speech boundary agreement: remove breath/noise pause"
+    ],
+    [
+      148.12,
+      148.57,
+      "speech boundary agreement: remove breath/noise pause"
+    ],
+    [
+      149.46,
+      150.51024999999998,
+      "stumbled onset before 쌓아온; keep completed word; tight silence cut, retain 40ms phoneme safety only; tight silence cut, retain 40ms phoneme safety only"
+    ],
+    [
+      155.533187,
+      155.85787499999998,
+      "tight silence cut, retain 40ms phoneme safety only"
+    ],
+    [
+      163.9,
+      164.345646,
+      "speech boundary agreement: remove breath/noise pause; tight silence cut, retain 40ms phoneme safety only"
+    ],
+    [
+      165.540604,
+      165.81058299999998,
+      "tight silence cut, retain 40ms phoneme safety only"
+    ],
+    [
+      166.314771,
+      166.620604,
+      "tight silence cut, retain 40ms phoneme safety only"
+    ],
+    [
+      167.35862500000002,
+      167.62785399999999,
+      "tight silence cut, retain 40ms phoneme safety only"
+    ],
+    [
+      168.574375,
+      168.802563,
+      "tight silence cut, retain 40ms phoneme safety only"
+    ],
+    [
+      171.394667,
+      171.569583,
+      "tight silence cut, retain 40ms phoneme safety only"
+    ],
+    [
+      172.64000000000001,
+      173.6455,
+      "speech boundary agreement: remove breath/noise pause; tight silence cut, retain 40ms phoneme safety only; tight silence cut, retain 40ms phoneme safety only"
+    ],
+    [
+      180.24,
+      180.71,
+      "speech boundary agreement: remove breath/noise pause; tight silence cut, retain 40ms phoneme safety only"
+    ],
+    [
+      183.47975000000002,
+      184.12893699999998,
+      "tight silence cut, retain 40ms phoneme safety only"
+    ],
+    [
+      187.29068700000002,
+      187.58627099999998,
+      "tight silence cut, retain 40ms phoneme safety only"
+    ],
+    [
+      189.792188,
+      190.03058299999998,
+      "tight silence cut, retain 40ms phoneme safety only"
+    ],
+    [
+      193.61070800000002,
+      194.11791699999998,
+      "tight silence cut, retain 40ms phoneme safety only; speech boundary agreement: remove breath/noise pause"
+    ],
+    [
+      198.854208,
+      198.997604,
+      "tight silence cut, retain 40ms phoneme safety only"
+    ],
+    [
+      200.230396,
+      200.686042,
+      "tight silence cut, retain 40ms phoneme safety only"
+    ],
+    [
+      202.513,
+      202.83252099999999,
+      "tight silence cut, retain 40ms phoneme safety only"
+    ],
+    [
+      205.76,
+      207.58,
+      "abandoned 이미 일하시는; keep 이미 일하고 있는; tight silence cut, retain 40ms phoneme safety only; tight silence cut, retain 40ms phoneme safety only"
+    ],
+    [
+      212.67097900000002,
+      213.24935399999998,
+      "tight silence cut, retain 40ms phoneme safety only"
+    ],
+    [
+      218.425625,
+      219.05210399999999,
+      "tight silence cut, retain 40ms phoneme safety only"
+    ],
+    [
+      221.69,
+      225.24,
+      "abandoned 변화 앞에서 무엇보다 배워나가길; keep completed retake; tight silence cut, retain 40ms phoneme safety only"
+    ],
+    [
+      225.294708,
+      225.45360399999998,
+      "tight silence cut, retain 40ms phoneme safety only"
+    ],
+    [
+      229.901667,
+      230.27137499999998,
+      "tight silence cut, retain 40ms phoneme safety only"
+    ],
+    [
+      233.467,
+      233.906812,
+      "tight silence cut, retain 40ms phoneme safety only"
+    ],
+    [
+      233.946917,
+      234.293896,
+      "tight silence cut, retain 40ms phoneme safety only"
+    ],
+    [
+      235.346833,
+      235.533604,
+      "tight silence cut, retain 40ms phoneme safety only"
+    ],
+    [
+      237.585313,
+      237.74110399999998,
+      "tight silence cut, retain 40ms phoneme safety only"
+    ],
+    [
+      239.847854,
+      240.183604,
+      "tight silence cut, retain 40ms phoneme safety only"
+    ],
+    [
+      241.54808300000002,
+      241.76204199999998,
+      "tight silence cut, retain 40ms phoneme safety only"
+    ],
+    [
+      243.771646,
+      244.286792,
+      "tight silence cut, retain 40ms phoneme safety only"
+    ],
+    [
+      245.618333,
+      246.0205,
+      "tight silence cut, retain 40ms phoneme safety only"
+    ],
+    [
+      248.602458,
+      248.901479,
+      "tight silence cut, retain 40ms phoneme safety only"
+    ],
+    [
+      251.78818700000002,
+      252.212604,
+      "tight silence cut, retain 40ms phoneme safety only"
+    ],
+    [
+      253.42000000000002,
+      254.002083,
+      "speech boundary agreement: remove breath/noise pause; tight silence cut, retain 40ms phoneme safety only"
+    ],
+    [
+      256.386896,
+      256.687042,
+      "tight silence cut, retain 40ms phoneme safety only"
+    ],
+    [
+      257.51429199999995,
+      257.710333,
+      "tight silence cut, retain 40ms phoneme safety only"
+    ],
+    [
+      259.0,
+      263.079483,
+      "ending wait; tight silence cut, retain 40ms phoneme safety only"
+    ]
+  ],
+  "clips": [
+    {
+      "source_start": 8.491816666666667,
+      "source_end": 10.577233333333334,
+      "frames": 125,
+      "start": 0.0,
+      "duration": 2.0854166666666667
+    },
+    {
+      "source_start": 10.877533333333334,
+      "source_end": 13.046366666666668,
+      "frames": 130,
+      "start": 2.0854166666666667,
+      "duration": 2.168833333333333
+    },
+    {
+      "source_start": 13.947266666666668,
+      "source_end": 19.386033333333334,
+      "frames": 326,
+      "start": 4.25425,
+      "duration": 5.438766666666667
+    },
+    {
+      "source_start": 19.86985,
+      "source_end": 24.207516666666667,
+      "frames": 260,
+      "start": 9.693016666666667,
+      "duration": 4.337666666666666
+    },
+    {
+      "source_start": 24.441083333333335,
+      "source_end": 29.045683333333333,
+      "frames": 276,
+      "start": 14.030683333333334,
+      "duration": 4.6046000000000005
+    },
+    {
+      "source_start": 29.312616666666667,
+      "source_end": 32.4324,
+      "frames": 187,
+      "start": 18.635283333333334,
+      "duration": 3.1197833333333334
+    },
+    {
+      "source_start": 33.950583333333334,
+      "source_end": 35.452083333333334,
+      "frames": 90,
+      "start": 21.755066666666668,
+      "duration": 1.5015
+    },
+    {
+      "source_start": 36.052683333333334,
+      "source_end": 36.903533333333336,
+      "frames": 51,
+      "start": 23.256566666666668,
+      "duration": 0.85085
+    },
+    {
+      "source_start": 37.30393333333333,
+      "source_end": 39.906533333333336,
+      "frames": 156,
+      "start": 24.107416666666666,
+      "duration": 2.6026000000000002
+    },
+    {
+      "source_start": 40.57386666666667,
+      "source_end": 42.776066666666665,
+      "frames": 132,
+      "start": 26.710016666666668,
+      "duration": 2.2022
+    },
+    {
+      "source_start": 43.22651666666667,
+      "source_end": 43.30993333333333,
+      "frames": 5,
+      "start": 28.912216666666666,
+      "duration": 0.08341666666666667
+    },
+    {
+      "source_start": 43.46008333333334,
+      "source_end": 45.912533333333336,
+      "frames": 147,
+      "start": 28.995633333333334,
+      "duration": 2.4524500000000002
+    },
+    {
+      "source_start": 46.69665,
+      "source_end": 49.11573333333333,
+      "frames": 145,
+      "start": 31.448083333333333,
+      "duration": 2.4190833333333335
+    },
+    {
+      "source_start": 49.28256666666667,
+      "source_end": 49.9499,
+      "frames": 40,
+      "start": 33.86716666666667,
+      "duration": 0.6673333333333333
+    },
+    {
+      "source_start": 50.40035,
+      "source_end": 50.96758333333334,
+      "frames": 34,
+      "start": 34.5345,
+      "duration": 0.5672333333333334
+    },
+    {
+      "source_start": 51.76838333333333,
+      "source_end": 54.82143333333333,
+      "frames": 183,
+      "start": 35.101733333333335,
+      "duration": 3.0530500000000003
+    },
+    {
+      "source_start": 55.07168333333333,
+      "source_end": 60.677283333333335,
+      "frames": 336,
+      "start": 38.154783333333334,
+      "duration": 5.6056
+    },
+    {
+      "source_start": 61.24451666666667,
+      "source_end": 64.51445,
+      "frames": 196,
+      "start": 43.76038333333334,
+      "duration": 3.2699333333333334
+    },
+    {
+      "source_start": 65.23183333333334,
+      "source_end": 69.069,
+      "frames": 230,
+      "start": 47.030316666666664,
+      "duration": 3.8371666666666666
+    },
+    {
+      "source_start": 69.43603333333334,
+      "source_end": 70.68728333333334,
+      "frames": 75,
+      "start": 50.86748333333333,
+      "duration": 1.25125
+    },
+    {
+      "source_start": 71.6716,
+      "source_end": 78.94553333333333,
+      "frames": 436,
+      "start": 52.11873333333333,
+      "duration": 7.273933333333334
+    },
+    {
+      "source_start": 79.61286666666666,
+      "source_end": 84.70128333333334,
+      "frames": 305,
+      "start": 59.39266666666667,
+      "duration": 5.088416666666666
+    },
+    {
+      "source_start": 85.2852,
+      "source_end": 86.06931666666667,
+      "frames": 47,
+      "start": 64.48108333333333,
+      "duration": 0.7841166666666667
+    },
+    {
+      "source_start": 86.43635,
+      "source_end": 87.62086666666667,
+      "frames": 71,
+      "start": 65.26520000000001,
+      "duration": 1.1845166666666667
+    },
+    {
+      "source_start": 87.85443333333333,
+      "source_end": 90.14005,
+      "frames": 137,
+      "start": 66.44971666666667,
+      "duration": 2.285616666666667
+    },
+    {
+      "source_start": 91.2912,
+      "source_end": 91.97521666666667,
+      "frames": 41,
+      "start": 68.73533333333333,
+      "duration": 0.6840166666666667
+    },
+    {
+      "source_start": 92.40898333333334,
+      "source_end": 94.06063333333333,
+      "frames": 99,
+      "start": 69.41935,
+      "duration": 1.65165
+    },
+    {
+      "source_start": 94.52776666666666,
+      "source_end": 96.46303333333333,
+      "frames": 116,
+      "start": 71.071,
+      "duration": 1.9352666666666667
+    },
+    {
+      "source_start": 96.71328333333334,
+      "source_end": 96.84675,
+      "frames": 8,
+      "start": 73.00626666666666,
+      "duration": 0.13346666666666668
+    },
+    {
+      "source_start": 97.01358333333333,
+      "source_end": 98.68191666666667,
+      "frames": 100,
+      "start": 73.13973333333334,
+      "duration": 1.6683333333333334
+    },
+    {
+      "source_start": 98.91548333333334,
+      "source_end": 99.74965,
+      "frames": 50,
+      "start": 74.80806666666666,
+      "duration": 0.8341666666666667
+    },
+    {
+      "source_start": 100.03326666666666,
+      "source_end": 101.01758333333333,
+      "frames": 59,
+      "start": 75.64223333333334,
+      "duration": 0.9843166666666667
+    },
+    {
+      "source_start": 101.46803333333334,
+      "source_end": 103.6035,
+      "frames": 128,
+      "start": 76.62655,
+      "duration": 2.135466666666667
+    },
+    {
+      "source_start": 103.83706666666667,
+      "source_end": 105.35525,
+      "frames": 91,
+      "start": 78.76201666666667,
+      "duration": 1.5181833333333334
+    },
+    {
+      "source_start": 105.58881666666667,
+      "source_end": 108.4083,
+      "frames": 169,
+      "start": 80.28020000000001,
+      "duration": 2.8194833333333333
+    },
+    {
+      "source_start": 108.57513333333334,
+      "source_end": 109.92648333333334,
+      "frames": 81,
+      "start": 83.09968333333333,
+      "duration": 1.35135
+    },
+    {
+      "source_start": 110.2101,
+      "source_end": 113.7136,
+      "frames": 210,
+      "start": 84.45103333333333,
+      "duration": 3.5035000000000003
+    },
+    {
+      "source_start": 114.69791666666667,
+      "source_end": 115.6155,
+      "frames": 55,
+      "start": 87.95453333333333,
+      "duration": 0.9175833333333333
+    },
+    {
+      "source_start": 115.94916666666667,
+      "source_end": 117.03358333333334,
+      "frames": 65,
+      "start": 88.87211666666667,
+      "duration": 1.0844166666666666
+    },
+    {
+      "source_start": 117.20041666666667,
+      "source_end": 120.12,
+      "frames": 175,
+      "start": 89.95653333333334,
+      "duration": 2.919583333333333
+    },
+    {
+      "source_start": 120.65386666666667,
+      "source_end": 121.7216,
+      "frames": 64,
+      "start": 92.87611666666668,
+      "duration": 1.0677333333333334
+    },
+    {
+      "source_start": 121.88843333333334,
+      "source_end": 122.33888333333334,
+      "frames": 27,
+      "start": 93.94385,
+      "duration": 0.45045
+    },
+    {
+      "source_start": 122.58913333333334,
+      "source_end": 124.24078333333334,
+      "frames": 99,
+      "start": 94.3943,
+      "duration": 1.65165
+    },
+    {
+      "source_start": 124.87475,
+      "source_end": 138.47166666666666,
+      "frames": 815,
+      "start": 96.04595,
+      "duration": 13.596916666666667
+    },
+    {
+      "source_start": 138.95548333333335,
+      "source_end": 142.32551666666666,
+      "frames": 202,
+      "start": 109.64286666666666,
+      "duration": 3.370033333333333
+    },
+    {
+      "source_start": 142.47566666666668,
+      "source_end": 144.67786666666666,
+      "frames": 132,
+      "start": 113.0129,
+      "duration": 2.2022
+    },
+    {
+      "source_start": 145.2451,
+      "source_end": 148.11463333333333,
+      "frames": 172,
+      "start": 115.2151,
+      "duration": 2.8695333333333335
+    },
+    {
+      "source_start": 148.56508333333335,
+      "source_end": 149.46598333333333,
+      "frames": 54,
+      "start": 118.08463333333333,
+      "duration": 0.9009
+    },
+    {
+      "source_start": 150.51703333333333,
+      "source_end": 155.53871666666666,
+      "frames": 301,
+      "start": 118.98553333333334,
+      "duration": 5.021683333333334
+    },
+    {
+      "source_start": 155.8557,
+      "source_end": 163.89706666666666,
+      "frames": 482,
+      "start": 124.00721666666666,
+      "duration": 8.041366666666667
+    },
+    {
+      "source_start": 164.34751666666668,
+      "source_end": 165.54871666666668,
+      "frames": 72,
+      "start": 132.04858333333334,
+      "duration": 1.2012
+    },
+    {
+      "source_start": 165.81565,
+      "source_end": 166.31615,
+      "frames": 30,
+      "start": 133.24978333333334,
+      "duration": 0.5005000000000001
+    },
+    {
+      "source_start": 166.61645000000001,
+      "source_end": 167.35051666666666,
+      "frames": 44,
+      "start": 133.75028333333333,
+      "duration": 0.7340666666666666
+    },
+    {
+      "source_start": 167.63413333333332,
+      "source_end": 168.5684,
+      "frames": 56,
+      "start": 134.48435,
+      "duration": 0.9342666666666667
+    },
+    {
+      "source_start": 168.80196666666666,
+      "source_end": 171.38788333333335,
+      "frames": 155,
+      "start": 135.41861666666668,
+      "duration": 2.585916666666667
+    },
+    {
+      "source_start": 171.5714,
+      "source_end": 172.63913333333335,
+      "frames": 64,
+      "start": 138.00453333333334,
+      "duration": 1.0677333333333334
+    },
+    {
+      "source_start": 173.64013333333332,
+      "source_end": 180.24673333333334,
+      "frames": 396,
+      "start": 139.07226666666668,
+      "duration": 6.6066
+    },
+    {
+      "source_start": 180.71386666666666,
+      "source_end": 183.4833,
+      "frames": 166,
+      "start": 145.67886666666666,
+      "duration": 2.769433333333333
+    },
+    {
+      "source_start": 184.13395,
+      "source_end": 187.2871,
+      "frames": 189,
+      "start": 148.4483,
+      "duration": 3.15315
+    },
+    {
+      "source_start": 187.5874,
+      "source_end": 189.7896,
+      "frames": 132,
+      "start": 151.60145,
+      "duration": 2.2022
+    },
+    {
+      "source_start": 190.02316666666667,
+      "source_end": 193.61008333333334,
+      "frames": 215,
+      "start": 153.80365,
+      "duration": 3.5869166666666668
+    },
+    {
+      "source_start": 194.11058333333332,
+      "source_end": 198.84865,
+      "frames": 284,
+      "start": 157.39056666666667,
+      "duration": 4.738066666666667
+    },
+    {
+      "source_start": 198.99880000000002,
+      "source_end": 200.23336666666668,
+      "frames": 74,
+      "start": 162.12863333333334,
+      "duration": 1.2345666666666666
+    },
+    {
+      "source_start": 200.68381666666667,
+      "source_end": 202.51898333333332,
+      "frames": 110,
+      "start": 163.3632,
+      "duration": 1.8351666666666666
+    },
+    {
+      "source_start": 202.83596666666668,
+      "source_end": 205.75555,
+      "frames": 175,
+      "start": 165.19836666666666,
+      "duration": 2.919583333333333
+    },
+    {
+      "source_start": 207.57403333333335,
+      "source_end": 212.67913333333334,
+      "frames": 306,
+      "start": 168.11795,
+      "duration": 5.1051
+    },
+    {
+      "source_start": 213.24636666666666,
+      "source_end": 218.4182,
+      "frames": 310,
+      "start": 173.22305,
+      "duration": 5.171833333333334
+    },
+    {
+      "source_start": 219.05216666666666,
+      "source_end": 221.68813333333333,
+      "frames": 158,
+      "start": 178.39488333333333,
+      "duration": 2.6359666666666666
+    },
+    {
+      "source_start": 225.24168333333333,
+      "source_end": 225.29173333333333,
+      "frames": 3,
+      "start": 181.03085000000002,
+      "duration": 0.050050000000000004
+    },
+    {
+      "source_start": 225.45856666666668,
+      "source_end": 229.89633333333333,
+      "frames": 266,
+      "start": 181.0809,
+      "duration": 4.437766666666667
+    },
+    {
+      "source_start": 230.26336666666668,
+      "source_end": 233.46656666666667,
+      "frames": 192,
+      "start": 185.51866666666666,
+      "duration": 3.2032000000000003
+    },
+    {
+      "source_start": 233.90033333333335,
+      "source_end": 233.95038333333335,
+      "frames": 3,
+      "start": 188.72186666666667,
+      "duration": 0.050050000000000004
+    },
+    {
+      "source_start": 234.30073333333334,
+      "source_end": 235.35178333333334,
+      "frames": 63,
+      "start": 188.77191666666667,
+      "duration": 1.05105
+    },
+    {
+      "source_start": 235.5353,
+      "source_end": 237.58735000000001,
+      "frames": 123,
+      "start": 189.82296666666667,
+      "duration": 2.05205
+    },
+    {
+      "source_start": 237.7375,
+      "source_end": 239.8396,
+      "frames": 126,
+      "start": 191.87501666666668,
+      "duration": 2.1021
+    },
+    {
+      "source_start": 240.18995,
+      "source_end": 241.5413,
+      "frames": 81,
+      "start": 193.97711666666666,
+      "duration": 1.35135
+    },
+    {
+      "source_start": 241.75818333333333,
+      "source_end": 243.77686666666668,
+      "frames": 121,
+      "start": 195.32846666666666,
+      "duration": 2.018683333333333
+    },
+    {
+      "source_start": 244.29405,
+      "source_end": 245.61203333333333,
+      "frames": 79,
+      "start": 197.34715,
+      "duration": 1.3179833333333333
+    },
+    {
+      "source_start": 246.01243333333335,
+      "source_end": 248.59835,
+      "frames": 155,
+      "start": 198.66513333333333,
+      "duration": 2.585916666666667
+    },
+    {
+      "source_start": 248.89865,
+      "source_end": 251.78486666666666,
+      "frames": 173,
+      "start": 201.25105,
+      "duration": 2.886216666666667
+    },
+    {
+      "source_start": 252.21863333333334,
+      "source_end": 253.41983333333334,
+      "frames": 72,
+      "start": 204.13726666666668,
+      "duration": 1.2012
+    },
+    {
+      "source_start": 254.00375,
+      "source_end": 256.3894666666667,
+      "frames": 143,
+      "start": 205.33846666666668,
+      "duration": 2.3857166666666667
+    },
+    {
+      "source_start": 256.6897666666667,
+      "source_end": 257.50725,
+      "frames": 49,
+      "start": 207.72418333333334,
+      "duration": 0.8174833333333333
+    },
+    {
+      "source_start": 257.70745,
+      "source_end": 258.9920666666667,
+      "frames": 77,
+      "start": 208.54166666666666,
+      "duration": 1.2846166666666667
+    }
+  ]
+}

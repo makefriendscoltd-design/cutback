@@ -1,0 +1,24 @@
+{
+  "output": "/Users/apple/Downloads/20260911_175145_수정완성_v4.mp4",
+  "canonical_brand": "aixscool",
+  "canonical_presenter": "나민수",
+  "caption_count": 109,
+  "actual_output_caption_frames_checked": 109,
+  "physical_lines_per_cue": 1,
+  "verification_method": "Vision OCR found one row on 103 frames; six exceptions (two missed text, four shirt symbols misread as extra rows) visually inspected in ocr-exceptions.jpg; all six have one caption row.",
+  "caption_spelling": "Independent text audit plus direct user canonical overrides; minimal AI가→AI에 grammatical repair recorded in caption-final-audit.json.",
+  "image_dimensions_px": [
+    620,
+    500
+  ],
+  "image_area_vs_previous": 2.2,
+  "opening_image_and_sfx_seconds": [
+    0.12,
+    4.35
+  ],
+  "total_image_and_sfx_events": 12,
+  "final_audio_peak_dbfs": -0.4,
+  "decode_errors": 0,
+  "frames_preserved": 12577,
+  "manual_audio_listening": "Not performed; effect track level and actual final mix peak measured. For listening review: open the final MP4."
+}

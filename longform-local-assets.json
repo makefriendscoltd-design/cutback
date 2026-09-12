@@ -1,0 +1,1305 @@
+{
+  "purpose": "Local media/dependency inventory; media contents are not stored in Git. Historical versions may contain missing obsolete assets.",
+  "assets": [
+    {
+      "path": "verification-renders/20260911_175145-cut-v1/composition/source.mp4",
+      "resolved": "/Users/apple/Downloads/20260911_175145_편집본.mp4",
+      "exists": true,
+      "bytes": 388556285
+    },
+    {
+      "path": "verification-renders/20260911_175145-cut-v2-tight/composition/source.mp4",
+      "resolved": "/Users/apple/Downloads/20260911_175145_편집본.mp4",
+      "exists": true,
+      "bytes": 388556285
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v3/cards/design/gsap.min.js",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/gsap.min.js",
+      "exists": true,
+      "bytes": 72779
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v3/cards/design/font.ttf",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/Pretendard-Bold.ttf",
+      "exists": true,
+      "bytes": 2661752
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v3/cards/design/photo.jpg",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/photos/03-logo-design.jpg",
+      "exists": true,
+      "bytes": 231525
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v3/cards/together/gsap.min.js",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/gsap.min.js",
+      "exists": true,
+      "bytes": 72779
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v3/cards/together/font.ttf",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/Pretendard-Bold.ttf",
+      "exists": true,
+      "bytes": 2661752
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v3/cards/together/photo.jpg",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/photos/08-team-hands.jpg",
+      "exists": true,
+      "bytes": 323121
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v3/cards/learning/gsap.min.js",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/gsap.min.js",
+      "exists": true,
+      "bytes": 72779
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v3/cards/learning/font.ttf",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/Pretendard-Bold.ttf",
+      "exists": true,
+      "bytes": 2661752
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v3/cards/learning/photo.jpg",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/photos/06-learning-workshop.jpg",
+      "exists": true,
+      "bytes": 467228
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v3/cards/blog/gsap.min.js",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/gsap.min.js",
+      "exists": true,
+      "bytes": 72779
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v3/cards/blog/font.ttf",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/Pretendard-Bold.ttf",
+      "exists": true,
+      "bytes": 2661752
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v3/cards/blog/photo.jpg",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/photos/04-blogging-laptop.jpg",
+      "exists": true,
+      "bytes": 170889
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v3/cards/meeting/gsap.min.js",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/gsap.min.js",
+      "exists": true,
+      "bytes": 72779
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v3/cards/meeting/font.ttf",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/Pretendard-Bold.ttf",
+      "exists": true,
+      "bytes": 2661752
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v3/cards/meeting/photo.jpg",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/photos/07-teamwork-meeting.jpg",
+      "exists": true,
+      "bytes": 267811
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v3/cards/renovation/gsap.min.js",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/gsap.min.js",
+      "exists": true,
+      "bytes": 72779
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v3/cards/renovation/font.ttf",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/Pretendard-Bold.ttf",
+      "exists": true,
+      "bytes": 2661752
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v3/cards/renovation/photo.jpg",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/photos/01-renovation.jpg",
+      "exists": true,
+      "bytes": 224726
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v3/cards/cafe/gsap.min.js",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/gsap.min.js",
+      "exists": true,
+      "bytes": 72779
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v3/cards/cafe/font.ttf",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/Pretendard-Bold.ttf",
+      "exists": true,
+      "bytes": 2661752
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v3/cards/cafe/photo.jpg",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/photos/02-cozy-cafe.jpg",
+      "exists": true,
+      "bytes": 129898
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v3/cards/coding/gsap.min.js",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/gsap.min.js",
+      "exists": true,
+      "bytes": 72779
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v3/cards/coding/font.ttf",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/Pretendard-Bold.ttf",
+      "exists": true,
+      "bytes": 2661752
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v3/cards/coding/photo.jpg",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/photos/05-coding.jpg",
+      "exists": true,
+      "bytes": 168004
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v3/cards/automation/gsap.min.js",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/gsap.min.js",
+      "exists": true,
+      "bytes": 72779
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v3/cards/automation/font.ttf",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/Pretendard-Bold.ttf",
+      "exists": true,
+      "bytes": 2661752
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v3/cards/automation/photo.jpg",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/photos/05-coding.jpg",
+      "exists": true,
+      "bytes": 168004
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v3/cards/cafe-recall/gsap.min.js",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/gsap.min.js",
+      "exists": true,
+      "bytes": 72779
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v3/cards/cafe-recall/font.ttf",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/Pretendard-Bold.ttf",
+      "exists": true,
+      "bytes": 2661752
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v3/cards/cafe-recall/photo.jpg",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/photos/02-cozy-cafe.jpg",
+      "exists": true,
+      "bytes": 129898
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v3/assets/gsap.min.js",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/gsap.min.js",
+      "exists": true,
+      "bytes": 72779
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v3/assets/soft-pop.wav",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/soft-pop.wav",
+      "exists": true,
+      "bytes": 30764
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v3/assets/presenter-sharp.mp4",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/presenter-sharp.mp4",
+      "exists": true,
+      "bytes": 584921807
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v3/assets/Pretendard-Bold.ttf",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/Pretendard-Bold.ttf",
+      "exists": true,
+      "bytes": 2661752
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v3/assets/photos/08-team-hands.jpg",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/photos/08-team-hands.jpg",
+      "exists": true,
+      "bytes": 323121
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v3/assets/photos/01-renovation.jpg",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/photos/01-renovation.jpg",
+      "exists": true,
+      "bytes": 224726
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v3/assets/photos/02-cozy-cafe.jpg",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/photos/02-cozy-cafe.jpg",
+      "exists": true,
+      "bytes": 129898
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v3/assets/photos/03-logo-design.jpg",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/photos/03-logo-design.jpg",
+      "exists": true,
+      "bytes": 231525
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v3/assets/photos/04-blogging-laptop.jpg",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/photos/04-blogging-laptop.jpg",
+      "exists": true,
+      "bytes": 170889
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v3/assets/photos/05-coding.jpg",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/photos/05-coding.jpg",
+      "exists": true,
+      "bytes": 168004
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v3/assets/photos/07-teamwork-meeting.jpg",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/photos/07-teamwork-meeting.jpg",
+      "exists": true,
+      "bytes": 267811
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v3/assets/photos/06-learning-workshop.jpg",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/photos/06-learning-workshop.jpg",
+      "exists": true,
+      "bytes": 467228
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v4/cards/design/gsap.min.js",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/gsap.min.js",
+      "exists": true,
+      "bytes": 72779
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v4/cards/design/font.ttf",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/Pretendard-Bold.ttf",
+      "exists": true,
+      "bytes": 2661752
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v4/cards/design/photo.jpg",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/photos/03-logo-design.jpg",
+      "exists": true,
+      "bytes": 231525
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v4/cards/opening-work/gsap.min.js",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/gsap.min.js",
+      "exists": true,
+      "bytes": 72779
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v4/cards/opening-work/font.ttf",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/Pretendard-Bold.ttf",
+      "exists": true,
+      "bytes": 2661752
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v4/cards/opening-work/photo.jpg",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/photos/05-coding.jpg",
+      "exists": true,
+      "bytes": 168004
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v4/cards/together/gsap.min.js",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/gsap.min.js",
+      "exists": true,
+      "bytes": 72779
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v4/cards/together/font.ttf",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/Pretendard-Bold.ttf",
+      "exists": true,
+      "bytes": 2661752
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v4/cards/together/photo.jpg",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/photos/08-team-hands.jpg",
+      "exists": true,
+      "bytes": 323121
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v4/cards/learning/gsap.min.js",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/gsap.min.js",
+      "exists": true,
+      "bytes": 72779
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v4/cards/learning/font.ttf",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/Pretendard-Bold.ttf",
+      "exists": true,
+      "bytes": 2661752
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v4/cards/learning/photo.jpg",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/photos/06-learning-workshop.jpg",
+      "exists": true,
+      "bytes": 467228
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v4/cards/blog/gsap.min.js",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/gsap.min.js",
+      "exists": true,
+      "bytes": 72779
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v4/cards/blog/font.ttf",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/Pretendard-Bold.ttf",
+      "exists": true,
+      "bytes": 2661752
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v4/cards/blog/photo.jpg",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/photos/04-blogging-laptop.jpg",
+      "exists": true,
+      "bytes": 170889
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v4/cards/opening-study/gsap.min.js",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/gsap.min.js",
+      "exists": true,
+      "bytes": 72779
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v4/cards/opening-study/font.ttf",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/Pretendard-Bold.ttf",
+      "exists": true,
+      "bytes": 2661752
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v4/cards/opening-study/photo.jpg",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/photos/06-learning-workshop.jpg",
+      "exists": true,
+      "bytes": 467228
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v4/cards/meeting/gsap.min.js",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/gsap.min.js",
+      "exists": true,
+      "bytes": 72779
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v4/cards/meeting/font.ttf",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/Pretendard-Bold.ttf",
+      "exists": true,
+      "bytes": 2661752
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v4/cards/meeting/photo.jpg",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/photos/07-teamwork-meeting.jpg",
+      "exists": true,
+      "bytes": 267811
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v4/cards/renovation/gsap.min.js",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/gsap.min.js",
+      "exists": true,
+      "bytes": 72779
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v4/cards/renovation/font.ttf",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/Pretendard-Bold.ttf",
+      "exists": true,
+      "bytes": 2661752
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v4/cards/renovation/photo.jpg",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/photos/01-renovation.jpg",
+      "exists": true,
+      "bytes": 224726
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v4/cards/cafe/gsap.min.js",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/gsap.min.js",
+      "exists": true,
+      "bytes": 72779
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v4/cards/cafe/font.ttf",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/Pretendard-Bold.ttf",
+      "exists": true,
+      "bytes": 2661752
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v4/cards/cafe/photo.jpg",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/photos/02-cozy-cafe.jpg",
+      "exists": true,
+      "bytes": 129898
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v4/cards/coding/gsap.min.js",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/gsap.min.js",
+      "exists": true,
+      "bytes": 72779
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v4/cards/coding/font.ttf",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/Pretendard-Bold.ttf",
+      "exists": true,
+      "bytes": 2661752
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v4/cards/coding/photo.jpg",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/photos/05-coding.jpg",
+      "exists": true,
+      "bytes": 168004
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v4/cards/automation/gsap.min.js",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/gsap.min.js",
+      "exists": true,
+      "bytes": 72779
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v4/cards/automation/font.ttf",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/Pretendard-Bold.ttf",
+      "exists": true,
+      "bytes": 2661752
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v4/cards/automation/photo.jpg",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/photos/05-coding.jpg",
+      "exists": true,
+      "bytes": 168004
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v4/cards/cafe-recall/gsap.min.js",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/gsap.min.js",
+      "exists": true,
+      "bytes": 72779
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v4/cards/cafe-recall/font.ttf",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/Pretendard-Bold.ttf",
+      "exists": true,
+      "bytes": 2661752
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v4/cards/cafe-recall/photo.jpg",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/photos/02-cozy-cafe.jpg",
+      "exists": true,
+      "bytes": 129898
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v4/assets/gsap.min.js",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/gsap.min.js",
+      "exists": true,
+      "bytes": 72779
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v4/assets/soft-pop.wav",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v4/assets/soft-pop.wav",
+      "exists": true,
+      "bytes": 30764
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v4/assets/presenter-sharp.mp4",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/presenter-sharp.mp4",
+      "exists": true,
+      "bytes": 584921807
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v4/assets/Pretendard-Bold.ttf",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/Pretendard-Bold.ttf",
+      "exists": true,
+      "bytes": 2661752
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v4/assets/photos",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/photos",
+      "exists": true,
+      "bytes": null
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v5/renders",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v4/renders",
+      "exists": true,
+      "bytes": null
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v5/camera-composition/source.mp4",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/presenter-sharp.mp4",
+      "exists": true,
+      "bytes": 584921807
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v5/camera-composition/gsap.min.js",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/gsap.min.js",
+      "exists": true,
+      "bytes": 72779
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v5/assets/gsap.min.js",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/gsap.min.js",
+      "exists": true,
+      "bytes": 72779
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v5/assets/timeline-base.failed.mp4",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v5/assets/timeline-base.failed.mp4",
+      "exists": true,
+      "bytes": 570063720
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v5/assets/presenter-camera.mp4",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v5/assets/presenter-camera.mp4",
+      "exists": true,
+      "bytes": 579562073
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v5/assets/soft-pop.wav",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v4/assets/soft-pop.wav",
+      "exists": true,
+      "bytes": 30764
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v5/assets/Pretendard-Bold.ttf",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/Pretendard-Bold.ttf",
+      "exists": true,
+      "bytes": 2661752
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v5/assets/timeline-base.mp4",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v5/assets/timeline-base.mp4",
+      "exists": true,
+      "bytes": 665635710
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v5/assets/relight-mask.png",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v5/assets/relight-mask.png",
+      "exists": true,
+      "bytes": 120383
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v5/assets/photos",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/photos",
+      "exists": true,
+      "bytes": null
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v5/assets/staged/promo.mov",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v5/assets/staged/promo.mov",
+      "exists": true,
+      "bytes": 35703287
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v5/assets/staged/relit.mp4",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v5/assets/staged/relit.mp4",
+      "exists": true,
+      "bytes": 632171222
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v5/assets/staged/pre.mov",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v5/assets/staged/pre.mov",
+      "exists": true,
+      "bytes": 70347289
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v5/assets/staged/post.mov",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v5/assets/staged/post.mov",
+      "exists": true,
+      "bytes": 600787050
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v6/renders-refined/learning-loop.webm",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v6/renders-refined/learning-loop.webm",
+      "exists": true,
+      "bytes": 226095
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v6/renders-refined/problem-flow.webm",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v6/renders-refined/problem-flow.webm",
+      "exists": true,
+      "bytes": 192329
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v6/renders-refined/design.webm",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v6/renders/design.webm",
+      "exists": true,
+      "bytes": 600395
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v6/renders-refined/records-layout-draft.mov",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v6/renders-refined/records-layout-draft.mov",
+      "exists": true,
+      "bytes": 54218699
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v6/renders-refined/blog.webm",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v6/renders/blog.webm",
+      "exists": true,
+      "bytes": 475392
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v6/renders-refined/blog.mov",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v6/renders/blog.mov",
+      "exists": true,
+      "bytes": 81609846
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v6/renders-refined/renovation.mov",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v6/renders/renovation.mov",
+      "exists": true,
+      "bytes": 70868289
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v6/renders-refined/together.mov",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v6/renders/together.mov",
+      "exists": true,
+      "bytes": 95813653
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v6/renders-refined/meeting.webm",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v6/renders/meeting.webm",
+      "exists": true,
+      "bytes": 471261
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v6/renders-refined/records.webm",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v6/renders-refined/records.webm",
+      "exists": true,
+      "bytes": 193881
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v6/renders-refined/automation.mov",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v6/renders-refined/automation.mov",
+      "exists": true,
+      "bytes": 35598522
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v6/renders-refined/outcome.mov",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v6/renders-refined/outcome.mov",
+      "exists": true,
+      "bytes": 107356121
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v6/renders-refined/automation.webm",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v6/renders-refined/automation.webm",
+      "exists": true,
+      "bytes": 177287
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v6/renders-refined/learning-loop.mov",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v6/renders-refined/learning-loop.mov",
+      "exists": true,
+      "bytes": 75448020
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v6/renders-refined/school-path.mov",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v6/renders-refined/school-path.mov",
+      "exists": true,
+      "bytes": 73272247
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v6/renders-refined/tracks.mov",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v6/renders-refined/tracks.mov",
+      "exists": true,
+      "bytes": 119579239
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v6/renders-refined/problem-flow.mov",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v6/renders-refined/problem-flow.mov",
+      "exists": true,
+      "bytes": 64357428
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v6/renders-refined/overload.mov",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v6/renders-refined/overload.mov",
+      "exists": true,
+      "bytes": 108559386
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v6/renders-refined/design.mov",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v6/renders/design.mov",
+      "exists": true,
+      "bytes": 84515493
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v6/renders-refined/meeting.mov",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v6/renders/meeting.mov",
+      "exists": true,
+      "bytes": 121202571
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v6/renders-refined/opening-study.mov",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v6/renders/opening-study.mov",
+      "exists": true,
+      "bytes": 74748738
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v6/renders-refined/opening-work.mov",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v6/renders/opening-work.mov",
+      "exists": true,
+      "bytes": 72741861
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v6/renders-refined/opening-study.webm",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v6/renders/opening-study.webm",
+      "exists": true,
+      "bytes": 684730
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v6/renders-refined/school-path.webm",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v6/renders-refined/school-path.webm",
+      "exists": true,
+      "bytes": 236705
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v6/renders-refined/cafe.mov",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v6/renders/cafe.mov",
+      "exists": true,
+      "bytes": 102133086
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v6/renders-refined/records.mov",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v6/renders-refined/records.mov",
+      "exists": true,
+      "bytes": 52070812
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v6/renders-refined/together.webm",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v6/renders/together.webm",
+      "exists": true,
+      "bytes": 401636
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v6/renders-refined/opening-work.webm",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v6/renders/opening-work.webm",
+      "exists": true,
+      "bytes": 486893
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v6/renders-refined/outcome.webm",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v6/renders-refined/outcome.webm",
+      "exists": true,
+      "bytes": 258878
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v6/renders-refined/tracks.webm",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v6/renders-refined/tracks.webm",
+      "exists": true,
+      "bytes": 281206
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v6/renders-refined/records-layout-draft.webm",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v6/renders-refined/records-layout-draft.webm",
+      "exists": true,
+      "bytes": 193782
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v6/renders-refined/renovation.webm",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v6/renders/renovation.webm",
+      "exists": true,
+      "bytes": 630960
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v6/renders-refined/cafe.webm",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v6/renders/cafe.webm",
+      "exists": true,
+      "bytes": 500283
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v6/renders-refined/overload.webm",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v6/renders-refined/overload.webm",
+      "exists": true,
+      "bytes": 278953
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v6/cards/design/gsap.min.js",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/gsap.min.js",
+      "exists": true,
+      "bytes": 72779
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v6/cards/design/font.ttf",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/Pretendard-Bold.ttf",
+      "exists": true,
+      "bytes": 2661752
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v6/cards/design/photo.jpg",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/photos/03-logo-design.jpg",
+      "exists": true,
+      "bytes": 231525
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v6/cards/opening-work/gsap.min.js",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/gsap.min.js",
+      "exists": true,
+      "bytes": 72779
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v6/cards/opening-work/font.ttf",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/Pretendard-Bold.ttf",
+      "exists": true,
+      "bytes": 2661752
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v6/cards/opening-work/photo.jpg",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/photos/05-coding.jpg",
+      "exists": true,
+      "bytes": 168004
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v6/cards/together/gsap.min.js",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/gsap.min.js",
+      "exists": true,
+      "bytes": 72779
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v6/cards/together/font.ttf",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/Pretendard-Bold.ttf",
+      "exists": true,
+      "bytes": 2661752
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v6/cards/together/photo.jpg",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/photos/08-team-hands.jpg",
+      "exists": true,
+      "bytes": 323121
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v6/cards/blog/gsap.min.js",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/gsap.min.js",
+      "exists": true,
+      "bytes": 72779
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v6/cards/blog/font.ttf",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/Pretendard-Bold.ttf",
+      "exists": true,
+      "bytes": 2661752
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v6/cards/blog/photo.jpg",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/photos/04-blogging-laptop.jpg",
+      "exists": true,
+      "bytes": 170889
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v6/cards/opening-study/gsap.min.js",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/gsap.min.js",
+      "exists": true,
+      "bytes": 72779
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v6/cards/opening-study/font.ttf",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/Pretendard-Bold.ttf",
+      "exists": true,
+      "bytes": 2661752
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v6/cards/opening-study/photo.jpg",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/photos/06-learning-workshop.jpg",
+      "exists": true,
+      "bytes": 467228
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v6/cards/meeting/gsap.min.js",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/gsap.min.js",
+      "exists": true,
+      "bytes": 72779
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v6/cards/meeting/font.ttf",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/Pretendard-Bold.ttf",
+      "exists": true,
+      "bytes": 2661752
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v6/cards/meeting/photo.jpg",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/photos/07-teamwork-meeting.jpg",
+      "exists": true,
+      "bytes": 267811
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v6/cards/renovation/gsap.min.js",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/gsap.min.js",
+      "exists": true,
+      "bytes": 72779
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v6/cards/renovation/font.ttf",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/Pretendard-Bold.ttf",
+      "exists": true,
+      "bytes": 2661752
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v6/cards/renovation/photo.jpg",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/photos/01-renovation.jpg",
+      "exists": true,
+      "bytes": 224726
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v6/cards/cafe/gsap.min.js",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/gsap.min.js",
+      "exists": true,
+      "bytes": 72779
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v6/cards/cafe/font.ttf",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/Pretendard-Bold.ttf",
+      "exists": true,
+      "bytes": 2661752
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v6/cards/cafe/photo.jpg",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/photos/02-cozy-cafe.jpg",
+      "exists": true,
+      "bytes": 129898
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v6/motion/school-path/assets",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v6/motion/assets",
+      "exists": true,
+      "bytes": null
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v6/motion/records/assets",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v6/motion/assets",
+      "exists": true,
+      "bytes": null
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v6/motion/tracks/assets",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v6/motion/assets",
+      "exists": true,
+      "bytes": null
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v6/motion/outcome/assets",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v6/motion/assets",
+      "exists": true,
+      "bytes": null
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v6/motion/problem-flow/assets",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v6/motion/assets",
+      "exists": true,
+      "bytes": null
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v6/motion/learning-loop/assets",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v6/motion/assets",
+      "exists": true,
+      "bytes": null
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v6/motion/automation/assets",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v6/motion/assets",
+      "exists": true,
+      "bytes": null
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v6/motion/assets/gsap.min.js",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/gsap.min.js",
+      "exists": true,
+      "bytes": 72779
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v6/motion/assets/Pretendard-Bold.ttf",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/Pretendard-Bold.ttf",
+      "exists": true,
+      "bytes": 2661752
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v6/motion/overload/assets",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v6/motion/assets",
+      "exists": true,
+      "bytes": null
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v6/motion-refined/school-path/assets",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v6/motion-refined/assets",
+      "exists": true,
+      "bytes": null
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v6/motion-refined/records/assets",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v6/motion-refined/assets",
+      "exists": true,
+      "bytes": null
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v6/motion-refined/tracks/assets",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v6/motion-refined/assets",
+      "exists": true,
+      "bytes": null
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v6/motion-refined/outcome/assets",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v6/motion-refined/assets",
+      "exists": true,
+      "bytes": null
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v6/motion-refined/problem-flow/assets",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v6/motion-refined/assets",
+      "exists": true,
+      "bytes": null
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v6/motion-refined/learning-loop/assets",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v6/motion-refined/assets",
+      "exists": true,
+      "bytes": null
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v6/motion-refined/automation/assets",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v6/motion-refined/assets",
+      "exists": true,
+      "bytes": null
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v6/motion-refined/assets/gsap.min.js",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/gsap.min.js",
+      "exists": true,
+      "bytes": 72779
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v6/motion-refined/assets/Pretendard-Bold.ttf",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/Pretendard-Bold.ttf",
+      "exists": true,
+      "bytes": 2661752
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v6/motion-refined/overload/assets",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v6/motion-refined/assets",
+      "exists": true,
+      "bytes": null
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v6/assets/gsap.min.js",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/gsap.min.js",
+      "exists": true,
+      "bytes": 72779
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v6/assets/soft-pop.wav",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v4/assets/soft-pop.wav",
+      "exists": true,
+      "bytes": 30764
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v6/assets/Pretendard-Bold.ttf",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/Pretendard-Bold.ttf",
+      "exists": true,
+      "bytes": 2661752
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v6/assets/timeline-base.mp4",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v5/assets/timeline-base.mp4",
+      "exists": true,
+      "bytes": 665635710
+    },
+    {
+      "path": "verification-renders/20260911_175145-polish-v6/assets/photos",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/photos",
+      "exists": true,
+      "bytes": null
+    },
+    {
+      "path": "verification-renders/editor-simulation-v1/assets/thumb-03.jpg",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/editor-simulation-v1/assets/thumb-03.jpg",
+      "exists": true,
+      "bytes": 13171
+    },
+    {
+      "path": "verification-renders/editor-simulation-v1/assets/thumb-02.jpg",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/editor-simulation-v1/assets/thumb-02.jpg",
+      "exists": true,
+      "bytes": 13076
+    },
+    {
+      "path": "verification-renders/editor-simulation-v1/assets/thumb-01.jpg",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/editor-simulation-v1/assets/thumb-01.jpg",
+      "exists": true,
+      "bytes": 13066
+    },
+    {
+      "path": "verification-renders/editor-simulation-v1/assets/thumb-11.jpg",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/editor-simulation-v1/assets/thumb-11.jpg",
+      "exists": true,
+      "bytes": 12967
+    },
+    {
+      "path": "verification-renders/editor-simulation-v1/assets/thumb-05.jpg",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/editor-simulation-v1/assets/thumb-05.jpg",
+      "exists": true,
+      "bytes": 12773
+    },
+    {
+      "path": "verification-renders/editor-simulation-v1/assets/gsap.min.js",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/gsap.min.js",
+      "exists": true,
+      "bytes": 72779
+    },
+    {
+      "path": "verification-renders/editor-simulation-v1/assets/thumb-04.jpg",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/editor-simulation-v1/assets/thumb-04.jpg",
+      "exists": true,
+      "bytes": 12965
+    },
+    {
+      "path": "verification-renders/editor-simulation-v1/assets/thumb-10.jpg",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/editor-simulation-v1/assets/thumb-10.jpg",
+      "exists": true,
+      "bytes": 13010
+    },
+    {
+      "path": "verification-renders/editor-simulation-v1/assets/editor-mix.wav",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/editor-simulation-v1/assets/editor-mix.wav",
+      "exists": true,
+      "bytes": 6912078
+    },
+    {
+      "path": "verification-renders/editor-simulation-v1/assets/filmstrip.jpg",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/editor-simulation-v1/assets/filmstrip.jpg",
+      "exists": true,
+      "bytes": 55280
+    },
+    {
+      "path": "verification-renders/editor-simulation-v1/assets/thumb-06.jpg",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/editor-simulation-v1/assets/thumb-06.jpg",
+      "exists": true,
+      "bytes": 12884
+    },
+    {
+      "path": "verification-renders/editor-simulation-v1/assets/thumb-12.jpg",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/editor-simulation-v1/assets/thumb-12.jpg",
+      "exists": true,
+      "bytes": 12963
+    },
+    {
+      "path": "verification-renders/editor-simulation-v1/assets/thumb-07.jpg",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/editor-simulation-v1/assets/thumb-07.jpg",
+      "exists": true,
+      "bytes": 12850
+    },
+    {
+      "path": "verification-renders/editor-simulation-v1/assets/preview-voice.wav",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/editor-simulation-v1/assets/preview-voice.wav",
+      "exists": true,
+      "bytes": 6912122
+    },
+    {
+      "path": "verification-renders/editor-simulation-v1/assets/editor-sfx.wav",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/editor-simulation-v1/assets/editor-sfx.wav",
+      "exists": true,
+      "bytes": 6912044
+    },
+    {
+      "path": "verification-renders/editor-simulation-v1/assets/Pretendard-Bold.ttf",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/20260911_175145-polish-v3/assets/Pretendard-Bold.ttf",
+      "exists": true,
+      "bytes": 2661752
+    },
+    {
+      "path": "verification-renders/editor-simulation-v1/assets/preview.mp4",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/editor-simulation-v1/assets/preview.mp4",
+      "exists": true,
+      "bytes": 15759023
+    },
+    {
+      "path": "verification-renders/editor-simulation-v1/assets/thumb-09.jpg",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/editor-simulation-v1/assets/thumb-09.jpg",
+      "exists": true,
+      "bytes": 12945
+    },
+    {
+      "path": "verification-renders/editor-simulation-v1/assets/thumb-08.jpg",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/editor-simulation-v1/assets/thumb-08.jpg",
+      "exists": true,
+      "bytes": 12994
+    },
+    {
+      "path": "verification-renders/editor-simulation-v1/assets/source-wave.wav",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/editor-simulation-v1/assets/source-wave.wav",
+      "exists": true,
+      "bytes": 384084
+    },
+    {
+      "path": "verification-renders/editor-simulation-v1/assets/preview-parts/09.mov",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/editor-simulation-v1/assets/preview-parts/09.mov",
+      "exists": true,
+      "bytes": 243782
+    },
+    {
+      "path": "verification-renders/editor-simulation-v1/assets/preview-parts/08.mov",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/editor-simulation-v1/assets/preview-parts/08.mov",
+      "exists": true,
+      "bytes": 2319789
+    },
+    {
+      "path": "verification-renders/editor-simulation-v1/assets/preview-parts/00.mov",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/editor-simulation-v1/assets/preview-parts/00.mov",
+      "exists": true,
+      "bytes": 2542189
+    },
+    {
+      "path": "verification-renders/editor-simulation-v1/assets/preview-parts/01.mov",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/editor-simulation-v1/assets/preview-parts/01.mov",
+      "exists": true,
+      "bytes": 2748370
+    },
+    {
+      "path": "verification-renders/editor-simulation-v1/assets/preview-parts/03.mov",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/editor-simulation-v1/assets/preview-parts/03.mov",
+      "exists": true,
+      "bytes": 1835321
+    },
+    {
+      "path": "verification-renders/editor-simulation-v1/assets/preview-parts/02.mov",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/editor-simulation-v1/assets/preview-parts/02.mov",
+      "exists": true,
+      "bytes": 2572172
+    },
+    {
+      "path": "verification-renders/editor-simulation-v1/assets/preview-parts/06.mov",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/editor-simulation-v1/assets/preview-parts/06.mov",
+      "exists": true,
+      "bytes": 1854946
+    },
+    {
+      "path": "verification-renders/editor-simulation-v1/assets/preview-parts/07.mov",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/editor-simulation-v1/assets/preview-parts/07.mov",
+      "exists": true,
+      "bytes": 705381
+    },
+    {
+      "path": "verification-renders/editor-simulation-v1/assets/preview-parts/05.mov",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/editor-simulation-v1/assets/preview-parts/05.mov",
+      "exists": true,
+      "bytes": 5319478
+    },
+    {
+      "path": "verification-renders/editor-simulation-v1/assets/preview-parts/04.mov",
+      "resolved": "/Users/apple/orca/projects/cutback/verification-renders/editor-simulation-v1/assets/preview-parts/04.mov",
+      "exists": true,
+      "bytes": 2558519
+    }
+  ],
+  "external_sources_and_deliveries": [
+    {
+      "path": "/Users/apple/Downloads/20260911_175145_편집본.mp4",
+      "exists": true,
+      "bytes": 388556285
+    },
+    {
+      "path": "/Users/apple/orca/workspaces/family_pm/ai학교/aixschool-83s/renders/aixschool-83s_2026-09-11_11-30-44.mp4",
+      "exists": true,
+      "bytes": 6653734
+    },
+    {
+      "path": "/Users/apple/Downloads/20260911_175145_모션그래픽_사진개선_v6.mp4",
+      "exists": true,
+      "bytes": 788500104
+    },
+    {
+      "path": "/Users/apple/Downloads/AI학교_가상편집과정_2배속_18초.mp4",
+      "exists": true,
+      "bytes": 3990238
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+import json,pathlib,html
+r=pathlib.Path(__file__).resolve().parent;p=json.loads((r/'timeline.json').read_text());D=p['duration'];ev=json.loads((r/'events.json').read_text());caps=json.loads((r/'captions.json').read_text())
+els=[f'<video id="presenter" src="assets/timeline-base.mp4" data-start="0" data-duration="{D}" data-track-index="0" muted playsinline style="width:1920px;height:1080px;position:absolute;inset:0"></video>',f'<audio id="voice" src="assets/timeline-base.mp4" data-start="0" data-duration="{D}" data-track-index="1" data-volume="0.891250938"></audio>']
+for e in ev:
+ els.append(f'<video id="photo-{e["id"]}" src="renders/{e["id"]}.webm" data-start="{e["start"]}" data-duration="{e["duration"]}" data-track-index="2" muted playsinline style="position:absolute;left:{e["x"]}px;top:{e["y"]}px;width:680px;height:620px"></video>')
+ els.append(f'<audio id="sfx-{e["id"]}" src="assets/soft-pop.wav" data-start="{e["start"]}" data-duration=".32" data-volume=".95" data-track-index="3"></audio>')
+for i,c in enumerate(caps):els.append(f'<div id="caption-{i}" class="clip caption" data-start="{c["start"]}" data-duration="{c["end"]-c["start"]}" data-track-index="4">{html.escape(c["text"])}</div>')
+css="@font-face{font-family:Pretendard;src:url('assets/Pretendard-Bold.ttf')}html,body{margin:0;background:#000}.caption{position:absolute;bottom:58px;left:100px;right:100px;text-align:center;font:700 62px Pretendard;white-space:nowrap;color:white;-webkit-text-stroke:3px black;paint-order:stroke fill;text-shadow:0 3px 4px #000a}"
+(r/'index.html').write_text('<!doctype html><html><head><meta charset="utf-8"><style>'+css+'</style></head><body>'+f'<div data-composition-id="final" data-duration="{D}" data-width="1920" data-height="1080" data-fps="60000/1001" style="width:1920px;height:1080px;position:relative">'+''.join(els)+'</div><script src="assets/gsap.min.js"></script><script>window.__timelines={final:gsap.timeline({paused:true})};</script></body></html>')
+print('project generated')

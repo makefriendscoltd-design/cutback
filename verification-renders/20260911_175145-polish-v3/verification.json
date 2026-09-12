@@ -1,0 +1,16 @@
+{
+  "output": "/Users/apple/Downloads/20260911_175145_선명보정_이미지_자막_v3.mp4",
+  "duration": "209.836000",
+  "frames": 12577,
+  "decode_errors": 0,
+  "caption_count": 72,
+  "max_caption_lines": 2,
+  "max_caption_width_at_66px": 1393.0,
+  "picture_events": 10,
+  "voice_and_person": "same approved timeline, luma sharpening only; no face reconstruction",
+  "visual_inspection": "Reviewed 12 actual-output frames covering beginning, both image sides, all image event types, one/two-line captions, and ending; no face/hand occlusion or caption overflow observed.",
+  "manual_listening": "not performed; full decode and audio peak checks performed",
+  "person_region_ssim_at_82s": 0.996856,
+  "final_audio_peak_dbfs": -0.5,
+  "manual_listening_next": "open /Users/apple/Downloads/20260911_175145_선명보정_이미지_자막_v3.mp4"
+}

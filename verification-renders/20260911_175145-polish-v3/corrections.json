@@ -1,0 +1,47 @@
+{
+  "basis": [
+    "편집본 output-transcript.json의 단어별 타임스탬프",
+    "원본 transcript.json과 audit-small.json의 독립 전사 대조"
+  ],
+  "applied": [
+    {
+      "asr": "채집배티를",
+      "caption": "ChatGPT를",
+      "reason": "문맥상 AI 도구명이며 두 원본 전사도 서로 다른 무의미 음가로 불일치"
+    },
+    {
+      "asr": "따라오고",
+      "caption": "따라 하고",
+      "reason": "'보고 따라 하고' 반복 구조에 맞춘 띄어쓰기·음가 교정"
+    },
+    {
+      "asr": "내일에",
+      "caption": "내 일에",
+      "reason": "앞뒤 문맥의 자기 일·업무 적용 의미"
+    },
+    {
+      "asr": "내일 AI 적용 키트",
+      "caption": "내 일 AI 적용 키트",
+      "reason": "키트명 문맥의 띄어쓰기 교정"
+    }
+  ],
+  "normalized": [
+    {
+      "from": "A스쿨",
+      "to": "A스쿨",
+      "evidence": "원본 audit-small.json은 A-School, 편집본은 A스쿨"
+    },
+    {
+      "from": "3,4천만 원",
+      "to": "3,4천만 원",
+      "evidence": "발화형을 보존; 원본 전사 3-4천만 원과 같은 범위 표현"
+    }
+  ],
+  "uncertain": [
+    {
+      "caption": "AI가 맡기는 자동화",
+      "status": "보존",
+      "reason": "문법상 다른 조사가 가능하지만 두 전사와 편집본이 동일하여 추정 교정하지 않음"
+    }
+  ]
+}

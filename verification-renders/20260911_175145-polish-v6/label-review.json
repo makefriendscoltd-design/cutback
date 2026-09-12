@@ -1,0 +1,25 @@
+{
+  "method": "manual short-label review using latest local humanize-korean quick-rules",
+  "source": "/Users/apple/.local/share/im-not-ai/skills/humanize-korean/references/quick-rules.md",
+  "scope": "short diagram labels only; original subtitles unchanged",
+  "content_anchors": [
+    "문제",
+    "해결",
+    "결과",
+    "영상",
+    "따라 하기",
+    "만들기",
+    "반복하던 일",
+    "AI",
+    "자동화",
+    "경험",
+    "기록",
+    "자료",
+    "취업",
+    "도구",
+    "창업",
+    "서비스"
+  ],
+  "result": "plain Korean labels; no translated promotional phrasing; no new factual assertions; no changes required",
+  "full_article_pipeline_run": false
+}
