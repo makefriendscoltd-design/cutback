@@ -1,4 +1,4 @@
 interface:
-  display_name: "새 애셋으로 만드는 4K 릴스"
-  short_description: "전사 자막에 맞는 새 모션 애셋을 제작하는 4K 릴스 편집"
-  default_prompt: "$reel-reference-edit 이 영상을 실제 자막 내용에 맞춘 새 애셋과 모션그래픽으로 재구성하고, 승인된 크기와 검정 자막 그림자를 유지해 4K로 제작해줘."
+  display_name: "메모지형"
+  short_description: "자막마다 새 애셋과 모션그래픽을 제작하는 메모지형 4K 편집"
+  default_prompt: "$reel-reference-edit 이 영상을 메모지형으로 제작해줘. 실제 자막 내용에 맞춘 새 애셋과 모션그래픽으로 재구성하고, 승인된 크기와 검정 자막 그림자를 유지해 4K로 제작해줘."
