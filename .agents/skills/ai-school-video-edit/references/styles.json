@@ -562,5 +562,15 @@
       "target_video_bitrate": "40M",
       "note": "4K output dimensions; not native 4K detail. Preserve existing timing and styling."
     }
+  },
+  "default_style": {
+    "id": "basic-v19",
+    "name": "기본형",
+    "base_style": "info-cards",
+    "overrides_ref": "#/latest_intro_and_transition_override",
+    "scope": "AI 학교 인물 낭독 숏폼에서 별도 스타일 지정이 없거나 기본형을 요청한 경우",
+    "example_project": "verification-renders/20260911_180156-r01-v19",
+    "content_adaptation": "새 대본을 전사하고 의미에 맞춰 모션그래픽·애셋·자막·컷·효과음 시점을 새로 구성한다. 기존 대본의 수치와 그래픽 내용을 복사하지 않는다.",
+    "precedence": "사용자의 새 지시 및 명시한 다른 스타일이 기본형보다 우선한다."
   }
 }
