@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "policy": {
+    "bundling": "Bundle font bytes only when redistribution is confirmed and include the corresponding license text.",
+    "resolution": "Prefer an official pinned download URL with a required SHA-256. A configured local source is acceptable only when its SHA-256 matches this manifest.",
+    "gsap": "Do not bundle GSAP here. Resolve the pinned 3.14.2 distribution URL and verify its recorded SHA-256 under the GreenSock Standard License."
+  },
+  "fonts": [
+    {
+      "file": "EastSeaDokdo.ttf",
+      "family": "East Sea Dokdo",
+      "style": "Regular",
+      "version": "1.00",
+      "sha256": "8cebb39d375134fdbcedef9bf4ec4f6c3f02c39ed0aacd6e83f7a0f435e593b2",
+      "copied_from": "/Users/apple/orca/projects/cutback/auto_editor/assets/fonts/EastSeaDokdo.ttf",
+      "license": "SIL Open Font License 1.1",
+      "license_file": "EastSeaDokdo-OFL.txt",
+      "license_source": "https://raw.githubusercontent.com/google/fonts/main/ofl/eastseadokdo/OFL.txt",
+      "official_metadata": "https://raw.githubusercontent.com/google/fonts/main/ofl/eastseadokdo/METADATA.pb",
+      "copyright": "Copyright (c) YoonDesign Inc. All Rights Reserved.",
+      "verification": "The bundled bytes retain the exact hash used by the approved render. The embedded font metadata and Google Fonts metadata identify the same family, style, copyright holder, and OFL license."
+    },
+    {
+      "file": "Pretendard-SemiBold.ttf",
+      "family": "Pretendard",
+      "style": "SemiBold",
+      "version": "1.309 (font metadata fixed value 85786)",
+      "sha256": "5e1c548732af70873103066c16e1369b9a8a871f0b38c321a1d5bc73e43cea2d",
+      "copied_from": "/Users/apple/orca/projects/cutback/auto_editor/assets/fonts/Pretendard-SemiBold.ttf",
+      "license": "SIL Open Font License 1.1",
+      "license_file": "Pretendard-OFL.txt",
+      "license_source": "https://raw.githubusercontent.com/orioncactus/pretendard/main/LICENSE",
+      "official_project": "https://github.com/orioncactus/pretendard",
+      "copyright": "Copyright (c) 2021, Kil Hyung-jin, with Reserved Font Name 'Pretendard'.",
+      "verification": "The bundled bytes retain the exact hash used by the approved render. Family name and version were read from the TTF metadata; redistribution terms come from the official project license."
+    },
+    {
+      "file": "Pretendard-Bold.ttf",
+      "family": "Pretendard",
+      "style": "Bold",
+      "version": "1.309 (font metadata fixed value 85786)",
+      "sha256": "c16b88c670d23e83fa1170c954cbc4822d3b8dad3c3cde15d798a94b43d97985",
+      "copied_from": "/Users/apple/orca/projects/cutback/auto_editor/assets/fonts/Pretendard-Bold.ttf",
+      "license": "SIL Open Font License 1.1",
+      "license_file": "Pretendard-OFL.txt",
+      "license_source": "https://raw.githubusercontent.com/orioncactus/pretendard/main/LICENSE",
+      "official_project": "https://github.com/orioncactus/pretendard",
+      "copyright": "Copyright (c) 2021, Kil Hyung-jin, with Reserved Font Name 'Pretendard'.",
+      "verification": "The bundled bytes retain the exact hash used by the approved render. Family name and version were read from the TTF metadata; redistribution terms come from the official project license."
+    }
+  ],
+  "unbundled_dependencies": [
+    {
+      "name": "GSAP",
+      "version": "3.14.2",
+      "url": "https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js",
+      "sha256": "c174bfce53a729418d57a8ad8625e7247c793a22fef8e2851e3cfa3de9cd8280",
+      "license": "GreenSock Standard License",
+      "license_url": "https://gsap.com/standard-license",
+      "reason": "Kept out of the font bundle; the resolver should fetch this pinned URL and reject a hash mismatch."
+    }
+  ]
+}

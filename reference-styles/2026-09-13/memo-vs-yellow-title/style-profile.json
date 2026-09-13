@@ -1,0 +1,263 @@
+{
+  "id": "memo-vs-yellow-title",
+  "version": 9,
+  "scope": "Agent-assisted editing recipe; not an installed desktop renderer preset",
+  "evidence": {
+    "overview": "analysis.md",
+    "motion_samples": [
+      {
+        "file": "a-step-10fps.jpg",
+        "source": "DdJt4ehjJND/source.mp4",
+        "start_seconds": 15.5,
+        "sample_fps": 10
+      },
+      {
+        "file": "b-step-10fps.jpg",
+        "source": "Dc72ToHAeVx/source.mp4",
+        "start_seconds": 6.5,
+        "sample_fps": 10
+      }
+    ],
+    "limits": [
+      "No exact font identification",
+      "No listening-based audio analysis",
+      "Motion observations cover only the sampled windows; numeric defaults below are adaptation choices, not measured source values"
+    ],
+    "speech_asset_relations": "speech-asset-relations.md",
+    "speech_transcripts": [
+      "DdJt4ehjJND/speech-transcript.json",
+      "Dc72ToHAeVx/speech-transcript.json"
+    ]
+  },
+  "output_defaults": {
+    "width": 2160,
+    "height": 3840,
+    "fps": 30,
+    "format": "mp4",
+    "video_codec": "h264",
+    "audio_codec": "aac",
+    "length": "Preserve the complete coherent source message; do not impose reference duration",
+    "render_policy": "Render DOM/SVG/text natively at output size; design coordinates scale uniformly. Do not represent upscaled source footage as recovered detail."
+  },
+  "layout_defaults": {
+    "coordinate_system": "production_layout.design_canvas coordinates, top-left origin; scale both axes uniformly to output_defaults",
+    "fit": "Reframe the new presenter footage to fit; never stretch source. Supporting asset and caption boxes retain approved design coordinates."
+  },
+  "modes": {
+    "memo": {
+      "source": "DdJt4ehjJND",
+      "use_for": "explanations, demonstrations, how-to steps",
+      "observed": [
+        "Separate white paper number and instruction labels",
+        "Number appears before instruction label",
+        "Caption phrase grows across some sampled words then resets",
+        "Screenshots can temporarily cover face",
+        "Labels and logos swap without persistent wobble"
+      ],
+      "layout_source": "#/production_layout"
+    },
+    "yellow": {
+      "source": "Dc72ToHAeVx",
+      "use_for": "numbered tips, lists, condensed lessons",
+      "observed": [
+        "White number appears before yellow title",
+        "Brief partially transparent title visible in sampled transition",
+        "Title persists while lower single words change",
+        "Small white handwritten annotations and occasional icons",
+        "No large screenshot covering the face in sampled full overview"
+      ],
+      "adaptation_defaults": {
+        "title": {
+          "center_x": 0.46,
+          "center_y": 0.25,
+          "max_width": 0.76,
+          "font_asset": "auto_editor/assets/fonts/Pretendard-Bold.ttf",
+          "font_px": 58,
+          "max_lines": 2,
+          "color": "#f4fa32",
+          "background": "none"
+        },
+        "number": {
+          "font_px": 62,
+          "color": "#ffffff",
+          "above_title": true
+        },
+        "annotation": {
+          "font_asset": "auto_editor/assets/fonts/NanumBrush.ttf",
+          "font_px": 30,
+          "color": "#ffffff"
+        },
+        "caption": {
+          "center_x": 0.46,
+          "center_y": 0.67,
+          "max_width": 0.76,
+          "font_asset": "auto_editor/assets/fonts/Pretendard-Bold.ttf",
+          "font_px": 48,
+          "color": "#ffffff",
+          "shadow": "0 2px 4px rgba(0,0,0,0.7)",
+          "max_lines": 1,
+          "korean_units": "1-3 eojeol per cue, combine if too fast to read; do not split syllables",
+          "reveal": "replace at one stable position",
+          "background": "none"
+        },
+        "motion": {
+          "number_to_label_delay_seconds": [
+            0.1,
+            0.2
+          ],
+          "label_enter": "opacity fade",
+          "fade_seconds": [
+            0.1,
+            0.16
+          ],
+          "exit": "hard cut",
+          "continuous_wiggle": false,
+          "automatic_zoom": false
+        },
+        "assets": {
+          "roles": [
+            "small relevant icon",
+            "short handwritten qualifier"
+          ],
+          "one_primary_at_a_time": true,
+          "face_occlusion": "Avoid",
+          "idle": "Remove main title when numbered section ends"
+        }
+      }
+    }
+  },
+  "shared_edit_rules": {
+    "cut": "Audio-first directory rule: resolve an already tail-edited audio master, preserve its order, gaps, duration and speed. No automatic silence/filler/retake removal. Overlay visuals and captions on its unchanged timeline.",
+    "timestamps": "Keep source-to-output mapping after each cut; captions and assets use output timeline",
+    "title_hold": "Upper summary/organizing guide may span several spoken sentences and SRT cues; do not mirror each short utterance. Shared keywords or CTA are allowed when communicative roles differ.",
+    "asset_sync": "Anchor to spoken referent or action; no random timed cycling",
+    "copyright": "Study layout; do not copy reference creator footage, voice or their extracted meme assets into user deliverables",
+    "audio": "Lock verified tail-edited master audio; remux unchanged where possible and compare actual audio hashes and duration. Reference audio identity is unverified.",
+    "korean_copy": "Humanize only newly authored headings/annotations; faithfully transcribed speech is not paraphrased for style",
+    "review": "Check actual full-resolution frames, transitions, first/last syllables, and audio before completion",
+    "caption_contract": "Lower text is verbatim speech aligned to locked tail-edited master; export SRT and burned captions from one cues source. No editorial summarization of speech."
+  },
+  "runtime_status": "Recipe configured; future raw-source end-to-end render requires supplied source and local render/transcription checks",
+  "supporting_asset_contract": {
+    "source": "User clarification 2026-09-13 after side-by-side review",
+    "upper_role": "Explain spoken content with supplementary copy, examples, relevant images, diagrams or step guides. Summary titles are one option, not mandatory on every beat.",
+    "lower_role": "Time-synchronized verbatim speech captions from locked audio master.",
+    "required_per_asset": [
+      "spoken_evidence",
+      "explanatory_purpose",
+      "asset_provenance"
+    ],
+    "avoid": [
+      "Shortened transcript duplicated above",
+      "Decorative unrelated image rotation",
+      "Presenting illustrative mockups as actual work or proof"
+    ],
+    "on_screen_metadata": false,
+    "provenance_storage": "Keep source, license and illustrative status in internal edit plan; omit visible source/illustrative badges per user instruction.",
+    "preferred_media": "Newly authored transcript-specific motion graphics and After Effects-style mask reveals, tracked callouts, shape/type motion and before/after animations. Fresh capture ingredients only when explaining a real interface requires them.",
+    "rejected_treatments": [
+      "Fictional dashboard rectangles when real sources exist",
+      "Static process diagrams as primary media",
+      "Large single card combining heading subheading and diagram",
+      "Long unchanged panels used instead of reference internal asset phases"
+    ],
+    "asset_production": "User explicitly requests separately producing assets. Build editable functioning web/app/worksheet demonstrations and record actual interactions, rather than stopping at asset search. Retain real source content as grounding.",
+    "authored_demo_provenance": "Newly authored visual prototypes are allowed; record their provenance internally, do not claim deployed services or real student outcomes, and omit on-screen production/source labels.",
+    "no_repeated_video": "Each supporting video file is used once per finished video. Renaming, re-encoding, cropping or recoloring the same recording does not count as a new asset. Revisit a subject only with a newly recorded distinct screen, task state and explanatory action; verify resolved paths, file hashes and sampled visual content. Presenter and locked voice tracks are exempt.",
+    "priority": "For every new video, read its actual subtitle transcript and author fresh explanatory visuals/motion graphics from scratch. Reuse tools/layout/fonts, not previous-video artwork, copy, recordings or finished compositions.",
+    "freshness": "Every supporting asset records created_for_job, authored_source, caption evidence and explanatory purpose. Metadata and unique hashes do not replace visual/source review.",
+    "after_effects": "Effect vocabulary, not a claim of Adobe After Effects execution or .aep output. Default implementation uses render-safe HyperFrames/GSAP/SVG/CSS; use actual AE only when explicitly requested and available."
+  },
+  "paper_copy_contract": {
+    "font_candidate": "EastSeaDokdo; adaptation only, not identified reference font",
+    "shape": "Separate phrase/word off-white paper fragments, compact padding, mildly rough edges, slight independent rotations",
+    "hierarchy": "Short hook/action/warning/CTA; 1-3 lines with mixed sizes; no full transcription duplication",
+    "timing": "Reference sampled number-to-label delay .367-.500s; adapt to actual speech. Other asset changes tied to clauses, not fixed arbitrary cadence.",
+    "layout_source": "#/production_layout"
+  },
+  "production_layout": {
+    "design_canvas": {
+      "width": 1080,
+      "height": 1920
+    },
+    "supporting_asset": {
+      "left": 32,
+      "top": 666,
+      "width": 1016,
+      "height": 589,
+      "object_fit": "contain"
+    },
+    "presenter": {
+      "left": 0,
+      "top": 190,
+      "width": 1080,
+      "height": 1920,
+      "object_fit": "cover",
+      "reframe": "inspect and override picture framing per input; keep overlay geometry fixed"
+    },
+    "caption": {
+      "left": 90,
+      "top": 1439,
+      "width": 820,
+      "min_height": 90,
+      "font_family": "Pretendard",
+      "font_file": "Pretendard-SemiBold.ttf",
+      "font_size": 51,
+      "font_weight": 600,
+      "line_height": 1.22,
+      "letter_spacing": -1.3,
+      "color": "#ffffff",
+      "text_shadow": "0 2px 2px rgba(0,0,0,.98), 0 5px 9px rgba(0,0,0,.96), 0 0 3px rgba(0,0,0,.9)",
+      "max_lines": 2
+    },
+    "fragments": {
+      "left": 76,
+      "top": 145,
+      "width": 928,
+      "align": "center",
+      "font_family": "Dokdo",
+      "font_file": "EastSeaDokdo.ttf",
+      "font_sizes": [
+        116,
+        128,
+        118
+      ],
+      "line_height": 0.84,
+      "paper_color": "#fffdf7",
+      "text_color": "#111111",
+      "padding": [
+        4,
+        12,
+        2
+      ],
+      "rotation_degrees": [
+        -2,
+        2
+      ]
+    },
+    "step_number": {
+      "left": 109,
+      "top": 413,
+      "width": 195,
+      "height": 227,
+      "font_size": 342,
+      "rotation": -1.2
+    },
+    "step_title": {
+      "left": 330,
+      "top": 523,
+      "min_width": 430,
+      "max_width": 631,
+      "height": 115,
+      "font_size": 85,
+      "rotation": 0.8
+    },
+    "motion": {
+      "number_to_title_delay": 0.4,
+      "enter_fade": 0.06,
+      "continuous_wiggle": false,
+      "automatic_audio_effects": false
+    },
+    "basis": "Approved V4aligned geometry with user-requested V6 black caption shadow. Pixel sizes are design coordinates; 4K scale is2."
+  }
+}
