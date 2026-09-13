@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "source_voice": {
+    "path": "/Users/apple/orca/projects/cutback/verification-renders/20260911_180156-r01-v18/assets/voice.wav",
+    "sha256": "4a82b2d53655c99b94543e376ca91d8b93ce919af8572c77ed95d7823c4d15f9"
+  },
+  "output_voice": {
+    "path": "/Users/apple/orca/projects/cutback/videos/day1-sc-vlog/audio-prep/voice.wav",
+    "sha256": "4a82b2d53655c99b94543e376ca91d8b93ce919af8572c77ed95d7823c4d15f9"
+  },
+  "source_edl": {
+    "path": "/Users/apple/orca/projects/cutback/verification-renders/20260911_180156-r01-v18/body-retime-edl.json",
+    "sha256": "47c8679214f42bff57ff9ac996f113683a195a886d92d275d1733fff8c31cfc7"
+  },
+  "source_transcript": {
+    "path": "/Users/apple/orca/projects/cutback/verification-renders/20260911_180156-r01-v18/voice-transcription.json",
+    "sha256": "706d445601ae668be597d4519e6addd9086df5824e2ac838035ed08522c57ed3"
+  },
+  "source_captions": {
+    "path": "/Users/apple/orca/projects/cutback/verification-renders/20260911_180156-r01-v18/captions.srt",
+    "sha256": "6e526bff06d9edeb7c9153609b6fa7f270fa7a5f5150509aa886458cbee44e2f"
+  },
+  "copy_identity_verified": true,
+  "audio_lineage": "v18 voice.wav was assembled from the byte-identical r01-v3/r01-v7 clean base audio using the constant-speed v18 EDL; BGM and whooshes were mixed only into a separate mix.wav."
+}

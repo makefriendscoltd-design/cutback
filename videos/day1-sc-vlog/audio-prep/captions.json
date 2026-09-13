@@ -1,0 +1,250 @@
+{
+  "schema_version": 1,
+  "timebase": "seconds_on_voice.wav",
+  "language": "ko",
+  "source": "/Users/apple/orca/projects/cutback/verification-renders/20260911_180156-r01-v18/captions.srt",
+  "word_timing_source": "/Users/apple/orca/projects/cutback/verification-renders/20260911_180156-r01-v18/voice-transcription.json",
+  "display_note": "Short central-caption phrases; timing only. Text follows the recorded speech.",
+  "captions": [
+    {
+      "id": 1,
+      "start": 0.04,
+      "end": 1.06,
+      "text": "여러분 제가"
+    },
+    {
+      "id": 2,
+      "start": 1.06,
+      "end": 2.2,
+      "text": "정말 미쳤나 봅니다"
+    },
+    {
+      "id": 3,
+      "start": 2.2,
+      "end": 3.007,
+      "text": "AI에 미쳐서"
+    },
+    {
+      "id": 4,
+      "start": 3.007,
+      "end": 4.287,
+      "text": "학교까지 만들고 있습니다"
+    },
+    {
+      "id": 5,
+      "start": 4.3,
+      "end": 5.287,
+      "text": "원래 저는"
+    },
+    {
+      "id": 6,
+      "start": 5.287,
+      "end": 6.36,
+      "text": "인테리어 하던 사람이에요"
+    },
+    {
+      "id": 7,
+      "start": 6.36,
+      "end": 7.5,
+      "text": "어머니 카페 짓는다고"
+    },
+    {
+      "id": 8,
+      "start": 7.5,
+      "end": 8.56,
+      "text": "2층 주택"
+    },
+    {
+      "id": 9,
+      "start": 8.56,
+      "end": 9.94,
+      "text": "기둥까지 뽑아본 사람이"
+    },
+    {
+      "id": 10,
+      "start": 9.94,
+      "end": 11.693,
+      "text": "지금은 AI를 짓고 있습니다"
+    },
+    {
+      "id": 11,
+      "start": 11.693,
+      "end": 13.393,
+      "text": "근데 이 학교는"
+    },
+    {
+      "id": 12,
+      "start": 13.393,
+      "end": 15.093,
+      "text": "수업을 끝까지 다 들어도"
+    },
+    {
+      "id": 13,
+      "start": 15.093,
+      "end": 15.967,
+      "text": "졸업을 못 합니다"
+    },
+    {
+      "id": 14,
+      "start": 16.04,
+      "end": 17.167,
+      "text": "자기 걸 만들어야 해요"
+    },
+    {
+      "id": 15,
+      "start": 17.167,
+      "end": 18.147,
+      "text": "남이 AI로 뭘"
+    },
+    {
+      "id": 16,
+      "start": 18.147,
+      "end": 19.247,
+      "text": "만들었다 보면"
+    },
+    {
+      "id": 17,
+      "start": 19.247,
+      "end": 21.533,
+      "text": "나도 해봐야겠다 싶잖아요"
+    },
+    {
+      "id": 18,
+      "start": 21.553,
+      "end": 23.073,
+      "text": "근데 막상 혼자 켜면"
+    },
+    {
+      "id": 19,
+      "start": 23.073,
+      "end": 24.813,
+      "text": "뭘 해야 될지 모르겠고"
+    },
+    {
+      "id": 20,
+      "start": 24.813,
+      "end": 25.973,
+      "text": "따라 하다가 안 되면"
+    },
+    {
+      "id": 21,
+      "start": 25.973,
+      "end": 27.733,
+      "text": "그냥 닫아서 끝내버립니다"
+    },
+    {
+      "id": 22,
+      "start": 27.733,
+      "end": 29.02,
+      "text": "저도 강의만 듣다가"
+    },
+    {
+      "id": 23,
+      "start": 29.02,
+      "end": 30.54,
+      "text": "3,4천만 원 날려봤거든요"
+    },
+    {
+      "id": 24,
+      "start": 30.54,
+      "end": 31.68,
+      "text": "저는 그다음까지"
+    },
+    {
+      "id": 25,
+      "start": 31.68,
+      "end": 32.54,
+      "text": "같이 해보는"
+    },
+    {
+      "id": 26,
+      "start": 32.54,
+      "end": 33.873,
+      "text": "학교를 만들고 싶습니다"
+    },
+    {
+      "id": 27,
+      "start": 33.973,
+      "end": 35.153,
+      "text": "자기 걸 만들고"
+    },
+    {
+      "id": 28,
+      "start": 35.153,
+      "end": 36.593,
+      "text": "안 되면 같이 고치고"
+    },
+    {
+      "id": 29,
+      "start": 36.6,
+      "end": 37.593,
+      "text": "다음엔 혼자서도"
+    },
+    {
+      "id": 30,
+      "start": 37.593,
+      "end": 38.433,
+      "text": "해볼 수 있게 말이죠"
+    },
+    {
+      "id": 31,
+      "start": 38.56,
+      "end": 39.1,
+      "text": "말하고 보니까"
+    },
+    {
+      "id": 32,
+      "start": 39.1,
+      "end": 40.52,
+      "text": "일을 좀 크게 벌인 것 같네요"
+    },
+    {
+      "id": 33,
+      "start": 40.567,
+      "end": 41.687,
+      "text": "일단 AI로"
+    },
+    {
+      "id": 34,
+      "start": 41.687,
+      "end": 42.707,
+      "text": "뭘 만들어야 할지"
+    },
+    {
+      "id": 35,
+      "start": 42.707,
+      "end": 44.067,
+      "text": "막막한 분들을 위해"
+    },
+    {
+      "id": 36,
+      "start": 44.073,
+      "end": 45.293,
+      "text": "첫 프로젝트를"
+    },
+    {
+      "id": 37,
+      "start": 45.293,
+      "end": 46.733,
+      "text": "정해보는 워크북부터"
+    },
+    {
+      "id": 38,
+      "start": 46.733,
+      "end": 47.267,
+      "text": "준비했습니다"
+    },
+    {
+      "id": 39,
+      "start": 47.267,
+      "end": 48.62,
+      "text": "댓글에 시작이라고"
+    },
+    {
+      "id": 40,
+      "start": 48.62,
+      "end": 49.46,
+      "text": "남겨주세요"
+    }
+  ]
+}

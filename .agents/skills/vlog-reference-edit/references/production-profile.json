@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "layout": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "export": {
+    "resolution": "portrait-4k",
+    "width": 2160,
+    "height": 3840,
+    "quality": "high",
+    "format": "mp4"
+  },
+  "caption_style": {
+    "center_y": 0.446,
+    "font_size": 64,
+    "text_shadow": "0 3px 3px #000, 0 5px 10px rgba(0,0,0,.95), 0 0 3px #000"
+  },
+  "headline_style": {
+    "design": "impact",
+    "font_size": 108,
+    "last_line_font_size": 108,
+    "duration": 1
+  },
+  "reference": {
+    "reel_id": "DdNjyZRog1k",
+    "duration": 58.6,
+    "cuts": 26,
+    "median_cut_seconds": 1.8,
+    "opening_cut_frames": [
+      9,
+      11,
+      43
+    ]
+  },
+  "distinction": "Reference measurements describe the source; caption/headline styling and 4K export are user-approved adaptations."
+}

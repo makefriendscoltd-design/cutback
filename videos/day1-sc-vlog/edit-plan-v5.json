@@ -1,0 +1,201 @@
+{
+  "schema_version": 1,
+  "duration": 49.6,
+  "fps": 30,
+  "width": 1080,
+  "height": 1920,
+  "audio_path": "audio-prep/voice.wav",
+  "captions_path": "audio-prep/captions.json",
+  "font_path": "../../verification-renders/20260911_180156-v1/composition/assets/Pretendard-SemiBold.ttf",
+  "gsap_path": "../../verification-renders/notion-day1-memo-v2-20260913/composition/assets/gsap.min.js",
+  "shots": [
+    {
+      "id": "shot-01",
+      "source": "source-media/sc-03.mp4",
+      "source_start": 0.5,
+      "output_start": 0,
+      "duration": 0.3
+    },
+    {
+      "id": "shot-02",
+      "source": "source-media/sc-02.mp4",
+      "source_start": 0.3,
+      "output_start": 0.3,
+      "duration": 0.366667
+    },
+    {
+      "id": "shot-03",
+      "source": "source-media/sc-05.mp4",
+      "source_start": 1,
+      "output_start": 0.666667,
+      "duration": 1.533333,
+      "focal_x": 0.58,
+      "focal_y": 0.5
+    },
+    {
+      "id": "shot-04",
+      "source": "source-media/sc-09.mp4",
+      "source_start": 0.2,
+      "output_start": 2.2,
+      "duration": 2.1
+    },
+    {
+      "id": "shot-05",
+      "source": "source-media/sc-04.mp4",
+      "source_start": 2.5,
+      "output_start": 4.3,
+      "duration": 2.066667
+    },
+    {
+      "id": "shot-06",
+      "source": "source-media/sc-08.mp4",
+      "source_start": 3,
+      "output_start": 6.366667,
+      "duration": 3.566666
+    },
+    {
+      "id": "shot-07",
+      "source": "source-media/sc-10.mp4",
+      "source_start": 0.4,
+      "output_start": 9.933333,
+      "duration": 1.766667
+    },
+    {
+      "id": "shot-08",
+      "source": "source-media/sc-11.mp4",
+      "source_start": 1,
+      "output_start": 11.7,
+      "duration": 4.266667,
+      "focal_x": 0.63,
+      "focal_y": 0.5
+    },
+    {
+      "id": "shot-09",
+      "source": "source-media/sc-08.mp4",
+      "source_start": 9,
+      "output_start": 15.966667,
+      "duration": 1.2
+    },
+    {
+      "id": "shot-10",
+      "source": "source-media/sc-05.mp4",
+      "source_start": 3,
+      "output_start": 17.166667,
+      "duration": 2.1,
+      "focal_x": 0.58,
+      "focal_y": 0.5
+    },
+    {
+      "id": "shot-11",
+      "source": "source-media/sc-07.mp4",
+      "source_start": 0.4,
+      "output_start": 19.266667,
+      "duration": 2.266666
+    },
+    {
+      "id": "shot-12",
+      "source": "source-media/sc-06.mp4",
+      "source_start": 0.3,
+      "output_start": 21.533333,
+      "duration": 3.266667
+    },
+    {
+      "id": "shot-13",
+      "source": "source-media/sc-01.mp4",
+      "source_start": 0.4,
+      "output_start": 24.8,
+      "duration": 2.933333
+    },
+    {
+      "id": "shot-14",
+      "source": "source-media/sc-03.mp4",
+      "source_start": 1,
+      "output_start": 27.733333,
+      "duration": 2.8
+    },
+    {
+      "id": "shot-15",
+      "source": "source-media/sc-02.mp4",
+      "source_start": 2,
+      "output_start": 30.533333,
+      "duration": 3.433334
+    },
+    {
+      "id": "shot-16",
+      "source": "source-media/sc-07.mp4",
+      "source_start": 0.6,
+      "output_start": 33.966667,
+      "duration": 2.633333
+    },
+    {
+      "id": "shot-17",
+      "source": "source-media/sc-08.mp4",
+      "source_start": 10,
+      "output_start": 36.6,
+      "duration": 1.966667
+    },
+    {
+      "id": "shot-18",
+      "source": "source-media/sc-04.mp4",
+      "source_start": 0.3,
+      "output_start": 38.566667,
+      "duration": 2
+    },
+    {
+      "id": "shot-19",
+      "source": "source-media/sc-10.mp4",
+      "source_start": 4,
+      "output_start": 40.566667,
+      "duration": 2.133333
+    },
+    {
+      "id": "shot-20",
+      "source": "source-media/sc-09.mp4",
+      "source_start": 4,
+      "output_start": 42.7,
+      "duration": 1.366667
+    },
+    {
+      "id": "shot-21",
+      "source": "source-media/sc-11.mp4",
+      "source_start": 6,
+      "output_start": 44.066667,
+      "duration": 2.666666,
+      "focal_x": 0.63,
+      "focal_y": 0.5
+    },
+    {
+      "id": "shot-22",
+      "source": "source-media/sc-06.mp4",
+      "source_start": 3,
+      "output_start": 46.733333,
+      "duration": 1.9
+    },
+    {
+      "id": "shot-23",
+      "source": "source-media/sc-12.mp4",
+      "source_start": 1,
+      "output_start": 48.633333,
+      "duration": 0.966667,
+      "focal_x": 0.58,
+      "focal_y": 0.5
+    }
+  ],
+  "caption_style": {
+    "center_y": 0.446,
+    "font_size": 64,
+    "text_shadow": "0 3px 3px #000, 0 5px 10px rgba(0,0,0,.95), 0 0 3px #000"
+  },
+  "headline": {
+    "lines": [
+      "POV: AI 미친자가",
+      "저지른 일"
+    ],
+    "duration": 1,
+    "design": "impact",
+    "font_path": "/Users/apple/orca/projects/cutback/verification-renders/20260911_180156-r01-v7/composition/assets/Pretendard-Black.ttf",
+    "approval_evidence": "User 2026-09-12T17:11:08.090Z session01a09167-f1fd-7441-9189-e46ae8fdcc69 line6343; currentuserrequestedreuse",
+    "font_size": 108,
+    "last_line_font_size": 108
+  }
+}
