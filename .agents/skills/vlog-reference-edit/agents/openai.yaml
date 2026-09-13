@@ -1,4 +1,4 @@
 interface:
-  display_name: "음성 기준 브이로그 릴스"
+  display_name: "브이로그형"
   short_description: "촬영 클립을 음성에 맞춰 편집하고 중앙 자막과 헤드카피를 얹어 세로 4K로 출력"
-  default_prompt: "$vlog-reference-edit로 이 촬영 클립들을 정리된 음성에 맞춰 브이로그 릴스로 제작해줘."
+  default_prompt: "$vlog-reference-edit로 이 촬영 클립들을 정리된 음성에 맞춰 브이로그형으로 제작해줘."
