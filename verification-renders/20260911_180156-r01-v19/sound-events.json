@@ -1,0 +1,121 @@
+[
+  {
+    "peak": 0.12,
+    "role": "headline open",
+    "source_body_time": 0.0,
+    "duration": 0.65,
+    "gain_db": -13
+  },
+  {
+    "peak": 2.833333666666666,
+    "role": "facecam0 slow zoom target; source 3.30 mapped to 3.066667",
+    "source_body_time": 3.066667,
+    "duration": 0.36,
+    "gain_db": -13
+  },
+  {
+    "peak": 4.099999666666666,
+    "role": "facecam0 zoom release; source 4.77 mapped to 4.333333",
+    "source_body_time": 4.333333,
+    "duration": 0.36,
+    "gain_db": -13
+  },
+  {
+    "peak": 4.816666666666666,
+    "role": "facecam0 phrase zoom; source 5.85 mapped to 5.35",
+    "source_body_time": 5.35,
+    "duration": 0.36,
+    "gain_db": -13
+  },
+  {
+    "peak": 5.963333666666667,
+    "role": "facecam0 hard punch release; source 7.23 mapped to 6.496667",
+    "source_body_time": 6.496667,
+    "duration": 0.36,
+    "gain_db": -13
+  },
+  {
+    "peak": 6.800000333333332,
+    "role": "facecam0 phrase zoom; source 8.40 mapped to 7.666667",
+    "source_body_time": 7.666667,
+    "duration": 0.36,
+    "gain_db": -13
+  },
+  {
+    "peak": 7.826667,
+    "role": "Pillars move out; house remodel begins",
+    "source_body_time": 8.693333666666666,
+    "duration": 0.65,
+    "gain_db": -13
+  },
+  {
+    "peak": 9.200000333333334,
+    "role": "facecam0 long zoom release; source 10.80 mapped to 10.066667",
+    "source_body_time": 10.066667,
+    "duration": 0.36,
+    "gain_db": -13
+  },
+  {
+    "peak": 11.00333333333333,
+    "role": "school proof scene enters",
+    "source_body_time": 11.87,
+    "duration": 0.65,
+    "gain_db": -13
+  },
+  {
+    "peak": 24.816666333333334,
+    "role": "major try-to-face scene transition; source 28.55 mapped to 26.883333",
+    "source_body_time": 26.883333,
+    "duration": 0.36,
+    "gain_db": -13
+  },
+  {
+    "peak": 25.966666333333333,
+    "role": "facecam3 zoom release; source 29.92 mapped to 28.033333",
+    "source_body_time": 28.033333,
+    "duration": 0.36,
+    "gain_db": -13
+  },
+  {
+    "peak": 28.566666666666666,
+    "role": "solution section enters",
+    "source_body_time": 30.799999999999997,
+    "duration": 0.65,
+    "gain_db": -13
+  },
+  {
+    "peak": 38.35000033333333,
+    "role": "workbook setup page; old 45.55 remapped after cut",
+    "source_body_time": 40.916667,
+    "duration": 0.65,
+    "gain_db": -13
+  },
+  {
+    "peak": 38.93333333333333,
+    "role": "facecam5 phrase zoom; source 43.90 mapped to 41.50",
+    "source_body_time": 41.5,
+    "duration": 0.36,
+    "gain_db": -13
+  },
+  {
+    "peak": 40.500000333333325,
+    "role": "major face-to-book scene transition; source 45.466667 mapped to 43.066667",
+    "source_body_time": 43.066667,
+    "duration": 0.36,
+    "gain_db": -13
+  },
+  {
+    "peak": 41.76666699999999,
+    "role": "workbook page changes; old 49.10 remapped after cut",
+    "source_body_time": 44.466667,
+    "duration": 0.65,
+    "gain_db": -13
+  },
+  {
+    "peak": 47.1,
+    "role": "major book-to-comment scene transition; source 52.533333 mapped to 49.90",
+    "source_body_time": 49.9,
+    "duration": 0.36,
+    "gain_db": -13
+  }
+]

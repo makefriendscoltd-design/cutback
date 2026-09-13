@@ -1,0 +1,88 @@
+{
+  "duration": 52.63333333333333,
+  "scenes": [
+    {
+      "start": 0.0,
+      "end": 12.766667,
+      "source_start": 0.0,
+      "source_end": 12.766667,
+      "kind": "face",
+      "theme": "dark"
+    },
+    {
+      "start": 12.766667,
+      "end": 18.766667,
+      "source_start": 12.766667,
+      "source_end": 18.766667,
+      "kind": "lesson",
+      "theme": "light"
+    },
+    {
+      "start": 18.766667,
+      "end": 28.55,
+      "source_start": 18.766667,
+      "source_end": 28.55,
+      "kind": "try",
+      "theme": "dark"
+    },
+    {
+      "start": 28.55,
+      "end": 32.8,
+      "source_start": 28.55,
+      "source_end": 32.8,
+      "kind": "face",
+      "theme": "dark"
+    },
+    {
+      "start": 32.8,
+      "end": 41.13333366666667,
+      "source_start": 32.8,
+      "source_end": 43.366667,
+      "kind": "practice",
+      "theme": "dark"
+    },
+    {
+      "start": 41.13333366666667,
+      "end": 43.233333666666674,
+      "source_start": 43.366667,
+      "source_end": 45.466667,
+      "kind": "face",
+      "theme": "dark"
+    },
+    {
+      "start": 43.233333666666674,
+      "end": 50.29999966666667,
+      "source_start": 45.466667,
+      "source_end": 52.533333,
+      "kind": "book",
+      "theme": "light"
+    },
+    {
+      "start": 50.29999966666667,
+      "end": 52.63333333333333,
+      "source_start": 52.533333,
+      "source_end": 54.86666666666666,
+      "kind": "comment",
+      "theme": "dark"
+    }
+  ],
+  "fixed_headline": {
+    "text": "AI에 미친자가 저지른 일",
+    "start": 0,
+    "duration": 2
+  },
+  "retake_remove_source": [
+    39.06666666666667,
+    41.3
+  ],
+  "removed": [
+    "Editorial tag/title/subheadline blocks",
+    "House and AI-school building icons",
+    "Percentage counter",
+    "Money receipt illustration",
+    "Repeated output cards and workflow summary"
+  ],
+  "visual_status": "UI action illustrations tied to speech; not real application screenshots or exact original assets",
+  "source_reference": "Db5Ux9ZP0Br",
+  "reference_limits": "Specific editing adaptation, not verified full reference match"
+}

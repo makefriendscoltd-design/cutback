@@ -1,0 +1,510 @@
+{
+  "source": "/Users/apple/Downloads/20260911_180156_편집본.mp4",
+  "duration": 54.86666666666666,
+  "fps": 30,
+  "segments": [
+    {
+      "source_start": 0.46,
+      "source_end": 2.76,
+      "output_start": 0,
+      "duration": 2.3,
+      "frames": 69
+    },
+    {
+      "source_start": 3.08,
+      "source_end": 5.48,
+      "output_start": 2.3,
+      "duration": 2.4,
+      "frames": 72
+    },
+    {
+      "source_start": 6.04,
+      "source_end": 8.506666666666668,
+      "output_start": 4.699999999999999,
+      "duration": 2.466666666666667,
+      "frames": 74
+    },
+    {
+      "source_start": 8.88,
+      "source_end": 14.413333333333334,
+      "output_start": 7.166666666666666,
+      "duration": 5.533333333333333,
+      "frames": 166
+    },
+    {
+      "source_start": 15.1,
+      "source_end": 19.766666666666666,
+      "output_start": 12.7,
+      "duration": 4.666666666666667,
+      "frames": 140
+    },
+    {
+      "source_start": 20.28,
+      "source_end": 21.613333333333333,
+      "output_start": 17.366666666666667,
+      "duration": 1.3333333333333333,
+      "frames": 40
+    },
+    {
+      "source_start": 22.04,
+      "source_end": 26.84,
+      "output_start": 18.7,
+      "duration": 4.8,
+      "frames": 144
+    },
+    {
+      "source_start": 27.36,
+      "source_end": 33.693333333333335,
+      "output_start": 23.5,
+      "duration": 6.333333333333333,
+      "frames": 190
+    },
+    {
+      "source_start": 34.22,
+      "source_end": 37.18666666666667,
+      "output_start": 29.833333333333332,
+      "duration": 2.966666666666667,
+      "frames": 89
+    },
+    {
+      "source_start": 40.5,
+      "source_end": 44.1,
+      "output_start": 32.8,
+      "duration": 3.6,
+      "frames": 108
+    },
+    {
+      "source_start": 47.84,
+      "source_end": 50.57333333333334,
+      "output_start": 36.4,
+      "duration": 2.7333333333333334,
+      "frames": 82
+    },
+    {
+      "source_start": 53.52,
+      "source_end": 57.68666666666667,
+      "output_start": 39.13333333333333,
+      "duration": 4.166666666666667,
+      "frames": 125
+    },
+    {
+      "source_start": 58.44,
+      "source_end": 60.54,
+      "output_start": 43.3,
+      "duration": 2.1,
+      "frames": 63
+    },
+    {
+      "source_start": 61.08,
+      "source_end": 62.346666666666664,
+      "output_start": 45.4,
+      "duration": 1.2666666666666666,
+      "frames": 38
+    },
+    {
+      "source_start": 64.36,
+      "source_end": 70.16,
+      "output_start": 46.666666666666664,
+      "duration": 5.8,
+      "frames": 174
+    },
+    {
+      "source_start": 70.36,
+      "source_end": 72.76,
+      "output_start": 52.46666666666666,
+      "duration": 2.4,
+      "frames": 72
+    }
+  ],
+  "captions": [
+    {
+      "start": 0.03999999999999998,
+      "end": 1.06,
+      "text": "여러분 제가",
+      "source_start": 0.5,
+      "source_end": 1.52,
+      "alignment": "ASR plus retake source remap; not listening verified"
+    },
+    {
+      "start": 1.06,
+      "end": 2.3599999999999994,
+      "text": "정말 미쳤나 봅니다",
+      "source_start": 1.52,
+      "source_end": 2.7,
+      "alignment": "ASR plus retake source remap; not listening verified"
+    },
+    {
+      "start": 2.3599999999999994,
+      "end": 3.2399999999999993,
+      "text": "AI에 미쳐서",
+      "source_start": 3.14,
+      "source_end": 4.02,
+      "alignment": "ASR plus retake source remap; not listening verified"
+    },
+    {
+      "start": 3.2399999999999993,
+      "end": 4.62,
+      "text": "학교까지 만들고 있습니다",
+      "source_start": 4.02,
+      "source_end": 5.4,
+      "alignment": "ASR plus retake source remap; not listening verified"
+    },
+    {
+      "start": 4.78,
+      "end": 5.819999999999999,
+      "text": "원래 저는",
+      "source_start": 6.12,
+      "source_end": 7.16,
+      "alignment": "ASR plus retake source remap; not listening verified"
+    },
+    {
+      "start": 5.819999999999999,
+      "end": 7.226666666666665,
+      "text": "인테리어 하던 사람이에요",
+      "source_start": 7.16,
+      "source_end": 8.42,
+      "alignment": "ASR plus retake source remap; not listening verified"
+    },
+    {
+      "start": 7.226666666666665,
+      "end": 8.366666666666665,
+      "text": "어머니 카페 짓는다고",
+      "source_start": 8.94,
+      "source_end": 10.08,
+      "alignment": "ASR plus retake source remap; not listening verified"
+    },
+    {
+      "start": 8.366666666666665,
+      "end": 9.426666666666664,
+      "text": "2층 주택",
+      "source_start": 10.08,
+      "source_end": 11.14,
+      "alignment": "ASR plus retake source remap; not listening verified"
+    },
+    {
+      "start": 9.426666666666664,
+      "end": 10.806666666666667,
+      "text": "기둥까지 뽑아본 사람이",
+      "source_start": 11.14,
+      "source_end": 12.52,
+      "alignment": "ASR plus retake source remap; not listening verified"
+    },
+    {
+      "start": 10.806666666666667,
+      "end": 12.76,
+      "text": "지금은 AI 학교를 짓고 있습니다",
+      "source_start": 12.52,
+      "source_end": 14.32,
+      "alignment": "ASR plus retake source remap; not listening verified",
+      "correction": "User explicit contextual correction"
+    },
+    {
+      "start": 12.76,
+      "end": 14.56,
+      "text": "근데 이 학교는",
+      "source_start": 15.16,
+      "source_end": 16.96,
+      "alignment": "ASR plus retake source remap; not listening verified"
+    },
+    {
+      "start": 14.56,
+      "end": 16.259999999999998,
+      "text": "수업을 끝까지 다 들어도",
+      "source_start": 16.96,
+      "source_end": 18.66,
+      "alignment": "ASR plus retake source remap; not listening verified"
+    },
+    {
+      "start": 16.259999999999998,
+      "end": 17.299999999999997,
+      "text": "졸업을 못 합니다",
+      "source_start": 18.66,
+      "source_end": 19.7,
+      "alignment": "ASR plus retake source remap; not listening verified"
+    },
+    {
+      "start": 17.506666666666668,
+      "end": 18.770000000000003,
+      "text": "자기 걸 만들어야 해요",
+      "source_start": 20.42,
+      "source_end": 21.54,
+      "alignment": "ASR plus retake source remap; not listening verified"
+    },
+    {
+      "start": 18.770000000000003,
+      "end": 19.880000000000003,
+      "text": "남이 AI로 뭘",
+      "source_start": 22.11,
+      "source_end": 23.22,
+      "alignment": "ASR plus retake source remap; not listening verified"
+    },
+    {
+      "start": 19.880000000000003,
+      "end": 20.979999999999997,
+      "text": "만들었다 보면",
+      "source_start": 23.22,
+      "source_end": 24.32,
+      "alignment": "ASR plus retake source remap; not listening verified"
+    },
+    {
+      "start": 20.979999999999997,
+      "end": 23.440000000000005,
+      "text": "나도 해봐야겠다 싶잖아요",
+      "source_start": 24.32,
+      "source_end": 26.78,
+      "alignment": "ASR plus retake source remap; not listening verified"
+    },
+    {
+      "start": 23.620000000000005,
+      "end": 25.14,
+      "text": "근데 막상 혼자 켜면",
+      "source_start": 27.48,
+      "source_end": 29.0,
+      "alignment": "ASR plus retake source remap; not listening verified"
+    },
+    {
+      "start": 25.14,
+      "end": 26.879999999999995,
+      "text": "뭘 해야 될지 모르겠고",
+      "source_start": 29.0,
+      "source_end": 30.74,
+      "alignment": "ASR plus retake source remap; not listening verified"
+    },
+    {
+      "start": 26.879999999999995,
+      "end": 28.04,
+      "text": "따라 하다가 안 되면",
+      "source_start": 30.74,
+      "source_end": 31.9,
+      "alignment": "ASR plus retake source remap; not listening verified"
+    },
+    {
+      "start": 28.04,
+      "end": 29.913333333333327,
+      "text": "그냥 닫아서 끝내버립니다",
+      "source_start": 31.9,
+      "source_end": 33.62,
+      "alignment": "ASR plus retake source remap; not listening verified"
+    },
+    {
+      "start": 29.913333333333327,
+      "end": 31.25333333333333,
+      "text": "저도 강의만 듣다가",
+      "source_start": 34.3,
+      "source_end": 35.64,
+      "alignment": "ASR plus retake source remap; not listening verified"
+    },
+    {
+      "start": 31.25333333333333,
+      "end": 32.84,
+      "text": "3~4천만 원 날려봤거든요",
+      "source_start": 35.64,
+      "source_end": 37.12,
+      "alignment": "ASR plus retake source remap; not listening verified"
+    },
+    {
+      "start": 32.84,
+      "end": 33.98,
+      "text": "저는 그다음까지",
+      "source_start": 40.56,
+      "source_end": 41.58,
+      "alignment": "independently transcribed base word timings"
+    },
+    {
+      "start": 33.98,
+      "end": 34.84,
+      "text": "같이 해보는",
+      "source_start": 41.58,
+      "source_end": 42.54,
+      "alignment": "independently transcribed base word timings"
+    },
+    {
+      "start": 34.84,
+      "end": 36.34,
+      "text": "학교를 만들고 싶습니다",
+      "source_start": 42.54,
+      "source_end": 44.06,
+      "alignment": "independently transcribed base word timings"
+    },
+    {
+      "start": 36.44,
+      "end": 37.620000000000005,
+      "text": "자기 걸 만들고",
+      "source_start": 47.9,
+      "source_end": 48.98,
+      "alignment": "independently transcribed base word timings"
+    },
+    {
+      "start": 37.620000000000005,
+      "end": 39.06,
+      "text": "안 되면 같이 고치고",
+      "source_start": 49.06,
+      "source_end": 50.5,
+      "alignment": "ASR plus retake source remap; not listening verified"
+    },
+    {
+      "start": 41.300000000000004,
+      "end": 42.29333333333334,
+      "text": "다음엔 혼자서도",
+      "alignment": "Recut crop ASR, crop origin 38.8s; first onset clamped to join. Estimated, not listening verified."
+    },
+    {
+      "start": 42.29333333333334,
+      "end": 43.233333333333334,
+      "text": "해볼 수 있게 말이죠",
+      "alignment": "Recut crop ASR, crop origin 38.8s; first onset clamped to join. Estimated, not listening verified."
+    },
+    {
+      "start": 43.36,
+      "end": 43.900000000000006,
+      "text": "말하고 보니까",
+      "source_start": 58.5,
+      "source_end": 59.04,
+      "alignment": "ASR plus retake source remap; not listening verified"
+    },
+    {
+      "start": 43.900000000000006,
+      "end": 45.31999999999999,
+      "text": "일을 좀 크게 벌인 것 같네요",
+      "source_start": 59.04,
+      "source_end": 60.46,
+      "alignment": "ASR plus retake source remap; not listening verified"
+    },
+    {
+      "start": 45.5,
+      "end": 46.62,
+      "text": "일단 AI로",
+      "source_start": 61.16,
+      "source_end": 62.34,
+      "alignment": "independently transcribed base word timings"
+    },
+    {
+      "start": 46.62,
+      "end": 47.64,
+      "text": "뭘 만들어야 할지",
+      "source_start": 64.405,
+      "source_end": 65.35,
+      "alignment": "independently transcribed base word timings"
+    },
+    {
+      "start": 47.64,
+      "end": 49.0,
+      "text": "막막한 분들을 위해",
+      "source_start": 65.35,
+      "source_end": 66.7,
+      "alignment": "independently transcribed base word timings"
+    },
+    {
+      "start": 49.006666666666675,
+      "end": 50.226666666666674,
+      "text": "첫 프로젝트를",
+      "source_start": 66.7,
+      "source_end": 67.92,
+      "alignment": "ASR plus retake source remap; not listening verified"
+    },
+    {
+      "start": 50.226666666666674,
+      "end": 51.66666666666667,
+      "text": "정해보는 워크북부터",
+      "source_start": 67.92,
+      "source_end": 69.36,
+      "alignment": "ASR plus retake source remap; not listening verified"
+    },
+    {
+      "start": 51.66666666666667,
+      "end": 52.52666666666666,
+      "text": "준비했습니다",
+      "source_start": 69.36,
+      "source_end": 70.1,
+      "alignment": "ASR plus retake source remap; not listening verified"
+    },
+    {
+      "start": 52.52666666666666,
+      "end": 53.88666666666667,
+      "text": "댓글에 시작이라고",
+      "source_start": 70.42,
+      "source_end": 71.78,
+      "alignment": "ASR plus retake source remap; not listening verified"
+    },
+    {
+      "start": 53.88666666666667,
+      "end": 54.726666666666674,
+      "text": "남겨주세요",
+      "source_start": 71.78,
+      "source_end": 72.62,
+      "alignment": "ASR plus retake source remap; not listening verified"
+    }
+  ],
+  "removed_retakes": [
+    [
+      37.72,
+      40.5
+    ],
+    [
+      44.1,
+      47.84
+    ],
+    [
+      50.57,
+      53.52
+    ],
+    [
+      62.35,
+      64.36
+    ]
+  ],
+  "validation": "machine retake audit; final playback pending",
+  "frame_cut": {
+    "source_base": "../20260911_180156-v1/composition/assets/base.mp4",
+    "fps": 30,
+    "remove_start_frame": 1172,
+    "remove_end_frame": 1239,
+    "removed_frames": 67
+  },
+  "output_duration": 52.63333333333333,
+  "output_frames": 1579,
+  "caption_timebase": "Pre-cut base seconds; generator maps through frame_cut, output SRT is derived",
+  "caption_emphasis": [
+    "미쳤나",
+    "AI에 미쳐서",
+    "학교까지",
+    "인테리어",
+    "기둥까지",
+    "AI 학교를",
+    "졸업을 못",
+    "자기 걸",
+    "막상 혼자",
+    "안 되면",
+    "끝내버립니다",
+    "3~4천만 원",
+    "같이 고치고",
+    "혼자서도",
+    "크게 벌인",
+    "첫 프로젝트",
+    "시작"
+  ],
+  "revision": "v5: overhead intro typography with immediate spoken captions; house-to-cafe motion and AI school clarification",
+  "headline_design": {
+    "text": "AI에 미친자가 저지른 일",
+    "lines": [
+      "AI에 미친자가",
+      "저지른 일"
+    ],
+    "font": "Pretendard Black (substitute; original font unconfirmed)",
+    "color": "white with black stroke/shadow",
+    "start": 0,
+    "end": 2,
+    "spoken_captions_from_start": true,
+    "basis": [
+      "R01/R02 dense heavy white title",
+      "R04 two-line white with strong black edge above subject"
+    ],
+    "user_override": "Overhead two seconds with speech immediately, instead of R01 0.1-second cover.",
+    "placement": "top470px on1920px canvas; overlaps upper face by user instruction",
+    "font_sizes": [
+      122,
+      170
+    ],
+    "subtitle_background": "none; user explicitly rejected black keyword chips"
+  }
+}

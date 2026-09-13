@@ -1,0 +1,566 @@
+{
+  "schema_version": 1,
+  "evidence_root": "/Users/apple/orca/projects/cutback/reference-styles/2026-09-12",
+  "status": "reference-derived v0; original render fidelity/audio identity not verified",
+  "user_requirements": {
+    "language": "ko",
+    "base": "person reading script",
+    "channel": "AI 학교를 만드는 과정 + 정보/홍보/조회수",
+    "retakes": "remove abandoned earlier repeated starts; retain last clean complete utterance",
+    "speech_spacing": "tight, reference-relative; preserve consonants and meaningful emphasis",
+    "person_preservation": "preserve identity, facial geometry, mouth timing, hands and voice; AI background and lighting allowed",
+    "delivery": "rendered MP4 plus editable source/captions; open final artifact in default app",
+    "motion_graphic_broll": "When the chosen reference uses animated graphic B-roll, author content-specific animated scenes including internal element motion; static illustrations with generic zoom are insufficient. Generation provenance of the reference may remain unknown.",
+    "headline": "Use series_headline exact text and duration for this content series; adapt visual typography to chosen style without rewriting the fixed copy.",
+    "timing_benchmark": "Benchmark every visible/audible editing event in the selected reference, including internal motion and speech-relative offsets; average shot length or scene detection alone is insufficient. Map events by rhetorical role/word anchor to the cleaned new script, preserve timing ratios and document duration adaptations.",
+    "series_headline": {
+      "text": "AI에 미친자가 저지른 일",
+      "duration_seconds": 2.0,
+      "scope": "All future content in this AI-school series unless user overrides",
+      "origin": "Explicit user instruction; overrides prior reference cover-only .1s duration and per-video hook wording",
+      "placement": "Use centered prominent reference-like typography, not high corner editorial heading.",
+      "layout": "v8/v9 user correction: reduce type to122/170px on1080x1920, move top470px inside frame over upper face. Brief person occlusion allowed. White Black-weight letters with black edge, no color.",
+      "evidence": "verification-renders/20260911_180156-r01-v7/reference-headlines"
+    },
+    "instagram_comment_cta": "When the script asks for Instagram comments, illustrate an Instagram-style comments sheet with avatar, comment input, blue post action and posted comment. Match the requested keyword. Do not use a generic browser/chat mockup or fabricated engagement counts.",
+    "caption_overlap": "One spoken caption at a time on output-frame boundaries. Overhead headline and spoken caption may coexist 0–2 seconds in separate vertical zones; never overlap their text boxes.",
+    "caption_emphasis": "Red keyword text may recur throughout, but NO filled background/pill/chip on any spoken caption. Keep text + outline/shadow only.",
+    "camera_rhythm": "Talking-head camera moves must vary by clause: brief punch-in, slow push, hold, and deliberate release. Vary duration and amplitude; avoid uniform oscillation.",
+    "contextual_stickers": "On selected talking-head phrases, place a small transparent animated sticker below the caption, linked to meaning and an appropriate short SFX. Examples: spending money → money bag and coin jingle; school → graduation cap; reflective admission → thinking face. Source local licensed assets and retain provenance.",
+    "dialogue_rhythm": "User calls this 꼬리물기: remove phrase gaps and shorten drawn-out voiced endings so each utterance hands directly to next. Use local pitch-preserving tail compression where voiced content must be retained; retime picture/captions/SFX with one frame mapping and remix continuous BGM.",
+    "delivery_ui": "Latest user instruction supersedes headless-only: UI manipulation is allowed; relighting may use open-source tools instead of CapCut."
+  },
+  "production_defaults_not_measurements": {
+    "fps": 30,
+    "sample_rate": 48000,
+    "audio_true_peak_ceiling_dbtp": -1,
+    "speech_edge_padding_ms": [
+      20,
+      60
+    ],
+    "audio_cut_crossfade_ms": [
+      3,
+      8
+    ],
+    "remaining_interphrase_gap_ms": [
+      0,
+      80
+    ],
+    "mixed_lufs_initial_target": -14.2
+  },
+  "styles": [
+    {
+      "id": "info-cards",
+      "name": "정보 카드 + 하단 인물",
+      "reference_ids": [
+        "Db5Ux9ZP0Br",
+        "DciUYarz7vw"
+      ],
+      "use_when": "AI 도구·실행 순서·검증된 비교 설명",
+      "parameter_status": "reconstruction_starting_values_not_original_editor_settings",
+      "canvas": [
+        1080,
+        1920
+      ],
+      "caption": {
+        "center": [
+          0.5,
+          0.5
+        ],
+        "font_candidate": "Pretendard-Bold",
+        "font_size_px": 58,
+        "fill": "#FFFFFF",
+        "stroke_px": 4,
+        "stroke": "#151515",
+        "max_lines": 1,
+        "warning": {
+          "center": [
+            0.5,
+            0.556
+          ],
+          "font_size_px": 82,
+          "fill": "#F21D20"
+        }
+      },
+      "header": {
+        "mode": "full-frame_4-line_cover_then_hard_cut_to_close-face-caption",
+        "cover_duration_seconds": 0.1,
+        "full_face_warning_seconds": [
+          1.47,
+          2.73
+        ],
+        "anchor_reference_id": "Db5Ux9ZP0Br",
+        "variant_rule": "DciUYarz7vw uses its own source event timing; do not force R01 anchors",
+        "cover": {
+          "reference_id": "Db5Ux9ZP0Br",
+          "duration_seconds": 0.1,
+          "main_headline_bbox_normalized": [
+            0.076389,
+            0.317188,
+            0.930556,
+            0.684375
+          ],
+          "main_headline_center_normalized": [
+            0.503472,
+            0.500781
+          ],
+          "authored_cover_bbox_normalized": [
+            0.063889,
+            0.154688,
+            0.930556,
+            0.684375
+          ],
+          "evidence": "sources/Db5Ux9ZP0Br/coordinate-correction.md",
+          "scope": "Db5 variant only; visible glyph geometry, not editor font settings"
+        }
+      },
+      "assets": {
+        "layout": "upper card, lower rounded live plate, head overlaps boundary",
+        "upper_rect": [
+          0.06,
+          0.05,
+          0.88,
+          0.42
+        ],
+        "lower_plate_rect": [
+          0,
+          0.6,
+          1,
+          0.4
+        ],
+        "head_top_y": 0.53,
+        "kinds": [
+          "UI cards",
+          "charts",
+          "logos",
+          "step cards",
+          "cursor",
+          "actual screen recordings"
+        ],
+        "variants": {
+          "Db5Ux9ZP0Br": "process/tutorial",
+          "DciUYarz7vw": "comparison/ranking"
+        }
+      },
+      "motion": {
+        "cut": "hard",
+        "card_transition_seconds": [
+          0.2,
+          0.35
+        ],
+        "stagger_seconds": [
+          0.08,
+          0.15
+        ],
+        "counter_seconds": [
+          0.8,
+          1.0
+        ],
+        "easing_candidate": "ease-out",
+        "notes": "Use timed sequence from chosen reference; no fixed random zoom timer"
+      },
+      "exact_font_family": null,
+      "exact_bgm": null,
+      "exact_sfx": null
+    },
+    {
+      "id": "proof-top",
+      "name": "상단 증거 삽입형",
+      "reference_ids": [
+        "DarwoM2M-kS"
+      ],
+      "use_when": "한 가지 주장과 구체적인 예시를 빠르게 설명",
+      "parameter_status": "reconstruction_starting_values_not_original_editor_settings",
+      "canvas": [
+        1080,
+        1920
+      ],
+      "caption": {
+        "center": [
+          0.5,
+          0.58
+        ],
+        "font_candidate": "Pretendard-Bold",
+        "font_size_px": 38,
+        "fill": "#FFFFFF",
+        "stroke_px": 2,
+        "max_lines": 1,
+        "korean_adaptation": "2–4 어절 의미 단위, 영어 단어 개수 그대로 복제 금지"
+      },
+      "header": {
+        "mode": "oversized opener around face",
+        "center": [
+          0.5,
+          0.15
+        ],
+        "font_size_px": 96,
+        "duration_seconds": [
+          0,
+          1.8
+        ]
+      },
+      "assets": {
+        "layout": "locked centered person + full-width upper proof",
+        "proof_rect": [
+          0,
+          0,
+          1,
+          0.48
+        ],
+        "subject_rect": [
+          0.28,
+          0.28,
+          0.45,
+          0.69
+        ],
+        "kinds": [
+          "actual demo",
+          "before/after",
+          "proof screenshots"
+        ]
+      },
+      "motion": {
+        "cut": "hard",
+        "proof_hold_seconds": [
+          0.7,
+          1.5
+        ],
+        "burst_interval_seconds": [
+          0.75,
+          1.2
+        ],
+        "camera_zoom": "none unless supported by source",
+        "easing_candidate": null
+      },
+      "exact_font_family": null,
+      "exact_bgm": null,
+      "exact_sfx": null,
+      "coordinate_event_evidence": "/Users/apple/orca/projects/cutback/verification-renders/20260911_180156-r03-rebuild/intro-events.json",
+      "tail_event_evidence": "/Users/apple/orca/projects/cutback/verification-renders/20260911_180156-r03-rebuild/reference-tail-events.json",
+      "required_intro_behavior": "Word accumulation at measured distinct positions; never substitute a static top headline. Use per-word target speech anchors and record temporal adaptation."
+    },
+    {
+      "id": "numbered-talk",
+      "name": "고정 제목 + 번호 목록형",
+      "reference_ids": [
+        "DbcCUvyydMx"
+      ],
+      "use_when": "촬영본 한 개로 만드는 팁·오해·체크리스트",
+      "parameter_status": "reconstruction_starting_values_not_original_editor_settings",
+      "canvas": [
+        1080,
+        1920
+      ],
+      "caption": {
+        "center": [
+          0.5,
+          0.728
+        ],
+        "font_candidate": "Jua (substitute; original unidentified)",
+        "font_size_px": 47,
+        "fill": "#FFFFFF",
+        "stroke_px": 5,
+        "max_lines": 2,
+        "numbered": {
+          "center": [
+            0.5,
+            0.682
+          ],
+          "font_size_px": 56,
+          "fill": "#F21D20"
+        }
+      },
+      "header": {
+        "mode": "persistent 2-line hook",
+        "center": [
+          0.5,
+          0.2075
+        ],
+        "font_candidate": "Jua (candidate only; compare shapes)",
+        "font_size_px": 100,
+        "stroke_px": 9,
+        "max_lines": 2
+      },
+      "assets": {
+        "layout": "single real room and centered person",
+        "subject_eye_y": [
+          0.4,
+          0.46
+        ],
+        "kinds": [],
+        "required_broll": false
+      },
+      "motion": {
+        "cut": "hard dialogue jump cuts",
+        "caption_transition_seconds": 0,
+        "camera_zoom": "none",
+        "easing_candidate": null
+      },
+      "exact_font_family": null,
+      "exact_bgm": null,
+      "exact_sfx": null,
+      "coordinate_evidence": {
+        "path": "sources/DbcCUvyydMx/coordinate-correction.md",
+        "scope": "manual visible glyph bbox, two original frames; not editor anchors",
+        "header_bbox_xyxy": [
+          0.04,
+          0.144,
+          0.96,
+          0.271
+        ],
+        "number_bbox_xyxy": [
+          0.271,
+          0.657,
+          0.732,
+          0.706
+        ],
+        "speech_bbox_xyxy": [
+          0.335,
+          0.705,
+          0.67,
+          0.75
+        ],
+        "anchor_note": "centers above are reconstruction starts derived from visible bboxes; reposition around actual source face",
+        "closeup_application": "/Users/apple/orca/projects/cutback/verification-renders/20260911_180156-numbered/style-events.json"
+      }
+    },
+    {
+      "id": "classroom-proof",
+      "name": "강의실 + 자료 시연형",
+      "reference_ids": [
+        "DdFxUMTsUin"
+      ],
+      "use_when": "커리큘럼·수업 방식·실제 결과물 설명",
+      "parameter_status": "reconstruction_starting_values_not_original_editor_settings",
+      "canvas": [
+        1080,
+        1920
+      ],
+      "caption": {
+        "center": [
+          0.5,
+          0.52
+        ],
+        "font_candidate": "Pretendard-Bold",
+        "font_size_px": 48,
+        "fill": "#FFFFFF",
+        "stroke_px": 5,
+        "max_lines": 1,
+        "semantic_accents": [
+          "#C8ED42",
+          "#FF3F62"
+        ]
+      },
+      "header": {
+        "mode": "persistent premise pill + blue headline",
+        "pill_center": [
+          0.5,
+          0.05
+        ],
+        "pill_font_size_px": 29,
+        "pill_fill": "#000000",
+        "center": [
+          0.5,
+          0.08
+        ],
+        "font_size_px": 60,
+        "fill": "#43B7ED"
+      },
+      "assets": {
+        "layout": "classroom plate with large centered rectangular proof",
+        "proof_rect": [
+          0.06,
+          0.2,
+          0.88,
+          0.58
+        ],
+        "small_card_rect": [
+          0.37,
+          0.5,
+          0.29,
+          0.14
+        ],
+        "cta_center": [
+          0.5,
+          0.725
+        ],
+        "kinds": [
+          "board detail",
+          "actual screenshot",
+          "curriculum",
+          "output demo"
+        ]
+      },
+      "motion": {
+        "cut": "mostly hard; document entrance near 24–25s may fade briefly",
+        "caption_transition_seconds": 0,
+        "proof_refresh_seconds": [
+          3,
+          6
+        ],
+        "camera_zoom": "cut to details, not animated zoom",
+        "easing_candidate": null,
+        "document_fade_seconds_candidate": [
+          0.2,
+          0.5
+        ]
+      },
+      "exact_font_family": null,
+      "exact_bgm": null,
+      "exact_sfx": null
+    },
+    {
+      "id": "build-diary",
+      "name": "학교 제작일지 몽타주형",
+      "reference_ids": [
+        "DaU9JkRyicw"
+      ],
+      "use_when": "학교를 만드는 과정·하루·전환점 이야기; 원본 인물+과정 애셋 필요",
+      "parameter_status": "reconstruction_starting_values_not_original_editor_settings",
+      "canvas": [
+        1080,
+        1920
+      ],
+      "caption": {
+        "center": [
+          0.5,
+          0.74
+        ],
+        "font_candidate": "Pretendard-Regular",
+        "font_size_px": 34,
+        "fill": "#FFFFFF",
+        "stroke_px": 1,
+        "max_lines": 2,
+        "english": false
+      },
+      "header": {
+        "mode": "rough handwritten title art around face",
+        "rect": [
+          0.08,
+          0.08,
+          0.84,
+          0.49
+        ],
+        "font_candidate": "EastSeaDokdo (candidate only)",
+        "font_size_px": [
+          90,
+          158
+        ]
+      },
+      "assets": {
+        "layout": "face/detail/place alternating montage",
+        "kinds": [
+          "founder footage",
+          "desk/hands",
+          "screen recording",
+          "school preparation",
+          "location"
+        ],
+        "requires_additional_assets": true,
+        "ai_visuals": "illustrative scenes only; do not fabricate attendance or actual outcomes"
+      },
+      "motion": {
+        "cut": "hard",
+        "montage_shot_seconds": [
+          0.7,
+          2.0
+        ],
+        "reflective_shot_seconds": [
+          2,
+          4.5
+        ],
+        "chapter_card_seconds": [
+          1,
+          1.6
+        ],
+        "chapter_position": "logical pivot, not a fixed timestamp",
+        "push_in_candidate": [
+          1,
+          1.03
+        ],
+        "easing_candidate": null
+      },
+      "exact_font_family": null,
+      "exact_bgm": null,
+      "exact_sfx": null
+    }
+  ],
+  "analysis_completeness": {
+    "full_visual_event_timeline": "pending",
+    "internal_broll_motion_timeline": "pending",
+    "headline_font_identification": "pending",
+    "audio_event_listening": "pending",
+    "new_footage_render_comparison": "not_started",
+    "note": "These requirements are mandatory production conditions; writing them does not complete the measurements."
+  },
+  "user_feedback": {
+    "preferred_variant": "info-cards / R01, provisional preference",
+    "reported_problem": "First render graphics did not reflect script meaning and repeated values; visual quality unsatisfactory",
+    "required_revision": "Map each visual to a concrete clause and its explanatory purpose before rendering. Do not duplicate caption wording, numbers, or the same motif across unrelated beats. Use real artifacts for proof, label illustrative screens. If visual adds no explanatory value, hold person.",
+    "meaning_of_style": "Editing grammar only: typography, composition, cut rhythm, transitions, keyframes and audio cues. Never copy reference subject matter or force its examples into a new script.",
+    "rejected_deliverables": [
+      "20260911_180156-proof: static heading and approximate coordinates, rejected as style reproduction",
+      "20260911_180156-r03-rebuild: user rejected speech pace, text positions/onsets, ordinary caption treatment, and static-background cutout composition. Pixel-center test is implementation consistency only, not reference fidelity."
+    ],
+    "latest_revision_requirements": {
+      "audio": "Rebuild voice pace and pauses before timing captions; do not reuse unchanged 54.8667s cut as a rhythm match. Compare phrase and event cadence, not English/Korean raw word counts.",
+      "typography": "Match per-event location, grouping, appearance/hold/clear timing and glyph footprint, including ordinary speech captions. Five intro center samples do not validate the style.",
+      "scene": "User requires AI-generated moving scene appropriate to reference, preserving identity/voice/lip sync; static AI image with cutout person does not satisfy. Actual temporal generation and compositing must be verified.",
+      "delivery_status": "R03 remains rejected; no approved template or new final until these aspects are addressed."
+    },
+    "local_video_generation": {
+      "user_directive": "Find and run open-source implementation without requiring user to already own a video generation account.",
+      "runtime": "/Users/apple/.venvs/cutback-mlx-video/bin/mlxgen-generate-wan",
+      "version": "mlx-gen 0.37.0",
+      "model": "Wan-AI/Wan2.1-VACE-1.3B-diffusers",
+      "model_revision": "ec4d2cb062b548996b179d493fdd05340de702a1",
+      "test_project": "/Users/apple/orca/projects/cutback/verification-renders/20260911_180156-r03-v3-audit/vace-trial",
+      "validated": "Installed, Metal available, per-frame video-mask path passed 17-frame input tests. Installed source supersedes outdated static-mask-only documentation.",
+      "not_validated": "Model generation and final audiovisual quality; model transfer still incomplete.",
+      "scene_contract": "White background mask editable, black person conditioning; learned preservation may drift and must be checked against original identity/mouth/hands."
+    },
+    "active_revision": {
+      "style": "info-cards / R01",
+      "base_project": "verification-renders/20260911_180156-v1",
+      "user_direction": "Stop AI video overlay/generation work. Develop the existing first-style edit collaboratively.",
+      "ai_video_generation_status": "Stopped at user request; no generation process or queued download remains running. Preserve partial weights.",
+      "known_prior_issues": [
+        "Headline position too high",
+        "Graphics fail to explain script and repeat values/motifs"
+      ],
+      "priority_question": "Answered: remove invented editorial title blocks and script-irrelevant visuals; include SFX and use existing shortform BGM.",
+      "latest_project": "/Users/apple/orca/projects/cutback/verification-renders/20260911_180156-r01-v19",
+      "revision_behavior": [
+        "Do not add standalone tag/title/subheadline stacks absent from the chosen reference. User specifically rejected the mother-cafe/2-story-house/pillar-copy stack.",
+        "Preserve factual spoken captions; use real talking-head footage for personal anecdotes lacking relevant visual evidence.",
+        "Use graphics to show source-script actions unfolding, not repeat large summary headings.",
+        "Existing shortform music: auto_editor/assets/bgm/suno-forward-motion-a.mp3. Include action-specific SFX and verify the final encoded audio contains them; do not infer audibility from a file reference alone."
+      ],
+      "status": "v19 blackshadowonbodycaptionsverified;49.6s1488frames;userreviewpending",
+      "delivery_verification": "/Users/apple/orca/projects/cutback/verification-renders/20260911_180156-r01-v12/delivery-verification.json",
+      "latest_output": "/Users/apple/orca/projects/cutback/verification-renders/20260911_180156-r01-v19/AI학교_01_자막검정그림자_v19.mp4",
+      "verification": "/Users/apple/orca/projects/cutback/verification-renders/20260911_180156-r01-v19/delivery-verification.json",
+      "v3_user_response": "User strongly approved v3 overall; requested caption overlap fix, recurring red emphasis, varied zoom rhythm, contextual small animated stickers.",
+      "voice_correction_status": "Original voice retained; user-requested AI 학교 wording corrected in caption and graphic. Same-voice splice deemed unsuitable without a longer timing change; direct listening unverified.",
+      "relight_status": "Removed atuserrequest; originalv3source restored"
+    }
+  },
+  "latest_intro_and_transition_override": {
+    "date": "2026-09-13",
+    "intro": "No separate intro/freeze. Livevideo+speechstarts0. Headtwoexactlines POV: AI 미친자가 / 저지른 일, 1second only, same122px (increased108), top360 on1080x1920 yieldingbboxcenternear25%height. Blackstroke/shadowretained. D30removed perreplacementcopy.",
+    "audio": "v17 userreportedBGMinAudible at-30.1dBFS. Raisedbed+7dBto-23.1dBFS and reducedduckingthreshold.14ratio1.25. Same128BPMtrack, voice/whooshstems unchanged. Outputverified, subjective listeningunverified.",
+    "relight": "REMOVED atuserrequest. Useoriginal lighting footage, notv10/v12processed relightassets.",
+    "evidence": "/Users/apple/orca/projects/cutback/verification-renders/20260911_180156-r01-v12/reference/observations.json",
+    "rhythm": "CRITICAL USER CORRECTION: 꼬리물기 is CUTTING sustainedend such as 근데~ to 근데., NOT local/global speeding. Allspeedups removed. v18 original1579frame voice source,91frames gap/tailcuts,1488frames49.6s; everykeptsegment1.0x. ASRchecked suffixes. Do not usev9/v16retimedvoice asneworiginal.",
+    "body_caption_shadow": "Black textshadow forregular andredaccentcaptions:0 5px 6px #000,0 0 12px #000e. No subtitlebackground.",
+    "delivery_export": {
+      "width": 2160,
+      "height": 3840,
+      "fps": 30,
+      "method": "Lanczos upscale from verified 1080x1920 master; copy audio",
+      "video_codec": "h264_videotoolbox",
+      "target_video_bitrate": "40M",
+      "note": "4K output dimensions; not native 4K detail. Preserve existing timing and styling."
+    }
+  }
+}

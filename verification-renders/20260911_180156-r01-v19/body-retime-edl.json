@@ -1,0 +1,281 @@
+{
+  "source_voice": "/Users/apple/orca/projects/cutback/verification-renders/20260911_180156-r01-v3/composition/assets/base.mp4",
+  "picture_source": "../20260911_180156-r01-v15/original-source-52s.mp4",
+  "fps": 30,
+  "source_frames": 1579,
+  "source_duration": 52.63333333333333,
+  "output_frames": 1488,
+  "output_duration": 49.6,
+  "all_kept_segment_speed": 1.0,
+  "segments": [
+    {
+      "source_start_frame": 0,
+      "source_end_frame": 66,
+      "output_start_frame": 0,
+      "output_frames": 66,
+      "speed": 1.0
+    },
+    {
+      "source_start_frame": 73,
+      "source_end_frame": 133,
+      "output_start_frame": 66,
+      "output_frames": 60,
+      "speed": 1.0
+    },
+    {
+      "source_start_frame": 136,
+      "source_end_frame": 139,
+      "output_start_frame": 126,
+      "output_frames": 3,
+      "speed": 1.0
+    },
+    {
+      "source_start_frame": 145,
+      "source_end_frame": 202,
+      "output_start_frame": 129,
+      "output_frames": 57,
+      "speed": 1.0
+    },
+    {
+      "source_start_frame": 208,
+      "source_end_frame": 212,
+      "output_start_frame": 186,
+      "output_frames": 4,
+      "speed": 1.0
+    },
+    {
+      "source_start_frame": 216,
+      "source_end_frame": 373,
+      "output_start_frame": 190,
+      "output_frames": 157,
+      "speed": 1.0
+    },
+    {
+      "source_start_frame": 376,
+      "source_end_frame": 379,
+      "output_start_frame": 347,
+      "output_frames": 3,
+      "speed": 1.0
+    },
+    {
+      "source_start_frame": 382,
+      "source_end_frame": 388,
+      "output_start_frame": 350,
+      "output_frames": 6,
+      "speed": 1.0
+    },
+    {
+      "source_start_frame": 391,
+      "source_end_frame": 510,
+      "output_start_frame": 356,
+      "output_frames": 119,
+      "speed": 1.0
+    },
+    {
+      "source_start_frame": 515,
+      "source_end_frame": 519,
+      "output_start_frame": 475,
+      "output_frames": 4,
+      "speed": 1.0
+    },
+    {
+      "source_start_frame": 523,
+      "source_end_frame": 559,
+      "output_start_frame": 479,
+      "output_frames": 36,
+      "speed": 1.0
+    },
+    {
+      "source_start_frame": 567,
+      "source_end_frame": 694,
+      "output_start_frame": 515,
+      "output_frames": 127,
+      "speed": 1.0
+    },
+    {
+      "source_start_frame": 699,
+      "source_end_frame": 703,
+      "output_start_frame": 642,
+      "output_frames": 4,
+      "speed": 1.0
+    },
+    {
+      "source_start_frame": 708,
+      "source_end_frame": 894,
+      "output_start_frame": 646,
+      "output_frames": 186,
+      "speed": 1.0
+    },
+    {
+      "source_start_frame": 899,
+      "source_end_frame": 982,
+      "output_start_frame": 832,
+      "output_frames": 83,
+      "speed": 1.0
+    },
+    {
+      "source_start_frame": 984,
+      "source_end_frame": 1081,
+      "output_start_frame": 915,
+      "output_frames": 97,
+      "speed": 1.0
+    },
+    {
+      "source_start_frame": 1086,
+      "source_end_frame": 1224,
+      "output_start_frame": 1012,
+      "output_frames": 138,
+      "speed": 1.0
+    },
+    {
+      "source_start_frame": 1227,
+      "source_end_frame": 1293,
+      "output_start_frame": 1150,
+      "output_frames": 66,
+      "speed": 1.0
+    },
+    {
+      "source_start_frame": 1297,
+      "source_end_frame": 1494,
+      "output_start_frame": 1216,
+      "output_frames": 197,
+      "speed": 1.0
+    },
+    {
+      "source_start_frame": 1500,
+      "source_end_frame": 1505,
+      "output_start_frame": 1413,
+      "output_frames": 5,
+      "speed": 1.0
+    },
+    {
+      "source_start_frame": 1509,
+      "source_end_frame": 1579,
+      "output_start_frame": 1418,
+      "output_frames": 70,
+      "speed": 1.0
+    }
+  ],
+  "gap_cuts": [
+    {
+      "start_frame": 66,
+      "end_frame": 73,
+      "frames": 7
+    },
+    {
+      "start_frame": 139,
+      "end_frame": 145,
+      "frames": 6
+    },
+    {
+      "start_frame": 212,
+      "end_frame": 216,
+      "frames": 4
+    },
+    {
+      "start_frame": 379,
+      "end_frame": 382,
+      "frames": 3
+    },
+    {
+      "start_frame": 519,
+      "end_frame": 523,
+      "frames": 4
+    },
+    {
+      "start_frame": 559,
+      "end_frame": 567,
+      "frames": 8
+    },
+    {
+      "start_frame": 703,
+      "end_frame": 708,
+      "frames": 5
+    },
+    {
+      "start_frame": 894,
+      "end_frame": 899,
+      "frames": 5
+    },
+    {
+      "start_frame": 982,
+      "end_frame": 984,
+      "frames": 2
+    },
+    {
+      "start_frame": 1293,
+      "end_frame": 1297,
+      "frames": 4
+    },
+    {
+      "start_frame": 1505,
+      "end_frame": 1509,
+      "frames": 4
+    }
+  ],
+  "sustained_tail_cuts": [
+    {
+      "start_frame": 133,
+      "end_frame": 136,
+      "frames": 3,
+      "word": "있습니다",
+      "method": "delete middle sustain; retain word onset and terminal samples"
+    },
+    {
+      "start_frame": 202,
+      "end_frame": 208,
+      "frames": 6,
+      "word": "사람이에요",
+      "method": "delete middle sustain; retain word onset and terminal samples"
+    },
+    {
+      "start_frame": 373,
+      "end_frame": 376,
+      "frames": 3,
+      "word": "있습니다",
+      "method": "delete middle sustain; retain word onset and terminal samples"
+    },
+    {
+      "start_frame": 388,
+      "end_frame": 391,
+      "frames": 3,
+      "word": "근데",
+      "method": "delete middle sustain; retain word onset and terminal samples"
+    },
+    {
+      "start_frame": 510,
+      "end_frame": 515,
+      "frames": 5,
+      "word": "못합니다",
+      "method": "delete middle sustain; retain word onset and terminal samples"
+    },
+    {
+      "start_frame": 694,
+      "end_frame": 699,
+      "frames": 5,
+      "word": "싶잖아요",
+      "method": "delete middle sustain; retain word onset and terminal samples"
+    },
+    {
+      "start_frame": 1081,
+      "end_frame": 1086,
+      "frames": 5,
+      "word": "싶습니다",
+      "method": "delete middle sustain; retain word onset and terminal samples"
+    },
+    {
+      "start_frame": 1224,
+      "end_frame": 1227,
+      "frames": 3,
+      "word": "말이죠",
+      "method": "delete middle sustain; retain word onset and terminal samples"
+    },
+    {
+      "start_frame": 1494,
+      "end_frame": 1500,
+      "frames": 6,
+      "word": "준비했습니다",
+      "method": "delete middle sustain; retain word onset and terminal samples"
+    }
+  ]
+}

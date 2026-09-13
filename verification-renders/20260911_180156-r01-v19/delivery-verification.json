@@ -1,0 +1,30 @@
+{
+  "output": "/Users/apple/orca/projects/cutback/verification-renders/20260911_180156-r01-v19/AI학교_01_자막검정그림자_v19.mp4",
+  "duration": 49.6,
+  "frames": 1488,
+  "resolution": [
+    1080,
+    1920
+  ],
+  "full_decode": "passed",
+  "encoded_audio_mix_correlation": 0.9998897539769176,
+  "visual_review": "actualdecoded samples inspected; blackshadow added toregular andaccentcaptions; sameheadandtiming",
+  "head_ends": 1,
+  "first_spoken_caption": 0.0667,
+  "audio_evidence": "dark-audio-analysis.json",
+  "listening": "unverified",
+  "caption_shadow": "0 5px 6px #000, 0 0 12px #000e",
+  "export_4k": {
+    "file": "AI학교_01_완성본_v19_4K.mp4",
+    "resolution": [
+      2160,
+      3840
+    ],
+    "fps": 30,
+    "frames": 1488,
+    "duration": 49.6,
+    "bytes": 225906349,
+    "method": "Lanczos upscale of verified v19 master; audio stream copied",
+    "full_decode": "passed"
+  }
+}
