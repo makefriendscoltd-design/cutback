@@ -1,0 +1,46 @@
+{
+  "output": "/Users/apple/Downloads/바이어_온라인_오프라인_미팅_롱폼_편집_v1.mp4",
+  "bytes": 629301713,
+  "duration": 734.04,
+  "frames": 18351,
+  "width": 1920,
+  "height": 1080,
+  "fps": 25,
+  "source_duration": 863.808,
+  "removed_seconds": 129.768,
+  "decode_errors": 0,
+  "captions": 308,
+  "caption_rows_max": 1,
+  "caption_font": "Pretendard SemiBold (libass actual fontselect verified)",
+  "caption_background_opacity": 0.68,
+  "requested_capcut_font_size": 5,
+  "render_px": 30,
+  "capcut_size_conversion": "unverified approximation; no local CapCut calibration available",
+  "graphics": 6,
+  "sync_samples": [
+    {
+      "at": 5,
+      "lag_ms": -5.0
+    },
+    {
+      "at": 200,
+      "lag_ms": -5.0
+    },
+    {
+      "at": 500,
+      "lag_ms": -5.0
+    },
+    {
+      "at": 724,
+      "lag_ms": -5.0
+    }
+  ],
+  "audio_volume": [
+    "[Parsed_volumedetect_0 @ 0xbd0c20b40] mean_volume: -21.0 dB",
+    "[Parsed_volumedetect_0 @ 0xbd0c20b40] max_volume: -3.1 dB"
+  ],
+  "speech_sample_audit": "qa/cut-audio-audit.json",
+  "correction_audit": "qa/correction-audio-audit.json",
+  "visual_review": "Actual encoded delivery contact sheet (10 start/middle/end/graphic frames) and revised 719s caption frame inspected; presenter and slide text clear; all caption chunks single-row",
+  "hyperframes_check": "passed"
+}

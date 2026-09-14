@@ -1,0 +1,17 @@
+{
+  "font_family": "Pretendard SemiBold",
+  "font_file": "/Users/apple/orca/projects/cutback/verification-renders/buyer-meeting-longform-v1/assets/Pretendard-SemiBold.ttf",
+  "requested_capcut_font_size": 5,
+  "render_font_size_px": 30,
+  "size_conversion_status": "approximation; exact CapCut UI conversion unverified",
+  "text": "#FFFFFF",
+  "background_rgba": [
+    0,
+    0,
+    0,
+    0.68
+  ],
+  "max_lines": 2,
+  "caption_baseline_bottom": 1040,
+  "max_width": 1550
+}
