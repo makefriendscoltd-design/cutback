@@ -1,5 +1,11 @@
 from pathlib import Path
 import subprocess,sys,shutil,json,hashlib
+def digest(path):
+ h=hashlib.sha256()
+ with path.open('rb') as f:
+  for block in iter(lambda:f.read(8*1024*1024),b''):h.update(block)
+ return h.hexdigest()
+
 r=Path(__file__).resolve().parent
 mode=sys.argv[1] if len(sys.argv)>1 else 'check'
 def call(name):subprocess.run([sys.executable,'-X','utf8',str(r/name)],cwd=r,check=True)
@@ -12,8 +18,8 @@ if mode=='check':
  assert 'subtitles' in filters and 'libx264' in encoders,'FFmpeg needs libass and libx264'
  manifest=r/'SHA256.json'
  if manifest.exists():
-  for name,digest in json.loads(manifest.read_text(encoding='utf-8')).items():
-   assert hashlib.file_digest((r/name).open('rb'),'sha256').hexdigest()==digest,name+' differs from delivery'
+  for name,expected_digest in json.loads(manifest.read_text(encoding='utf-8')).items():
+   assert digest(r/name)==expected_digest,name+' differs from delivery'
  print('DEPENDENCIES AND PACKAGE OK. Next: python -X utf8 run.py preview')
 elif mode=='preview':
  call('build_captions.py');subprocess.run([sys.executable,'-X','utf8',str(r/'assemble.py'),'--preview'],cwd=r,check=True)
