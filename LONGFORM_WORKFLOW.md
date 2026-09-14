@@ -50,3 +50,7 @@ Git은 제작 소스·교정 자막·설정·라이선스·검증 기록을 보�
 최종 롱폼: `/Users/apple/Downloads/20260911_175145_모션그래픽_사진개선_v6.mp4`
 
 실제 검증값은 v6 `FINAL-VERIFICATION.json`을 참조한다. 과거 YouTube 일부공개 업로드 결과는 기존 로컬 receipt에 보존되어 있으며 재업로드 작업으로 간주하지 않는다.
+
+## 강의 영상 자막 추가 기준 — 2026-09-14
+
+강의 영상은 완결된 한 문장을 한 번에 보여준다. 화면 너비를 넘어 줄바꿈이 필요한 문장만 의미 단위로 나누며, 고정 글자 수나 초 단위로 잘게 쪼개지 않는다. 바이어 미팅 강의의 확정된 시각 기준은 `verification-renders/buyer-meeting-longform-v2/caption-style.json`과 해당 참고 프레임이다. 기존 자막보다 크게, 영상 하단 안쪽에 배치하고 Pretendard SemiBold·흰색·검정 블록 68%를 유지한다.

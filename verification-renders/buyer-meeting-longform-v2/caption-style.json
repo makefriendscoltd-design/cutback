@@ -1,0 +1,16 @@
+{
+  "font_family": "Pretendard SemiBold",
+  "ass_font_size": 50,
+  "css_font_size_px": 41,
+  "font_file": "/Users/apple/orca/projects/cutback/verification-renders/buyer-meeting-longform-v2/assets/Pretendard-SemiBold.ttf",
+  "text": "#FFFFFF",
+  "background_opacity": 0.68,
+  "max_width": 1400,
+  "ass_margin_v": 132,
+  "reference": "User screenshot 2026-09-14: larger text over lower picture",
+  "grouping": "whole sentences; semantic split only if rendered width exceeds limit",
+  "sentences": 107,
+  "sentences_split_for_width": 56,
+  "cues": 184,
+  "max_rows": 1
+}

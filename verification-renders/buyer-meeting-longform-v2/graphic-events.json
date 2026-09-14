@@ -1,0 +1,104 @@
+[
+  {
+    "id": "01-interest-signal",
+    "source_start": 7.28,
+    "source_end": 13.06,
+    "duration": 7,
+    "title": "바이어 미팅 노하우",
+    "kind": "signal",
+    "labels": [
+      "온라인",
+      "오프라인",
+      "준비·진행"
+    ],
+    "start": 0.96,
+    "end": 7.96,
+    "overlay_y": -160,
+    "file": "/Users/apple/orca/projects/cutback/verification-renders/buyer-meeting-longform-v2/renders-graphics/01-interest-signal.mov"
+  },
+  {
+    "id": "02-interpreter-choice",
+    "source_start": 75.18,
+    "source_end": 82.74,
+    "duration": 7,
+    "title": "영어가 부담될 때",
+    "kind": "branch",
+    "labels": [
+      "영어 자신 없음",
+      "통역원 섭외",
+      "크몽·재능 사이트"
+    ],
+    "start": 58.34,
+    "end": 65.34,
+    "overlay_y": 0,
+    "file": "/Users/apple/orca/projects/cutback/verification-renders/buyer-meeting-longform-v2/renders-graphics/02-interpreter-choice.mov"
+  },
+  {
+    "id": "03-meeting-flow",
+    "source_start": 213.02,
+    "source_end": 223.44,
+    "duration": 8,
+    "title": "회사 소개 방법",
+    "kind": "steps",
+    "labels": [
+      "회사 소개서",
+      "3분 설명",
+      "대표님 회사"
+    ],
+    "start": 176.38,
+    "end": 184.38,
+    "overlay_y": 0,
+    "file": "/Users/apple/orca/projects/cutback/verification-renders/buyer-meeting-longform-v2/renders-graphics/03-meeting-flow.mov"
+  },
+  {
+    "id": "04-offline-kit",
+    "source_start": 367.8,
+    "source_end": 377.52,
+    "duration": 7,
+    "title": "오프라인 준비",
+    "kind": "check",
+    "labels": [
+      "영문 명함",
+      "미리 준비",
+      "비즈니스 매너"
+    ],
+    "start": 305.08,
+    "end": 312.08,
+    "overlay_y": 0,
+    "file": "/Users/apple/orca/projects/cutback/verification-renders/buyer-meeting-longform-v2/renders-graphics/04-offline-kit.mov"
+  },
+  {
+    "id": "05-competition-signal",
+    "source_start": 523.1,
+    "source_end": 541.44,
+    "duration": 8,
+    "title": "체류 기간이 주는 신호",
+    "kind": "compare",
+    "labels": [
+      "2박 3일 이상",
+      "다른 업체 미팅",
+      "경쟁자 있음"
+    ],
+    "start": 440.66,
+    "end": 448.66,
+    "overlay_y": 0,
+    "file": "/Users/apple/orca/projects/cutback/verification-renders/buyer-meeting-longform-v2/renders-graphics/05-competition-signal.mov"
+  },
+  {
+    "id": "06-consulting-meeting",
+    "source_start": 711.1,
+    "source_end": 728.76,
+    "duration": 8,
+    "title": "수출상담회 구조",
+    "kind": "network",
+    "labels": [
+      "바이어",
+      "5~10개 업체",
+      "우리 브랜드"
+    ],
+    "start": 603.18,
+    "end": 611.18,
+    "overlay_y": 0,
+    "file": "/Users/apple/orca/projects/cutback/verification-renders/buyer-meeting-longform-v2/renders-graphics/06-consulting-meeting.mov"
+  }
+]
