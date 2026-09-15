@@ -1,0 +1,10 @@
+{
+  "sfx_gain_change_db": 4,
+  "previous_sfx_peak": 0.13,
+  "sfx_target_peak": 0.2060361150199448,
+  "bgm_rms_dbfs": -23.1,
+  "voice_speed": 1,
+  "user_requested": "3일차부터 효과음 크게",
+  "canonical_sfx_profile": ".agents/skills/ai-school-video-edit/references/styles.json#/latest_intro_and_transition_override/sound_effects_from_day3",
+  "frozen_for_this_render": true
+}

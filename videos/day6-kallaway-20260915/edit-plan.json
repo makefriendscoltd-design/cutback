@@ -1,0 +1,82 @@
+{
+  "fps": 30,
+  "duration": 29.6,
+  "frames": 888,
+  "voice_speed": 1,
+  "caption_y": 1340,
+  "caption_font_px": 64,
+  "caption_coordinate_space": "1080x1920 screen",
+  "method": "per-clause phonetic tail-bite; 30fps source-level EDL; no speed change",
+  "kept_segments": [
+    {
+      "source_start": 2.8,
+      "source_end": 5.267,
+      "output_start": 0.0,
+      "output_end": 2.4670000000000005,
+      "terminal": "봅니다"
+    },
+    {
+      "source_start": 5.833,
+      "source_end": 7.967,
+      "output_start": 2.4670000000000005,
+      "output_end": 4.601000000000001,
+      "terminal": "있습니다"
+    },
+    {
+      "source_start": 8.633,
+      "source_end": 12.133,
+      "output_start": 4.601,
+      "output_end": 8.100999999999999,
+      "terminal": "씁니다"
+    },
+    {
+      "source_start": 12.6,
+      "source_end": 14.2,
+      "output_start": 8.100999999999999,
+      "output_end": 9.700999999999999,
+      "terminal": "켭니다"
+    },
+    {
+      "source_start": 14.733,
+      "source_end": 17.733,
+      "output_start": 9.700999999999999,
+      "output_end": 12.700999999999997,
+      "terminal": "열어주세요"
+    },
+    {
+      "source_start": 18.233,
+      "source_end": 22.367,
+      "output_start": 12.700999999999999,
+      "output_end": 16.834999999999997,
+      "terminal": "연결합니다"
+    },
+    {
+      "source_start": 22.9,
+      "source_end": 25.6,
+      "output_start": 16.835,
+      "output_end": 19.535000000000004,
+      "terminal": "실행하는거예요"
+    },
+    {
+      "source_start": 25.933,
+      "source_end": 29.4,
+      "output_start": 19.535000000000004,
+      "output_end": 23.002000000000002,
+      "terminal": "것부터입니다"
+    },
+    {
+      "source_start": 29.967,
+      "source_end": 34.367,
+      "output_start": 23.002000000000002,
+      "output_end": 27.402,
+      "terminal": "남겨주세요"
+    },
+    {
+      "source_start": 34.767,
+      "source_end": 36.967,
+      "output_start": 27.402,
+      "output_end": 29.601999999999997,
+      "terminal": "드릴게요"
+    }
+  ]
+}

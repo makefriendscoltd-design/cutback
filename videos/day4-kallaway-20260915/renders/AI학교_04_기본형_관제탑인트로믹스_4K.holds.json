@@ -1,0 +1,40 @@
+{
+ "range": [
+  5.0,
+  31.0
+ ],
+ "frames": 780,
+ "longest_holds": [
+  {
+   "frames": 12,
+   "seconds": 0.4,
+   "at": 23.67
+  },
+  {
+   "frames": 11,
+   "seconds": 0.37,
+   "at": 29.63
+  },
+  {
+   "frames": 11,
+   "seconds": 0.37,
+   "at": 18.03
+  },
+  {
+   "frames": 9,
+   "seconds": 0.3,
+   "at": 6.13
+  },
+  {
+   "frames": 7,
+   "seconds": 0.23,
+   "at": 26.97
+  },
+  {
+   "frames": 7,
+   "seconds": 0.23,
+   "at": 24.9
+  }
+ ],
+ "pass": true
+}

@@ -1,0 +1,16 @@
+{
+  "file": "AI학교_03_기본형_관제탑인트로믹스_4K.mp4",
+  "width": 2160,
+  "height": 3840,
+  "fps": "30/1",
+  "frames": 970,
+  "video_duration": 32.333333,
+  "audio_duration": 32.333,
+  "audio_mix_correlation": 0.9997996751361656,
+  "decode_pass": true,
+  "sha256": "589119473905a4ff6b82069d6e570b2e1aabcebb760464b87c18a16355bdd873",
+  "visual_check": "representative frames manually inspected",
+  "listening_check": "not independently verified",
+  "source_timing": "frame-aligned cuts from edit-plan.json; kept samples 1x; 2ms edge fades",
+  "passed": true
+}

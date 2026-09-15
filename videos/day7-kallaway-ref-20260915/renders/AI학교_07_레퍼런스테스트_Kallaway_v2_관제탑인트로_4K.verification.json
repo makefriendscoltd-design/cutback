@@ -1,0 +1,16 @@
+{
+  "file": "AI학교_07_레퍼런스테스트_Kallaway_v2_관제탑인트로_4K.mp4",
+  "width": 2160,
+  "height": 3840,
+  "fps": "30/1",
+  "frames": 928,
+  "video_duration": 30.933333,
+  "audio_duration": 30.933,
+  "audio_mix_correlation": 0.9998764312309637,
+  "decode_pass": true,
+  "sha256": "0b7b9f4a64e70a5ff95079f7e305a9cbd71f36c00db0e0e7a1041534cb45f2c0",
+  "visual_check": "representative frames manually inspected",
+  "listening_check": "not independently verified",
+  "source_timing": "frame-aligned cuts from edit-plan.json; kept samples 1x; 2ms edge fades",
+  "passed": true
+}

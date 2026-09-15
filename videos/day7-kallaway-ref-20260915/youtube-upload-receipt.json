@@ -1,0 +1,24 @@
+{
+  "video_id": "WvlQeD9qO0k",
+  "url": "https://youtube.com/shorts/WvlQeD9qO0k",
+  "channel": "나민수 AI",
+  "status": "scheduled",
+  "publish_at": "2026-09-20T20:00:00+09:00",
+  "timezone": "Asia/Seoul",
+  "source": "renders/AI학교_07_기본형_관제탑인트로믹스_v5_4K.mp4",
+  "title": "AI에 미친자가 저지른 일 | 7일차",
+  "description": "※AI학교 무료 입학설명회 신청\nhttps://aixschool.kr/admission/\n\nAI가 메모에서 글감을 뽑아주는 과정을 소개합니다.",
+  "related_video": "AI 학교를 만들었습니다",
+  "verified_after_reload": [
+    "title",
+    "description",
+    "visibility 예약됨",
+    "related video",
+    "file name v5",
+    "4K"
+  ],
+  "crm_event_id": "b3594675-71a5-4d3e-8fd6-76001a9c5492",
+  "replaces": "4eqqjBacxGI (day7 v4, 영구 삭제됨 2026-09-15 19:1x KST, cutback-8b 세션)",
+  "dedupe_check": "Studio 채널 검색 \"7일차\" 결과 1건 = WvlQeD9qO0k",
+  "deletion_verified_by_claude": "2026-09-15: studio.youtube.com/video/4eqqjBacxGI/edit 재오픈 시 오류 페이지, WvlQeD9qO0k 편집 페이지 제목·예약됨 정상"
+}

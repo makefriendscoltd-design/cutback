@@ -1,0 +1,14 @@
+{
+  "reference": {"shortcode": "DaxdLQbOJXR", "analysis": "reference-styles/2026-09-15/DaxdLQbOJXR/ANALYSIS.md", "reused_reference_pixels": false},
+  "real_captures": [
+    {"id": "hud-f03", "path": "videos/_assets/hud-captures-20260915/f03-t6000.png", "what": "SNS 자동화학부 관제 화면 캡처 3840x2160", "used": "16.75-18.4 브라우저 프레임 안 카메라 펀치인/팬, 문구 추가 없음"},
+    {"id": "vlog-discussion", "path": "videos/day7-tailbite-20260915/assets/vlog-discussion.mp4", "what": "교실 실촬 B-roll 2.3초", "used": "21.17-22.29 게시물 카드 안"}
+  ],
+  "generated_cards": [
+    {"id": "memo page-01..08", "path": "videos/day7-basic-mix-v4-20260915/assets/generated/memo/page-*.png", "what": "1일차 실제 사진 기반 메모 카드 (v4 승인 애셋 재사용)", "used": "0-2.65 부채, 4.99-7.87 그리드, 9.54-12.87 파일 썸네일, 14.87-16.75 도표, 18.4-22.29 노드"}
+  ],
+  "mockups_html_css": ["터미널(01)", "memos/ 파일창(02)", "프롬프트 입력창(03)", "주제 폴더 도표", "브라우저 프레임", "댓글 카드", "워크북 카드", "AI 학교 타일", "Codex 타일", "빨간 낙서선 SVG(밑줄·동그라미·X·연결선)"],
+  "fonts": {"Pretendard-SemiBold": "verification-renders/20260911_180156-r01-v19/composition/assets/Pretendard-SemiBold.ttf", "Pretendard-Black": "verification-renders/20260911_180156-r01-v7/composition/assets/Pretendard-Black.ttf"},
+  "audio": {"voice": "videos/day7-tailbite-20260915/assets/voice-cut.wav", "bgm": "verification-renders/20260911_180156-r01-v14/assets/bgm-dark-fast-128bpm.wav", "sfx_dir": "~/.agents/skills/media-use/audio/assets/sfx", "sfx_used": ["whoosh-cinematic.mp3", "click-soft.mp3", "pop.mp3", "typing.mp3"], "plan": "audio-plan.json"},
+  "stock_footage": []
+}

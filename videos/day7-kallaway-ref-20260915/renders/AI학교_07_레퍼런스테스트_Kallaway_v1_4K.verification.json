@@ -1,0 +1,16 @@
+{
+  "file": "AI학교_07_레퍼런스테스트_Kallaway_v1_4K.mp4",
+  "width": 2160,
+  "height": 3840,
+  "fps": "30/1",
+  "frames": 928,
+  "video_duration": 30.933333,
+  "audio_duration": 30.933,
+  "audio_mix_correlation": 0.9998784046397942,
+  "decode_pass": true,
+  "sha256": "af1713b0bd14e795b484611ddeb869b20c7f175251e0421d1f3ea6eaf48bccda",
+  "visual_check": "representative frames manually inspected",
+  "listening_check": "not independently verified",
+  "source_timing": "frame-aligned cuts from edit-plan.json; kept samples 1x; 2ms edge fades",
+  "passed": true
+}

@@ -1,0 +1,151 @@
+{
+  "version": "day5-basic-mix-v3",
+  "fps": 30,
+  "duration": 44.93333333333333,
+  "frames": 1348,
+  "kept_segments": [
+    {
+      "source_start": 7.63,
+      "source_end": 10.37,
+      "output_start": 0,
+      "output_end": 2.7399999999999993
+    },
+    {
+      "source_start": 10.73,
+      "source_end": 13.41,
+      "output_start": 2.7399999999999993,
+      "output_end": 5.419999999999998
+    },
+    {
+      "source_start": 13.91,
+      "source_end": 17.75,
+      "output_start": 5.419999999999999,
+      "output_end": 9.259999999999998
+    },
+    {
+      "source_start": 18.27,
+      "source_end": 19.61,
+      "output_start": 9.259999999999998,
+      "output_end": 10.599999999999998
+    },
+    {
+      "source_start": 19.75,
+      "source_end": 22.39,
+      "output_start": 10.599999999999998,
+      "output_end": 13.239999999999995
+    },
+    {
+      "source_start": 22.59,
+      "source_end": 24.31,
+      "output_start": 13.239999999999998,
+      "output_end": 14.959999999999997
+    },
+    {
+      "source_start": 24.89,
+      "source_end": 29.282,
+      "output_start": 14.959999999999997,
+      "output_end": 19.351999999999997
+    },
+    {
+      "source_start": 29.61,
+      "source_end": 35.35,
+      "output_start": 19.351999999999997,
+      "output_end": 25.092
+    },
+    {
+      "source_start": 35.91,
+      "source_end": 43.81,
+      "output_start": 25.092,
+      "output_end": 32.992000000000004
+    },
+    {
+      "source_start": 44.29,
+      "source_end": 47.99,
+      "output_start": 32.992000000000004,
+      "output_end": 36.692
+    },
+    {
+      "source_start": 48.49,
+      "source_end": 52.25,
+      "output_start": 36.69200000000001,
+      "output_end": 40.452000000000005
+    },
+    {
+      "source_start": 52.73,
+      "source_end": 54.23,
+      "output_start": 40.452000000000005,
+      "output_end": 41.952000000000005
+    },
+    {
+      "source_start": 54.43,
+      "source_end": 57.43,
+      "output_start": 41.952000000000005,
+      "output_end": 44.952000000000005
+    }
+  ],
+  "removed_segments": [
+    [
+      0,
+      7.63
+    ],
+    [
+      10.37,
+      10.73
+    ],
+    [
+      13.41,
+      13.91
+    ],
+    [
+      17.75,
+      18.27
+    ],
+    [
+      19.61,
+      19.75
+    ],
+    [
+      22.39,
+      22.59
+    ],
+    [
+      24.31,
+      24.89
+    ],
+    [
+      29.282,
+      29.61
+    ],
+    [
+      35.35,
+      35.91
+    ],
+    [
+      43.81,
+      44.29
+    ],
+    [
+      47.99,
+      48.49
+    ],
+    [
+      52.25,
+      52.73
+    ],
+    [
+      54.23,
+      54.43
+    ],
+    [
+      57.43,
+      60.6299
+    ]
+  ],
+  "voice_speed": 1,
+  "caption_y": 1340,
+  "caption_font_px": 64,
+  "caption_coordinate_space": "fixed screen",
+  "source_frame_rate_normalized_before_select": true,
+  "cut_policy": "~30ms tails around recognized clause boundaries; sample-accurate audio; no global speedup",
+  "notes": "frames=1348 (=person.mp4 1350f minus 2 tail frames); voice-cut.wav is 44.952s and is truncated by 19ms of tail silence to match D=44.933333"
+}

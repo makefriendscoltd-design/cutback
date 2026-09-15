@@ -1,0 +1,90 @@
+{
+  "reference": {
+    "shortcode": "DaxdLQbOJXR",
+    "analysis": "reference-styles/2026-09-15/DaxdLQbOJXR/ANALYSIS.md",
+    "grammar_source": "videos/day7-kallaway-ref-20260915",
+    "reused_reference_pixels": false
+  },
+  "base_edit": {
+    "folder": "videos/day5-basic-mix-v5-20260915",
+    "scheduled_render": "renders/AI학교_05_기본형_제2의뇌믹스_v5_4K.mp4",
+    "duration": 44.933333,
+    "frames": 1348,
+    "copied": [
+      "edit-plan.json",
+      "captions.json",
+      "captions.srt",
+      "audio-settings.json",
+      "scan_holds.py"
+    ]
+  },
+  "real_footage": [
+    {
+      "id": "hud-live",
+      "path": "source-materials/hud-main-live-all-raw.webm",
+      "what": "관제탑 HTML(videos/_assets/hud-captures-20260915/main/index.html) 신규 녹화 16.2초 3840x2160",
+      "used": "0-5.45 인트로 2.5배속, hud-intro-1080x1130.mp4로 구움"
+    },
+    {
+      "id": "hud-main",
+      "path": "videos/_assets/hud-captures-20260915/main-t6000.png",
+      "used": "30.66-31.5 브라우저 프레임 CORE 펀치인"
+    },
+    {
+      "id": "hud-boot",
+      "path": "videos/_assets/hud-captures-20260915/main-t1500.png",
+      "used": "31.3-32.99 SECOND BRAIN MOUNTED 4.6배 펀치인"
+    },
+    {
+      "id": "vlog-records",
+      "path": "videos/day5-basic-mix-20260915/assets/vlog-records.mp4",
+      "used": "14.99-19.29 세로 카드"
+    },
+    {
+      "id": "vlog-files",
+      "path": "videos/day5-basic-mix-20260915/assets/vlog-files.mp4",
+      "used": "35.06-36.72 교실 카드"
+    }
+  ],
+  "generated_cards": [
+    {
+      "id": "archive page-01..08",
+      "path": "videos/day5-basic-mix-v5-20260915/assets/generated/archive/page-*.png",
+      "what": "v5 승인 아카이브 페이지(4장 실사진)",
+      "used": "C1 더미, C2 3열, C3 폴더, C4 page-08, C5 노드, C7 흩어짐"
+    }
+  ],
+  "mockups_html_css": [
+    "준비물 체크리스트",
+    "휴지통",
+    "파일 행",
+    "입력창",
+    "물음표",
+    "폴더",
+    "질문 말풍선",
+    "AI 노드+링",
+    "제2의 뇌 타일",
+    "브라우저 프레임",
+    "댓글 카드",
+    "워크북 카드",
+    "도장",
+    "빨간/흰/초록 낙서선 SVG"
+  ],
+  "fonts": {
+    "Pretendard-SemiBold": "verification-renders/20260911_180156-r01-v19/composition/assets/Pretendard-SemiBold.ttf",
+    "Pretendard-Black": "verification-renders/20260911_180156-r01-v7/composition/assets/Pretendard-Black.ttf"
+  },
+  "audio": {
+    "voice": "videos/day5-tailbite-20260915/assets/voice.wav",
+    "bgm": "verification-renders/20260911_180156-r01-v14/assets/bgm-dark-fast-128bpm.wav",
+    "sfx_dir": "~/.agents/skills/media-use/audio/assets/sfx",
+    "sfx_used": [
+      "whoosh-cinematic.mp3",
+      "click-soft.mp3",
+      "pop.mp3",
+      "typing.mp3"
+    ],
+    "plan": "audio-plan.json"
+  },
+  "stock_footage": []
+}
