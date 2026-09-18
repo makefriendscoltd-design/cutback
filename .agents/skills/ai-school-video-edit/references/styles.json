@@ -561,6 +561,69 @@
       "video_codec": "h264_videotoolbox",
       "target_video_bitrate": "40M",
       "note": "4K output dimensions; not native 4K detail. Preserve existing timing and styling."
+    },
+    "sound_effects_from_day3": {
+      "date": "2026-09-15",
+      "scope": "AI 학교 기본형/혼합형 3일차부터",
+      "relative_gain_db": 4,
+      "previous_whoosh_stem_peak": 0.13,
+      "mix_constraint": "Keep voice intelligible; check final peaks. Use short clicks on rapid asset onsets when useful.",
+      "evidence": "videos/day3-basic-mix-20260915/audio-plan.json"
+    },
+    "body_caption_position_policy": {
+      "coordinate_space": "screen, independent of person crop or scale",
+      "x_center": 540,
+      "y_top": 1340,
+      "design_width": 1080,
+      "design_height": 1920,
+      "evidence": "2026-09-15 user correction and day2 hybrid-v1"
+    },
+    "broll_source_coverage": {
+      "required": true,
+      "rule": "Before render, source_in + timeline_duration must fit source_duration; preferably pretrim to a local asset with extra coverage. Inspect last second and handoff in final output; freeze scan is supplemental.",
+      "on_short_source": "Choose different footage; never extend with held frame or silently loop.",
+      "evidence": "videos/day3-basic-mix-20260915/vlog-replacement.json",
+      "confirmed_by_user_on": "2026-09-15"
+    },
+    "short_caption_chunks": {
+      "confirmed_by_user_on": "2026-09-15",
+      "scope": "all basic and hybrid Shorts",
+      "target_words": "1–2 Korean eojeol; 3 only when a short phrase requires it",
+      "target_visible_characters": 12,
+      "punctuation": "Remove punctuation from displayed captions, including periods and commas; preserve Korean lexical content and required SRT timestamp syntax",
+      "timing": "Use aligned word boundaries; do not split whole sentences only",
+      "position": "body_caption_position_policy"
+    },
+    "source_frame_rate_before_edl": {
+      "required": true,
+      "rule": "Normalize source to output FPS before using frame-index select; never multiply seconds by output FPS then select frame indices from higher-FPS raw input",
+      "verification": "Compare actual cut-asset frames to source frames at mapped EDL timestamps; stream duration/frame count and audio-ASR are insufficient to verify picture speed",
+      "evidence": "videos/day4-basic-mix-20260915/revisions/before-speed-fix/recut.py"
+    },
+    "phrase_join_verification": {
+      "confirmed_by_user_on": "2026-09-15",
+      "rule": "Inspect isolated voice, not final BGM mix. Audit pauses hidden inside ASR word spans as well as clause boundaries. Trim source-specific trailing vowels/breath/padding while preserving intelligible syllables; never substitute global speedup or frame freeze checks for speech-rhythm validation.",
+      "counterexample": "day4 previous voice-cut 6.79–7.68s low-energy gap inside ASR word 전자책도",
+      "revision_evidence": "videos/day4-tailbite-20260915/cut-spec.json"
+    },
+    "dbvr_reference_revision": {
+      "reference": "DbVRngXvgYS",
+      "scope": "day4–7 revision requested 2026-09-15",
+      "evidence": ".assay/20260915-dbvrngxvgys-local-audit/LOCAL-EVIDENCE.md",
+      "applied_events": "videos/day4-tailbite-20260915/reference-events.json",
+      "fidelity_percentage": null
+    },
+    "graphic_motion_hold_limit": {
+      "confirmed_by_user_on": "2026-09-15",
+      "max_static_seconds_exclusive": 0.5,
+      "scope": "motion graphic sections; measure graphic ROI independently of presenter and caption changes",
+      "rule": "No static hold of 0.5 seconds or longer. Sustain readable detail movement/reveal/state progression through each graphic shot. Verify encoded output; background music and presenter movement cannot satisfy this gate.",
+      "verification_example": "videos/day4-7-review-20260915/check_graphic_holds.py",
+      "rejected_implementation": "videos/day4-7-review-20260915/continuous_graphics.py — user rejected static text-card replacements plus slow drift as visually crude on 2026-09-15",
+      "visual_requirement": "A freeze scan is only a technical guard. Use script-specific finished output designs and internal state transitions: rapid page fanout, file convergence, masked text/drawing, layout assembly, stack-to-result. Do not replace these with uniformly drifting text cards.",
+      "prior_motion_source": "videos/day2-dual-20260915/hybrid-v1/add_graphics.py and videos/day2-dual-20260915/revision2/build_basic.py",
+      "preserve_on_asset_revisions": "User approved presenter, cuts and captions on 2026-09-15; preserve them while rebuilding companion assets and audio mix.",
+      "audio_delivery_verification": "Equality to a previous full audio stream does not prove audible BGM/SFX. Verify separate stems and their presence in decoded final AAC; sync whoosh to actual person zoom cuts as well as graphic transitions. Do not claim listening verification from numerical checks."
     }
   },
   "default_style": {
@@ -572,5 +635,54 @@
     "example_project": "verification-renders/20260911_180156-r01-v19",
     "content_adaptation": "새 대본을 전사하고 의미에 맞춰 모션그래픽·애셋·자막·컷·효과음 시점을 새로 구성한다. 기존 대본의 수치와 그래픽 내용을 복사하지 않는다.",
     "precedence": "사용자의 새 지시 및 명시한 다른 스타일이 기본형보다 우선한다."
+  },
+  "day8_plus_edit_grammar": {
+    "date": "2026-09-18",
+    "scope": "AI 직원 100명 시리즈 8일차부터. 3~7일차 발행본 문법과 섞지 않는다.",
+    "user_request": "Apply DaBDms5z83- 2s hook camera/title grammar and DczH5_4ztdL quality layers to our Reels edit.",
+    "references": {
+      "hook_2s": "https://www.instagram.com/reel/DaBDms5z83-/",
+      "quality_layers": "https://www.instagram.com/reel/DczH5_4ztdL/"
+    },
+    "keep_from_day3_7": [
+      "POV copy exact: POV: AI 미친자가 / 저지른 일",
+      "tailbite cuts at 1.0x, no speedup",
+      "short caption chunks 1-2 eojeol",
+      "whoosh/click/pop/typing recipe",
+      "3-layer after hook: stage 0-1130 / caption y=1150 / person card 60,1235 960x640",
+      "org-chart intro replaces control-tower HUD",
+      "graphic hold <0.5s",
+      "4K delivery"
+    ],
+    "hook_0_2s": {
+      "layout": "full-bleed person, not person-card. Org intro does not start yet.",
+      "t_0_00": "ECU crop of face/gesture (scale ~2.3, origin near eyes). Speech caption only. No title.",
+      "t_0_25": "Hard snap to medium (scale 1). POV two lines pop. Optional red kicker stays inside POV, do not add a second headline.",
+      "t_1_15": "Punch-in ~1.35x on pointing/emphasis. Question or first-line hook caption at chest.",
+      "t_2_00": "Title/POV clear. Hard cut to 3-layer + org intro.",
+      "pov_duration_in_hook": 1.75,
+      "pov_note": "series_headline duration was 2s; day3-7 used 1s. Day8+ holds POV across the 2s hook window starting 0.25s.",
+      "captions_in_hook": "chest-center, white + black stroke, 1-2 eojeol"
+    },
+    "org_intro_after_hook": {
+      "start": 2.0,
+      "source": "videos/ai-employee-100/intro-wireframe 5s 1080x1130",
+      "timeline": "2.0-7.0 maps media 0-5",
+      "person": "return to card 960x640"
+    },
+    "quality_layers_body": {
+      "1_source": "tailbite master, 1.0x",
+      "2_caption_animation": "existing short chunks + pop; NEW: scale the one keyword in a chunk (청각적 후킹이에요 pattern)",
+      "3_keyframes": "punch on gesture and meaning cuts, not timed grid. ECU/medium/high-angle from the same take via crop when coverage exists.",
+      "4_transition_sticker": "whoosh only on real punch or graphic change. Stickers (??, arrow, check) on 1-3 beats per film, never as overlay labels on HUD/org screens.",
+      "5_audio": "existing BGM + whoosh/click/pop/typing; typing SFX on prompt beats"
+    },
+    "do_not": [
+      "Drop POV copy",
+      "Run org intro and 2s full-bleed hook at the same time",
+      "Cover org-chart with LIVE/hook stickers",
+      "Use speedup instead of tailbite",
+      "Hold graphics >=0.5s"
+    ]
   }
 }

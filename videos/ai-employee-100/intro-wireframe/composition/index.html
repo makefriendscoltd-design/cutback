@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<script src="assets/gsap.min.js"></script>
+<style>
+@font-face{font-family:P;src:url(assets/Pretendard-Medium.woff2);font-weight:500}
+@font-face{font-family:P;src:url(assets/Pretendard-SemiBold.woff2);font-weight:600}
+@font-face{font-family:P;src:url(assets/Pretendard-Bold.woff2);font-weight:700}
+@font-face{font-family:P;src:url(assets/Pretendard-ExtraBold.woff2);font-weight:800}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1080px;height:1130px;overflow:hidden;background:#0b1726}
+#orgintro{position:relative;width:1080px;height:1130px;overflow:hidden;background:#0b1726;font-family:P,sans-serif;color:#d7e3f0}
+.clip{position:absolute;inset:0;overflow:hidden}
+.scene{position:absolute;inset:0;overflow:hidden;background:#0b1726}
+.scene:before{content:"";position:absolute;inset:0;background-image:radial-gradient(#1a3350 1px,transparent 1px);background-size:28px 28px;opacity:.35;pointer-events:none;z-index:0}
+.chrome{position:absolute;left:36px;right:36px;top:28px;height:72px;display:flex;align-items:flex-end;justify-content:space-between;border-bottom:1px solid #1e3a58;padding-bottom:14px;z-index:6}
+.chrome .school{font:800 22px/1 P;letter-spacing:-.04em;color:#8fb4e8}
+.chrome .meta{position:relative;height:22px;min-width:280px}
+.chrome .meta b{position:absolute;left:0;right:0;top:0;text-align:center;font:600 18px/1 P;color:#6d8aaa;opacity:0;white-space:nowrap}
+.chrome .count{position:relative;width:90px;height:28px}
+.chrome .count b{position:absolute;right:0;top:0;font:800 22px/1 P;color:#f5f7fa;opacity:0}
+.world{position:absolute;inset:0;transform-origin:50% 50%;will-change:transform;z-index:2}
+#org{position:absolute;inset:0;transform-origin:50% 45%;will-change:transform}
+.hub{position:absolute;left:330px;top:118px;width:420px;height:86px;border:1.5px solid #3d6aa3;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#0b1726;z-index:3}
+.hub b{font:800 28px/1 P;letter-spacing:-.05em;color:#f5f7fa}
+.hub span{margin-top:8px;font:600 15px/1 P;color:#9cb6d0}
+svg.leads{position:absolute;left:0;top:118px;width:1080px;height:180px;z-index:1}
+.bays{position:absolute;left:28px;right:28px;top:228px;display:grid;grid-template-columns:repeat(6,1fr);gap:10px;z-index:2}
+.bay{border:1px solid #23486c;padding:10px 8px 12px}
+.bay .t{font:800 17px/1 P;color:#8fb4e8;text-align:center;padding:6px 0 12px;border-bottom:1px dashed #23486c;margin-bottom:12px}
+.seat{position:relative;height:148px;margin:0 0 10px}
+.ghost,.paper{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:10px 8px}
+.ghost{border:1.5px dashed #5b8def}
+.ghost i,.paper i{width:34px;height:34px;border-radius:50%;display:block;margin-bottom:10px}
+.ghost i{border:1.5px dashed #5b8def}
+.paper b{font:700 16px/1.2 P;letter-spacing:-.04em;text-align:center;word-break:keep-all}
+.paper em{font:600 12px/1 P;margin-top:6px;font-style:normal;color:#122940}
+.paper{border:1.5px solid #d7e0ea;background:#f5f7fa;color:#122940;opacity:0;transform-origin:50% 50%;will-change:transform}
+.paper i{background:#122940;border:0}
+.paper.today{border:2.5px solid #2563eb;box-shadow:0 0 0 6px #2563eb33}
+.paper.today i{background:#2563eb}
+.paper em{color:#5b6b7c}
+.scan{position:absolute;left:40px;top:250px;width:8px;height:720px;background:#2563eb;opacity:0;z-index:4;will-change:transform}
+.log{position:absolute;left:36px;right:36px;bottom:28px;height:86px;border:1px solid #23486c;z-index:6;background:#0b1726ee;overflow:hidden}
+.log p{position:absolute;left:22px;right:22px;top:26px;font:600 20px/1.3 P;letter-spacing:-.04em;color:#c5d4e4;opacity:0}
+.log strong{color:#f5f7fa;font-weight:800}
+.prompt{position:absolute;left:500px;top:200px;width:532px;height:430px;border:1.5px solid #3d7ad0;background:#071018;padding:28px 26px;z-index:7;opacity:0;transform-origin:0% 50%;will-change:transform}
+.prompt .bar{display:flex;gap:8px;margin-bottom:18px}
+.prompt .bar u{width:12px;height:12px;border-radius:50%;background:#2a5078;display:block;text-decoration:none}
+.prompt .path{font:600 18px/1 P;color:#9cb6d0;margin-bottom:22px}
+.prompt .body{font:800 32px/1.4 P;letter-spacing:-.05em;color:#f5f7fa;word-break:keep-all}
+.ch{font-size:0;opacity:0}
+.cur{display:inline-block;width:16px;height:34px;background:#2563eb;margin-left:4px;vertical-align:-4px;opacity:0}
+</style>
+</head>
+<body>
+<div id="orgintro" data-composition-id="orgintro" data-width="1080" data-height="1130" data-start="0" data-duration="5">
+  <div id="scene" class="clip scene" data-start="0" data-duration="5" data-track-index="0">
+    <div class="chrome">
+      <div class="school" id="school">AI 직원 양성학교</div>
+      <div class="meta">
+        <b id="m0">조직도 · 도면</b>
+        <b id="m1">디자인팀 출근</b>
+        <b id="m2">8일차 · 콘텐츠 기획자</b>
+      </div>
+      <div class="count">
+        <b id="c0">0 / 24</b>
+        <b id="cN">4 / 24</b>
+        <b id="cT">5 / 24</b>
+      </div>
+    </div>
+    <div class="world" id="world">
+      <div id="org">
+        <div class="hub" id="hub"><b>우리 회사</b><span>6팀 · 24명 자리</span></div>
+        <svg class="leads" viewBox="0 0 1080 180">
+          <path d="M540 86 V118" stroke="#3d6aa3" stroke-width="1.5" fill="none"/>
+          <path d="M118 118 H962" stroke="#3d6aa3" stroke-width="1.5" fill="none"/>
+          <path d="M118 118 V162 M286 118 V162 M454 118 V162 M622 118 V162 M790 118 V162 M958 118 V162" stroke="#3d6aa3" stroke-width="1.5" fill="none"/>
+        </svg>
+        <div class="bays"><div class="bay today focus" id="bay0"><div class="t">콘텐츠팀</div><div class="seat" id="s01"><div class="ghost" id="s01g"><i></i></div><div class="paper today" id="s01p"><i></i><b>콘텐츠 기획자</b><em>01</em></div></div><div class="seat" id="s02"><div class="ghost" id="s02g"><i></i></div><div class="paper" id="s02p"><i></i><b>영상편집자</b><em>02</em></div></div><div class="seat" id="s03"><div class="ghost" id="s03g"><i></i></div><div class="paper" id="s03p"><i></i><b>숏폼 영상편집자</b><em>03</em></div></div><div class="seat" id="s04"><div class="ghost" id="s04g"><i></i></div><div class="paper" id="s04p"><i></i><b>유튜브 채널 관리자</b><em>04</em></div></div></div><div class="bay" id="bay1"><div class="t">글쓰기팀</div><div class="seat" id="s05"><div class="ghost" id="s05g"><i></i></div><div class="paper" id="s05p"><i></i><b>콘텐츠 에디터</b><em>05</em></div></div><div class="seat" id="s06"><div class="ghost" id="s06g"><i></i></div><div class="paper" id="s06p"><i></i><b>블로그 마케터</b><em>06</em></div></div><div class="seat" id="s07"><div class="ghost" id="s07g"><i></i></div><div class="paper" id="s07p"><i></i><b>카페 바이럴 마케터</b><em>07</em></div></div><div class="seat" id="s08"><div class="ghost" id="s08g"><i></i></div><div class="paper" id="s08p"><i></i><b>출판 편집자</b><em>08</em></div></div></div><div class="bay" id="bay2"><div class="t">홍보팀</div><div class="seat" id="s09"><div class="ghost" id="s09g"><i></i></div><div class="paper" id="s09p"><i></i><b>SNS 마케터</b><em>09</em></div></div><div class="seat" id="s10"><div class="ghost" id="s10g"><i></i></div><div class="paper" id="s10p"><i></i><b>릴스 PD</b><em>10</em></div></div><div class="seat" id="s11"><div class="ghost" id="s11g"><i></i></div><div class="paper" id="s11p"><i></i><b>네이버 카페 관리자</b><em>11</em></div></div><div class="seat" id="s12"><div class="ghost" id="s12g"><i></i></div><div class="paper" id="s12p"><i></i><b>카카오톡 채널 관리자</b><em>12</em></div></div></div><div class="bay focus" id="bay3"><div class="t">디자인팀</div><div class="seat" id="s13"><div class="ghost" id="s13g"><i></i></div><div class="paper" id="s13p"><i></i><b>그래픽 디자이너</b><em>13</em></div></div><div class="seat" id="s14"><div class="ghost" id="s14g"><i></i></div><div class="paper" id="s14p"><i></i><b>SNS 콘텐츠 디자이너</b><em>14</em></div></div><div class="seat" id="s15"><div class="ghost" id="s15g"><i></i></div><div class="paper" id="s15p"><i></i><b>PPT 디자이너</b><em>15</em></div></div><div class="seat" id="s16"><div class="ghost" id="s16g"><i></i></div><div class="paper" id="s16p"><i></i><b>상세페이지 디자이너</b><em>16</em></div></div></div><div class="bay" id="bay4"><div class="t">고객지원팀</div><div class="seat" id="s17"><div class="ghost" id="s17g"><i></i></div><div class="paper" id="s17p"><i></i><b>쇼핑몰 CS 담당자</b><em>17</em></div></div><div class="seat" id="s18"><div class="ghost" id="s18g"><i></i></div><div class="paper" id="s18p"><i></i><b>쇼핑몰 운영 관리자</b><em>18</em></div></div><div class="seat" id="s19"><div class="ghost" id="s19g"><i></i></div><div class="paper" id="s19p"><i></i><b>퍼포먼스 마케터</b><em>19</em></div></div><div class="seat" id="s20"><div class="ghost" id="s20g"><i></i></div><div class="paper" id="s20p"><i></i><b>출고·배송 관리 담당자</b><em>20</em></div></div></div><div class="bay" id="bay5"><div class="t">경영지원팀</div><div class="seat" id="s21"><div class="ghost" id="s21g"><i></i></div><div class="paper" id="s21p"><i></i><b>비서</b><em>21</em></div></div><div class="seat" id="s22"><div class="ghost" id="s22g"><i></i></div><div class="paper" id="s22p"><i></i><b>운영 매니저</b><em>22</em></div></div><div class="seat" id="s23"><div class="ghost" id="s23g"><i></i></div><div class="paper" id="s23p"><i></i><b>시스템 모니터링 요원</b><em>23</em></div></div><div class="seat" id="s24"><div class="ghost" id="s24g"><i></i></div><div class="paper" id="s24p"><i></i><b>IT 운영 담당자</b><em>24</em></div></div></div></div>
+        <div class="scan" id="scan"></div>
+      </div>
+    </div>
+    <div class="log">
+      <p id="l0">빈 자리 24. <strong>지금부터 AI 직원을 만듭니다.</strong></p>
+      <p id="l1">디자인팀 4명 출근. <strong>다음 자리는 콘텐츠팀.</strong></p>
+      <p id="l2"><strong>콘텐츠 기획자 출근.</strong></p>
+    </div>
+    <div class="prompt" id="prompt">
+      <div class="bar"><u></u><u></u><u></u></div>
+      <div class="path">콘텐츠기획자/</div>
+      <div class="body"><span class="ch" id="ch0">이</span><span class="ch" id="ch1"> </span><span class="ch" id="ch2">폴</span><span class="ch" id="ch3">더</span><span class="ch" id="ch4">에</span><span class="ch" id="ch5"> </span><span class="ch" id="ch6">콘</span><span class="ch" id="ch7">텐</span><span class="ch" id="ch8">츠</span><span class="ch" id="ch9"> </span><span class="ch" id="ch10">기</span><span class="ch" id="ch11">획</span><span class="ch" id="ch12">자</span><br><span class="ch" id="ch14">A</span><span class="ch" id="ch15">I</span><span class="ch" id="ch16"> </span><span class="ch" id="ch17">직</span><span class="ch" id="ch18">원</span><span class="ch" id="ch19">을</span><span class="ch" id="ch20"> </span><span class="ch" id="ch21">만</span><span class="ch" id="ch22">들</span><span class="ch" id="ch23">어</span><span class="ch" id="ch24">줘</span><span class="ch" id="ch25">.</span><span class="cur" id="cur"></span></div>
+    </div>
+  </div>
+</div>
+<script>
+const tl = gsap.timeline({paused:true});
+const pop = (sel, t, dur=0.42) => {
+  tl.fromTo(sel, {scale:0.86, opacity:0, y:18}, {scale:1, opacity:1, y:0, duration:dur, ease:"power3.out", immediateRender:false}, t);
+};
+pop("#school", 0.04, 0.32);
+pop("#m0", 0.10, 0.28);
+pop("#c0", 0.12, 0.28);
+pop("#hub", 0.16, 0.40);
+document.querySelectorAll(".bay").forEach((el, i) => pop(el, 0.22 + i * 0.05, 0.36));
+pop("#l0", 0.30, 0.30);
+
+tl.fromTo("#scan", {opacity:0, x:0}, {opacity:0.55, x:980, duration:1.32, ease:"none", immediateRender:false}, 0.42);
+tl.to("#scan", {opacity:0, duration:0.10}, 1.74);
+
+tl.to("#org", {scale:1.025, duration:5, ease:"none"}, 0);
+
+const hires = ['s13', 's14', 's15', 's16'];
+hires.forEach((id, i) => {
+  const t = 1.80 + i * 0.11;
+  tl.to("#"+id+"g", {opacity:0, duration:0.16}, t);
+  tl.fromTo("#"+id+"p", {scale:0.72, opacity:0, y:16}, {scale:1, opacity:1, y:0, duration:0.28, ease:"power3.out", immediateRender:false}, t);
+});
+tl.to("#c0", {opacity:0, duration:0.12}, 1.80);
+tl.fromTo("#cN", {opacity:0}, {opacity:1, duration:0.18, immediateRender:false}, 1.84);
+tl.to("#l0", {opacity:0, duration:0.12}, 1.80);
+tl.fromTo("#l1", {opacity:0, y:10}, {opacity:1, y:0, duration:0.22, immediateRender:false}, 1.86);
+tl.to("#m0", {opacity:0, duration:0.12}, 1.80);
+tl.fromTo("#m1", {opacity:0}, {opacity:1, duration:0.18, immediateRender:false}, 1.84);
+
+tl.to("#s01g", {opacity:0, duration:0.16}, 2.48);
+tl.fromTo("#s01p", {scale:0.7, opacity:0, y:18}, {scale:1, opacity:1, y:0, duration:0.32, ease:"power3.out", immediateRender:false}, 2.48);
+
+tl.to("#world", {scale:1.78, x:476.9, y:120.6, duration:0.88, ease:"power2.inOut"}, 2.57);
+
+tl.to("#cN", {opacity:0, duration:0.12}, 3.10);
+tl.fromTo("#cT", {opacity:0}, {opacity:1, duration:0.18, immediateRender:false}, 3.14);
+tl.to("#l1", {opacity:0, duration:0.12}, 3.10);
+tl.fromTo("#l2", {opacity:0, y:8}, {opacity:1, y:0, duration:0.20, immediateRender:false}, 3.16);
+tl.to("#m1", {opacity:0, duration:0.10}, 3.10);
+tl.fromTo("#m2", {opacity:0}, {opacity:1, duration:0.16, immediateRender:false}, 3.14);
+
+tl.fromTo("#prompt", {scale:0.84, opacity:0, x:40}, {scale:1, opacity:1, x:0, duration:0.36, ease:"power3.out", immediateRender:false}, 3.18);
+const ids = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25];
+const t0 = 3.34, t1 = 4.72;
+const step = (t1 - t0) / Math.max(ids.length, 1);
+ids.forEach((id, i) => tl.set("#ch"+id, {opacity:1, fontSize:"32px"}, t0 + i * step));
+tl.fromTo("#cur", {opacity:1}, {opacity:0, duration:0.28, yoyo:true, repeat:6, ease:"none"}, 3.34);
+window.__timelines["orgintro"] = tl;
+</script>
+</body>
+</html>
