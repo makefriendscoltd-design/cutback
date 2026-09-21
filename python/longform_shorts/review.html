@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>숏폼 검수</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500;700;900&display=swap">
+<style>
+  /* 미리보기 헤드카피를 렌더와 같은 폰트로 */
+  @font-face { font-family:"Pretendard Black"; src:url(/fonts/Pretendard-Black.otf); }
+  @font-face { font-family:"Pretendard ExtraBold"; src:url(/fonts/Pretendard-ExtraBold.otf); }
+  @font-face { font-family:"Pretendard Bold"; src:url(/fonts/Pretendard-Bold.otf); }
+  .stage { position:relative; width:100%; max-width:300px; margin:0 auto; aspect-ratio:9/16; background:#000; overflow:hidden; border-radius:6px; container-type:inline-size; }
+  .stage video { position:absolute; inset:0; width:100%; height:100%; }
+  .stage .ov { position:absolute; left:0; right:0; top:0; height:calc(560/1920*100%); background:#000; display:none; pointer-events:none; }
+  .stage.edited .ov { display:block; }
+  .hl { position:absolute; left:0; right:0; text-align:center; white-space:nowrap; line-height:1.193; font-weight:normal; paint-order:stroke fill; }
+  .edited-note { display:none; color:var(--acc); font-size:12px; }
+  .stage.edited + .edited-note { display:block; }
+  :root { --bg:#111; --card:#1b1b1b; --line:#2c2c2c; --fg:#eee; --dim:#8a8a8a; --acc:#18C0E0; --ok:#3ecf6e; --err:#ff5c5c; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--fg); font:14px/1.5 "Noto Sans KR",system-ui,sans-serif; }
+  header { position:sticky; top:0; z-index:5; background:#0b0b0bee; backdrop-filter:blur(6px); border-bottom:1px solid var(--line);
+           padding:12px 16px; display:flex; gap:12px; align-items:center; flex-wrap:wrap; }
+  header h1 { font-size:15px; margin:0; flex:1 1 280px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  header label { color:var(--dim); font-size:12px; display:flex; gap:6px; align-items:center; }
+  textarea { width:100%; resize:vertical; background:#0f0f0f; color:var(--fg); border:1px solid var(--line); border-radius:6px; padding:6px 8px; font:inherit; font-size:12px; }
+  input[type=text], select { background:#0f0f0f; color:var(--fg); border:1px solid var(--line); border-radius:6px; padding:6px 8px; font:inherit; }
+  button { background:var(--acc); color:#111; border:0; border-radius:6px; padding:8px 14px; font:700 13px inherit; cursor:pointer; }
+  button.ghost { background:transparent; color:var(--fg); border:1px solid var(--line); }
+  button.one { padding:6px 10px; font-size:12px; white-space:nowrap; }
+  button:disabled { opacity:.4; cursor:default; }
+  main { padding:16px; display:grid; grid-template-columns:repeat(auto-fill,minmax(340px,1fr)); gap:16px; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:12px; display:flex; flex-direction:column; gap:10px; }
+  .card.off { opacity:.45; }
+  .row { display:flex; gap:8px; align-items:center; }
+  .row .grow { flex:1; }
+  .meta { color:var(--dim); font-size:12px; }
+  .hook { background:#0d2a33; color:var(--acc); border-radius:4px; padding:1px 6px; font-weight:700; font-size:12px; }
+  /* 9:16 미리보기: 1080x1920 레이아웃을 비율대로 축소 */
+  .phone { position:relative; width:100%; max-width:300px; margin:0 auto; aspect-ratio:9/16; background:#000; overflow:hidden; border-radius:6px; container-type:inline-size; }
+  .phone .h1 { position:absolute; left:0; right:0; bottom:calc(100% - 390/1920*100%); text-align:center; font-weight:700; font-size:5.93cqw; color:#fff; }
+  .alts { display:flex; flex-direction:column; gap:6px; }
+  button.alt { text-align:left; font-weight:500; font-size:12px; padding:6px 8px; }
+  body[data-theme=aimax] .phone .h1 { bottom:calc(100% - 434/1920*100%); font-family:'Pretendard Black'; font-weight:normal; font-size:8.7cqw; color:#18C0E0; transform:skewX(-13.5deg); line-height:1; }
+  body[data-theme=aimax] .phone .h2 { bottom:calc(100% - 524/1920*100%); font-family:'Pretendard Black'; font-weight:normal; font-size:8.7cqw; color:#18C0E0; transform:skewX(-13.5deg); line-height:1; -webkit-text-stroke:0; }
+  body[data-theme=naminsoo] .phone .h1 { font-weight:900; font-size:7.04cqw; }
+  body[data-theme=naminsoo] .phone .h2 { font-weight:900; font-size:9.63cqw; color:#0048F5; -webkit-text-stroke:1.3cqw #fff; }
+  .phone .h2 { position:absolute; left:0; right:0; bottom:calc(100% - 520/1920*100%); text-align:center; font-weight:900; font-size:8.33cqw; color:var(--acc);
+               -webkit-text-stroke:.35cqw #3a1e00; paint-order:stroke fill; }
+  .phone video { position:absolute; left:0; width:100%; top:50%; transform:translateY(-50%); aspect-ratio:16/9; object-fit:cover; background:#222; }
+  .phone .f1 { position:absolute; left:0; right:0; top:calc(1385/1920*100%); text-align:center; font-weight:700; font-size:3.9cqw; }
+  .phone .f2 { position:absolute; left:0; right:0; top:calc(1440/1920*100%); text-align:center; font-weight:700; font-size:3cqw; }
+  .field { display:flex; flex-direction:column; gap:4px; }
+  .field span { color:var(--dim); font-size:11px; }
+  .field input { width:100%; }
+  details summary { cursor:pointer; color:var(--dim); font-size:12px; }
+  details p { margin:6px 0 0; font-size:13px; color:#ccc; max-height:160px; overflow:auto; }
+  .status { font-size:12px; }
+  .status.done { color:var(--ok); } .status.error { color:var(--err); } .status.running, .status.queued { color:var(--acc); }
+  .result video { width:100%; max-width:300px; display:block; margin:0 auto; border-radius:6px; }
+  @media (max-width:420px) { main { padding:12px; grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+<header>
+  <h1 id="title">불러오는 중…</h1>
+  <label>하단 1줄 <input type="text" id="footer1" size="14"></label>
+  <label>하단 2줄 <input type="text" id="footer2" size="18"></label>
+  <label>카피 색상 <select id="theme"><option value="aimax">기존 쇼츠 (시안·이탤릭)</option><option value="naminsoo">썸네일 (흰+파랑)</option><option value="yellow">노랑</option></select></label>
+  <label>자막 위치 <select id="caption_pos"><option value="inside">영상 안 하단</option><option value="below">영상 아래</option><option value="off">넣지 않음 (원본에 자막 있음)</option></select></label>
+  <button class="ghost" id="save">저장</button>
+  <button id="render">선택한 것 렌더</button>
+</header>
+<main id="list"></main>
+<script>
+const $ = s => document.querySelector(s);
+let plan, cfg, themes = {}, dirty = false;
+const fmt = t => `${Math.floor(t/60)}:${String(Math.floor(t%60)).padStart(2,'0')}`;
+const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+async function load() {
+  const r = await (await fetch('/api/plan')).json();
+  plan = r.plan; cfg = r.config; themes = r.themes || {};
+  document.body.dataset.theme = cfg.theme || 'aimax';
+  $('#title').textContent = `${r.meta.title ?? ''} — 후보 ${plan.clips.length}개`;
+  for (const k of ['footer1','footer2','caption_pos','theme']) $('#'+k).value = cfg[k] ?? '';
+  $('#list').innerHTML = plan.clips.map(card).join('');
+  plan.clips.forEach(bind);
+}
+
+function card(c) {
+  return `<section class="card ${c.selected?'':'off'}" id="${c.id}">
+    <div class="row">
+      <label class="row grow"><input type="checkbox" data-k="selected" ${c.selected?'checked':''}> <b>${c.id}</b>
+        <span class="meta">${fmt(c.t0)}–${fmt(c.t1)} · ${Math.round(c.t1-c.t0)}초</span></label>
+      <span class="hook">후킹 ${c.hook}</span>
+    </div>
+    <div class="meta">${esc(c.title)}</div>
+    <div class="result">${c.rendered?resultHTML(c.id):''}</div>
+    <div class="phone" ${c.rendered?'hidden':''}>
+      <div class="h1">${esc(c.head1)}</div><div class="h2">${esc(c.head2)}</div>
+      <video src="/media/source.mp4#t=${c.t0},${c.t1}" preload="none" controls playsinline></video>
+      <div class="f1"></div><div class="f2"></div>
+    </div>
+    <div class="field"><span>헤드카피 1줄</span><input type="text" data-k="head1" value="${esc(c.head1)}"></div>
+    <div class="field"><span>헤드카피 2줄</span><input type="text" data-k="head2" value="${esc(c.head2)}"></div>
+    ${(c.alts||[]).length?`<div class="alts"><span class="meta">다른 카피 (누르면 적용)</span>${c.alts.map((a,i)=>`<button class="ghost alt" data-alt="${i}">${esc(a[0])} / <b>${esc(a[1])}</b></button>`).join('')}</div>`:''}
+    <div class="field"><span>유튜브 제목</span><input type="text" data-k="yt_title" value="${esc(c.yt_title)}"></div>
+    <div class="field"><span>유튜브 설명 (끝에 풀영상 링크 자동)</span><textarea data-k="yt_desc" rows="5">${esc(c.yt_desc)}</textarea></div>
+    <details><summary>고른 이유 · 원문</summary><p><b>${esc(c.why)}</b><br>${esc(c.text)}</p></details>
+    <div class="row"><button class="one" data-one>이 클립만 렌더</button><div class="status grow" data-status></div></div>
+  </section>`;
+}
+
+// 렌더된 클립은 완성본(잘린 9:16)을 보여준다. 수정하면 원본 구간 미리보기로 전환
+function resultHTML(id) {
+  return `<div class="meta">완성본 (컷 편집·자막 적용)</div>
+    <div class="stage"><video src="/out/${id}.mp4?${Date.now()}" controls preload="metadata" playsinline></video>
+      <div class="ov"><div class="hl l1"></div><div class="hl l2"></div></div></div>
+    <div class="edited-note">헤드카피 수정됨 — 미리보기만 바뀐 상태, "이 클립만 렌더"를 눌러야 영상에 반영돼</div>`;
+}
+// lfs_core.fit_size 와 같은 계산 (한글 1em, 영숫자 0.6em, 공백 0.3em)
+function fitSize(text, size, outline) {
+  let w = 0; for (const ch of text) w += ch.codePointAt(0) >= 0x1100 ? 1 : (ch === ' ' ? 0.3 : 0.6);
+  const width = w * size + outline * 2 * [...text].length * 0.5;
+  return width <= 1000 ? size : Math.floor(size * 1000 / width);
+}
+// ASS 글자크기는 줄 높이 기준(Pretendard 어센더+디센더 = 1.193em) → CSS em 으로 환산
+function styleLine(node, text, font, size, color, outline, oc, y, italic) {
+  const px = fitSize(text, size, outline) / 1.193;
+  Object.assign(node.style, {
+    fontFamily: `"${font}"`, fontSize: `${px / 10.8}cqw`, color: '#' + color,
+    bottom: `${(560 - y) / 5.6}%`,   // .ov 높이(=1920 중 위쪽 560px) 기준
+    transform: italic ? 'skewX(-13.5deg)' : '',
+    webkitTextStroke: outline ? `${outline * 2 / 10.8}cqw #${oc}` : '0',
+  });
+  node.textContent = text;
+}
+function paintHead(el, c) {
+  const th = themes[$('#theme').value] || themes.aimax;
+  el.querySelectorAll('.stage').forEach(st => {
+    styleLine(st.querySelector('.l1'), c.head1, th.font1, th.size1, th.color1, th.outline1, th.oc1, th.y1, th.italic);
+    styleLine(st.querySelector('.l2'), c.head2, th.font2, th.size2, th.color2, th.outline2, th.oc2, th.y2, th.italic);
+  });
+}
+function bind(c) {
+  const el = document.getElementById(c.id);
+  const sync = () => {
+    el.querySelector('.h1').textContent = c.head1;
+    el.querySelector('.h2').textContent = c.head2;
+    el.querySelector('.f1').textContent = $('#footer1').value;
+    el.querySelector('.f2').textContent = $('#footer2').value;
+    el.classList.toggle('off', !c.selected);
+  };
+  el.querySelectorAll('[data-k]').forEach(inp => inp.addEventListener('input', () => {
+    c[inp.dataset.k] = inp.type === 'checkbox' ? inp.checked : inp.value; dirty = true; sync();
+    if (inp.dataset.k === 'head1' || inp.dataset.k === 'head2') {
+      const st = el.querySelector('.result .stage');
+      if (st) { st.classList.add('edited'); paintHead(el, c); }   // 완성본(소리 있음) 위에 새 카피만 덮어서 보여줌
+    }
+  }));
+  el.querySelector('[data-one]').addEventListener('click', () => startRender([c.id]));
+  el.querySelectorAll('[data-alt]').forEach(b => b.addEventListener('click', () => {
+    const [h1, h2] = c.alts[+b.dataset.alt];
+    c.alts[+b.dataset.alt] = [c.head1, c.head2];   // 현재 카피와 자리 바꿈
+    c.head1 = h1; c.head2 = h2;
+    el.querySelector('[data-k=head1]').value = h1; el.querySelector('[data-k=head2]').value = h2;
+    b.innerHTML = `${esc(c.alts[+b.dataset.alt][0])} / <b>${esc(c.alts[+b.dataset.alt][1])}</b>`;
+    el.querySelector('[data-k=head1]').dispatchEvent(new Event('input'));
+  }));
+  paintHead(el, c);
+  // 원본 구간 끝에서 멈추게
+  const v = el.querySelector('.phone video');
+  v.addEventListener('timeupdate', () => { if (v.currentTime >= c.t1) v.pause(); });
+  sync();
+}
+['footer1','footer2','caption_pos','theme'].forEach(k => $('#'+k).addEventListener('input', () => { dirty = true; plan.clips.forEach(c => {
+  const el = document.getElementById(c.id); el.querySelector('.f1').textContent = $('#footer1').value; el.querySelector('.f2').textContent = $('#footer2').value; }); }));
+
+async function save() {
+  await fetch('/api/save', {method:'POST', body: JSON.stringify({
+    clips: plan.clips.map(({id,selected,head1,head2,alts,yt_title,yt_desc}) => ({id,selected,head1,head2,alts,yt_title,yt_desc})),
+    config: {footer1:$('#footer1').value, footer2:$('#footer2').value, caption_pos:$('#caption_pos').value, theme:$('#theme').value}})});
+  dirty = false;
+}
+$('#theme').addEventListener('input', () => { document.body.dataset.theme = $('#theme').value;
+  plan.clips.forEach(c => { const el = document.getElementById(c.id); const st = el.querySelector('.result .stage'); if (st) { st.classList.add('edited'); paintHead(el, c); } }); });
+$('#save').onclick = async () => { await save(); $('#save').textContent = '저장됨'; setTimeout(() => $('#save').textContent = '저장', 1200); };
+// 서버가 꺼져 있거나 이미 렌더 중이면 조용히 실패하지 않고 상단에 알린다
+async function startRender(ids) {
+  if (!ids.length) return;
+  try {
+    await save();
+    ids.forEach(id => { const b = document.querySelector(`#${id} [data-status]`); b.className = 'status queued'; b.textContent = '요청 보냄…'; });
+    const r = await fetch('/api/render', {method:'POST', body: JSON.stringify({ids})});
+    if (!r.ok) { alertBox('렌더 요청 실패: ' + ((await r.json()).error || r.status)); return; }
+    poll();
+  } catch (e) { alertBox('검수 서버에 연결 안 됨 — 터미널에서 lfs.py review 를 다시 실행해줘'); }
+}
+$('#render').onclick = () => startRender(plan.clips.filter(c => c.selected).map(c => c.id));
+function alertBox(msg) { $('#title').textContent = msg; $('#title').style.color = 'var(--err)'; }
+
+let timer;
+async function poll() {
+  clearTimeout(timer);
+  const st = await (await fetch('/api/status')).json();
+  let busy = false;
+  for (const [id, s] of Object.entries(st)) {
+    const el = document.getElementById(id); if (!el) continue;
+    const box = el.querySelector('[data-status]');
+    box.className = 'status ' + s.state;
+    box.textContent = {queued:'대기', running:'렌더 중', done:'완료', error:'실패'}[s.state] + ' · ' + s.msg;
+    if (s.state === 'done' && box.dataset.shown !== '1') {
+      box.dataset.shown = '1';
+      el.querySelector('.result').innerHTML = resultHTML(id);
+      paintHead(el, plan.clips.find(x => x.id === id));
+      el.querySelector('.phone').hidden = true;
+    }
+    if (s.state === 'queued' || s.state === 'running') { busy = true; box.dataset.shown = ''; }
+  }
+  $('#render').disabled = busy;
+  document.querySelectorAll('[data-one]').forEach(b => b.disabled = busy);
+  if (busy) timer = setTimeout(poll, 1500);
+}
+window.addEventListener('beforeunload', e => { if (dirty) e.preventDefault(); });
+load().then(poll);
+</script>
+</body>
+</html>
