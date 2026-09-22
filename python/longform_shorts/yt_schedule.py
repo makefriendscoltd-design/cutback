@@ -67,19 +67,47 @@ class Offline:
         self.times = [dt.datetime.fromtimestamp(int(t), KST) for t in ts if t.isdigit()]
 
 
+CACHE = core.JOBS / "_channel_cache.json"   # 쿼터 막혔을 때 쓰는 마지막 조회 결과
+
+
+def _quota(e) -> bool:
+    return "quota" in str(e).lower()
+
+
 def channel(svc):
     if isinstance(svc, Offline):
         return {"snippet": {"title": "나민수 AI (미리보기: 공개분만)"}}
-    ch = svc.channels().list(part="snippet,contentDetails", mine=True).execute()["items"][0]
+    try:
+        ch = svc.channels().list(part="snippet,contentDetails", mine=True).execute()["items"][0]
+    except Exception as e:  # noqa: BLE001
+        if not _quota(e) or not CACHE.exists():
+            raise
+        ch = core.load_json(CACHE)["channel"]
+        core.log("쿼터 막힘 — 채널 정보는 마지막 조회본 사용")
     if EXPECT_CHANNEL not in ch["snippet"]["title"]:
         sys.exit(f"토큰 채널이 '{ch['snippet']['title']}' — '{EXPECT_CHANNEL}' 아님. 중단")
     return ch
 
 
-def occupied(svc, ch, max_items=300) -> list[dt.datetime]:
-    """채널 영상들의 공개(또는 예약 공개) 시각. 비공개 예약분까지 포함."""
+def our_video_ids() -> set[str]:
+    return {i["video_id"] for f in core.JOBS.glob("*/schedule.json")
+            for i in core.load_json(f, {"items": []})["items"] if i.get("video_id")}
+
+
+def other_jobs_planned(d: Path) -> list[dt.datetime]:
+    """다른 작업에서 배정만 되고 아직 안 올라간 시각도 자리 차지로 본다."""
+    return [dt.datetime.fromisoformat(i["publish_at"]) for f in core.JOBS.glob("*/schedule.json") if f.parent != d
+            for i in core.load_json(f, {"items": []})["items"] if not i.get("video_id")]
+
+
+def occupied(svc, ch, max_items=2000, with_ids=False):
+    """채널 영상들의 공개(또는 예약 공개) 시각. 비공개 예약분까지 포함.
+
+    업로드 목록(playlistItems)은 50개씩 넘겨 읽는 사이 새 업로드가 끼면 순서가 밀려 일부를 건너뛴다.
+    그래서 목록에서 본 ID + 예전에 본 ID(캐시) + 우리 기록 ID 를 합쳐 videos.list 로 'ID 직접 조회'한다.
+    """
     if isinstance(svc, Offline):
-        return svc.times
+        return [(t, "") for t in svc.times] if with_ids else svc.times
     pl = ch["contentDetails"]["relatedPlaylists"]["uploads"]
     ids, tok = [], None
     while len(ids) < max_items:
@@ -88,14 +116,43 @@ def occupied(svc, ch, max_items=300) -> list[dt.datetime]:
         tok = r.get("nextPageToken")
         if not tok:
             break
+    if CACHE.exists():
+        ids += [v for _, v in core.load_json(CACHE).get("pairs", [])]
+    ids += list(our_video_ids())
+    ids = list(dict.fromkeys(i for i in ids if i))
     out = []
     for i in range(0, len(ids), 50):
         r = svc.videos().list(part="status,snippet", id=",".join(ids[i:i + 50])).execute()
-        for v in r["items"]:
+        for v in r["items"]:   # 삭제된 영상은 응답에 없으므로 자연히 빠진다
             t = v["status"].get("publishAt") or v["snippet"].get("publishedAt")
             if t:
-                out.append(dt.datetime.fromisoformat(t.replace("Z", "+00:00")).astimezone(KST))
-    return out
+                out.append((dt.datetime.fromisoformat(t.replace("Z", "+00:00")).astimezone(KST), v["id"]))
+    return out if with_ids else [t for t, _ in out]
+
+
+def busy_and_recurring(svc, ch, d: Path):
+    try:
+        pairs = occupied(svc, ch, with_ids=True)
+        core.save_json(CACHE, {"channel": ch, "at": dt.datetime.now(KST).isoformat(),
+                               "pairs": [[t.isoformat(), v] for t, v in pairs]})
+    except Exception as e:  # noqa: BLE001
+        if not _quota(e) or not CACHE.exists():
+            raise
+        c = core.load_json(CACHE)
+        pairs = [(dt.datetime.fromisoformat(t), v) for t, v in c["pairs"]]
+        # 캐시 이후 우리가 올린 것(Aside 포함)도 자리 차지로 추가
+        known = {v for _, v in pairs}
+        pairs += [(dt.datetime.fromisoformat(i["publish_at"]), i["video_id"]) for f in core.JOBS.glob("*/schedule.json")
+                  for i in core.load_json(f, {"items": []})["items"] if i.get("video_id") and i["video_id"] not in known]
+        core.log(f"쿼터 막힘 — 채널 예약 목록은 {c['at'][:16]} 조회본 + 우리 업로드분으로 판단")
+    ours = our_video_ids()
+    # Studio(Aside)로 올린 영상은 업로드 목록에 늦게 잡힌다 → 우리 기록(schedule.json)도 항상 합친다
+    known = {v for _, v in pairs}
+    pairs = pairs + [(dt.datetime.fromisoformat(i["publish_at"]), i["video_id"]) for f in core.JOBS.glob("*/schedule.json")
+                     for i in core.load_json(f, {"items": []})["items"] if i.get("video_id") and i["video_id"] not in known]
+    # 반복 시간대는 '남의' 쇼츠로만 판단 — 우리 07:30·13:30 칸이 반복으로 잡혀 스스로 막히는 걸 방지
+    recur = recurring_times([t for t, vid in pairs if vid not in ours])
+    return [t for t, _ in pairs] + other_jobs_planned(d), recur
 
 
 def recurring_times(times: list[dt.datetime], days=14, min_days=3) -> list[dt.time]:
@@ -121,10 +178,9 @@ def clashes(when: dt.datetime, busy: list[dt.datetime], recur: list[dt.time]) ->
 
 def make_plan(d: Path, svc, save=True) -> dict:
     ch = channel(svc)
-    busy = occupied(svc, ch)
-    recur = recurring_times(busy)
+    busy, recur = busy_and_recurring(svc, ch, d)
     old = core.load_json(d / "schedule.json", {"items": []})
-    done = {i["clip"]: i for i in old["items"] if i.get("video_id")}
+    done = {i["clip"]: i for i in old["items"] if i.get("video_id") or i.get("hold")}
     plan = core.load_json(d / "plan.json")
     clips = [c for c in plan["clips"] if c.get("selected") and (d / "out" / f"{c['id']}.mp4").exists()]
     # 후킹 점수 높은 것부터 먼저 공개
@@ -135,6 +191,8 @@ def make_plan(d: Path, svc, save=True) -> dict:
     day = now.date()
     pending = [c for c in clips if c["id"] not in done]
     while pending:
+        if day > now.date() + dt.timedelta(days=180):
+            raise RuntimeError("180일 안에 빈 칸이 없음 — SLOTS/BUFFER 확인")
         count = sum(1 for t in taken if t.date() == day)
         for s in SLOTS:
             if not pending or count >= PER_DAY:
@@ -209,17 +267,23 @@ def upload(d: Path, svc, limit=PER_RUN):
     from googleapiclient.http import MediaFileUpload
     sched = core.load_json(d / "schedule.json")
     ch = channel(svc)
-    busy = occupied(svc, ch)          # 올리기 직전에 다시 조회해서 그 사이 생긴 예약과도 안 겹치게
-    recur = recurring_times(busy)
+    busy, recur = busy_and_recurring(svc, ch, d)   # 올리기 직전에 다시 조회해서 그 사이 생긴 예약과도 안 겹치게
     n = 0
     for it in sched["items"]:
-        if it.get("video_id") or n >= limit:
+        if it.get("video_id") or it.get("hold") or n >= limit:
+            continue
+        if it.get("draft_id"):
+            finish_draft(d, it, svc)
+            core.save_json(d / "schedule.json", sched)
             continue
         when = dt.datetime.fromisoformat(it["publish_at"])
         if when < dt.datetime.now(KST) + dt.timedelta(minutes=30):
             it["error"] = "예약 시각이 지나거나 임박 — plan 다시 돌려야 함"
             continue
-        others = [b for b in busy if abs((b - when).total_seconds()) > 1]
+        # 아직 안 올린 항목이라 채널 목록에 자기 자신은 없다 → 아무것도 빼지 않고 그대로 검사
+        # (예전엔 '같은 시각'을 자기 자신으로 보고 빼서 정확히 겹치는 다른 영상을 놓쳤음)
+        mine_planned = [dt.datetime.fromisoformat(i["publish_at"]) for i in sched["items"] if i is not it and not i.get("video_id")]
+        others = [b for b in busy if b not in mine_planned]
         if clashes(when, others, recur):
             it["error"] = "그 사이 다른 영상과 시간이 겹침 — plan 다시 돌려야 함"
             continue
@@ -233,8 +297,8 @@ def upload(d: Path, svc, limit=PER_RUN):
         except HttpError as e:
             it["error"] = str(e)[:300]
             core.save_json(d / "schedule.json", sched)
-            if "quota" in str(e).lower():
-                core.log("쿼터 소진 — 내일 다시 실행")
+            if "quota" in str(e).lower() or "uploadLimitExceeded" in str(e):
+                core.log("쿼터/채널 업로드 한도 — 내일 다시 실행")
                 break
             continue
         it.update(video_id=r["id"], uploaded_at=dt.datetime.now(KST).isoformat())
@@ -245,11 +309,12 @@ def upload(d: Path, svc, limit=PER_RUN):
     return sched
 
 
-def set_related(video_id: str, target_title: str) -> str:
+def set_related(video_id: str, target_title: str, target_id: str) -> str:
     """Aside 브라우저로 Studio '관련 동영상'을 롱폼으로 지정. API 에 이 항목이 없어서 UI 로 한다."""
     import subprocess
     js = (core.ROOT / "aside_related.js").read_text()
-    code = f"const VID={json.dumps(video_id)}; const TARGET_TITLE={json.dumps(target_title)};\n{js}"
+    code = (f"const VID={json.dumps(video_id)}; const TARGET_TITLE={json.dumps(target_title, ensure_ascii=False)}; "
+            f"const TARGET_ID={json.dumps(target_id)};\n{js}")
     try:
         out = subprocess.run(["aside", "repl", code], capture_output=True, text=True, timeout=240).stdout
     except subprocess.TimeoutExpired:
@@ -260,13 +325,197 @@ def set_related(video_id: str, target_title: str) -> str:
 
 def related_all(d: Path):
     sched = core.load_json(d / "schedule.json")
-    title = core.load_json(d / "meta.json", {}).get("title", "")
+    meta = core.load_json(d / "meta.json", {})
     for it in sched["items"]:
         if it.get("video_id") and not str(it.get("related", "")).startswith("OK"):
-            it["related"] = set_related(it["video_id"], title)
+            it["related"] = set_related(it["video_id"], meta.get("title", ""), meta.get("id", d.name))
             core.log(f"관련 동영상 {it['clip']}: {it['related']}")
             core.save_json(d / "schedule.json", sched)
     return sched
+
+
+def _ko_date(t: dt.datetime) -> str:
+    return f"{t.year}. {t.month}. {t.day}."
+
+
+def _ko_time(t: dt.datetime) -> str:
+    h = t.hour % 12 or 12
+    return f"{'오전' if t.hour < 12 else '오후'} {h}:{t.minute:02d}"
+
+
+def aside_upload(d: Path, it: dict) -> str:
+    """API 쿼터가 막혔을 때: Aside 브라우저로 Studio 에 직접 예약 업로드. 영상 파일은 임시 로컬 서버로 넘긴다."""
+    import functools
+    import http.server
+    import subprocess
+    import threading
+    handler = functools.partial(http.server.SimpleHTTPRequestHandler, directory=str(d / "out"))
+    handler.log_message = lambda *a: None
+    srv = http.server.ThreadingHTTPServer(("127.0.0.1", 0), handler)
+    threading.Thread(target=srv.serve_forever, daemon=True).start()
+    try:
+        when = dt.datetime.fromisoformat(it["publish_at"]).astimezone(KST)
+        consts = {"CID": (core.ROOT / "secrets" / "channel_id").read_text().strip(),
+                  "FILE_URL": f"http://127.0.0.1:{srv.server_address[1]}/{it['clip']}.mp4",
+                  "TITLE": it["title"], "DESC": description_of(d, it["clip"]),
+                  "RELATED_TITLE": core.load_json(d / "meta.json", {}).get("title", ""),
+                  "DATE_TEXT": _ko_date(when), "TIME_TEXT": _ko_time(when)}
+        code = "".join(f"const {k}={json.dumps(v, ensure_ascii=False)};\n" for k, v in consts.items())
+        code += (core.ROOT / "aside_upload.js").read_text()
+        try:
+            out = subprocess.run(["aside", "repl", code], capture_output=True, text=True, timeout=900).stdout
+        except subprocess.TimeoutExpired:
+            return "FAIL timeout"
+        (d / "out" / f"{it['clip']}.aside.log").write_text(out)
+        line = [l for l in out.splitlines() if "RESULT:" in l]
+        draft = [l.split("VIDEO_ID", 1)[1].strip() for l in out.splitlines() if "STEP VIDEO_ID" in l]
+        if draft and draft[-1]:
+            it["draft_id"] = draft[-1]
+        return line[-1].split("RESULT:", 1)[1].strip() if line else "FAIL no result"
+    finally:
+        srv.shutdown()
+
+
+def resolve_holds(d: Path, svc) -> list[str]:
+    """보류(ID 모름) 항목을 채널 영상 제목으로 찾아 연결."""
+    sched = core.load_json(d / "schedule.json")
+    held = [i for i in sched["items"] if i.get("hold") and not i.get("video_id")]
+    if not held:
+        return []
+    pairs = occupied(svc, channel(svc), with_ids=True)
+    ids = [v for _, v in pairs]
+    titles = {}
+    for k in range(0, len(ids), 50):
+        for v in svc.videos().list(part="snippet,status", id=",".join(ids[k:k + 50])).execute()["items"]:
+            titles.setdefault(v["snippet"]["title"], []).append(v)
+    done = []
+    known = our_video_ids()
+    for it in held:
+        cands = [v for v in titles.get(it["title"], []) if v["id"] not in known]
+        since = dt.datetime.fromisoformat(it["hold"]) if isinstance(it["hold"], str) else dt.datetime.now(KST)
+        if not cands and dt.datetime.now(KST) - since > dt.timedelta(hours=6):
+            it.pop("hold", None)   # 6시간 지나도 채널에 없음 = 업로드가 거절됐던 것 → 다시 올릴 수 있게 해제
+            done.append(f"{it['clip']} 보류 해제(채널에 없음)")
+            continue
+        if len(cands) == 1:
+            it.update(video_id=cands[0]["id"], via="aside(보류 후 연결)")
+            it.pop("hold", None); it.pop("error", None)
+            done.append(f"{it['clip']}={cands[0]['id']}")
+    core.save_json(d / "schedule.json", sched)
+    return done
+
+
+def finish_draft(d: Path, it: dict, svc) -> bool:
+    """Aside 가 파일만 올리고 멈춘 초안을 API 로 예약까지 마무리(쿼터 있을 때)."""
+    when = dt.datetime.fromisoformat(it["publish_at"])
+    try:
+        svc.videos().update(part="snippet,status", body={"id": it["draft_id"],
+            "snippet": {"title": it["title"], "description": description_of(d, it["clip"]), "categoryId": "27",
+                        "defaultLanguage": "ko", "defaultAudioLanguage": "ko"},
+            "status": {"privacyStatus": "private", "selfDeclaredMadeForKids": False,
+                       "publishAt": when.astimezone(dt.timezone.utc).isoformat().replace("+00:00", "Z")}}).execute()
+    except Exception as e:  # noqa: BLE001
+        core.log(f"초안 {it['draft_id']} 마무리 보류: {str(e)[:80]}")
+        return False
+    it.update(video_id=it.pop("draft_id"), via="aside-file+api-schedule", uploaded_at=dt.datetime.now(KST).isoformat())
+    it.pop("error", None)
+    return True
+
+
+def aside_upload_pending(d: Path, limit=100, svc=None) -> dict:
+    sched = core.load_json(d / "schedule.json")
+    n = 0
+    for it in sched["items"]:
+        if it.get("video_id") or it.get("hold") or n >= limit:
+            continue
+        if it.get("draft_id"):   # 전에 멈춘 초안이 있으면 새로 올리지 말고 그걸 마무리
+            if svc and finish_draft(d, it, svc):
+                n += 1
+            core.save_json(d / "schedule.json", sched)
+            continue
+        if dt.datetime.fromisoformat(it["publish_at"]) < dt.datetime.now(KST) + dt.timedelta(minutes=30):
+            continue
+        res = aside_upload(d, it)
+        core.log(f"Aside 업로드 {it['clip']}: {res}")
+        if res.startswith("OK"):
+            it.update(video_id=res.split()[1], via="aside",
+                      uploaded_at=dt.datetime.now(KST).isoformat())
+            it.pop("error", None)
+            n += 1
+        else:
+            it["error"] = "aside: " + res
+            if "done clicked" in (d / "out" / f"{it['clip']}.aside.log").read_text(errors="ignore") and not it.get("draft_id"):
+                it["hold"] = dt.datetime.now(KST).isoformat()   # 예약은 눌렸는데 ID 를 모름 → 재업로드 금지, resolve_holds 로 나중에 연결
+            if it.get("draft_id") and svc:
+                finish_draft(d, it, svc)
+        core.save_json(d / "schedule.json", sched)
+        if not res.startswith("OK"):
+            break   # 화면 구조가 바뀐 경우 연달아 실패하지 않게 멈춤
+    return sched
+
+
+def verify(d: Path, svc) -> list[str]:
+    """API 로 예약 상태를 다시 읽어 schedule.json 과 대조. 어긋난 clip id 목록."""
+    sched = core.load_json(d / "schedule.json")
+    ids = [i["video_id"] for i in sched["items"] if i.get("video_id")]
+    got = {}
+    for k in range(0, len(ids), 50):
+        for v in svc.videos().list(part="status", id=",".join(ids[k:k + 50])).execute()["items"]:
+            got[v["id"]] = v["status"]
+    bad = []
+    for i in sched["items"]:
+        if not i.get("video_id"):
+            continue
+        st = got.get(i["video_id"])
+        want = dt.datetime.fromisoformat(i["publish_at"])
+        pa = st and st.get("publishAt")
+        ok = st and ((st["privacyStatus"] == "private" and pa and
+                      dt.datetime.fromisoformat(pa.replace("Z", "+00:00")) == want) or
+                     (st["privacyStatus"] == "public" and want <= dt.datetime.now(KST)))
+        i["verified"] = bool(ok)
+        if not ok:
+            bad.append(i["clip"])
+    core.save_json(d / "schedule.json", sched)
+    return bad
+
+
+def audit_fix(d: Path, svc) -> list[str]:
+    """업로드 후 최종 안전망: 채널 실제 예약 시각 기준으로 이 작업 쇼츠가 다른 영상과 ±BUFFER 안이면
+    이 작업 쪽을 가장 빠른 빈 칸으로 옮긴다. 옮긴 목록 반환."""
+    ch = channel(svc)
+    sched = core.load_json(d / "schedule.json")
+    moved = []
+    for it in sched["items"]:
+        vid = it.get("video_id")
+        if not vid:
+            continue
+        pairs = occupied(svc, ch, with_ids=True)
+        known = {v for _, v in pairs}
+        pairs += [(dt.datetime.fromisoformat(i["publish_at"]), i["video_id"]) for f in core.JOBS.glob("*/schedule.json")
+                  for i in core.load_json(f, {"items": []})["items"] if i.get("video_id") and i["video_id"] not in known]
+        real = {v: t for t, v in pairs}
+        t = real.get(vid)
+        if t is None or t <= dt.datetime.now(KST) + dt.timedelta(minutes=20):
+            continue
+        others = [o for o, v in pairs if v != vid]
+        recur = recurring_times([o for o, v in pairs if v not in our_video_ids()])
+        if not clashes(t, others, recur):
+            continue
+        day, new = dt.datetime.now(KST).date(), None
+        while not new:
+            for sl in SLOTS:
+                w = dt.datetime.combine(day, dt.time.fromisoformat(sl), KST)
+                if w > dt.datetime.now(KST) + dt.timedelta(hours=2) and not clashes(w, others + other_jobs_planned(d), recur):
+                    new = w
+                    break
+            day += dt.timedelta(days=1)
+        svc.videos().update(part="status", body={"id": vid, "status": {"privacyStatus": "private", "selfDeclaredMadeForKids": False,
+                            "publishAt": new.astimezone(dt.timezone.utc).isoformat().replace("+00:00", "Z")}}).execute()
+        it["publish_at"] = new.isoformat()
+        core.save_json(d / "schedule.json", sched)
+        moved.append(f"{it['clip']} {t:%m-%d %H:%M}→{new:%m-%d %H:%M}")
+        core.log(f"⚠ 겹침 발견 → 이동 {moved[-1]}")
+    return moved
 
 
 def show(s):
@@ -278,7 +527,7 @@ def show(s):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("cmd", choices=["auth", "meta", "plan", "upload", "related", "status"])
+    ap.add_argument("cmd", choices=["auth", "meta", "plan", "upload", "aside-upload", "verify", "audit", "related", "status"])
     ap.add_argument("job", nargs="?")
     ap.add_argument("--offline", action="store_true", help="로그인 없이 공개 쇼츠만 보고 배정 미리보기(저장 안 함)")
     ap.add_argument("--yes", action="store_true", help="실제 업로드 확인")
@@ -293,6 +542,10 @@ def main():
         return
     if a.cmd == "plan" and a.offline:
         return show(make_plan(d, Offline(), save=False))
+    if a.cmd == "aside-upload":
+        if not a.yes:
+            sys.exit("실제 업로드는 --yes 를 붙여야 실행됨")
+        return show(aside_upload_pending(d, a.limit, yt()))
     if a.cmd == "related":
         return show(related_all(d))
     if a.cmd == "status":
@@ -300,6 +553,10 @@ def main():
     svc = yt()
     if a.cmd == "plan":
         show(make_plan(d, svc))
+    elif a.cmd == "audit":
+        print("이동:", audit_fix(d, svc) or "없음")
+    elif a.cmd == "verify":
+        print("어긋남:", verify(d, svc) or "없음")
     elif a.cmd == "upload":
         if not a.yes:
             sys.exit("실제 업로드는 --yes 를 붙여야 실행됨")

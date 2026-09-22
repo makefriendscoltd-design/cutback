@@ -39,3 +39,14 @@
 - 업로드 직전 채널을 다시 조회해 그 사이 생긴 예약과도 겹치면 올리지 않음. 채널명에 '나민수'가 없으면 중단
 - 관련 동영상은 API 항목이 없어 `aside repl` + `aside_related.js` 로 Studio 에서 지정하고, 새로고침 후 값을 다시 읽어 확인
 - 업로드 1건 = API 쿼터 1600. 쿼터 소진 시 멈추고 다음 실행에서 이어감
+
+## 여러 롱폼 일괄 처리 + 매일 자동 이어 올리기
+    .venv/bin/python batch_all.py <영상ID> ...   # 영상마다 끝까지(제작→배정→업로드→관련 동영상→겹침 대조)
+    .venv/bin/python batch_all.py                # 인자 없으면 jobs/_todo.json 전체
+- launchd `com.aimax.naminsoo-shorts-daily` 가 매일 17:30 인자 없이 실행(로그 jobs/_daily.out, 진행 jobs/_batch.log). 잠금으로 겹쳐 돌지 않음
+- 단계마다 결과 파일이 있으면 건너뜀 → 끊겨도 같은 명령으로 이어짐(렌더 완료 표시는 out/cNN.json)
+- API 쿼터(quotaExceeded) → `aside_upload.js` 로 Studio 직접 업로드. 실패 시 초안 ID 를 남겨 API 로 마무리,
+  예약은 눌렸는데 ID 를 모르면 hold(재업로드 금지) → `resolve_holds` 가 제목으로 연결, 6시간 뒤에도 없으면 해제
+- 채널 하루 업로드 개수 한도(uploadLimitExceeded)는 Studio 도 같은 한도 → 대체 없이 다음 날 이어감
+- 겹침 판단: 업로드 목록 + 예전에 본 ID(jobs/_channel_cache.json) + 우리 기록을 합쳐 videos.list 로 ID 직접 조회
+  (목록을 페이지로 넘기는 사이 새 업로드가 끼면 영상을 건너뛰어 겹침이 났음). 업로드 후 `audit_fix` 가 한 번 더 대조해 겹치면 이동
