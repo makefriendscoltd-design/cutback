@@ -1,0 +1,11 @@
+{
+  "date": "2026-09-23",
+  "page": "https://app.notion.com/p/makefriends/ai-3dab31f1da5580eaa6f9fe1617780252",
+  "database": "촬영본",
+  "row": "새로운 영상 1탄",
+  "촬영본": "20260923_151826.mp4 (existing)",
+  "완성본": ["renders/AI학교_새로운영상1탄_클로드코드플러그인5개.mp4", "renders/AI학교_새로운영상1탄_썸네일.png"],
+  "리틀리": "caption.md",
+  "method": "Orca embedded browser (orca upload/inserttext)",
+  "verified_after_reload": true
+}

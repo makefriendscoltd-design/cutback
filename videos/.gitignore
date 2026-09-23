@@ -1,0 +1,17 @@
+# media & generated output stay local (large / third-party)
+*.mp4
+*.mov
+*.m4a
+*.wav
+*.png
+*.jpg
+*.webm
+**/assets/
+**/renders/
+**/snapshots/
+**/src/
+**/scenes/
+**/index.html
+!**/cover/cover.html
+**/_workspace/
+**/cafe-images/

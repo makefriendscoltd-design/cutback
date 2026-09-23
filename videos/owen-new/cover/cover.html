@@ -1,0 +1,36 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+@font-face{font-family:P;src:url(pretendard.woff2);font-weight:100 900}
+@font-face{font-family:IS;src:url(InstrumentSerif-Regular.ttf)}
+html,body{margin:0;width:1080px;height:1920px;overflow:hidden;background:#000}
+.bg{position:absolute;left:0;right:0;top:0;height:1350px;background:
+ radial-gradient(55% 40% at 50% 38%,rgba(40,120,150,.35),transparent 70%),
+ repeating-linear-gradient(0deg,rgba(120,200,220,.10) 0 2px,transparent 2px 46px),
+ repeating-linear-gradient(90deg,rgba(120,200,220,.10) 0 2px,transparent 2px 46px),
+ linear-gradient(180deg,#0e1c24 0%,#0a1419 60%,#000 100%)}
+.bg::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,#000 96%)}
+.glyph{position:absolute;inset:0;font:600 26px/46px monospace;color:rgba(120,210,230,.13);letter-spacing:20px;white-space:pre;overflow:hidden}
+.logo{position:absolute;top:70px;left:0;right:0;display:flex;justify-content:center;align-items:center;gap:30px;font-family:IS;font-size:275px;line-height:1;color:#fff;letter-spacing:-4px;text-shadow:0 10px 40px rgba(0,0,0,.6)}
+.logo svg{width:190px;height:190px;filter:drop-shadow(0 8px 20px rgba(0,0,0,.5))}
+.tile{position:absolute;width:360px;height:360px;border-radius:78px;display:grid;place-items:center;box-shadow:0 36px 70px rgba(0,0,0,.6)}
+.tl{left:-40px;top:620px;background:#0c0c0e;transform:rotate(-9deg);z-index:3}
+.tr{right:-30px;top:560px;background:linear-gradient(155deg,#b8ecff,#64d2ff 45%,#2f9ed6);transform:rotate(9deg);z-index:1;font:900 190px P;color:#fff;letter-spacing:-8px;text-shadow:0 6px 0 rgba(0,40,90,.35)}
+.inv{position:relative;width:228px;height:152px}.inv i{position:absolute;width:19px;height:19px;background:#E8845A}
+.person{position:absolute;left:-330px;top:-60px;width:1740px;z-index:2;-webkit-mask-image:linear-gradient(180deg,#000 62%,transparent 84%);mask-image:linear-gradient(180deg,#000 62%,transparent 84%);filter:drop-shadow(0 0 30px rgba(0,0,0,.5))}
+.t{position:absolute;left:0;right:0;z-index:4;display:flex;justify-content:center}
+.t1{top:1250px;font:900 132px/1 P;color:#fff;letter-spacing:-5px;text-shadow:0 8px 24px rgba(0,0,0,.8)}
+.t2{top:1395px}.t2 span{background:var(--box,#64d2ff);color:var(--ink,#07101c);font:900 132px/1 P;letter-spacing:-5px;padding:10px 34px 20px;border-radius:18px;box-shadow:0 14px 34px rgba(0,0,0,.5)}
+</style></head><body>
+<div class="bg"><div class="glyph" id="gl"></div></div>
+<div class="logo"><svg viewBox="0 0 100 100"><g stroke="#E8845A" stroke-width="8" stroke-linecap="round" id="g"></g></svg>Claude</div>
+<div class="tile tl"><div class="inv" id="inv"></div></div>
+<div class="tile tr">AI</div>
+<img class="person" src="person_cut.png">
+<div class="t t1">클로드 코드 필수</div>
+<div class="t t2"><span>플러그인 TOP 5</span></div>
+<script>
+const box=new URLSearchParams(location.search).get('box');if(box){document.documentElement.style.setProperty('--box',box);document.documentElement.style.setProperty('--ink','#fff')}
+const g=document.getElementById('g');for(let a=0;a<12;a++){const l=document.createElementNS('http://www.w3.org/2000/svg','line');const t=a*Math.PI/6+(a%2?.08:0);const r=a%3?44:40;l.setAttribute('x1',50+9*Math.cos(t));l.setAttribute('y1',50+9*Math.sin(t));l.setAttribute('x2',50+r*Math.cos(t));l.setAttribute('y2',50+r*Math.sin(t));g.appendChild(l)}
+const P=["..1......1..","...1....1...","..11111111..",".11.1111.11.","111111111111","1.11111111.1","1.1......1.1","...11..11..."];const inv=document.getElementById('inv');
+P.forEach((r,y)=>[...r].forEach((c,x)=>{if(c==='1'){const i=document.createElement('i');i.style.left=x*19+'px';i.style.top=y*19+'px';inv.appendChild(i)}}));
+let s='',seed=7;const rnd=()=>(seed=(seed*9301+49297)%233280)/233280;const ch='01{}<>/=;#$';for(let i=0;i<30;i++){let l='';for(let j=0;j<24;j++)l+=rnd()<.35?ch[Math.floor(rnd()*ch.length)]:' ';s+=l+'\n'}document.getElementById('gl').textContent=s;
+</script></body></html>
