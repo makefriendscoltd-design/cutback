@@ -1,0 +1,8 @@
+{
+  "name": "owen-ep11-email-ai",
+  "private": true,
+  "scripts": {
+    "check": "npx hyperframes@0.8.103 check",
+    "snapshot": "npx hyperframes@0.8.103 snapshot"
+  }
+}
