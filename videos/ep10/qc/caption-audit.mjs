@@ -62,6 +62,13 @@ try {
   page.on('request', (request) => request.resourceType() === 'media' ? request.abort() : request.continue());
   await page.goto(`http://127.0.0.1:${port}/index.html`, { waitUntil: 'networkidle0', timeout: 30000 });
   await page.evaluate(async () => { if (document.fonts) await document.fonts.ready; });
+  const fontProof = await page.evaluate(async () => {
+    await document.fonts.load('800 60px "Pretendard"', '한글 자막');
+    const faces = [...document.fonts].filter(f => f.family.replace(/["']/g, '') === 'Pretendard');
+    return {check: document.fonts.check('800 60px "Pretendard"', '한글 자막'), faces: faces.map(f => ({family:f.family,status:f.status,weight:f.weight}))};
+  });
+  if (!fontProof.check || !fontProof.faces.length || fontProof.faces.some(f => f.status !== 'loaded')) throw new Error('Approved Pretendard font not loaded: '+JSON.stringify(fontProof));
+
 
   const rows = await page.evaluate(() => {
     const punctuation = /[.,?!"'…“”‘’]/u;
@@ -114,6 +121,7 @@ try {
   const xs = rows.flatMap((r) => [r.rect.x, r.rect.right]);
   const ys = rows.flatMap((r) => [r.rect.y, r.rect.bottom]);
   const report = {
+    fontProof,
     generatedAt: new Date().toISOString(),
     method: 'Localhost static server + installed HyperFrames Chrome headless shell + installed puppeteer-core; 1080x1920 viewport; document fonts awaited; main GSAP timeline sought to each caption midpoint; computed DOM text, Range line boxes, opacity, and bounding rectangles measured.',
     source: 'index.html', viewport: { width: 1080, height: 1920, deviceScaleFactor: 1 }, runtime,
