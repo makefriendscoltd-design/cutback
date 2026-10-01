@@ -10,7 +10,8 @@ This package preserves the session-owned Owen implementation approved on 2026-10
 - `videos/ep07-v3/mix.py`: original speech, ducked music and timed effects.
 - `videos/check_owen_camera.py` and `videos/ep07-v3/qc/caption-audit.mjs`: layout regression guards, including actual font-load checks.
 - `finalize_audio.py`: validates the source mix and remuxes it losslessly after rendering, preventing renderer-side attenuation observed with0.8.103.
-- `run.sh`: portable entry point; sets `OWEN_AUDIO_DIR` without changing the original mixer.
+- `run-wsl.sh`: WSL2 preflight and entry point; see `WINDOWS.md`.
+- `run.sh`: macOS/Linux entry point; sets `OWEN_AUDIO_DIR` without changing the original mixer.
 - `SOURCE_MANIFEST.json`: copied-source hashes and original paths. Exported original scripts are byte-identical to their source files. Two documentation copies omit internal publishing destinations and an obsolete scratch path; their original and exported hashes are both recorded.
 
 ## Approved behavior
@@ -21,7 +22,7 @@ The presenter alternates between full screen and a reduced lower card as upper g
 
 ## Installation
 
-Use macOS or Linux, Node.js 22+ with npm, Python 3.10+, FFmpeg/ffprobe, and the native libraries required by headless Chromium. The source machine used Node26 and HyperFrames0.8.103. Windows requires an alternative to the included POSIX `fcntl` render lock; native Windows is unverified.
+Use macOS or Linux, Node.js 22+ with npm, Python 3.10+, FFmpeg/ffprobe, and the native libraries required by headless Chromium. The source machine used Node26 and HyperFrames0.8.103. Windows uses the required WSL2 entry in [WINDOWS.md](WINDOWS.md). `run-wsl.sh` rejects native Windows, WSL1 and Windows runtime binaries. The approved POSIX lock is retained; native Windows is unsupported. WSL runtime verification still requires a Windows machine.
 
 ```sh
 python3 -m venv .venv
