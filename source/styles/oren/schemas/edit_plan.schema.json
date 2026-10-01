@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Oren Reels Edit Plan",
+  "type": "object",
+  "required": ["source", "mode", "output", "scenes"],
+  "properties": {
+    "source": {"type": "string"},
+    "mode": {"enum": ["ESSAY_STORY", "TUTORIAL"]},
+    "output": {
+      "type": "object",
+      "required": ["width", "height", "fps"],
+      "properties": {
+        "width": {"type": "integer"},
+        "height": {"type": "integer"},
+        "fps": {"type": "number"}
+      }
+    },
+    "scenes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["start", "end", "dialogue", "scene_type"],
+        "properties": {
+          "start": {"type": "number"},
+          "end": {"type": "number"},
+          "dialogue": {"type": "string"},
+          "scene_type": {
+            "enum": [
+              "TALKING_HEAD",
+              "TALKING_HEAD_KEYPHRASE",
+              "FULLSCREEN_BROLL",
+              "BROLL_BURST",
+              "TALKING_HEAD_WITH_UI",
+              "FULLSCREEN_EVIDENCE",
+              "NUMBER_STAT",
+              "BEFORE_AFTER",
+              "OBJECT_CUTOUT",
+              "CHAPTER_TITLE",
+              "CTA"
+            ]
+          },
+          "hero_text": {"type": ["string", "null"]},
+          "caption": {"type": "boolean", "default": true},
+          "asset_query": {"type": ["string", "null"]},
+          "asset_paths": {"type": "array", "items": {"type": "string"}},
+          "transition": {"enum": ["hard_cut", "scale_pop", "slide", "none"]},
+          "notes": {"type": "string"}
+        }
+      }
+    },
+    "qa": {
+      "type": "object",
+      "properties": {
+        "avg_visual_change_sec": {"type": "number"},
+        "talking_head_ratio": {"type": "number"},
+        "broll_evidence_ratio": {"type": "number"},
+        "hero_title_count": {"type": "integer"},
+        "longest_unchanged_structure_sec": {"type": "number"}
+      }
+    }
+  }
+}

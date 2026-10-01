@@ -1,0 +1,40 @@
+{
+  "profile_name": "oren_reels_v1",
+  "reference_count": 5,
+  "canvas": {"aspect_ratio": "9:16", "preferred_resolution": "1080x1920"},
+  "modes": {
+    "ESSAY_STORY": {
+      "major_visual_change_avg_sec": [1.4, 1.8],
+      "talking_head_ratio": [0.35, 0.45],
+      "fullscreen_broll_evidence_ratio": [0.55, 0.65],
+      "max_unchanged_structure_sec": 3.2,
+      "keyphrase_title_interval_sec": [7, 15]
+    },
+    "TUTORIAL": {
+      "major_visual_change_avg_sec": [2.1, 2.8],
+      "talking_head_with_overlays_ratio": [0.65, 0.80],
+      "fullscreen_demo_ratio": [0.20, 0.35],
+      "max_unchanged_structure_sec": 3.8
+    }
+  },
+  "captions": {
+    "position_y_ratio": [0.72, 0.82],
+    "max_lines": 2,
+    "default_style": "small_white_sans"
+  },
+  "hero_typography": {
+    "style": "high_contrast_editorial_serif",
+    "default_color": "#FFFFFF",
+    "max_words": 10,
+    "preferred_words": [2, 7]
+  },
+  "transitions": {
+    "hard_cut_share_target": [0.85, 0.95],
+    "flashy_presets": false
+  },
+  "broll": {
+    "single_asset_duration_sec": [0.8, 2.2],
+    "burst_asset_count": [2, 5],
+    "burst_asset_duration_sec": [0.55, 1.2]
+  }
+}
