@@ -1,0 +1,3 @@
+import React from 'react'; import {FullscreenAsset,Tokens} from './Common';
+export const OrenSerifChapterTitle:React.FC<{text:string;scale:number;tokens:Tokens}>=({text,scale,tokens})=>{const t=tokens.title,c=tokens.canvas;return <div style={{position:'absolute',left:c.safeX*scale,right:c.safeX*scale,top:c.safeTop*scale,fontFamily:'Georgia,serif',fontSize:t.fontSizeMax*scale,fontWeight:t.fontWeight,color:'#fff',lineHeight:t.lineHeight,textAlign:'center',textShadow:`0 ${3*scale}px ${12*scale}px #000`}}>{text}</div>};
+export const OrenUpperUiOverlay=FullscreenAsset; export const OrenReferenceBurst=FullscreenAsset; export const OrenEvidenceFullscreen=FullscreenAsset;

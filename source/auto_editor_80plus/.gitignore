@@ -1,0 +1,9 @@
+.venv/
+node_modules/
+input/
+output/
+public/raw.mp4
+public/assets/
+*.log
+__pycache__/
+*.pyc

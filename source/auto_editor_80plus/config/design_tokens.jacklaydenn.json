@@ -1,0 +1,8 @@
+{
+  "canvas": {"width":1080,"height":1920,"safeX":60,"safeTop":70,"safeBottom":150},
+  "title": {"zone":"center_or_upper","fontFamily":"sans","fontWeight":800,"fontSizeMin":82,"fontSizeMax":150,"lineHeight":0.9},
+  "caption": {"zone":"lower_center","fontFamily":"sans","fontWeight":700,"fontSize":50,"maxWords":4,"lineHeight":1.0},
+  "montage": {"clipMin":0.45,"clipMax":1.2,"maxBurstClips":6},
+  "motion": {"hardCutBias":0.9,"patternInterruptMaxPer20s":2},
+  "timing": {"explainerMin":1.8,"explainerMax":4.0,"hybridMin":1.1,"hybridMax":2.5,"storyMin":0.45,"storyMax":1.2}
+}

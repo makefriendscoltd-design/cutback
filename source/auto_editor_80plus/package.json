@@ -1,0 +1,24 @@
+{
+  "name": "makefamily-auto-editor-80plus",
+  "version": "2.0.0",
+  "private": true,
+  "scripts": {
+    "audit": "python3 scripts/audit_env.py",
+    "edit": "tsx src/cli.ts"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.526",
+    "@remotion/player": "4.0.526",
+    "remotion": "4.0.526",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "zod": "4.5.4"
+  },
+  "devDependencies": {
+    "tsx": "^4.19.0",
+    "typescript": "^5.6.0",
+    "@types/node": "^22.0.0",
+    "@types/react": "^18.3.0",
+    "@types/react-dom": "^18.3.0"
+  }
+}

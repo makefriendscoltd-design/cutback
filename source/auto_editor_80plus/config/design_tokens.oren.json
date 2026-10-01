@@ -1,0 +1,8 @@
+{
+  "canvas": {"width":1080,"height":1920,"safeX":70,"safeTop":80,"safeBottom":160},
+  "title": {"zone":"upper","maxWidth":900,"fontFamily":"serif","fontWeight":600,"fontSizeMin":70,"fontSizeMax":112,"lineHeight":0.92},
+  "caption": {"zone":"lower_center","fontFamily":"sans","fontWeight":600,"fontSize":48,"maxWords":5,"lineHeight":1.05},
+  "overlay": {"preferredZone":"upper_55_percent","maxFaceOverlap":0.08},
+  "motion": {"scaleInFrames":8,"defaultEase":"easeOut","hardCutBias":0.82},
+  "timing": {"defaultSceneMin":1.6,"defaultSceneMax":3.0,"burstAssetMin":0.55,"burstAssetMax":1.1}
+}

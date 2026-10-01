@@ -16,3 +16,9 @@ by `prompts/generate_edit_plan.md`.
 
 Reference video/audio, private source media, rendered outputs, dependencies,
 and machine-local secrets are intentionally not included.
+
+## Runnable engine
+
+The sibling `../auto_editor_80plus` package is the executable path for these
+two styles. See `../auto_editor_80plus/README.md` for dependency installation
+and the `npm run edit` entry point.

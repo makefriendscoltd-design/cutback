@@ -1,0 +1,32 @@
+import {execFileSync} from 'node:child_process';
+import fs from 'node:fs'; import path from 'node:path';
+import {fileURLToPath} from 'node:url';
+const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
+const registry=JSON.parse(fs.readFileSync(path.join(root,'config/style_registry.json'),'utf8'));
+const argv=process.argv.slice(2); const get=(k:string,d?:string)=>{const i=argv.indexOf(k);return i>=0?argv[i+1]:d}; const has=(k:string)=>argv.includes(k);
+const input=path.resolve(get('--input','input/raw.mp4')!); const style=get('--style','oren')!; const target=Number(get('--target-score','80')); const maxPasses=Number(get('--max-passes','3')); const dry=has('--dry-plan'); const noAssets=has('--no-assets'); const keep=has('--keep-intermediates'); const onlyPass=get('--pass');
+const styleConfig=registry[style]; if(!styleConfig) throw new Error(`invalid style ${style}`); if(!fs.existsSync(input)) throw new Error(`input missing: ${input}`);
+const out=path.join(root,'output'); const pub=path.join(root,'public'); fs.mkdirSync(out,{recursive:true}); fs.mkdirSync(path.join(pub,'assets'),{recursive:true}); fs.copyFileSync(input,path.join(pub,'raw.mp4'));
+const defaultPy=process.platform==='win32'?path.join(root,'.venv','Scripts','python.exe'):path.join(root,'.venv','bin','python'); const py=process.env.AUTO_EDITOR_PYTHON||defaultPy; if(!fs.existsSync(py)) throw new Error(`python missing: ${py}`); const run=(args:string[])=>execFileSync(args[0],args.slice(1),{cwd:root,stdio:'inherit'});
+const inputProbe=JSON.parse(execFileSync('ffprobe',['-v','error','-show_entries','format=duration','-of','json',input],{encoding:'utf8'})); const inputDuration=Number(inputProbe.format?.duration); if(!Number.isFinite(inputDuration)||inputDuration<=0) throw new Error(`invalid input duration: ${input}`);
+const transcript=path.join(out,'transcript.json'); if(!fs.existsSync(transcript)||has('--retranscribe')) run([py,'scripts/transcribe.py','--input',input,'--out',transcript]);
+const profile=path.resolve(root,styleConfig.runtime_profile); const tokens=path.resolve(root,styleConfig.tokens); const skill=path.resolve(root,styleConfig.skill); for(const required of [profile,tokens,skill]) if(!fs.existsSync(required)) throw new Error(`runtime file missing: ${required}`);
+let plan=path.join(out,'edit_plan.json'); run([py,'scripts/build_plan.py','--transcript',transcript,'--style',style,'--profile',profile,'--tokens',tokens,'--skill',skill,'--out',plan,'--pass-num','1']);
+const manifest=path.join(out,'asset_manifest.json'); run([py,'scripts/resolve_assets.py','--plan',plan,'--out',manifest,'--asset-dir',path.join(pub,'assets'),...(noAssets?['--no-assets']:[])]);
+if(dry){console.log(`dry plan: ${plan}`);process.exit(0)}
+const history:any[]=[]; let finalPic=''; let finalMux=''; let lastBench:any=null;
+const passes=onlyPass?[Number(onlyPass)]:Array.from({length:maxPasses},(_,i)=>i+1);
+for(const passNo of passes){
+  if(passNo>1){const prevBench=path.join(out,`benchmark.pass_${passNo-1}.json`); const refined=path.join(out,`edit_plan.pass_${passNo}.json`); run([py,'scripts/refine_plan.py','--plan',plan,'--benchmark',prevBench,'--out',refined,'--pass-num',String(passNo)]); plan=refined; run([py,'scripts/resolve_assets.py','--plan',plan,'--out',manifest,'--asset-dir',path.join(pub,'assets'),...(noAssets?['--no-assets']:[])]);}
+  const props=JSON.parse(fs.readFileSync(plan,'utf8')); props.fps=30; props.renderDuration=inputDuration; props.tokens=JSON.parse(fs.readFileSync(tokens,'utf8')); const propsPath=path.join(out,`render_props.pass_${passNo}.json`); fs.writeFileSync(propsPath,JSON.stringify(props));
+  const remotion=path.join(root,'node_modules','.bin',process.platform==='win32'?'remotion.cmd':'remotion'); const pic=path.join(out,`pass_${passNo}.picture.mp4`); run([remotion,'render','src/remotion/index.tsx','AutoEditor',pic,`--props=${propsPath}`,'--codec=h264','--crf=18','--log=error']);
+  const mux=path.join(out,`pass_${passNo}.mp4`); run(['ffmpeg','-y','-v','error','-i',pic,'-i',input,'-map','0:v:0','-map','1:a?','-c:v','copy','-c:a','copy',mux]);
+  const bench=path.join(out,`benchmark.pass_${passNo}.json`); run([py,'scripts/benchmark_output.py','--video',mux,'--style',style,'--plan',plan,'--profile',profile,'--tokens',tokens,'--manifest',manifest,'--out',bench,'--target',String(target)]);
+  lastBench=JSON.parse(fs.readFileSync(bench,'utf8')); history.push({pass:passNo,score:lastBench.total,passed:lastBench.passed,fixes:lastBench.fixes}); finalPic=pic; finalMux=mux; if(lastBench.passed&&lastBench.total>=target) break;
+}
+fs.copyFileSync(finalMux,path.join(out,'final.mp4')); fs.copyFileSync(plan,path.join(out,'edit_plan.json')); fs.copyFileSync(path.join(out,`benchmark.pass_${history.at(-1).pass}.json`),path.join(out,'benchmark.json'));
+const p=JSON.parse(fs.readFileSync(plan,'utf8')); const dur=p.duration||1; const assetDur=p.scenes.filter((s:any)=>s.scene_type!=='talk').reduce((n:number,s:any)=>n+s.end-s.start,0); const ints=p.scenes.map((s:any)=>s.end-s.start).sort((a:number,b:number)=>a-b); const med=ints[Math.floor(ints.length/2)]||0; const caps=(p.captions||[]).map((c:any)=>String(c.text||'').split(/\s+/).filter(Boolean).length); const avg=caps.reduce((a:number,b:number)=>a+b,0)/Math.max(1,caps.length); const avgInterval=ints.reduce((a:number,b:number)=>a+b,0)/Math.max(1,ints.length); const man=JSON.parse(fs.readFileSync(manifest,'utf8')); const assetList=man.assets.map((a:any)=>`${a.scene_id}: ${a.source} (${a.query})`).join(' | ')||'없음';
+const report=`# Auto Editor Report\n\n- 선택 스타일: ${style}\n- pass별 benchmark: ${history.map(x=>`pass ${x.pass} = ${x.score}`).join(', ')}\n- 최종 점수: ${lastBench.total}\n- 최종 통과: ${lastBench.passed}\n- scene type 개수/비율: ${JSON.stringify(p.scenes.reduce((m:any,s:any)=>(m[s.scene_type]=(m[s.scene_type]||0)+1,m),{}))}\n- talking head / asset 화면 비율: ${(1-assetDur/dur).toFixed(3)} / ${(assetDur/dur).toFixed(3)}\n- 평균 / 중앙 컷 간격: ${avgInterval.toFixed(3)}s / ${med.toFixed(3)}s\n- 자막 평균 단어 수: ${avg.toFixed(2)}\n- 사용 asset 목록: ${assetList}\n- 해결 못한 품질 이슈: ${lastBench.passed?'없음':lastBench.fixes.join(', ')}\n- 오디오: 원본 master stream copy, 재컷 없음\n`; fs.writeFileSync(path.join(out,'report.md'),report);
+if(!keep){for(const f of fs.readdirSync(out)){if(/\.picture\.mp4$/.test(f))fs.rmSync(path.join(out,f));}}
+console.log(JSON.stringify({final:path.join(out,'final.mp4'),benchmark:lastBench.total,passed:lastBench.passed,passes:history},null,2));
+if(!lastBench.passed) process.exitCode=2;

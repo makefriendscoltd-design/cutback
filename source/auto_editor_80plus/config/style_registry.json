@@ -1,0 +1,12 @@
+{
+  "oren": {
+    "skill": "../styles/oren/SKILL.md",
+    "tokens": "config/design_tokens.oren.json",
+    "runtime_profile": "../styles/oren/runtime_style_profile.json"
+  },
+  "jacklaydenn": {
+    "skill": "../styles/jacklaydenn/SKILL.md",
+    "tokens": "config/design_tokens.jacklaydenn.json",
+    "runtime_profile": "../styles/jacklaydenn/runtime_style_profile.json"
+  }
+}
