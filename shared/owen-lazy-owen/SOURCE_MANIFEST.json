@@ -1,0 +1,203 @@
+{
+  "approved_format_commit": "ffed0ab",
+  "font_audit_commit": "9aa6a0a",
+  "files": [
+    {
+      "path": "videos/OWEN_PIPELINE.md",
+      "bytes": 6335,
+      "sha256": "2a7dab200269177b03c1fd570ae4b93fe8ea43e679940bdc6fa864d5f29282ee",
+      "source": "videos/OWEN_PIPELINE.md",
+      "original_sha256": "b4babdeda0559b924e2491e156abef5d91e50c3633c27e08e608ca2ca932bab4",
+      "export_change": "Public-copy-only removal of internal publishing destinations or obsolete local scratch path; source remains unchanged."
+    },
+    {
+      "path": "videos/EP_BRIEF.md",
+      "bytes": 4287,
+      "sha256": "afe0dbe6d3ceb0a0278e257822270b82c7b3c8134536d5de3bcb6f5e1c9072cb",
+      "source": "videos/EP_BRIEF.md",
+      "original_sha256": "baad855baf842b115431ba8fc97d4fc3e74ae878b3504499591a545d3199e7a1",
+      "export_change": "Public-copy-only removal of internal publishing destinations or obsolete local scratch path; source remains unchanged."
+    },
+    {
+      "path": "videos/nick-plugins-mg/build.py",
+      "bytes": 62797,
+      "sha256": "c2e5a1f4900f27bb8f4a82f886e06b13450bff2a28521c8792523d4054dfc83e",
+      "source": "videos/nick-plugins-mg/build.py"
+    },
+    {
+      "path": "videos/check_owen_camera.py",
+      "bytes": 1469,
+      "sha256": "55cacdfbcfe35bcc47ff6fdb1873bbe6d4e65612c3ca87cb52ab44d5a3c7a1fd",
+      "source": "videos/check_owen_camera.py"
+    },
+    {
+      "path": "videos/render_serial.py",
+      "bytes": 739,
+      "sha256": "816526e84c9a25359c0c79e0929f443eacbb35533dcf7c0698be10ed3a08b33d",
+      "source": "videos/render_serial.py"
+    },
+    {
+      "path": "videos/ep07-v3/BRIEF.md",
+      "bytes": 970,
+      "sha256": "4c61962ac694a9e8abbce9bb26803e27ef0d2729ef2e45240b4fb2eaadc2e516",
+      "source": "videos/ep07-v3/BRIEF.md"
+    },
+    {
+      "path": "videos/ep07-v3/REPORT.md",
+      "bytes": 2006,
+      "sha256": "f615968fd3d01b3a89a1ee92dc125c458add953edd5c36589ddebc92e8c42048",
+      "source": "videos/ep07-v3/REPORT.md"
+    },
+    {
+      "path": "videos/ep07-v3/build.py",
+      "bytes": 25153,
+      "sha256": "01c22cb8488896275589423ed9e608292b9d42c1e5ef05329da20ca8a0feeb48",
+      "source": "videos/ep07-v3/build.py"
+    },
+    {
+      "path": "videos/ep07-v3/cut.py",
+      "bytes": 1814,
+      "sha256": "a3bc585f4d50258636ce279f95bacdffa37e9d819b8490f065dc1c9353f623c8",
+      "source": "videos/ep07-v3/cut.py"
+    },
+    {
+      "path": "videos/ep07-v3/mix.py",
+      "bytes": 1706,
+      "sha256": "47d0050b7ffe01e60cff4ffbec29379573ad0be1c8cd1f742f5c59bbebf00d36",
+      "source": "videos/ep07-v3/mix.py"
+    },
+    {
+      "path": "videos/ep07-v3/package.json",
+      "bytes": 244,
+      "sha256": "99a72d5f0542079952b8b4e006fb9f90ae27db053384c37a0c9ceaf30fc5a0eb",
+      "source": "videos/ep07-v3/package.json"
+    },
+    {
+      "path": "videos/ep07-v3/hyperframes.json",
+      "bytes": 510,
+      "sha256": "d3b725744d471fa10257ecdafe92a892499b6db08d52df0f4c00be1520040cce",
+      "source": "videos/ep07-v3/hyperframes.json"
+    },
+    {
+      "path": "videos/ep07-v3/cuts.json",
+      "bytes": 1207,
+      "sha256": "dfc9c69d75ab73df0565e82f01aaeef9502bfed66e5990e4df9f138feba249a5",
+      "source": "videos/ep07-v3/cuts.json"
+    },
+    {
+      "path": "videos/ep07-v3/src/transcript.json",
+      "bytes": 36976,
+      "sha256": "120798bd28495ac5f716c8faebd81dfc4418aa3efaf5afc81058ed087b3d1b57",
+      "source": "videos/ep07-v3/src/transcript.json"
+    },
+    {
+      "path": "videos/ep07-v3/qc/caption-audit.mjs",
+      "bytes": 8128,
+      "sha256": "1dae376fa044d097ed4906e9f505f7dd210ac93dc654d495d21f14215704bf8d",
+      "source": "videos/ep07-v3/qc/caption-audit.mjs"
+    },
+    {
+      "path": "videos/ep07-v3/qc/verify_render.py",
+      "bytes": 2329,
+      "sha256": "79f659878f58e6b6b0535ed9a271afe9339131e9a787e6cd30efec7e463cbb7b",
+      "source": "videos/ep07-v3/qc/verify_render.py"
+    },
+    {
+      "path": "videos/ep07-v3/assets/fonts/InstrumentSerif-Italic.ttf",
+      "bytes": 71592,
+      "sha256": "08939b8bdf534afec24ae0ef5e03f948940cd9a8fe08e7fecbad040e62327385",
+      "source": "videos/ep07-v3/assets/fonts/InstrumentSerif-Italic.ttf"
+    },
+    {
+      "path": "videos/ep07-v3/assets/fonts/NanumMyeongjo-Bold.ttf",
+      "bytes": 3074720,
+      "sha256": "bc9ed8e60d93fe6db054b8fb988481b625f2eef8cb2317ad0e9834681b8fe3f3",
+      "source": "videos/ep07-v3/assets/fonts/NanumMyeongjo-Bold.ttf"
+    },
+    {
+      "path": "videos/ep07-v3/assets/fonts/JetBrainsMono[wght].ttf",
+      "bytes": 187208,
+      "sha256": "48715a42ec242c21e9f02692891e147d022299a52e48d5e413e1a942193ffeda",
+      "source": "videos/ep07-v3/assets/fonts/JetBrainsMono[wght].ttf"
+    },
+    {
+      "path": "videos/ep07-v3/assets/fonts/Silkscreen-Bold.ttf",
+      "bytes": 30632,
+      "sha256": "768476aa712d4f5c3e18d3bce80f980a8bd3f72b7094d22ec5e768df3acfed61",
+      "source": "videos/ep07-v3/assets/fonts/Silkscreen-Bold.ttf"
+    },
+    {
+      "path": "videos/ep07-v3/assets/fonts/InstrumentSerif-Regular.ttf",
+      "bytes": 70012,
+      "sha256": "498efd461f6ddfcb7a111bf9a565709d2085d48201d501ead960d93e84ffbb88",
+      "source": "videos/ep07-v3/assets/fonts/InstrumentSerif-Regular.ttf"
+    },
+    {
+      "path": "videos/ep07-v3/assets/fonts/pretendard.woff2",
+      "bytes": 2057688,
+      "sha256": "9599f12fd42fc0bce1cd50b47a0c022e108d7aa64dd0d1bb0ed44f3282d900b4",
+      "source": "videos/ep07-v3/assets/fonts/pretendard.woff2"
+    },
+    {
+      "path": "videos/ep07-v3/assets/shots/omc-repo.png",
+      "bytes": 357377,
+      "sha256": "a1aa93ab95c725f4d05979cb6175d1bf5cd5b877fe11467d22197d7208b8e7f2",
+      "source": "videos/ep07-v3/assets/shots/omc-repo.png"
+    },
+    {
+      "path": "videos/ep07-v3/assets/shots/cdt-plugin.png",
+      "bytes": 219156,
+      "sha256": "3a063029b12df4894583b902568afeb811ff3ccc55c53107f671a13436fdf773",
+      "source": "videos/ep07-v3/assets/shots/cdt-plugin.png"
+    },
+    {
+      "path": "videos/ep07-v3/assets/shots/supabase-plugin.png",
+      "bytes": 173859,
+      "sha256": "b77ad1a72fcd5b225fdddb6a27febcc20099e66dd67ba1d03c2dccfeebbdc127",
+      "source": "videos/ep07-v3/assets/shots/supabase-plugin.png"
+    },
+    {
+      "path": "videos/ep07-v3/assets/shots/vercel-plugin.png",
+      "bytes": 154630,
+      "sha256": "e980d14ddd44994e191429db29e55f88b61070c4aa4875d8783abe08d687f5a2",
+      "source": "videos/ep07-v3/assets/shots/vercel-plugin.png"
+    },
+    {
+      "path": "assets/audio/bed-ambient-tech-33s.wav",
+      "bytes": 9790380,
+      "sha256": "7d687f96b0d0eb1190e829572173d572b77d440c255eedb34ae838c07f5e603d",
+      "source": "existing Owen audio library/bed-ambient-tech-33s.wav"
+    },
+    {
+      "path": "assets/audio/impact-low-hook.wav",
+      "bytes": 368742,
+      "sha256": "fa30a292df2ceb28280dcf7bbcc002443cd1a5a3a69c2f0e103fcab9b9f32594",
+      "source": "existing Owen audio library/impact-low-hook.wav"
+    },
+    {
+      "path": "assets/audio/whoosh-short-cut.wav",
+      "bytes": 97254,
+      "sha256": "b44cda114e98aca181c2a232d04e1adc88b48116f06b3e7a13a9a47e592930d3",
+      "source": "existing Owen audio library/whoosh-short-cut.wav"
+    },
+    {
+      "path": "assets/audio/ui-panel-appear.wav",
+      "bytes": 115302,
+      "sha256": "2dd18f5cccf2794fe7717b90c8e0fd4ed7a227baab4deb7c51647208dfbf5084",
+      "source": "existing Owen audio library/ui-panel-appear.wav"
+    },
+    {
+      "path": "assets/audio/ui-tick.wav",
+      "bytes": 24534,
+      "sha256": "2880c1f8c66bcc29a9fbf18ee7d17cf9ca3911434d0040ebbb2fac8ab9617151",
+      "source": "existing Owen audio library/ui-tick.wav"
+    },
+    {
+      "path": "assets/audio/ping-comment.wav",
+      "bytes": 172902,
+      "sha256": "e736a833ff88793f289101b46eb4ac6121108301e8a4f54bdf2627b47c38f9a4",
+      "source": "existing Owen audio library/ping-comment.wav"
+    }
+  ],
+  "scope": "Copied original files only, not generated files or new wrapper/validation documents."
+}
