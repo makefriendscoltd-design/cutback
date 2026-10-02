@@ -1,0 +1,19 @@
+# Publish code, calibrated style and licensed fonts only.
+/*
+!/.gitignore
+!/SKILL.md
+!/README.md
+!/scripts/
+!/composition/
+!/licenses/
+/composition/*
+!/composition/build.py
+!/composition/voice.py
+!/composition/style.json
+!/composition/hyperframes.json
+!/composition/assets/
+/composition/assets/*
+!/composition/assets/fonts/
+!/composition/assets/gsap.min.js
+__pycache__/
+*.pyc

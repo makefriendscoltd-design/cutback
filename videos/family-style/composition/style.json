@@ -1,0 +1,150 @@
+{
+  "schema_version": 1,
+  "canvas": {
+    "width": 2160,
+    "height": 3840,
+    "fps": 60,
+    "duration": 35.85,
+    "background": "#000000"
+  },
+  "reference": {
+    "mode": "reference_reconstruction",
+    "panel_contains_baked_captions": true
+  },
+  "title": {
+    "text": "포토샵보다 쉬움",
+    "font": "SB_Aggro_B.ttf",
+    "font_size": 224.5,
+    "font_weight": 700,
+    "color": "#0a52ef",
+    "box": [
+      246,
+      586,
+      1668,
+      318
+    ],
+    "glyph_top": 646,
+    "capcut": {
+      "font_size": 18,
+      "scale": 100,
+      "position_x": 0,
+      "position_y": 1175
+    },
+    "glyph_offset_y": 21
+  },
+  "subtitle": {
+    "text": "AI 이미지 끝판왕",
+    "font": "SB_Aggro_M.ttf",
+    "font_size": 225,
+    "font_weight": 500,
+    "color": "#ffffff",
+    "box": [
+      0,
+      959,
+      2160,
+      230
+    ],
+    "glyph_top": 956,
+    "capcut": {
+      "font_size": 18,
+      "position_x": 0,
+      "position_y": 989,
+      "position_conflict": "Screenshot Y989 differs from exported reference; use measured export geometry."
+    }
+  },
+  "panel": {
+    "box": [
+      0,
+      1302,
+      2160,
+      1336
+    ],
+    "path": "assets/media/reference-panel-baked-captions.mp4",
+    "fit": "fill"
+  },
+  "captions": {
+    "font": "SCDream5.otf",
+    "font_size": 128,
+    "weight": 700,
+    "color": "#ffffff",
+    "center": [
+      1080,
+      2170
+    ],
+    "max_width": 2000,
+    "shadow": {
+      "color": "#1464ff",
+      "blur": 48,
+      "x": 0,
+      "y": 0,
+      "layers_px": [
+        8,
+        12,
+        24,
+        48,
+        48
+      ]
+    },
+    "capcut": {
+      "font_size": 12,
+      "font_family": "에스코어 드림 5 Medium",
+      "bold": true,
+      "shadow_opacity": 100,
+      "shadow_blur": 50,
+      "shadow_distance": 0,
+      "shadow_angle": 0,
+      "glow": false
+    },
+    "timebase": "output_seconds",
+    "calibration_status": "S-CoreDream5 128px, synth bold; blue zero-offset shadow layered to remain readable on the bright Threads demo"
+  },
+  "avatar": {
+    "box": [
+      794,
+      2482,
+      572,
+      572
+    ],
+    "path": "assets/media/reference-avatar.mp4",
+    "shape": "circle",
+    "source_kind": "crop_from_flattened_reference",
+    "source_crop": [
+      792,
+      2480,
+      576,
+      576
+    ],
+    "lip_sync_required": false
+  },
+  "voice": {
+    "provider": "elevenlabs",
+    "voice_id": null,
+    "render_speed": 1.3,
+    "model_id": null,
+    "voice_settings": null,
+    "path": "assets/media/reference-voice-1.3x.m4a",
+    "already_speed_adjusted": true
+  },
+  "fonts_provenance": {
+    "SB_Aggro": "https://www.sandbox.co.kr/company-ci",
+    "SCDream": "https://s-core.co.kr/company/font/"
+  },
+  "legacy": {
+    "source_panel_1080": [
+      0,
+      664,
+      1080,
+      608
+    ],
+    "avatar_1080": [
+      325,
+      1298,
+      430,
+      430
+    ],
+    "caption_1080": {
+      "size": 59,
+      "center_y": 940
+    }
+  }
+}
