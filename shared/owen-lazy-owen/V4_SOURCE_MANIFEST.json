@@ -107,7 +107,7 @@
     },
     "videos/ep06-v4/REPORT.md": {
       "source": "videos/ep06-v4/REPORT.md",
-      "sha256": "3c3e2b5f6909dea078fafdc6e7dfb6406a537950670a1a7113cdb53c82cc32e9",
+      "sha256": "2aadef91443106aea6b0a47d86508586568f72c04ae128f546321f7c999fc575",
       "export_change": "Local project path replaced with placeholder."
     },
     "videos/ep06-v4/CODE_AUDIT.md": {
@@ -118,6 +118,430 @@
     "videos/render_owen_v4.py": {
       "source": "videos/render_owen_v4.py",
       "sha256": "b96108ff36d71bde6093c00faa557bbc78550750bddbc9135e3209576256b955"
+    },
+    "videos/OWEN_PIPELINE.md": {
+      "source": "videos/OWEN_PIPELINE.md",
+      "sha256": "cd6a77c1ca06c6d939520f9a4083799e3cd41de682223e88c7deef4c84881ecf",
+      "original_sha256": "39470c1490c9075e5518f461ff0cb9f79b0e8a441dc71db3a8f2e4d38b91015b",
+      "export_change": "Approved v4 section updated; historical public documentation remains sanitized."
+    },
+    "videos/ep07-v4/build.py": {
+      "source": "videos/ep07-v4/build.py",
+      "sha256": "6a473d26a579146c578c2c93e0f33b6c746fd957059e593b24483d65a1d03d78"
+    },
+    "videos/ep07-v4/mix.py": {
+      "source": "videos/ep07-v4/mix.py",
+      "sha256": "7a6886422106aae25ae5dbf43deca032b95a09c446f52f98f4002ed3b5a5ce77"
+    },
+    "videos/ep07-v4/cuts.json": {
+      "source": "videos/ep07-v4/cuts.json",
+      "sha256": "dfc9c69d75ab73df0565e82f01aaeef9502bfed66e5990e4df9f138feba249a5"
+    },
+    "videos/ep07-v4/package.json": {
+      "source": "videos/ep07-v4/package.json",
+      "sha256": "5c3cdb3ab97b8a7fe38c67c9031d20ae3ae25d72fa416eb87eb9fe790e4a97de"
+    },
+    "videos/ep07-v4/hyperframes.json": {
+      "source": "videos/ep07-v4/hyperframes.json",
+      "sha256": "d3b725744d471fa10257ecdafe92a892499b6db08d52df0f4c00be1520040cce"
+    },
+    "videos/ep07-v4/src/transcript.json": {
+      "source": "videos/ep07-v4/src/transcript.json",
+      "sha256": "120798bd28495ac5f716c8faebd81dfc4418aa3efaf5afc81058ed087b3d1b57"
+    },
+    "videos/ep07-v4/qc/caption-audit.mjs": {
+      "source": "videos/ep07-v4/qc/caption-audit.mjs",
+      "sha256": "1dae376fa044d097ed4906e9f505f7dd210ac93dc654d495d21f14215704bf8d"
+    },
+    "videos/ep07-v4/qc/verify_render.py": {
+      "source": "videos/ep07-v4/qc/verify_render.py",
+      "sha256": "69295f2073bf2ab351ef3481bfdfaa88f20d5b38b0b8d06de872c087f0bbfcb1"
+    },
+    "videos/ep07-v4/assets/fonts/InstrumentSerif-Italic.ttf": {
+      "source": "videos/ep07-v4/assets/fonts/InstrumentSerif-Italic.ttf",
+      "sha256": "08939b8bdf534afec24ae0ef5e03f948940cd9a8fe08e7fecbad040e62327385"
+    },
+    "videos/ep07-v4/assets/fonts/NanumMyeongjo-Bold.ttf": {
+      "source": "videos/ep07-v4/assets/fonts/NanumMyeongjo-Bold.ttf",
+      "sha256": "bc9ed8e60d93fe6db054b8fb988481b625f2eef8cb2317ad0e9834681b8fe3f3"
+    },
+    "videos/ep07-v4/assets/fonts/JetBrainsMono[wght].ttf": {
+      "source": "videos/ep07-v4/assets/fonts/JetBrainsMono[wght].ttf",
+      "sha256": "48715a42ec242c21e9f02692891e147d022299a52e48d5e413e1a942193ffeda"
+    },
+    "videos/ep07-v4/assets/fonts/Silkscreen-Bold.ttf": {
+      "source": "videos/ep07-v4/assets/fonts/Silkscreen-Bold.ttf",
+      "sha256": "768476aa712d4f5c3e18d3bce80f980a8bd3f72b7094d22ec5e768df3acfed61"
+    },
+    "videos/ep07-v4/assets/fonts/InstrumentSerif-Regular.ttf": {
+      "source": "videos/ep07-v4/assets/fonts/InstrumentSerif-Regular.ttf",
+      "sha256": "498efd461f6ddfcb7a111bf9a565709d2085d48201d501ead960d93e84ffbb88"
+    },
+    "videos/ep07-v4/assets/fonts/pretendard.woff2": {
+      "source": "videos/ep07-v4/assets/fonts/pretendard.woff2",
+      "sha256": "9599f12fd42fc0bce1cd50b47a0c022e108d7aa64dd0d1bb0ed44f3282d900b4"
+    },
+    "videos/ep07-v4/assets/shots/omc-repo.png": {
+      "source": "videos/ep07-v4/assets/shots/omc-repo.png",
+      "sha256": "a1aa93ab95c725f4d05979cb6175d1bf5cd5b877fe11467d22197d7208b8e7f2"
+    },
+    "videos/ep07-v4/assets/shots/cdt-plugin.png": {
+      "source": "videos/ep07-v4/assets/shots/cdt-plugin.png",
+      "sha256": "3a063029b12df4894583b902568afeb811ff3ccc55c53107f671a13436fdf773"
+    },
+    "videos/ep07-v4/assets/shots/supabase-plugin.png": {
+      "source": "videos/ep07-v4/assets/shots/supabase-plugin.png",
+      "sha256": "b77ad1a72fcd5b225fdddb6a27febcc20099e66dd67ba1d03c2dccfeebbdc127"
+    },
+    "videos/ep07-v4/assets/shots/vercel-plugin.png": {
+      "source": "videos/ep07-v4/assets/shots/vercel-plugin.png",
+      "sha256": "e980d14ddd44994e191429db29e55f88b61070c4aa4875d8783abe08d687f5a2"
+    },
+    "videos/ep07-v4/REPORT.md": {
+      "source": "videos/ep07-v4/REPORT.md",
+      "sha256": "df7db9a0d64c3d58d712f0f6eaef207e43c7a5107e4c6beb058fd9edba1529ed",
+      "export_change": "Local project path replaced with placeholder."
+    },
+    "videos/check_owen_v4_contract.py": {
+      "source": "videos/check_owen_v4_contract.py",
+      "sha256": "a5862c9f56ead172c8517c49f97f15657a3f1da459d68185aee0a0e8127b258e"
+    },
+    "videos/ep11-v4/build.py": {
+      "source": "videos/ep11-v4/build.py",
+      "sha256": "e413bfc76da8b26a99703cbd479c0f3455fad8ad907456556ab1da3beaa96820"
+    },
+    "videos/ep11-v4/mix.py": {
+      "source": "videos/ep11-v4/mix.py",
+      "sha256": "ac7b54b0a3c4d7478b36742e28ead23b7882c79a9471d3d3f97d453f5ef46dab"
+    },
+    "videos/ep11-v4/cuts.json": {
+      "source": "videos/ep11-v4/cuts.json",
+      "sha256": "d026c833c3381c2363efc8e1caf3bf603768a1e59422569eb13769199ab7c189"
+    },
+    "videos/ep11-v4/package.json": {
+      "source": "videos/ep11-v4/package.json",
+      "sha256": "7b51d1b53e259688b4293b79dd55fc24659c61b0a66096ddbc7a5932a4bd478a"
+    },
+    "videos/ep11-v4/hyperframes.json": {
+      "source": "videos/ep11-v4/hyperframes.json",
+      "sha256": "20e770deaa85076f46bd3253d6353e0eda9bcb64a95364175c567d7c7db49067"
+    },
+    "videos/ep11-v4/src/transcript.json": {
+      "source": "videos/ep11-v4/src/transcript.json",
+      "sha256": "b2e83ff51b396672a5fc92dc3fdfc9fe05dfedd259fd42c5409f243b60743735"
+    },
+    "videos/ep11-v4/qc/caption-audit.mjs": {
+      "source": "videos/ep11-v4/qc/caption-audit.mjs",
+      "sha256": "2470221b6c28ed96c991a2a3f5fdfdf4783801907d995b01303100fc61e2222a"
+    },
+    "videos/ep11-v4/qc/verify_render.py": {
+      "source": "videos/ep11-v4/qc/verify_render.py",
+      "sha256": "69295f2073bf2ab351ef3481bfdfaa88f20d5b38b0b8d06de872c087f0bbfcb1"
+    },
+    "videos/ep11-v4/assets/fonts/InstrumentSerif-Italic.ttf": {
+      "source": "videos/ep11-v4/assets/fonts/InstrumentSerif-Italic.ttf",
+      "sha256": "08939b8bdf534afec24ae0ef5e03f948940cd9a8fe08e7fecbad040e62327385"
+    },
+    "videos/ep11-v4/assets/fonts/NanumMyeongjo-Bold.ttf": {
+      "source": "videos/ep11-v4/assets/fonts/NanumMyeongjo-Bold.ttf",
+      "sha256": "bc9ed8e60d93fe6db054b8fb988481b625f2eef8cb2317ad0e9834681b8fe3f3"
+    },
+    "videos/ep11-v4/assets/fonts/JetBrainsMono[wght].ttf": {
+      "source": "videos/ep11-v4/assets/fonts/JetBrainsMono[wght].ttf",
+      "sha256": "48715a42ec242c21e9f02692891e147d022299a52e48d5e413e1a942193ffeda"
+    },
+    "videos/ep11-v4/assets/fonts/Silkscreen-Bold.ttf": {
+      "source": "videos/ep11-v4/assets/fonts/Silkscreen-Bold.ttf",
+      "sha256": "768476aa712d4f5c3e18d3bce80f980a8bd3f72b7094d22ec5e768df3acfed61"
+    },
+    "videos/ep11-v4/assets/fonts/InstrumentSerif-Regular.ttf": {
+      "source": "videos/ep11-v4/assets/fonts/InstrumentSerif-Regular.ttf",
+      "sha256": "498efd461f6ddfcb7a111bf9a565709d2085d48201d501ead960d93e84ffbb88"
+    },
+    "videos/ep11-v4/assets/fonts/pretendard.woff2": {
+      "source": "videos/ep11-v4/assets/fonts/pretendard.woff2",
+      "sha256": "9599f12fd42fc0bce1cd50b47a0c022e108d7aa64dd0d1bb0ed44f3282d900b4"
+    },
+    "videos/ep11-v4/REPORT.md": {
+      "source": "videos/ep11-v4/REPORT.md",
+      "sha256": "af22443022a51c969669b1b1920d6920392f55d747b90851bfcea6f7055d7ecd",
+      "export_change": "Local project path replaced with placeholder."
+    },
+    "videos/ep12-v4/build.py": {
+      "source": "videos/ep12-v4/build.py",
+      "sha256": "d80d25576d9c1dbf1b349e1743679be787eb4b18bcfa6d4bd26420f47fc14673"
+    },
+    "videos/ep12-v4/mix.py": {
+      "source": "videos/ep12-v4/mix.py",
+      "sha256": "ac7b54b0a3c4d7478b36742e28ead23b7882c79a9471d3d3f97d453f5ef46dab"
+    },
+    "videos/ep12-v4/cuts.json": {
+      "source": "videos/ep12-v4/cuts.json",
+      "sha256": "672aad0f12df9813c145441ba1b4f22262acde6d8a749405c6b482f67aacd8c6"
+    },
+    "videos/ep12-v4/package.json": {
+      "source": "videos/ep12-v4/package.json",
+      "sha256": "c1aac83bc891059600553a074487fb24543c71d8d5806d696a1136bad0e04789"
+    },
+    "videos/ep12-v4/hyperframes.json": {
+      "source": "videos/ep12-v4/hyperframes.json",
+      "sha256": "9abaa020bc28f506d22ec5866e99f775d35905480061a489a6252978ef7f555a"
+    },
+    "videos/ep12-v4/src/transcript.json": {
+      "source": "videos/ep12-v4/src/transcript.json",
+      "sha256": "880681c377b7dfd7706df1c0cbe85d9b34f262e5bfb672a0d01c7392e593592c"
+    },
+    "videos/ep12-v4/qc/caption-audit.mjs": {
+      "source": "videos/ep12-v4/qc/caption-audit.mjs",
+      "sha256": "ed2e57d546394a51b6e7e64347eb84bae2176947c12cdc4d03c5d853a77a4c06"
+    },
+    "videos/ep12-v4/qc/verify_render.py": {
+      "source": "videos/ep12-v4/qc/verify_render.py",
+      "sha256": "69295f2073bf2ab351ef3481bfdfaa88f20d5b38b0b8d06de872c087f0bbfcb1"
+    },
+    "videos/ep12-v4/assets/fonts/InstrumentSerif-Italic.ttf": {
+      "source": "videos/ep12-v4/assets/fonts/InstrumentSerif-Italic.ttf",
+      "sha256": "08939b8bdf534afec24ae0ef5e03f948940cd9a8fe08e7fecbad040e62327385"
+    },
+    "videos/ep12-v4/assets/fonts/NanumMyeongjo-Bold.ttf": {
+      "source": "videos/ep12-v4/assets/fonts/NanumMyeongjo-Bold.ttf",
+      "sha256": "bc9ed8e60d93fe6db054b8fb988481b625f2eef8cb2317ad0e9834681b8fe3f3"
+    },
+    "videos/ep12-v4/assets/fonts/JetBrainsMono[wght].ttf": {
+      "source": "videos/ep12-v4/assets/fonts/JetBrainsMono[wght].ttf",
+      "sha256": "48715a42ec242c21e9f02692891e147d022299a52e48d5e413e1a942193ffeda"
+    },
+    "videos/ep12-v4/assets/fonts/Silkscreen-Bold.ttf": {
+      "source": "videos/ep12-v4/assets/fonts/Silkscreen-Bold.ttf",
+      "sha256": "768476aa712d4f5c3e18d3bce80f980a8bd3f72b7094d22ec5e768df3acfed61"
+    },
+    "videos/ep12-v4/assets/fonts/InstrumentSerif-Regular.ttf": {
+      "source": "videos/ep12-v4/assets/fonts/InstrumentSerif-Regular.ttf",
+      "sha256": "498efd461f6ddfcb7a111bf9a565709d2085d48201d501ead960d93e84ffbb88"
+    },
+    "videos/ep12-v4/assets/fonts/pretendard.woff2": {
+      "source": "videos/ep12-v4/assets/fonts/pretendard.woff2",
+      "sha256": "9599f12fd42fc0bce1cd50b47a0c022e108d7aa64dd0d1bb0ed44f3282d900b4"
+    },
+    "videos/ep12-v4/REPORT.md": {
+      "source": "videos/ep12-v4/REPORT.md",
+      "sha256": "d94b02277b9083cd22a52843e54685cabc440afddcbd97d7ca817d682a300ab7",
+      "export_change": "Local project path replaced with placeholder."
+    },
+    "videos/ep08-v4/build.py": {
+      "source": "videos/ep08-v4/build.py",
+      "sha256": "c48afac58989899ab711da1f526894cb0e469031bfabce00a8cc62bbf9cae18a"
+    },
+    "videos/ep08-v4/mix.py": {
+      "source": "videos/ep08-v4/mix.py",
+      "sha256": "7a6886422106aae25ae5dbf43deca032b95a09c446f52f98f4002ed3b5a5ce77"
+    },
+    "videos/ep08-v4/cuts.json": {
+      "source": "videos/ep08-v4/cuts.json",
+      "sha256": "20acac6303ac27450007c899d74c79865b3c4960c31a79a6f77eb959e479799d"
+    },
+    "videos/ep08-v4/package.json": {
+      "source": "videos/ep08-v4/package.json",
+      "sha256": "d668f6780f6467e89d2764fd2cb3c1e425bbafaa2bbc52c9d74e7144071f5e22"
+    },
+    "videos/ep08-v4/hyperframes.json": {
+      "source": "videos/ep08-v4/hyperframes.json",
+      "sha256": "d3b725744d471fa10257ecdafe92a892499b6db08d52df0f4c00be1520040cce"
+    },
+    "videos/ep08-v4/src/transcript.json": {
+      "source": "videos/ep08-v4/src/transcript.json",
+      "sha256": "7c9fbf8453a25e024065602a8c017d35adc1671ceac08ff4a93366a50393286d"
+    },
+    "videos/ep08-v4/qc/caption-audit.mjs": {
+      "source": "videos/ep08-v4/qc/caption-audit.mjs",
+      "sha256": "b1a6191c872492994009380084d880e19fc8d91b57ee09f3ef6c89d40c5f36c1"
+    },
+    "videos/ep08-v4/qc/verify_render.py": {
+      "source": "videos/ep08-v4/qc/verify_render.py",
+      "sha256": "69295f2073bf2ab351ef3481bfdfaa88f20d5b38b0b8d06de872c087f0bbfcb1"
+    },
+    "videos/ep08-v4/assets/fonts/InstrumentSerif-Italic.ttf": {
+      "source": "videos/ep08-v4/assets/fonts/InstrumentSerif-Italic.ttf",
+      "sha256": "08939b8bdf534afec24ae0ef5e03f948940cd9a8fe08e7fecbad040e62327385"
+    },
+    "videos/ep08-v4/assets/fonts/NanumMyeongjo-Bold.ttf": {
+      "source": "videos/ep08-v4/assets/fonts/NanumMyeongjo-Bold.ttf",
+      "sha256": "bc9ed8e60d93fe6db054b8fb988481b625f2eef8cb2317ad0e9834681b8fe3f3"
+    },
+    "videos/ep08-v4/assets/fonts/JetBrainsMono[wght].ttf": {
+      "source": "videos/ep08-v4/assets/fonts/JetBrainsMono[wght].ttf",
+      "sha256": "48715a42ec242c21e9f02692891e147d022299a52e48d5e413e1a942193ffeda"
+    },
+    "videos/ep08-v4/assets/fonts/Silkscreen-Bold.ttf": {
+      "source": "videos/ep08-v4/assets/fonts/Silkscreen-Bold.ttf",
+      "sha256": "768476aa712d4f5c3e18d3bce80f980a8bd3f72b7094d22ec5e768df3acfed61"
+    },
+    "videos/ep08-v4/assets/fonts/InstrumentSerif-Regular.ttf": {
+      "source": "videos/ep08-v4/assets/fonts/InstrumentSerif-Regular.ttf",
+      "sha256": "498efd461f6ddfcb7a111bf9a565709d2085d48201d501ead960d93e84ffbb88"
+    },
+    "videos/ep08-v4/assets/fonts/pretendard.woff2": {
+      "source": "videos/ep08-v4/assets/fonts/pretendard.woff2",
+      "sha256": "9599f12fd42fc0bce1cd50b47a0c022e108d7aa64dd0d1bb0ed44f3282d900b4"
+    },
+    "videos/ep08-v4/REPORT.md": {
+      "source": "videos/ep08-v4/REPORT.md",
+      "sha256": "94ec92736c591038ee1279765d679f51748248e38512a2474ef39ca9941622d5",
+      "export_change": "Local project path replaced with placeholder."
+    },
+    "videos/ep09-v4/build.py": {
+      "source": "videos/ep09-v4/build.py",
+      "sha256": "6f239513e96466fa29772f350d92d1acf5bc9e4ea98806c4305663ef07574f8d"
+    },
+    "videos/ep09-v4/mix.py": {
+      "source": "videos/ep09-v4/mix.py",
+      "sha256": "90fd303454275067dccf25c4584296f09600e752248c4b589b70a415ebcb1827"
+    },
+    "videos/ep09-v4/cuts.json": {
+      "source": "videos/ep09-v4/cuts.json",
+      "sha256": "0e2a7ef17485838e804fb682fd9d4a8cda54ae5f09b58f6f27fdbe49a8689325"
+    },
+    "videos/ep09-v4/package.json": {
+      "source": "videos/ep09-v4/package.json",
+      "sha256": "cd57512e0661b09935baa65823870ea0df7015fc7fe460506b783bfa0e922b41"
+    },
+    "videos/ep09-v4/hyperframes.json": {
+      "source": "videos/ep09-v4/hyperframes.json",
+      "sha256": "edb96f4522f25e1d35a1af373afa5b5760a8ae6cfdf9da4c8610f42ab59b5d4c"
+    },
+    "videos/ep09-v4/src/transcript.json": {
+      "source": "videos/ep09-v4/src/transcript.json",
+      "sha256": "f527487aef8a0547c4a93539ebbb8e27e25ff764630826fcb504f4cba3d14412"
+    },
+    "videos/ep09-v4/qc/caption-audit.mjs": {
+      "source": "videos/ep09-v4/qc/caption-audit.mjs",
+      "sha256": "e06fcdaeb49fa32dee085b3a93264f5c54e40e1c5186630612aafa6dd0f02333"
+    },
+    "videos/ep09-v4/qc/verify_render.py": {
+      "source": "videos/ep09-v4/qc/verify_render.py",
+      "sha256": "69295f2073bf2ab351ef3481bfdfaa88f20d5b38b0b8d06de872c087f0bbfcb1"
+    },
+    "videos/ep09-v4/assets/fonts/InstrumentSerif-Italic.ttf": {
+      "source": "videos/ep09-v4/assets/fonts/InstrumentSerif-Italic.ttf",
+      "sha256": "08939b8bdf534afec24ae0ef5e03f948940cd9a8fe08e7fecbad040e62327385"
+    },
+    "videos/ep09-v4/assets/fonts/NanumMyeongjo-Bold.ttf": {
+      "source": "videos/ep09-v4/assets/fonts/NanumMyeongjo-Bold.ttf",
+      "sha256": "bc9ed8e60d93fe6db054b8fb988481b625f2eef8cb2317ad0e9834681b8fe3f3"
+    },
+    "videos/ep09-v4/assets/fonts/JetBrainsMono[wght].ttf": {
+      "source": "videos/ep09-v4/assets/fonts/JetBrainsMono[wght].ttf",
+      "sha256": "48715a42ec242c21e9f02692891e147d022299a52e48d5e413e1a942193ffeda"
+    },
+    "videos/ep09-v4/assets/fonts/Silkscreen-Bold.ttf": {
+      "source": "videos/ep09-v4/assets/fonts/Silkscreen-Bold.ttf",
+      "sha256": "768476aa712d4f5c3e18d3bce80f980a8bd3f72b7094d22ec5e768df3acfed61"
+    },
+    "videos/ep09-v4/assets/fonts/InstrumentSerif-Regular.ttf": {
+      "source": "videos/ep09-v4/assets/fonts/InstrumentSerif-Regular.ttf",
+      "sha256": "498efd461f6ddfcb7a111bf9a565709d2085d48201d501ead960d93e84ffbb88"
+    },
+    "videos/ep09-v4/assets/fonts/pretendard.woff2": {
+      "source": "videos/ep09-v4/assets/fonts/pretendard.woff2",
+      "sha256": "9599f12fd42fc0bce1cd50b47a0c022e108d7aa64dd0d1bb0ed44f3282d900b4"
+    },
+    "videos/ep09-v4/assets/shots/canva-ppt.png": {
+      "source": "videos/ep09-v4/assets/shots/canva-ppt.png",
+      "sha256": "efeb616318427cb8b7c755a3cee688759170d37d94b07e10fedc8c565e6a9be2"
+    },
+    "videos/ep09-v4/assets/shots/perplexity-council.png": {
+      "source": "videos/ep09-v4/assets/shots/perplexity-council.png",
+      "sha256": "ce0e267ec5d84c6990d54c41905227d2cea1e0a4a05e70d450dafddfb8afcddb"
+    },
+    "videos/ep09-v4/assets/shots/claude.png": {
+      "source": "videos/ep09-v4/assets/shots/claude.png",
+      "sha256": "7a30ad29639dfd01563d93e3d19ae4a18cb2e7d5425565140a68be090fc57f4c"
+    },
+    "videos/ep09-v4/assets/shots/claude-design.png": {
+      "source": "videos/ep09-v4/assets/shots/claude-design.png",
+      "sha256": "fbff17c07065cdbe93e13852fe30e0b2e490de51d9b126c303fbeb7b2e4feacf"
+    },
+    "videos/ep09-v4/assets/shots/fireflies-korean.png": {
+      "source": "videos/ep09-v4/assets/shots/fireflies-korean.png",
+      "sha256": "63d63a265f10c0ac46c001e110568fe83628fecec0bd4403031aced44d7957ff"
+    },
+    "videos/ep09-v4/assets/shots/higgsfield-home.png": {
+      "source": "videos/ep09-v4/assets/shots/higgsfield-home.png",
+      "sha256": "6c0d389229f2a873d0da8bd8000ccd7a641ab2ef0c9929fc506af4211afe60c2"
+    },
+    "videos/ep09-v4/REPORT.md": {
+      "source": "videos/ep09-v4/REPORT.md",
+      "sha256": "286bcfc8da6d7d42ca9275cd72fbb03e024d92554096886333dddd17492997f5",
+      "export_change": "Local project path replaced with placeholder."
+    },
+    "videos/ep10-v4/build.py": {
+      "source": "videos/ep10-v4/build.py",
+      "sha256": "84aae2aefd8574a6b1d77edef591f9a0e03c3ce014ce6d033b3036133a4266d0"
+    },
+    "videos/ep10-v4/mix.py": {
+      "source": "videos/ep10-v4/mix.py",
+      "sha256": "90fd303454275067dccf25c4584296f09600e752248c4b589b70a415ebcb1827"
+    },
+    "videos/ep10-v4/cuts.json": {
+      "source": "videos/ep10-v4/cuts.json",
+      "sha256": "fa8e8bcb8ae2e52af21ac2db87052482556ae66a9757d0346026e2becbb44133"
+    },
+    "videos/ep10-v4/package.json": {
+      "source": "videos/ep10-v4/package.json",
+      "sha256": "13bef6219c709cd08a17776cd2dab2b3613f78f609766feb6fa77fa62ed7a566"
+    },
+    "videos/ep10-v4/hyperframes.json": {
+      "source": "videos/ep10-v4/hyperframes.json",
+      "sha256": "d3b725744d471fa10257ecdafe92a892499b6db08d52df0f4c00be1520040cce"
+    },
+    "videos/ep10-v4/src/transcript.json": {
+      "source": "videos/ep10-v4/src/transcript.json",
+      "sha256": "6849aec9e4fb2169fcbbbcdf6cd61c49af028d8d35d044b426c98dba5020c725"
+    },
+    "videos/ep10-v4/qc/caption-audit.mjs": {
+      "source": "videos/ep10-v4/qc/caption-audit.mjs",
+      "sha256": "1ba2e2dfaf2e77b7d55e40becffe4750c80ff73735ed1c67feeaaf6a12359511"
+    },
+    "videos/ep10-v4/qc/verify_render.py": {
+      "source": "videos/ep10-v4/qc/verify_render.py",
+      "sha256": "69295f2073bf2ab351ef3481bfdfaa88f20d5b38b0b8d06de872c087f0bbfcb1"
+    },
+    "videos/ep10-v4/assets/fonts/InstrumentSerif-Italic.ttf": {
+      "source": "videos/ep10-v4/assets/fonts/InstrumentSerif-Italic.ttf",
+      "sha256": "08939b8bdf534afec24ae0ef5e03f948940cd9a8fe08e7fecbad040e62327385"
+    },
+    "videos/ep10-v4/assets/fonts/NanumMyeongjo-Bold.ttf": {
+      "source": "videos/ep10-v4/assets/fonts/NanumMyeongjo-Bold.ttf",
+      "sha256": "bc9ed8e60d93fe6db054b8fb988481b625f2eef8cb2317ad0e9834681b8fe3f3"
+    },
+    "videos/ep10-v4/assets/fonts/JetBrainsMono[wght].ttf": {
+      "source": "videos/ep10-v4/assets/fonts/JetBrainsMono[wght].ttf",
+      "sha256": "48715a42ec242c21e9f02692891e147d022299a52e48d5e413e1a942193ffeda"
+    },
+    "videos/ep10-v4/assets/fonts/Silkscreen-Bold.ttf": {
+      "source": "videos/ep10-v4/assets/fonts/Silkscreen-Bold.ttf",
+      "sha256": "768476aa712d4f5c3e18d3bce80f980a8bd3f72b7094d22ec5e768df3acfed61"
+    },
+    "videos/ep10-v4/assets/fonts/InstrumentSerif-Regular.ttf": {
+      "source": "videos/ep10-v4/assets/fonts/InstrumentSerif-Regular.ttf",
+      "sha256": "498efd461f6ddfcb7a111bf9a565709d2085d48201d501ead960d93e84ffbb88"
+    },
+    "videos/ep10-v4/assets/fonts/pretendard.woff2": {
+      "source": "videos/ep10-v4/assets/fonts/pretendard.woff2",
+      "sha256": "9599f12fd42fc0bce1cd50b47a0c022e108d7aa64dd0d1bb0ed44f3282d900b4"
+    },
+    "videos/ep10-v4/REPORT.md": {
+      "source": "videos/ep10-v4/REPORT.md",
+      "sha256": "8a4f112adaec70de550101d0a74b901e7ffd81aad92ed8b531566ef1afbc128f",
+      "export_change": "Local project path replaced with placeholder."
+    },
+    "videos/verify_owen_v4_delivery.py": {
+      "source": "videos/verify_owen_v4_delivery.py",
+      "sha256": "88cbdefd6c125caf1fefdd615812aa1f24d08a4cee366ea7c9a2e6d795322601"
+    },
+    "videos/owen-v4-delivery.json": {
+      "source": "videos/owen-v4-delivery.json",
+      "sha256": "6800ed15d50389f2511b3fb793c5e7ffb9971d9b23ee69b76796e71ed9221d39"
     }
   }
 }

@@ -18,5 +18,7 @@
 - Evidence: qc/{semantic-contract.json,caption-audit.json,final-check.json,render-verification.json,action-verification.json}; qc/audio/mix-report.json.
 - Visual comparison: qc/v3-v4-comparison.jpg; detail: qc/action-filmstrip.jpg, qc/transition-sheet.jpg.
 - Unverified: direct full soundtrack listening. No claim of human listening or stylistic parity proven by numeric checks.
-- External actions: none. No upload, scheduling, Git push or foreground apps.
-- Remaining production work: none for episode6 revision; awaiting user aesthetic review before extending to other episodes.
+- Original revision external actions: none. Subsequent approved-format Git push is recorded below; no video upload, scheduling or foreground apps.
+- User aesthetic review: approved on2026-10-02 (“오 좋다”); user requested Git push and apply format to episodes after6.
+- Follow-up: approved format pushed as f017804 to share/owen-lazy-owen-20261001; EP07–12 recreation in progress in separate v4 folders.
+- Remaining production work: none for episode6 revision.
