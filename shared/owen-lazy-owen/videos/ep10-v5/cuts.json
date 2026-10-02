@@ -1,0 +1,143 @@
+{
+  "segments": [
+    {
+      "src_start": 4.78,
+      "src_end": 8.02,
+      "out_start": 0,
+      "out_end": 3.24
+    },
+    {
+      "src_start": 8.4,
+      "src_end": 10.9,
+      "out_start": 3.24,
+      "out_end": 5.74
+    },
+    {
+      "src_start": 11.08,
+      "src_end": 14.28,
+      "out_start": 5.74,
+      "out_end": 8.94
+    },
+    {
+      "src_start": 14.55,
+      "src_end": 19.93,
+      "out_start": 8.94,
+      "out_end": 14.32
+    },
+    {
+      "src_start": 20.32,
+      "src_end": 21.77,
+      "out_start": 14.32,
+      "out_end": 15.77
+    },
+    {
+      "src_start": 21.94,
+      "src_end": 23.98,
+      "out_start": 15.77,
+      "out_end": 17.81
+    },
+    {
+      "src_start": 24.5,
+      "src_end": 25.8,
+      "out_start": 17.81,
+      "out_end": 19.11
+    },
+    {
+      "src_start": 26.11,
+      "src_end": 31.97,
+      "out_start": 19.11,
+      "out_end": 24.97
+    },
+    {
+      "src_start": 32.43,
+      "src_end": 34.56,
+      "out_start": 24.97,
+      "out_end": 27.1
+    },
+    {
+      "src_start": 34.89,
+      "src_end": 39.6,
+      "out_start": 27.1,
+      "out_end": 31.81
+    },
+    {
+      "src_start": 40.14,
+      "src_end": 41.72,
+      "out_start": 31.81,
+      "out_end": 33.39
+    },
+    {
+      "src_start": 42.38,
+      "src_end": 45.75,
+      "out_start": 33.39,
+      "out_end": 36.76
+    },
+    {
+      "src_start": 45.93,
+      "src_end": 48.04,
+      "out_start": 36.76,
+      "out_end": 38.87
+    },
+    {
+      "src_start": 48.54,
+      "src_end": 53.49,
+      "out_start": 38.87,
+      "out_end": 43.82
+    }
+  ],
+  "duration": 43.82,
+  "gaps": [
+    [
+      7.96,
+      8.46
+    ],
+    [
+      10.84,
+      11.14
+    ],
+    [
+      14.22,
+      14.61
+    ],
+    [
+      19.87,
+      20.38
+    ],
+    [
+      21.71,
+      22.0
+    ],
+    [
+      23.92,
+      24.56
+    ],
+    [
+      25.74,
+      26.17
+    ],
+    [
+      31.91,
+      32.49
+    ],
+    [
+      34.5,
+      34.95
+    ],
+    [
+      39.54,
+      40.2
+    ],
+    [
+      41.66,
+      42.44
+    ],
+    [
+      45.69,
+      45.99
+    ],
+    [
+      47.98,
+      48.6
+    ]
+  ]
+}
