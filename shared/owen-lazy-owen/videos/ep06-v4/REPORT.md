@@ -1,0 +1,22 @@
+# EP06 v4 - COMPLETE
+
+- Project: <local-project>
+- Updated UTC: 2026-10-02T04:03:22.857971+00:00
+- User goal: forensic original-vs-v3 code comparison, then apply mechanisms to episode 6.
+- Audit: CODE_AUDIT.md, exact original file/line references and implementation decisions.
+- Editing authority: build.py. Sound authority: build-generated events.json -> mix.py.
+- Delivered: renders/AI학교_6탄_Mantis_Owen_v4.mp4.
+- Original v1/v2/v3 retained. Original captions35/cuts/source voice/approved hook preserved.
+- New: 20 distinct scenes; image-coordinate source zoom/outline; synthetic order ID/detail/block states; code-path packet; staged test/diff; expert source focus; comment typing.
+- Camera: full14.26s, 7 full beats, source-timed emphasis and safe captions.
+- Audio: 38 shared cues; calibrated stems; voice-bed17.16LU; mix events SHA256 verified.
+- Final MP4: 1080x1920/30fps, 42.433333s, 1273frames, 35.29MB. Decode errors0; -14.10LUFS/-1.53dBTP.
+- Actual final audio alignment vs expected mix: lag0ms, correlation0.998967.
+- Actual pixels reviewed: 20 scene midpoints/end, 9 semantic actions before/mid/after, 8 camera transitions before/mid/after.
+- HF lint/runtime/layout/contrast errors0/warnings0, info3 intentional source-crop/zoom. Caption35/35 PASS, camera PASS.
+- Copy: original narration unchanged; new short UI labels reviewed against installed humanize quick rules, change gate0%, meaning6/6.
+- Evidence: qc/{semantic-contract.json,caption-audit.json,final-check.json,render-verification.json,action-verification.json}; qc/audio/mix-report.json.
+- Visual comparison: qc/v3-v4-comparison.jpg; detail: qc/action-filmstrip.jpg, qc/transition-sheet.jpg.
+- Unverified: direct full soundtrack listening. No claim of human listening or stylistic parity proven by numeric checks.
+- External actions: none. No upload, scheduling, Git push or foreground apps.
+- Remaining production work: none for episode6 revision; awaiting user aesthetic review before extending to other episodes.

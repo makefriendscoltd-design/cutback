@@ -1,5 +1,7 @@
 # Owen / Lazy Owen — approved presenter editing handoff
 
+**Latest approved format (2026-10-02): [Owen v4](V4.md).** The section below documents the preserved v3 entry point.
+
 This package preserves the session-owned Owen implementation approved on 2026-10-01 (episode 7 v3). It is a review branch, not a change to the team automation product. No other style is substituted.
 
 ## Entry points

@@ -1,0 +1,123 @@
+{
+  "approved_reference": "ep06-v4",
+  "files": {
+    "videos/ep06-v4/build.py": {
+      "source": "videos/ep06-v4/build.py",
+      "sha256": "c72ab4726ae254c9da86a04c82ea56e663e8e1ceac568c0964bcb453566ee641"
+    },
+    "videos/ep06-v4/mix.py": {
+      "source": "videos/ep06-v4/mix.py",
+      "sha256": "7a6886422106aae25ae5dbf43deca032b95a09c446f52f98f4002ed3b5a5ce77"
+    },
+    "videos/ep06-v4/cuts.json": {
+      "source": "videos/ep06-v4/cuts.json",
+      "sha256": "0540f94297c588165924e40159a27d1d096e55159ff4255c9e32d3021f46fd4c"
+    },
+    "videos/ep06-v4/package.json": {
+      "source": "videos/ep06-v4/package.json",
+      "sha256": "711479671a40307d58d0b5d963b5053d22a2fb12165eb35ff1df0f2a7ef6d991"
+    },
+    "videos/ep06-v4/hyperframes.json": {
+      "source": "videos/ep06-v4/hyperframes.json",
+      "sha256": "1f6c1d1f951aee6f39b77069ced1704a3d6857f8ac7742b71e20c2a659974572"
+    },
+    "videos/ep06-v4/src/transcript.json": {
+      "source": "videos/ep06-v4/src/transcript.json",
+      "sha256": "c3324303353570f38cc09658d5e498a53cc26f27ac3f54f3ffa73a8a1795996f"
+    },
+    "videos/ep06-v4/qc/caption-audit.mjs": {
+      "source": "videos/ep06-v4/qc/caption-audit.mjs",
+      "sha256": "f408037c585d3b2f67d46c2fa378c411a4145f777aa831892d111a8062b47709"
+    },
+    "videos/ep06-v4/qc/verify_render.py": {
+      "source": "videos/ep06-v4/qc/verify_render.py",
+      "sha256": "69295f2073bf2ab351ef3481bfdfaa88f20d5b38b0b8d06de872c087f0bbfcb1"
+    },
+    "videos/ep06-v4/assets/fonts/InstrumentSerif-Italic.ttf": {
+      "source": "videos/ep06-v4/assets/fonts/InstrumentSerif-Italic.ttf",
+      "sha256": "08939b8bdf534afec24ae0ef5e03f948940cd9a8fe08e7fecbad040e62327385"
+    },
+    "videos/ep06-v4/assets/fonts/NanumMyeongjo-Bold.ttf": {
+      "source": "videos/ep06-v4/assets/fonts/NanumMyeongjo-Bold.ttf",
+      "sha256": "bc9ed8e60d93fe6db054b8fb988481b625f2eef8cb2317ad0e9834681b8fe3f3"
+    },
+    "videos/ep06-v4/assets/fonts/JetBrainsMono[wght].ttf": {
+      "source": "videos/ep06-v4/assets/fonts/JetBrainsMono[wght].ttf",
+      "sha256": "48715a42ec242c21e9f02692891e147d022299a52e48d5e413e1a942193ffeda"
+    },
+    "videos/ep06-v4/assets/fonts/Silkscreen-Bold.ttf": {
+      "source": "videos/ep06-v4/assets/fonts/Silkscreen-Bold.ttf",
+      "sha256": "768476aa712d4f5c3e18d3bce80f980a8bd3f72b7094d22ec5e768df3acfed61"
+    },
+    "videos/ep06-v4/assets/fonts/InstrumentSerif-Regular.ttf": {
+      "source": "videos/ep06-v4/assets/fonts/InstrumentSerif-Regular.ttf",
+      "sha256": "498efd461f6ddfcb7a111bf9a565709d2085d48201d501ead960d93e84ffbb88"
+    },
+    "videos/ep06-v4/assets/fonts/pretendard.woff2": {
+      "source": "videos/ep06-v4/assets/fonts/pretendard.woff2",
+      "sha256": "9599f12fd42fc0bce1cd50b47a0c022e108d7aa64dd0d1bb0ed44f3282d900b4"
+    },
+    "videos/ep06-v4/assets/shots/google-blog.png": {
+      "source": "videos/ep06-v4/assets/shots/google-blog.png",
+      "sha256": "c4176e4e2acad6f7c36c74c9e2d7144169544db3927aa90218d7b0eb852e7ae8"
+    },
+    "videos/ep06-v4/assets/shots/readme-caution.png": {
+      "source": "videos/ep06-v4/assets/shots/readme-caution.png",
+      "sha256": "37e270b13a81e7db0fe12d4a7b9d640969def308707267c6d64745141516a4e7"
+    },
+    "videos/ep06-v4/assets/shots/repo-desktop.png": {
+      "source": "videos/ep06-v4/assets/shots/repo-desktop.png",
+      "sha256": "0f56ca2c6a6564e2307a2f3db99ef6f7b8dd15b728681ece49cbf77c186758a4"
+    },
+    "assets/audio/impact-low-hook.wav": {
+      "source": "existing licensed audio library/impact-low-hook.wav",
+      "sha256": "fa30a292df2ceb28280dcf7bbcc002443cd1a5a3a69c2f0e103fcab9b9f32594"
+    },
+    "assets/audio/whoosh-down-cut.wav": {
+      "source": "existing licensed audio library/whoosh-down-cut.wav",
+      "sha256": "d923e42a702247d57a4bbc0dcd90ff08427cc0020c65d68ab46fc313b3b6376e"
+    },
+    "assets/audio/whoosh-short-cut.wav": {
+      "source": "existing licensed audio library/whoosh-short-cut.wav",
+      "sha256": "b44cda114e98aca181c2a232d04e1adc88b48116f06b3e7a13a9a47e592930d3"
+    },
+    "assets/audio/ping-comment.wav": {
+      "source": "existing licensed audio library/ping-comment.wav",
+      "sha256": "e736a833ff88793f289101b46eb4ac6121108301e8a4f54bdf2627b47c38f9a4"
+    },
+    "assets/audio/ui-tick.wav": {
+      "source": "existing licensed audio library/ui-tick.wav",
+      "sha256": "2880c1f8c66bcc29a9fbf18ee7d17cf9ca3911434d0040ebbb2fac8ab9617151"
+    },
+    "assets/audio/ui-panel-appear.wav": {
+      "source": "existing licensed audio library/ui-panel-appear.wav",
+      "sha256": "2dd18f5cccf2794fe7717b90c8e0fd4ed7a227baab4deb7c51647208dfbf5084"
+    },
+    "assets/audio/bed-ambient-tech-33s.wav": {
+      "source": "existing licensed audio library/bed-ambient-tech-33s.wav",
+      "sha256": "7d687f96b0d0eb1190e829572173d572b77d440c255eedb34ae838c07f5e603d"
+    },
+    "assets/audio/whoosh-up-cut.wav": {
+      "source": "existing licensed audio library/whoosh-up-cut.wav",
+      "sha256": "7545a608c6adf032213fa6f261bd225433d188571a8c3b88a1d3396518cc7af1"
+    },
+    "assets/audio/soft-pop.wav": {
+      "source": "existing licensed audio library/soft-pop.wav",
+      "sha256": "64ad5dbab564b99598fd9bb8e5cda23f7a128f2b82b3bda79896aca4784cbcab"
+    },
+    "videos/ep06-v4/REPORT.md": {
+      "source": "videos/ep06-v4/REPORT.md",
+      "sha256": "3c3e2b5f6909dea078fafdc6e7dfb6406a537950670a1a7113cdb53c82cc32e9",
+      "export_change": "Local project path replaced with placeholder."
+    },
+    "videos/ep06-v4/CODE_AUDIT.md": {
+      "source": "videos/ep06-v4/CODE_AUDIT.md",
+      "sha256": "f76dd4663e482ec852603e7466e5402a53b33342ec30c1f8e589426ea9e87c97",
+      "export_change": "Local project path replaced with placeholder."
+    },
+    "videos/render_owen_v4.py": {
+      "source": "videos/render_owen_v4.py",
+      "sha256": "b96108ff36d71bde6093c00faa557bbc78550750bddbc9135e3209576256b955"
+    }
+  }
+}
