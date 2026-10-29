@@ -1,0 +1,29 @@
+{
+  "v1": {
+    "duration_s": 35.467,
+    "visual_changes": 29,
+    "mean_change_interval_s": 1.223,
+    "max_change_gap_s": 4.24,
+    "captions": 24,
+    "mean_caption_s": 1.478,
+    "mean_caption_eojeol": 2.92,
+    "syllables": 203,
+    "syllables_per_s": 5.72,
+    "sfx_cues": 31
+  },
+  "v2": {
+    "duration_s": 31.042,
+    "visual_changes": 56,
+    "mean_change_interval_s": 0.554,
+    "max_change_gap_s": 1.81,
+    "captions": 40,
+    "mean_caption_s": 0.776,
+    "mean_caption_eojeol": 1.75,
+    "syllables": 203,
+    "syllables_per_s": 6.54,
+    "sfx_cues": 25
+  },
+  "duration_ratio": 0.875,
+  "tempo": 1.12,
+  "note": "visual change = named action, camera key or scene start, merged within 0.15s; syllables = Hangul + GPT/AI read as 3 each"
+}

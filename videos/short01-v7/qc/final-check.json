@@ -1,0 +1,186 @@
+{
+  "ok": true,
+  "strict": false,
+  "lint": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "filesScanned": 1
+  },
+  "runtime": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": []
+  },
+  "layout": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 3,
+    "findings": [
+      {
+        "code": "text_occluded",
+        "severity": "info",
+        "time": 8.623,
+        "selector": "div.ln.l3",
+        "message": "Text is hidden beneath an opaque element.",
+        "rect": {
+          "left": 676.33,
+          "top": 587,
+          "right": 778.23,
+          "bottom": 650,
+          "width": 101.91,
+          "height": 63
+        },
+        "containerSelector": "#s04-check > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(4)",
+        "text": "제품",
+        "fixHint": "Give the text its own zone, raise its stacking order above the covering element, or mark intentional layering with data-layout-allow-occlusion.",
+        "coveredFraction": 0.11,
+        "dataAttributes": {},
+        "sourceFile": "scenes/s04-check.html",
+        "bbox": {
+          "x": 676.33,
+          "y": 587,
+          "width": 101.91,
+          "height": 63
+        },
+        "firstSeen": 8.623,
+        "lastSeen": 8.623,
+        "occurrences": 1,
+        "heldMs": 0
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 9.724,
+        "selector": "span.old",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 101,
+          "top": 587,
+          "right": 676.33,
+          "bottom": 650,
+          "width": 575.33,
+          "height": 63
+        },
+        "containerSelector": "span.new",
+        "text": "다양한 상황에서 활용 가능한",
+        "fixHint": "Give each block its own zone, or mark intentional layering with data-layout-allow-overlap.",
+        "dataAttributes": {},
+        "sourceFile": "scenes/s04-check.html",
+        "bbox": {
+          "x": 101,
+          "y": 587,
+          "width": 575.33,
+          "height": 63
+        },
+        "firstSeen": 9.724,
+        "lastSeen": 9.724,
+        "occurrences": 1,
+        "heldMs": 0
+      },
+      {
+        "code": "container_overflow",
+        "severity": "info",
+        "time": 25.868,
+        "selector": "div.list",
+        "message": "Element extends outside a clipping layout container.",
+        "rect": {
+          "left": 95,
+          "top": 409.83,
+          "right": 655,
+          "bottom": 821.83,
+          "width": 560,
+          "height": 412
+        },
+        "containerSelector": "div.lw",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 95,
+          "top": 420.59,
+          "right": 655,
+          "bottom": 852.59,
+          "width": 560,
+          "height": 432
+        },
+        "overflow": {
+          "top": 10.76
+        },
+        "dataAttributes": {},
+        "sourceFile": "scenes/s11-guide.html",
+        "bbox": {
+          "x": 95,
+          "y": 409.83,
+          "width": 560,
+          "height": 412
+        },
+        "firstSeen": 25.868,
+        "lastSeen": 25.868,
+        "occurrences": 1,
+        "heldMs": 0
+      }
+    ],
+    "duration": 31.042,
+    "samples": [
+      1.725,
+      5.174,
+      8.623,
+      12.072,
+      15.521,
+      18.97,
+      22.419,
+      25.868,
+      29.317
+    ],
+    "transitionSamples": [],
+    "transitionSamplesDropped": 0,
+    "tolerance": 2,
+    "totalIssueCount": 3,
+    "truncated": false
+  },
+  "motion": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": false,
+    "samples": 0
+  },
+  "contrast": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": true,
+    "samples": [
+      1.725,
+      8.623,
+      15.521,
+      22.419,
+      29.317
+    ],
+    "checked": 51,
+    "passed": 51
+  },
+  "hdr": {
+    "autoPromotion": null,
+    "inspection": "available"
+  },
+  "snapshots": {
+    "enabled": false,
+    "files": [],
+    "times": [],
+    "findingFiles": []
+  },
+  "_meta": {
+    "version": "0.8.62",
+    "latestVersion": "0.8.210",
+    "updateAvailable": true
+  }
+}

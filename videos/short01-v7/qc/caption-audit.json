@@ -1,0 +1,1985 @@
+{
+  "generatedAt": "2026-10-29T03:38:55.234Z",
+  "method": "Localhost static server + installed HyperFrames Chrome headless shell + installed puppeteer-core; 1080x1920 viewport; document fonts awaited; main GSAP timeline sought to each caption midpoint; computed DOM text, Range line boxes, opacity, and bounding rectangles measured.",
+  "source": "index.html",
+  "viewport": {
+    "width": 1080,
+    "height": 1920,
+    "deviceScaleFactor": 1
+  },
+  "runtime": {
+    "gsapVersion": "3.14.2",
+    "mainTimelinePresent": true,
+    "fontsStatus": "loaded"
+  },
+  "rules": {
+    "expectedCaptions": 43,
+    "x": [
+      64,
+      1016
+    ],
+    "highCaptionRightLimit": 900,
+    "highCaptionThresholdY": 1000,
+    "y": [
+      300,
+      1440
+    ]
+  },
+  "totals": {
+    "captions": 43,
+    "card": 34,
+    "full": 9,
+    "autoShrunkBelow60px": 0,
+    "passedAll": 43,
+    "failed": 0,
+    "visible": 43,
+    "actualText": 43,
+    "oneLine": 43,
+    "punctuationFree": 43,
+    "horizontalSafe": 43,
+    "verticalSafe": 43,
+    "midpointInsideClip": 43,
+    "seamClear8px": 43,
+    "measuredBounds": {
+      "minX": 158.39,
+      "maxX": 805.59,
+      "minY": 907,
+      "maxY": 1436.59
+    }
+  },
+  "failureIds": [],
+  "captions": [
+    {
+      "index": 0,
+      "id": "cap-0",
+      "text": "챗GPT가",
+      "mode": "card",
+      "start": 0,
+      "duration": 0.596,
+      "midpoint": 0.298,
+      "fontSize": "80px",
+      "rect": {
+        "x": 334.42,
+        "y": 907,
+        "width": 295.16,
+        "height": 84,
+        "right": 629.58,
+        "bottom": 991
+      },
+      "lineCount": 1,
+      "rawTops": [
+        901,
+        907
+      ],
+      "glyph": {
+        "top": 913.26,
+        "bottom": 984.83
+      },
+      "seam": {
+        "materialBottom": 880,
+        "presenterTop": 1030,
+        "gapAbove": 33.26,
+        "gapBelow": 45.17
+      },
+      "checks": {
+        "visible": true,
+        "actualText": true,
+        "oneLine": true,
+        "punctuationFree": true,
+        "horizontalSafe": true,
+        "verticalSafe": true,
+        "midpointInsideClip": true,
+        "seamClear8px": true
+      },
+      "failures": []
+    },
+    {
+      "index": 1,
+      "id": "cap-1",
+      "text": "칼을 갈았습니다",
+      "mode": "card",
+      "start": 0.596,
+      "duration": 1.053,
+      "midpoint": 1.1225,
+      "fontSize": "80px",
+      "rect": {
+        "x": 235.02,
+        "y": 907,
+        "width": 493.95,
+        "height": 84,
+        "right": 728.97,
+        "bottom": 991
+      },
+      "lineCount": 1,
+      "rawTops": [
+        901,
+        901,
+        901,
+        907,
+        907
+      ],
+      "glyph": {
+        "top": 913.26,
+        "bottom": 985.16
+      },
+      "seam": {
+        "materialBottom": 880,
+        "presenterTop": 1030,
+        "gapAbove": 33.26,
+        "gapBelow": 44.84
+      },
+      "checks": {
+        "visible": true,
+        "actualText": true,
+        "oneLine": true,
+        "punctuationFree": true,
+        "horizontalSafe": true,
+        "verticalSafe": true,
+        "midpointInsideClip": true,
+        "seamClear8px": true
+      },
+      "failures": []
+    },
+    {
+      "index": 2,
+      "id": "cap-2",
+      "text": "이제 AI가",
+      "mode": "card",
+      "start": 1.649,
+      "duration": 0.75,
+      "midpoint": 2.024,
+      "fontSize": "80px",
+      "rect": {
+        "x": 331.67,
+        "y": 907,
+        "width": 300.64,
+        "height": 84,
+        "right": 632.31,
+        "bottom": 991
+      },
+      "lineCount": 1,
+      "rawTops": [
+        901,
+        901,
+        901,
+        907,
+        907
+      ],
+      "glyph": {
+        "top": 913.26,
+        "bottom": 985.16
+      },
+      "seam": {
+        "materialBottom": 880,
+        "presenterTop": 1030,
+        "gapAbove": 33.26,
+        "gapBelow": 44.84
+      },
+      "checks": {
+        "visible": true,
+        "actualText": true,
+        "oneLine": true,
+        "punctuationFree": true,
+        "horizontalSafe": true,
+        "verticalSafe": true,
+        "midpointInsideClip": true,
+        "seamClear8px": true
+      },
+      "failures": []
+    },
+    {
+      "index": 3,
+      "id": "cap-3",
+      "text": "쓴 글에",
+      "mode": "card",
+      "start": 2.399,
+      "duration": 0.607,
+      "midpoint": 2.7025,
+      "fontSize": "80px",
+      "rect": {
+        "x": 371.3,
+        "y": 907,
+        "width": 221.39,
+        "height": 84,
+        "right": 592.69,
+        "bottom": 991
+      },
+      "lineCount": 1,
+      "rawTops": [
+        901,
+        901,
+        901,
+        907,
+        907
+      ],
+      "glyph": {
+        "top": 913.26,
+        "bottom": 984.95
+      },
+      "seam": {
+        "materialBottom": 880,
+        "presenterTop": 1030,
+        "gapAbove": 33.26,
+        "gapBelow": 45.05
+      },
+      "checks": {
+        "visible": true,
+        "actualText": true,
+        "oneLine": true,
+        "punctuationFree": true,
+        "horizontalSafe": true,
+        "verticalSafe": true,
+        "midpointInsideClip": true,
+        "seamClear8px": true
+      },
+      "failures": []
+    },
+    {
+      "index": 4,
+      "id": "cap-4",
+      "text": "눈에 안 보이는",
+      "mode": "card",
+      "start": 3.006,
+      "duration": 0.768,
+      "midpoint": 3.39,
+      "fontSize": "80px",
+      "rect": {
+        "x": 260.61,
+        "y": 907,
+        "width": 442.78,
+        "height": 84,
+        "right": 703.39,
+        "bottom": 991
+      },
+      "lineCount": 1,
+      "rawTops": [
+        901,
+        901,
+        901,
+        901,
+        901,
+        907,
+        907,
+        907
+      ],
+      "glyph": {
+        "top": 913.26,
+        "bottom": 985.16
+      },
+      "seam": {
+        "materialBottom": 880,
+        "presenterTop": 1030,
+        "gapAbove": 33.26,
+        "gapBelow": 44.84
+      },
+      "checks": {
+        "visible": true,
+        "actualText": true,
+        "oneLine": true,
+        "punctuationFree": true,
+        "horizontalSafe": true,
+        "verticalSafe": true,
+        "midpointInsideClip": true,
+        "seamClear8px": true
+      },
+      "failures": []
+    },
+    {
+      "index": 5,
+      "id": "cap-5",
+      "text": "워터마크를",
+      "mode": "card",
+      "start": 3.774,
+      "duration": 0.875,
+      "midpoint": 4.2115,
+      "fontSize": "92px",
+      "rect": {
+        "x": 285.72,
+        "y": 907,
+        "width": 392.56,
+        "height": 96.59,
+        "right": 678.28,
+        "bottom": 1003.59
+      },
+      "lineCount": 1,
+      "rawTops": [
+        900,
+        900,
+        907
+      ],
+      "glyph": {
+        "top": 914.42,
+        "bottom": 997.11
+      },
+      "seam": {
+        "materialBottom": 880,
+        "presenterTop": 1030,
+        "gapAbove": 34.42,
+        "gapBelow": 32.89
+      },
+      "checks": {
+        "visible": true,
+        "actualText": true,
+        "oneLine": true,
+        "punctuationFree": true,
+        "horizontalSafe": true,
+        "verticalSafe": true,
+        "midpointInsideClip": true,
+        "seamClear8px": true
+      },
+      "failures": []
+    },
+    {
+      "index": 6,
+      "id": "cap-6",
+      "text": "넣기 시작했는데요",
+      "mode": "card",
+      "start": 4.649,
+      "duration": 1.214,
+      "midpoint": 5.256,
+      "fontSize": "80px",
+      "rect": {
+        "x": 200.95,
+        "y": 907,
+        "width": 562.09,
+        "height": 84,
+        "right": 763.05,
+        "bottom": 991
+      },
+      "lineCount": 1,
+      "rawTops": [
+        901,
+        901,
+        901,
+        907,
+        907
+      ],
+      "glyph": {
+        "top": 913.26,
+        "bottom": 985.16
+      },
+      "seam": {
+        "materialBottom": 880,
+        "presenterTop": 1030,
+        "gapAbove": 33.26,
+        "gapBelow": 44.84
+      },
+      "checks": {
+        "visible": true,
+        "actualText": true,
+        "oneLine": true,
+        "punctuationFree": true,
+        "horizontalSafe": true,
+        "verticalSafe": true,
+        "midpointInsideClip": true,
+        "seamClear8px": true
+      },
+      "failures": []
+    },
+    {
+      "index": 7,
+      "id": "cap-7",
+      "text": "복사해서",
+      "mode": "full",
+      "start": 5.863,
+      "duration": 0.446,
+      "midpoint": 6.086,
+      "fontSize": "80px",
+      "rect": {
+        "x": 345.72,
+        "y": 1340,
+        "width": 272.56,
+        "height": 84,
+        "right": 618.28,
+        "bottom": 1424
+      },
+      "lineCount": 1,
+      "rawTops": [
+        1334,
+        1340
+      ],
+      "glyph": {
+        "top": 1346.26,
+        "bottom": 1418.16
+      },
+      "seam": null,
+      "checks": {
+        "visible": true,
+        "actualText": true,
+        "oneLine": true,
+        "punctuationFree": true,
+        "horizontalSafe": true,
+        "verticalSafe": true,
+        "midpointInsideClip": true,
+        "seamClear8px": true
+      },
+      "failures": []
+    },
+    {
+      "index": 8,
+      "id": "cap-8",
+      "text": "붙여넣어도",
+      "mode": "full",
+      "start": 6.309,
+      "duration": 0.518,
+      "midpoint": 6.568,
+      "fontSize": "80px",
+      "rect": {
+        "x": 311.64,
+        "y": 1340,
+        "width": 340.7,
+        "height": 84,
+        "right": 652.34,
+        "bottom": 1424
+      },
+      "lineCount": 1,
+      "rawTops": [
+        1334,
+        1340
+      ],
+      "glyph": {
+        "top": 1346.26,
+        "bottom": 1418.16
+      },
+      "seam": null,
+      "checks": {
+        "visible": true,
+        "actualText": true,
+        "oneLine": true,
+        "punctuationFree": true,
+        "horizontalSafe": true,
+        "verticalSafe": true,
+        "midpointInsideClip": true,
+        "seamClear8px": true
+      },
+      "failures": []
+    },
+    {
+      "index": 9,
+      "id": "cap-9",
+      "text": "따라갑니다",
+      "mode": "full",
+      "start": 6.827,
+      "duration": 0.638,
+      "midpoint": 7.146,
+      "fontSize": "80px",
+      "rect": {
+        "x": 311.64,
+        "y": 1340,
+        "width": 340.7,
+        "height": 84,
+        "right": 652.34,
+        "bottom": 1424
+      },
+      "lineCount": 1,
+      "rawTops": [
+        1334,
+        1340
+      ],
+      "glyph": {
+        "top": 1346.06,
+        "bottom": 1418.16
+      },
+      "seam": null,
+      "checks": {
+        "visible": true,
+        "actualText": true,
+        "oneLine": true,
+        "punctuationFree": true,
+        "horizontalSafe": true,
+        "verticalSafe": true,
+        "midpointInsideClip": true,
+        "seamClear8px": true
+      },
+      "failures": []
+    },
+    {
+      "index": 10,
+      "id": "cap-10",
+      "text": "그래서 이 글을",
+      "mode": "card",
+      "start": 7.465,
+      "duration": 0.821,
+      "midpoint": 7.8755,
+      "fontSize": "80px",
+      "rect": {
+        "x": 260.61,
+        "y": 907,
+        "width": 442.78,
+        "height": 84,
+        "right": 703.39,
+        "bottom": 991
+      },
+      "lineCount": 1,
+      "rawTops": [
+        901,
+        901,
+        901,
+        901,
+        901,
+        907,
+        907,
+        907
+      ],
+      "glyph": {
+        "top": 913.26,
+        "bottom": 985.16
+      },
+      "seam": {
+        "materialBottom": 880,
+        "presenterTop": 1030,
+        "gapAbove": 33.26,
+        "gapBelow": 44.84
+      },
+      "checks": {
+        "visible": true,
+        "actualText": true,
+        "oneLine": true,
+        "punctuationFree": true,
+        "horizontalSafe": true,
+        "verticalSafe": true,
+        "midpointInsideClip": true,
+        "seamClear8px": true
+      },
+      "failures": []
+    },
+    {
+      "index": 11,
+      "id": "cap-11",
+      "text": "검사하고",
+      "mode": "card",
+      "start": 8.286,
+      "duration": 0.696,
+      "midpoint": 8.634,
+      "fontSize": "80px",
+      "rect": {
+        "x": 345.72,
+        "y": 907,
+        "width": 272.56,
+        "height": 84,
+        "right": 618.28,
+        "bottom": 991
+      },
+      "lineCount": 1,
+      "rawTops": [
+        901,
+        907
+      ],
+      "glyph": {
+        "top": 913.26,
+        "bottom": 984.95
+      },
+      "seam": {
+        "materialBottom": 880,
+        "presenterTop": 1030,
+        "gapAbove": 33.26,
+        "gapBelow": 45.05
+      },
+      "checks": {
+        "visible": true,
+        "actualText": true,
+        "oneLine": true,
+        "punctuationFree": true,
+        "horizontalSafe": true,
+        "verticalSafe": true,
+        "midpointInsideClip": true,
+        "seamClear8px": true
+      },
+      "failures": []
+    },
+    {
+      "index": 12,
+      "id": "cap-12",
+      "text": "다시 다듬는",
+      "mode": "card",
+      "start": 8.982,
+      "duration": 0.911,
+      "midpoint": 9.4375,
+      "fontSize": "80px",
+      "rect": {
+        "x": 303.16,
+        "y": 907,
+        "width": 357.67,
+        "height": 84,
+        "right": 660.83,
+        "bottom": 991
+      },
+      "lineCount": 1,
+      "rawTops": [
+        901,
+        901,
+        901,
+        907,
+        907
+      ],
+      "glyph": {
+        "top": 913.26,
+        "bottom": 985.16
+      },
+      "seam": {
+        "materialBottom": 880,
+        "presenterTop": 1030,
+        "gapAbove": 33.26,
+        "gapBelow": 44.84
+      },
+      "checks": {
+        "visible": true,
+        "actualText": true,
+        "oneLine": true,
+        "punctuationFree": true,
+        "horizontalSafe": true,
+        "verticalSafe": true,
+        "midpointInsideClip": true,
+        "seamClear8px": true
+      },
+      "failures": []
+    },
+    {
+      "index": 13,
+      "id": "cap-13",
+      "text": "무료",
+      "mode": "card",
+      "start": 9.893,
+      "duration": 0.286,
+      "midpoint": 10.036,
+      "fontSize": "92px",
+      "rect": {
+        "x": 403.48,
+        "y": 907,
+        "width": 157.03,
+        "height": 96.59,
+        "right": 560.52,
+        "bottom": 1003.59
+      },
+      "lineCount": 1,
+      "rawTops": [
+        900,
+        907
+      ],
+      "glyph": {
+        "top": 918.3,
+        "bottom": 996.79
+      },
+      "seam": {
+        "materialBottom": 880,
+        "presenterTop": 1030,
+        "gapAbove": 38.3,
+        "gapBelow": 33.21
+      },
+      "checks": {
+        "visible": true,
+        "actualText": true,
+        "oneLine": true,
+        "punctuationFree": true,
+        "horizontalSafe": true,
+        "verticalSafe": true,
+        "midpointInsideClip": true,
+        "seamClear8px": true
+      },
+      "failures": []
+    },
+    {
+      "index": 14,
+      "id": "cap-14",
+      "text": "도구가",
+      "mode": "card",
+      "start": 10.179,
+      "duration": 0.393,
+      "midpoint": 10.3755,
+      "fontSize": "80px",
+      "rect": {
+        "x": 379.78,
+        "y": 907,
+        "width": 204.42,
+        "height": 84,
+        "right": 584.2,
+        "bottom": 991
+      },
+      "lineCount": 1,
+      "rawTops": [
+        901,
+        907
+      ],
+      "glyph": {
+        "top": 913.26,
+        "bottom": 985.05
+      },
+      "seam": {
+        "materialBottom": 880,
+        "presenterTop": 1030,
+        "gapAbove": 33.26,
+        "gapBelow": 44.95
+      },
+      "checks": {
+        "visible": true,
+        "actualText": true,
+        "oneLine": true,
+        "punctuationFree": true,
+        "horizontalSafe": true,
+        "verticalSafe": true,
+        "midpointInsideClip": true,
+        "seamClear8px": true
+      },
+      "failures": []
+    },
+    {
+      "index": 15,
+      "id": "cap-15",
+      "text": "나왔어요",
+      "mode": "card",
+      "start": 10.572,
+      "duration": 0.532,
+      "midpoint": 10.838,
+      "fontSize": "80px",
+      "rect": {
+        "x": 345.72,
+        "y": 907,
+        "width": 272.56,
+        "height": 84,
+        "right": 618.28,
+        "bottom": 991
+      },
+      "lineCount": 1,
+      "rawTops": [
+        901,
+        907
+      ],
+      "glyph": {
+        "top": 913.26,
+        "bottom": 985.16
+      },
+      "seam": {
+        "materialBottom": 880,
+        "presenterTop": 1030,
+        "gapAbove": 33.26,
+        "gapBelow": 44.84
+      },
+      "checks": {
+        "visible": true,
+        "actualText": true,
+        "oneLine": true,
+        "punctuationFree": true,
+        "horizontalSafe": true,
+        "verticalSafe": true,
+        "midpointInsideClip": true,
+        "seamClear8px": true
+      },
+      "failures": []
+    },
+    {
+      "index": 16,
+      "id": "cap-16",
+      "text": "설치하고",
+      "mode": "card",
+      "start": 11.104,
+      "duration": 0.617,
+      "midpoint": 11.4125,
+      "fontSize": "80px",
+      "rect": {
+        "x": 345.72,
+        "y": 907,
+        "width": 272.56,
+        "height": 84,
+        "right": 618.28,
+        "bottom": 991
+      },
+      "lineCount": 1,
+      "rawTops": [
+        901,
+        907
+      ],
+      "glyph": {
+        "top": 913.26,
+        "bottom": 984.95
+      },
+      "seam": {
+        "materialBottom": 880,
+        "presenterTop": 1030,
+        "gapAbove": 33.26,
+        "gapBelow": 45.05
+      },
+      "checks": {
+        "visible": true,
+        "actualText": true,
+        "oneLine": true,
+        "punctuationFree": true,
+        "horizontalSafe": true,
+        "verticalSafe": true,
+        "midpointInsideClip": true,
+        "seamClear8px": true
+      },
+      "failures": []
+    },
+    {
+      "index": 17,
+      "id": "cap-17",
+      "text": "내 글을",
+      "mode": "card",
+      "start": 11.721,
+      "duration": 0.571,
+      "midpoint": 12.0065,
+      "fontSize": "80px",
+      "rect": {
+        "x": 371.3,
+        "y": 907,
+        "width": 221.39,
+        "height": 84,
+        "right": 592.69,
+        "bottom": 991
+      },
+      "lineCount": 1,
+      "rawTops": [
+        901,
+        901,
+        901,
+        907,
+        907
+      ],
+      "glyph": {
+        "top": 913.26,
+        "bottom": 984.95
+      },
+      "seam": {
+        "materialBottom": 880,
+        "presenterTop": 1030,
+        "gapAbove": 33.26,
+        "gapBelow": 45.05
+      },
+      "checks": {
+        "visible": true,
+        "actualText": true,
+        "oneLine": true,
+        "punctuationFree": true,
+        "horizontalSafe": true,
+        "verticalSafe": true,
+        "midpointInsideClip": true,
+        "seamClear8px": true
+      },
+      "failures": []
+    },
+    {
+      "index": 18,
+      "id": "cap-18",
+      "text": "넣은 다음",
+      "mode": "card",
+      "start": 12.292,
+      "duration": 0.571,
+      "midpoint": 12.5775,
+      "fontSize": "80px",
+      "rect": {
+        "x": 337.23,
+        "y": 907,
+        "width": 289.53,
+        "height": 84,
+        "right": 626.77,
+        "bottom": 991
+      },
+      "lineCount": 1,
+      "rawTops": [
+        901,
+        901,
+        901,
+        907,
+        907
+      ],
+      "glyph": {
+        "top": 913.26,
+        "bottom": 985.16
+      },
+      "seam": {
+        "materialBottom": 880,
+        "presenterTop": 1030,
+        "gapAbove": 33.26,
+        "gapBelow": 44.84
+      },
+      "checks": {
+        "visible": true,
+        "actualText": true,
+        "oneLine": true,
+        "punctuationFree": true,
+        "horizontalSafe": true,
+        "verticalSafe": true,
+        "midpointInsideClip": true,
+        "seamClear8px": true
+      },
+      "failures": []
+    },
+    {
+      "index": 19,
+      "id": "cap-19",
+      "text": "내용은",
+      "mode": "card",
+      "start": 12.863,
+      "duration": 0.75,
+      "midpoint": 13.238,
+      "fontSize": "80px",
+      "rect": {
+        "x": 379.78,
+        "y": 907,
+        "width": 204.42,
+        "height": 84,
+        "right": 584.2,
+        "bottom": 991
+      },
+      "lineCount": 1,
+      "rawTops": [
+        901,
+        907
+      ],
+      "glyph": {
+        "top": 913.26,
+        "bottom": 984.95
+      },
+      "seam": {
+        "materialBottom": 880,
+        "presenterTop": 1030,
+        "gapAbove": 33.26,
+        "gapBelow": 45.05
+      },
+      "checks": {
+        "visible": true,
+        "actualText": true,
+        "oneLine": true,
+        "punctuationFree": true,
+        "horizontalSafe": true,
+        "verticalSafe": true,
+        "midpointInsideClip": true,
+        "seamClear8px": true
+      },
+      "failures": []
+    },
+    {
+      "index": 20,
+      "id": "cap-20",
+      "text": "그대로",
+      "mode": "card",
+      "start": 13.613,
+      "duration": 0.25,
+      "midpoint": 13.738,
+      "fontSize": "92px",
+      "rect": {
+        "x": 364.27,
+        "y": 907.02,
+        "width": 235.45,
+        "height": 96.56,
+        "right": 599.72,
+        "bottom": 1003.57
+      },
+      "lineCount": 1,
+      "rawTops": [
+        900,
+        907
+      ],
+      "glyph": {
+        "top": 914.42,
+        "bottom": 996.86
+      },
+      "seam": {
+        "materialBottom": 880,
+        "presenterTop": 1030,
+        "gapAbove": 34.42,
+        "gapBelow": 33.14
+      },
+      "checks": {
+        "visible": true,
+        "actualText": true,
+        "oneLine": true,
+        "punctuationFree": true,
+        "horizontalSafe": true,
+        "verticalSafe": true,
+        "midpointInsideClip": true,
+        "seamClear8px": true
+      },
+      "failures": []
+    },
+    {
+      "index": 21,
+      "id": "cap-21",
+      "text": "두고",
+      "mode": "card",
+      "start": 13.863,
+      "duration": 0.572,
+      "midpoint": 14.149,
+      "fontSize": "80px",
+      "rect": {
+        "x": 413.86,
+        "y": 907,
+        "width": 136.28,
+        "height": 84,
+        "right": 550.14,
+        "bottom": 991
+      },
+      "lineCount": 1,
+      "rawTops": [
+        901,
+        907
+      ],
+      "glyph": {
+        "top": 916.98,
+        "bottom": 984.89
+      },
+      "seam": {
+        "materialBottom": 880,
+        "presenterTop": 1030,
+        "gapAbove": 36.98,
+        "gapBelow": 45.11
+      },
+      "checks": {
+        "visible": true,
+        "actualText": true,
+        "oneLine": true,
+        "punctuationFree": true,
+        "horizontalSafe": true,
+        "verticalSafe": true,
+        "midpointInsideClip": true,
+        "seamClear8px": true
+      },
+      "failures": []
+    },
+    {
+      "index": 22,
+      "id": "cap-22",
+      "text": "숨은 문자와",
+      "mode": "card",
+      "start": 14.435,
+      "duration": 0.893,
+      "midpoint": 14.8815,
+      "fontSize": "92px",
+      "rect": {
+        "x": 275.88,
+        "y": 907,
+        "width": 412.25,
+        "height": 96.59,
+        "right": 688.13,
+        "bottom": 1003.59
+      },
+      "lineCount": 1,
+      "rawTops": [
+        900,
+        900,
+        900,
+        900,
+        907,
+        907
+      ],
+      "glyph": {
+        "top": 914.42,
+        "bottom": 996.86
+      },
+      "seam": {
+        "materialBottom": 880,
+        "presenterTop": 1030,
+        "gapAbove": 34.42,
+        "gapBelow": 33.14
+      },
+      "checks": {
+        "visible": true,
+        "actualText": true,
+        "oneLine": true,
+        "punctuationFree": true,
+        "horizontalSafe": true,
+        "verticalSafe": true,
+        "midpointInsideClip": true,
+        "seamClear8px": true
+      },
+      "failures": []
+    },
+    {
+      "index": 23,
+      "id": "cap-23",
+      "text": "어색한 표현을",
+      "mode": "card",
+      "start": 15.328,
+      "duration": 0.857,
+      "midpoint": 15.7565,
+      "fontSize": "80px",
+      "rect": {
+        "x": 269.09,
+        "y": 907,
+        "width": 425.81,
+        "height": 84,
+        "right": 694.91,
+        "bottom": 991
+      },
+      "lineCount": 1,
+      "rawTops": [
+        901,
+        901,
+        901,
+        907,
+        907
+      ],
+      "glyph": {
+        "top": 913.2,
+        "bottom": 985.16
+      },
+      "seam": {
+        "materialBottom": 880,
+        "presenterTop": 1030,
+        "gapAbove": 33.2,
+        "gapBelow": 44.84
+      },
+      "checks": {
+        "visible": true,
+        "actualText": true,
+        "oneLine": true,
+        "punctuationFree": true,
+        "horizontalSafe": true,
+        "verticalSafe": true,
+        "midpointInsideClip": true,
+        "seamClear8px": true
+      },
+      "failures": []
+    },
+    {
+      "index": 24,
+      "id": "cap-24",
+      "text": "정리해줘",
+      "mode": "card",
+      "start": 16.185,
+      "duration": 0.559,
+      "midpoint": 16.4645,
+      "fontSize": "80px",
+      "rect": {
+        "x": 345.72,
+        "y": 907,
+        "width": 272.56,
+        "height": 84,
+        "right": 618.28,
+        "bottom": 991
+      },
+      "lineCount": 1,
+      "rawTops": [
+        901,
+        907
+      ],
+      "glyph": {
+        "top": 913.26,
+        "bottom": 985.16
+      },
+      "seam": {
+        "materialBottom": 880,
+        "presenterTop": 1030,
+        "gapAbove": 33.26,
+        "gapBelow": 44.84
+      },
+      "checks": {
+        "visible": true,
+        "actualText": true,
+        "oneLine": true,
+        "punctuationFree": true,
+        "horizontalSafe": true,
+        "verticalSafe": true,
+        "midpointInsideClip": true,
+        "seamClear8px": true
+      },
+      "failures": []
+    },
+    {
+      "index": 25,
+      "id": "cap-25",
+      "text": "이렇게",
+      "mode": "full",
+      "start": 16.744,
+      "duration": 0.25,
+      "midpoint": 16.869,
+      "fontSize": "80px",
+      "rect": {
+        "x": 379.78,
+        "y": 1340,
+        "width": 204.42,
+        "height": 84,
+        "right": 584.2,
+        "bottom": 1424
+      },
+      "lineCount": 1,
+      "rawTops": [
+        1334,
+        1340
+      ],
+      "glyph": {
+        "top": 1346.26,
+        "bottom": 1418.16
+      },
+      "seam": null,
+      "checks": {
+        "visible": true,
+        "actualText": true,
+        "oneLine": true,
+        "punctuationFree": true,
+        "horizontalSafe": true,
+        "verticalSafe": true,
+        "midpointInsideClip": true,
+        "seamClear8px": true
+      },
+      "failures": []
+    },
+    {
+      "index": 26,
+      "id": "cap-26",
+      "text": "시키면 됩니다",
+      "mode": "full",
+      "start": 16.994,
+      "duration": 0.949,
+      "midpoint": 17.4685,
+      "fontSize": "80px",
+      "rect": {
+        "x": 269.09,
+        "y": 1340,
+        "width": 425.81,
+        "height": 84,
+        "right": 694.91,
+        "bottom": 1424
+      },
+      "lineCount": 1,
+      "rawTops": [
+        1334,
+        1334,
+        1334,
+        1340,
+        1340
+      ],
+      "glyph": {
+        "top": 1346.26,
+        "bottom": 1418.16
+      },
+      "seam": null,
+      "checks": {
+        "visible": true,
+        "actualText": true,
+        "oneLine": true,
+        "punctuationFree": true,
+        "horizontalSafe": true,
+        "verticalSafe": true,
+        "midpointInsideClip": true,
+        "seamClear8px": true
+      },
+      "failures": []
+    },
+    {
+      "index": 27,
+      "id": "cap-27",
+      "text": "블로그 글이나",
+      "mode": "card",
+      "start": 17.943,
+      "duration": 0.867,
+      "midpoint": 18.3765,
+      "fontSize": "80px",
+      "rect": {
+        "x": 269.09,
+        "y": 907,
+        "width": 425.81,
+        "height": 84,
+        "right": 694.91,
+        "bottom": 991
+      },
+      "lineCount": 1,
+      "rawTops": [
+        901,
+        901,
+        901,
+        907,
+        907
+      ],
+      "glyph": {
+        "top": 913.26,
+        "bottom": 985.16
+      },
+      "seam": {
+        "materialBottom": 880,
+        "presenterTop": 1030,
+        "gapAbove": 33.26,
+        "gapBelow": 44.84
+      },
+      "checks": {
+        "visible": true,
+        "actualText": true,
+        "oneLine": true,
+        "punctuationFree": true,
+        "horizontalSafe": true,
+        "verticalSafe": true,
+        "midpointInsideClip": true,
+        "seamClear8px": true
+      },
+      "failures": []
+    },
+    {
+      "index": 28,
+      "id": "cap-28",
+      "text": "상품 소개에",
+      "mode": "card",
+      "start": 18.81,
+      "duration": 0.892,
+      "midpoint": 19.256,
+      "fontSize": "80px",
+      "rect": {
+        "x": 303.16,
+        "y": 907,
+        "width": 357.67,
+        "height": 84,
+        "right": 660.83,
+        "bottom": 991
+      },
+      "lineCount": 1,
+      "rawTops": [
+        901,
+        901,
+        901,
+        907,
+        907
+      ],
+      "glyph": {
+        "top": 913.26,
+        "bottom": 985.03
+      },
+      "seam": {
+        "materialBottom": 880,
+        "presenterTop": 1030,
+        "gapAbove": 33.26,
+        "gapBelow": 44.97
+      },
+      "checks": {
+        "visible": true,
+        "actualText": true,
+        "oneLine": true,
+        "punctuationFree": true,
+        "horizontalSafe": true,
+        "verticalSafe": true,
+        "midpointInsideClip": true,
+        "seamClear8px": true
+      },
+      "failures": []
+    },
+    {
+      "index": 29,
+      "id": "cap-29",
+      "text": "올리기 전에",
+      "mode": "card",
+      "start": 19.702,
+      "duration": 0.536,
+      "midpoint": 19.97,
+      "fontSize": "92px",
+      "rect": {
+        "x": 275.88,
+        "y": 907,
+        "width": 412.25,
+        "height": 96.59,
+        "right": 688.13,
+        "bottom": 1003.59
+      },
+      "lineCount": 1,
+      "rawTops": [
+        900,
+        900,
+        900,
+        907,
+        907
+      ],
+      "glyph": {
+        "top": 914.42,
+        "bottom": 997.11
+      },
+      "seam": {
+        "materialBottom": 880,
+        "presenterTop": 1030,
+        "gapAbove": 34.42,
+        "gapBelow": 32.89
+      },
+      "checks": {
+        "visible": true,
+        "actualText": true,
+        "oneLine": true,
+        "punctuationFree": true,
+        "horizontalSafe": true,
+        "verticalSafe": true,
+        "midpointInsideClip": true,
+        "seamClear8px": true
+      },
+      "failures": []
+    },
+    {
+      "index": 30,
+      "id": "cap-30",
+      "text": "한번 써보세요",
+      "mode": "card",
+      "start": 20.238,
+      "duration": 0.893,
+      "midpoint": 20.6845,
+      "fontSize": "80px",
+      "rect": {
+        "x": 269.09,
+        "y": 907,
+        "width": 425.81,
+        "height": 84,
+        "right": 694.91,
+        "bottom": 991
+      },
+      "lineCount": 1,
+      "rawTops": [
+        901,
+        901,
+        901,
+        907,
+        907
+      ],
+      "glyph": {
+        "top": 913.26,
+        "bottom": 984.95
+      },
+      "seam": {
+        "materialBottom": 880,
+        "presenterTop": 1030,
+        "gapAbove": 33.26,
+        "gapBelow": 45.05
+      },
+      "checks": {
+        "visible": true,
+        "actualText": true,
+        "oneLine": true,
+        "punctuationFree": true,
+        "horizontalSafe": true,
+        "verticalSafe": true,
+        "midpointInsideClip": true,
+        "seamClear8px": true
+      },
+      "failures": []
+    },
+    {
+      "index": 31,
+      "id": "cap-31",
+      "text": "바뀐 부분까지",
+      "mode": "card",
+      "start": 21.131,
+      "duration": 0.678,
+      "midpoint": 21.47,
+      "fontSize": "80px",
+      "rect": {
+        "x": 269.09,
+        "y": 907,
+        "width": 425.81,
+        "height": 84,
+        "right": 694.91,
+        "bottom": 991
+      },
+      "lineCount": 1,
+      "rawTops": [
+        901,
+        901,
+        901,
+        907,
+        907
+      ],
+      "glyph": {
+        "top": 913.26,
+        "bottom": 984.95
+      },
+      "seam": {
+        "materialBottom": 880,
+        "presenterTop": 1030,
+        "gapAbove": 33.26,
+        "gapBelow": 45.05
+      },
+      "checks": {
+        "visible": true,
+        "actualText": true,
+        "oneLine": true,
+        "punctuationFree": true,
+        "horizontalSafe": true,
+        "verticalSafe": true,
+        "midpointInsideClip": true,
+        "seamClear8px": true
+      },
+      "failures": []
+    },
+    {
+      "index": 32,
+      "id": "cap-32",
+      "text": "받아서",
+      "mode": "card",
+      "start": 21.809,
+      "duration": 0.5,
+      "midpoint": 22.059,
+      "fontSize": "80px",
+      "rect": {
+        "x": 379.78,
+        "y": 907,
+        "width": 204.42,
+        "height": 84,
+        "right": 584.2,
+        "bottom": 991
+      },
+      "lineCount": 1,
+      "rawTops": [
+        901,
+        907
+      ],
+      "glyph": {
+        "top": 913.26,
+        "bottom": 985.16
+      },
+      "seam": {
+        "materialBottom": 880,
+        "presenterTop": 1030,
+        "gapAbove": 33.26,
+        "gapBelow": 44.84
+      },
+      "checks": {
+        "visible": true,
+        "actualText": true,
+        "oneLine": true,
+        "punctuationFree": true,
+        "horizontalSafe": true,
+        "verticalSafe": true,
+        "midpointInsideClip": true,
+        "seamClear8px": true
+      },
+      "failures": []
+    },
+    {
+      "index": 33,
+      "id": "cap-33",
+      "text": "비교할",
+      "mode": "card",
+      "start": 22.309,
+      "duration": 0.837,
+      "midpoint": 22.7275,
+      "fontSize": "92px",
+      "rect": {
+        "x": 364.22,
+        "y": 907,
+        "width": 235.55,
+        "height": 96.59,
+        "right": 599.77,
+        "bottom": 1003.59
+      },
+      "lineCount": 1,
+      "rawTops": [
+        900,
+        900,
+        907
+      ],
+      "glyph": {
+        "top": 914.01,
+        "bottom": 997.11
+      },
+      "seam": {
+        "materialBottom": 880,
+        "presenterTop": 1030,
+        "gapAbove": 34.01,
+        "gapBelow": 32.89
+      },
+      "checks": {
+        "visible": true,
+        "actualText": true,
+        "oneLine": true,
+        "punctuationFree": true,
+        "horizontalSafe": true,
+        "verticalSafe": true,
+        "midpointInsideClip": true,
+        "seamClear8px": true
+      },
+      "failures": []
+    },
+    {
+      "index": 34,
+      "id": "cap-34",
+      "text": "수 있습니다",
+      "mode": "card",
+      "start": 23.146,
+      "duration": 0.443,
+      "midpoint": 23.3675,
+      "fontSize": "80px",
+      "rect": {
+        "x": 303.16,
+        "y": 907,
+        "width": 357.67,
+        "height": 84,
+        "right": 660.83,
+        "bottom": 991
+      },
+      "lineCount": 1,
+      "rawTops": [
+        901,
+        901,
+        901,
+        907,
+        907
+      ],
+      "glyph": {
+        "top": 913.26,
+        "bottom": 985.16
+      },
+      "seam": {
+        "materialBottom": 880,
+        "presenterTop": 1030,
+        "gapAbove": 33.26,
+        "gapBelow": 44.84
+      },
+      "checks": {
+        "visible": true,
+        "actualText": true,
+        "oneLine": true,
+        "punctuationFree": true,
+        "horizontalSafe": true,
+        "verticalSafe": true,
+        "midpointInsideClip": true,
+        "seamClear8px": true
+      },
+      "failures": []
+    },
+    {
+      "index": 35,
+      "id": "cap-35",
+      "text": "설치 방법부터",
+      "mode": "card",
+      "start": 23.589,
+      "duration": 1,
+      "midpoint": 24.089,
+      "fontSize": "80px",
+      "rect": {
+        "x": 269.09,
+        "y": 907,
+        "width": 425.81,
+        "height": 84,
+        "right": 694.91,
+        "bottom": 991
+      },
+      "lineCount": 1,
+      "rawTops": [
+        901,
+        901,
+        901,
+        907,
+        907
+      ],
+      "glyph": {
+        "top": 913.26,
+        "bottom": 985.16
+      },
+      "seam": {
+        "materialBottom": 880,
+        "presenterTop": 1030,
+        "gapAbove": 33.26,
+        "gapBelow": 44.84
+      },
+      "checks": {
+        "visible": true,
+        "actualText": true,
+        "oneLine": true,
+        "punctuationFree": true,
+        "horizontalSafe": true,
+        "verticalSafe": true,
+        "midpointInsideClip": true,
+        "seamClear8px": true
+      },
+      "failures": []
+    },
+    {
+      "index": 36,
+      "id": "cap-36",
+      "text": "복사해서 쓸",
+      "mode": "card",
+      "start": 24.589,
+      "duration": 1.09,
+      "midpoint": 25.134,
+      "fontSize": "80px",
+      "rect": {
+        "x": 303.16,
+        "y": 907,
+        "width": 357.67,
+        "height": 84,
+        "right": 660.83,
+        "bottom": 991
+      },
+      "lineCount": 1,
+      "rawTops": [
+        901,
+        901,
+        901,
+        907,
+        907
+      ],
+      "glyph": {
+        "top": 913.26,
+        "bottom": 985.16
+      },
+      "seam": {
+        "materialBottom": 880,
+        "presenterTop": 1030,
+        "gapAbove": 33.26,
+        "gapBelow": 44.84
+      },
+      "checks": {
+        "visible": true,
+        "actualText": true,
+        "oneLine": true,
+        "punctuationFree": true,
+        "horizontalSafe": true,
+        "verticalSafe": true,
+        "midpointInsideClip": true,
+        "seamClear8px": true
+      },
+      "failures": []
+    },
+    {
+      "index": 37,
+      "id": "cap-37",
+      "text": "한글 명령까지",
+      "mode": "card",
+      "start": 25.679,
+      "duration": 1.357,
+      "midpoint": 26.3575,
+      "fontSize": "92px",
+      "rect": {
+        "x": 236.61,
+        "y": 907,
+        "width": 490.77,
+        "height": 96.59,
+        "right": 727.38,
+        "bottom": 1003.59
+      },
+      "lineCount": 1,
+      "rawTops": [
+        900,
+        900,
+        900,
+        900,
+        907,
+        907
+      ],
+      "glyph": {
+        "top": 914.42,
+        "bottom": 997.11
+      },
+      "seam": {
+        "materialBottom": 880,
+        "presenterTop": 1030,
+        "gapAbove": 34.42,
+        "gapBelow": 32.89
+      },
+      "checks": {
+        "visible": true,
+        "actualText": true,
+        "oneLine": true,
+        "punctuationFree": true,
+        "horizontalSafe": true,
+        "verticalSafe": true,
+        "midpointInsideClip": true,
+        "seamClear8px": true
+      },
+      "failures": []
+    },
+    {
+      "index": 38,
+      "id": "cap-38",
+      "text": "정리해 뒀습니다",
+      "mode": "card",
+      "start": 27.036,
+      "duration": 0.949,
+      "midpoint": 27.5105,
+      "fontSize": "80px",
+      "rect": {
+        "x": 235.02,
+        "y": 907,
+        "width": 493.95,
+        "height": 84,
+        "right": 728.97,
+        "bottom": 991
+      },
+      "lineCount": 1,
+      "rawTops": [
+        901,
+        901,
+        901,
+        907,
+        907
+      ],
+      "glyph": {
+        "top": 913.26,
+        "bottom": 985.16
+      },
+      "seam": {
+        "materialBottom": 880,
+        "presenterTop": 1030,
+        "gapAbove": 33.26,
+        "gapBelow": 44.84
+      },
+      "checks": {
+        "visible": true,
+        "actualText": true,
+        "oneLine": true,
+        "punctuationFree": true,
+        "horizontalSafe": true,
+        "verticalSafe": true,
+        "midpointInsideClip": true,
+        "seamClear8px": true
+      },
+      "failures": []
+    },
+    {
+      "index": 39,
+      "id": "cap-39",
+      "text": "자료 궁금하신 분들은",
+      "mode": "full",
+      "start": 27.985,
+      "duration": 1.134,
+      "midpoint": 28.552,
+      "fontSize": "80px",
+      "rect": {
+        "x": 158.39,
+        "y": 1340,
+        "width": 647.2,
+        "height": 84,
+        "right": 805.59,
+        "bottom": 1424
+      },
+      "lineCount": 1,
+      "rawTops": [
+        1334,
+        1334,
+        1334,
+        1334,
+        1334,
+        1340,
+        1340,
+        1340
+      ],
+      "glyph": {
+        "top": 1346.26,
+        "bottom": 1418.03
+      },
+      "seam": null,
+      "checks": {
+        "visible": true,
+        "actualText": true,
+        "oneLine": true,
+        "punctuationFree": true,
+        "horizontalSafe": true,
+        "verticalSafe": true,
+        "midpointInsideClip": true,
+        "seamClear8px": true
+      },
+      "failures": []
+    },
+    {
+      "index": 40,
+      "id": "cap-40",
+      "text": "댓글에",
+      "mode": "full",
+      "start": 29.119,
+      "duration": 0.643,
+      "midpoint": 29.4405,
+      "fontSize": "80px",
+      "rect": {
+        "x": 379.78,
+        "y": 1340,
+        "width": 204.42,
+        "height": 84,
+        "right": 584.2,
+        "bottom": 1424
+      },
+      "lineCount": 1,
+      "rawTops": [
+        1334,
+        1340
+      ],
+      "glyph": {
+        "top": 1346.26,
+        "bottom": 1417.95
+      },
+      "seam": null,
+      "checks": {
+        "visible": true,
+        "actualText": true,
+        "oneLine": true,
+        "punctuationFree": true,
+        "horizontalSafe": true,
+        "verticalSafe": true,
+        "midpointInsideClip": true,
+        "seamClear8px": true
+      },
+      "failures": []
+    },
+    {
+      "index": 41,
+      "id": "cap-41",
+      "text": "정리",
+      "mode": "full",
+      "start": 29.762,
+      "duration": 0.619,
+      "midpoint": 30.0715,
+      "fontSize": "92px",
+      "rect": {
+        "x": 403.48,
+        "y": 1340,
+        "width": 157.03,
+        "height": 96.59,
+        "right": 560.52,
+        "bottom": 1436.59
+      },
+      "lineCount": 1,
+      "rawTops": [
+        1333,
+        1340
+      ],
+      "glyph": {
+        "top": 1347.42,
+        "bottom": 1430.11
+      },
+      "seam": null,
+      "checks": {
+        "visible": true,
+        "actualText": true,
+        "oneLine": true,
+        "punctuationFree": true,
+        "horizontalSafe": true,
+        "verticalSafe": true,
+        "midpointInsideClip": true,
+        "seamClear8px": true
+      },
+      "failures": []
+    },
+    {
+      "index": 42,
+      "id": "cap-42",
+      "text": "남겨 주세요",
+      "mode": "full",
+      "start": 30.381,
+      "duration": 0.661,
+      "midpoint": 30.7115,
+      "fontSize": "80px",
+      "rect": {
+        "x": 303.16,
+        "y": 1340,
+        "width": 357.67,
+        "height": 84,
+        "right": 660.83,
+        "bottom": 1424
+      },
+      "lineCount": 1,
+      "rawTops": [
+        1334,
+        1334,
+        1334,
+        1340,
+        1340
+      ],
+      "glyph": {
+        "top": 1346.26,
+        "bottom": 1418.01
+      },
+      "seam": null,
+      "checks": {
+        "visible": true,
+        "actualText": true,
+        "oneLine": true,
+        "punctuationFree": true,
+        "horizontalSafe": true,
+        "verticalSafe": true,
+        "midpointInsideClip": true,
+        "seamClear8px": true
+      },
+      "failures": []
+    }
+  ]
+}

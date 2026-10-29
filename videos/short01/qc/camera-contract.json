@@ -1,0 +1,60 @@
+{
+  "duration": 35.467,
+  "seconds": {
+    "card": 21.765,
+    "full": 10.886000000000003,
+    "hide": 2.815999999999999
+  },
+  "full_beats": 4,
+  "transitions": [
+    {
+      "time": 6.617,
+      "from": "card",
+      "to": "full",
+      "duration": 0.32
+    },
+    {
+      "time": 11.247,
+      "from": "full",
+      "to": "card",
+      "duration": 0.32
+    },
+    {
+      "time": 19.0,
+      "from": "card",
+      "to": "full",
+      "duration": 0.32
+    },
+    {
+      "time": 20.433,
+      "from": "full",
+      "to": "card",
+      "duration": 0.32
+    },
+    {
+      "time": 24.017,
+      "from": "card",
+      "to": "hide",
+      "duration": 0
+    },
+    {
+      "time": 26.833,
+      "from": "hide",
+      "to": "full",
+      "duration": 0
+    },
+    {
+      "time": 28.006,
+      "from": "full",
+      "to": "card",
+      "duration": 0.32
+    },
+    {
+      "time": 31.817,
+      "from": "card",
+      "to": "full",
+      "duration": 0.32
+    }
+  ],
+  "full_fraction": 0.3069332055149859
+}

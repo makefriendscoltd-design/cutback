@@ -1,0 +1,55 @@
+{
+  "frame_time_s": 10.14,
+  "method": "50px grid over the actual rendered v4 frame (includes card slow drift); v2/reference values as before",
+  "v4": {
+    "presenter_card": {
+      "x": [
+        40,
+        1040
+      ],
+      "y": [
+        980,
+        1920
+      ],
+      "scale_of_1080_source": 0.926
+    },
+    "glasses_outer_x": [
+      236,
+      784
+    ],
+    "head_width_pct_of_1080": 50.7,
+    "eye_y": 1360,
+    "eye_pct_from_card_top": 40.4,
+    "forehead_y": 1190,
+    "chin_y": 1720,
+    "visible_top_to_chin_pct_of_1920": 38.5,
+    "note": "hair crown cropped by the card top; forehead..chin fully inside"
+  },
+  "v2": {
+    "head_width_pct_of_1080": 49.7,
+    "top_to_chin_pct_of_1920": 43.9,
+    "card": {
+      "x": [
+        40,
+        1040
+      ],
+      "y": [
+        880,
+        1920
+      ]
+    }
+  },
+  "v3": {
+    "head_width_pct_of_1080": 36.3,
+    "top_to_chin_pct_of_1920": 32.5
+  },
+  "reference": {
+    "head_width_pct_of_1080": 37,
+    "top_to_chin_pct_of_1920": 31
+  },
+  "material_card_y": [
+    300,
+    900
+  ],
+  "caption_seam_y": 920
+}

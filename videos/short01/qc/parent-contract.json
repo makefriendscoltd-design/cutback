@@ -1,0 +1,15 @@
+{
+  "checks": {
+    "mix_is_new_file": true,
+    "event_audio_hash_matches": true,
+    "cue_count_matches": true,
+    "declared_font_files_exist": true,
+    "event_timing_valid": true,
+    "full_scenes_have_no_panel": true,
+    "scenes_cover_timeline": true
+  },
+  "event_failures": [],
+  "full_panels": [],
+  "actions": 31,
+  "scope": "timing/mix binding only; not visual quality or listening"
+}

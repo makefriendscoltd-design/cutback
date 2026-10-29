@@ -1,0 +1,53 @@
+{
+  "method": "card-mode geometry from build.py applied to head landmarks measured on the presenter frame (hair edge 210..790, hair top 370, chin 1280 in 1080x1920 space); lines drawn on the actual rendered frame at t=10.14s for visual confirmation; card slow drift adds up to +3.5%",
+  "frame_time_s": 10.14,
+  "v2": {
+    "head_width_px": 537,
+    "head_width_pct_of_1080": 49.7,
+    "top_to_chin_px": 843,
+    "top_to_chin_pct_of_1920": 43.9,
+    "coordinator_measurement": {
+      "head_width_pct": 54,
+      "top_to_chin_pct": 45
+    }
+  },
+  "v3": {
+    "head_width_px": 383,
+    "head_width_pct_of_1080": 35.4,
+    "top_to_chin_px": 601,
+    "top_to_chin_pct_of_1920": 31.3,
+    "measured_on_rendered_frame": {
+      "glasses_outer_x": [
+        340,
+        732
+      ],
+      "head_width_pct_of_1080": 36.3,
+      "hair_top_y": 1005,
+      "chin_y": 1630,
+      "top_to_chin_pct_of_1920": 32.5,
+      "method": "50px grid over the actual v3 frame at 10.14s (includes card slow drift)"
+    }
+  },
+  "reference": {
+    "head_width_pct_of_1080": 37,
+    "top_to_chin_pct_of_1920": 31,
+    "source": "coordinator measurement"
+  },
+  "v3_cards": {
+    "material_card_y": [
+      300,
+      900
+    ],
+    "caption_seam_y": 920,
+    "presenter_card": {
+      "x": [
+        200,
+        880
+      ],
+      "y": [
+        1000,
+        1920
+      ]
+    }
+  }
+}

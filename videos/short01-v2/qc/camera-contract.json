@@ -1,0 +1,11 @@
+{
+  "duration": 31.042,
+  "seconds": {
+    "card": 25.148,
+    "full": 5.894
+  },
+  "full_fraction": 0.19,
+  "full_beats": 3,
+  "layout_transitions": 5,
+  "guard": "check_owen_camera.py fails full_fraction>=.25 by design: v2 brief = full only for 2 emphasis beats + CTA (reference grammar)"
+}

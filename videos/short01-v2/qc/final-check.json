@@ -1,0 +1,155 @@
+{
+  "ok": true,
+  "strict": false,
+  "lint": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "filesScanned": 1
+  },
+  "runtime": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": []
+  },
+  "layout": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 2,
+    "findings": [
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 9.724,
+        "selector": "span.old",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 101,
+          "top": 544,
+          "right": 587.83,
+          "bottom": 597,
+          "width": 486.83,
+          "height": 53
+        },
+        "containerSelector": "span.new",
+        "text": "다양한 상황에서 활용 가능한",
+        "fixHint": "Give each block its own zone, or mark intentional layering with data-layout-allow-overlap.",
+        "dataAttributes": {},
+        "sourceFile": "scenes/s04-check.html",
+        "bbox": {
+          "x": 101,
+          "y": 544,
+          "width": 486.83,
+          "height": 53
+        },
+        "firstSeen": 9.724,
+        "lastSeen": 9.724,
+        "occurrences": 1,
+        "heldMs": 0
+      },
+      {
+        "code": "container_overflow",
+        "severity": "info",
+        "time": 25.868,
+        "selector": "div.list",
+        "message": "Element extends outside a clipping layout container.",
+        "rect": {
+          "left": 95,
+          "top": 399.28,
+          "right": 635,
+          "bottom": 781.28,
+          "width": 540,
+          "height": 382
+        },
+        "containerSelector": "div.lw",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 95,
+          "top": 413.8,
+          "right": 635,
+          "bottom": 783.8,
+          "width": 540,
+          "height": 370
+        },
+        "overflow": {
+          "top": 14.52
+        },
+        "dataAttributes": {},
+        "sourceFile": "scenes/s11-guide.html",
+        "bbox": {
+          "x": 95,
+          "y": 399.28,
+          "width": 540,
+          "height": 382
+        },
+        "firstSeen": 25.868,
+        "lastSeen": 25.868,
+        "occurrences": 1,
+        "heldMs": 0
+      }
+    ],
+    "duration": 31.042,
+    "samples": [
+      1.725,
+      5.174,
+      8.623,
+      12.072,
+      15.521,
+      18.97,
+      22.419,
+      25.868,
+      29.317
+    ],
+    "transitionSamples": [],
+    "transitionSamplesDropped": 0,
+    "tolerance": 2,
+    "totalIssueCount": 2,
+    "truncated": false
+  },
+  "motion": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": false,
+    "samples": 0
+  },
+  "contrast": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": true,
+    "samples": [
+      1.725,
+      8.623,
+      15.521,
+      22.419,
+      29.317
+    ],
+    "checked": 55,
+    "passed": 55
+  },
+  "hdr": {
+    "autoPromotion": null,
+    "inspection": "available"
+  },
+  "snapshots": {
+    "enabled": false,
+    "files": [],
+    "times": [],
+    "findingFiles": []
+  },
+  "_meta": {
+    "version": "0.8.62",
+    "latestVersion": "0.8.210",
+    "updateAvailable": true
+  }
+}

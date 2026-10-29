@@ -1,0 +1,584 @@
+{
+  "captions": [
+    [
+      0.0,
+      1.914,
+      "챗GPT가 칼을 갈았습니다",
+      "card",
+      "챗GPT"
+    ],
+    [
+      1.914,
+      3.434,
+      "이제 AI가 쓴 글에",
+      "card",
+      "AI가 쓴 글"
+    ],
+    [
+      3.434,
+      5.274,
+      "눈에 안 보이는 워터마크를",
+      "card",
+      "안 보이는"
+    ],
+    [
+      5.274,
+      6.667,
+      "넣기 시작했는데요",
+      "card",
+      ""
+    ],
+    [
+      6.667,
+      7.747,
+      "복사해서 붙여넣어도",
+      "full",
+      ""
+    ],
+    [
+      7.747,
+      8.527,
+      "따라갑니다",
+      "full",
+      ""
+    ],
+    [
+      8.527,
+      10.227,
+      "그래서 이 글을 검사하고",
+      "full",
+      "검사"
+    ],
+    [
+      10.227,
+      11.247,
+      "다시 다듬는",
+      "full",
+      "다듬는"
+    ],
+    [
+      11.247,
+      12.67,
+      "무료 도구가 나왔어요",
+      "card",
+      "무료 도구"
+    ],
+    [
+      12.67,
+      13.36,
+      "설치하고",
+      "card",
+      "설치"
+    ],
+    [
+      13.36,
+      14.64,
+      "내 글을 넣은 다음",
+      "card",
+      "내 글"
+    ],
+    [
+      14.64,
+      16.4,
+      "내용은 그대로 두고",
+      "card",
+      "그대로"
+    ],
+    [
+      16.4,
+      18.36,
+      "숨은 문자와 어색한 표현을",
+      "card",
+      "숨은 문자"
+    ],
+    [
+      18.36,
+      19.053,
+      "정리해줘",
+      "card",
+      "정리"
+    ],
+    [
+      19.053,
+      20.463,
+      "이렇게 시키면 됩니다",
+      "full",
+      ""
+    ],
+    [
+      20.463,
+      22.433,
+      "블로그 글이나 상품 소개에",
+      "card",
+      "블로그 글"
+    ],
+    [
+      22.433,
+      24.067,
+      "올리기 전에 한번 써보세요",
+      "card",
+      "올리기 전에"
+    ],
+    [
+      24.067,
+      25.387,
+      "바뀐 부분까지 받아서",
+      "hide",
+      "바뀐 부분"
+    ],
+    [
+      25.387,
+      26.886,
+      "비교할 수 있습니다",
+      "hide",
+      "비교"
+    ],
+    [
+      26.886,
+      28.006,
+      "설치 방법부터",
+      "full",
+      "설치 방법"
+    ],
+    [
+      28.006,
+      30.746,
+      "복사해서 쓸 한글 명령까지",
+      "card",
+      "한글 명령"
+    ],
+    [
+      30.746,
+      31.877,
+      "정리해 뒀습니다",
+      "card",
+      ""
+    ],
+    [
+      31.877,
+      33.147,
+      "자료 궁금하신 분들은",
+      "full",
+      "자료"
+    ],
+    [
+      33.147,
+      35.467,
+      "댓글에 정리 남겨 주세요",
+      "full",
+      "정리"
+    ]
+  ],
+  "camera": [
+    [
+      0.0,
+      "card",
+      1,
+      0
+    ],
+    [
+      3.434,
+      "card",
+      1,
+      0
+    ],
+    [
+      6.617,
+      "full",
+      1.04,
+      0.32
+    ],
+    [
+      8.527,
+      "full",
+      1.14,
+      0.24
+    ],
+    [
+      11.247,
+      "card",
+      1,
+      0.32
+    ],
+    [
+      13.8,
+      "card",
+      1,
+      0
+    ],
+    [
+      19.0,
+      "full",
+      1.04,
+      0.32
+    ],
+    [
+      20.433,
+      "card",
+      1,
+      0.32
+    ],
+    [
+      24.017,
+      "hide",
+      1,
+      0
+    ],
+    [
+      26.833,
+      "full",
+      1.04,
+      0
+    ],
+    [
+      28.006,
+      "card",
+      1,
+      0.32
+    ],
+    [
+      31.817,
+      "full",
+      1.36,
+      0.32
+    ]
+  ],
+  "scenes": {
+    "s01-hook": [
+      0.0,
+      3.434,
+      "scn"
+    ],
+    "s02-hidden": [
+      3.434,
+      3.183,
+      "scn"
+    ],
+    "s03-check": [
+      6.617,
+      4.63,
+      "ovl"
+    ],
+    "s04-repo": [
+      11.247,
+      2.553,
+      "scn"
+    ],
+    "s05-ask": [
+      13.8,
+      5.2,
+      "scn"
+    ],
+    "s06-say": [
+      19.0,
+      1.433,
+      "ovl"
+    ],
+    "s07-draft": [
+      20.433,
+      3.584,
+      "scn"
+    ],
+    "s08-diff": [
+      24.017,
+      2.816,
+      "scn"
+    ],
+    "s09-guide-say": [
+      26.833,
+      1.173,
+      "ovl"
+    ],
+    "s10-guide": [
+      28.006,
+      3.811,
+      "scn"
+    ],
+    "s99-comment": [
+      31.817,
+      3.65,
+      "ovl"
+    ]
+  },
+  "actions": [
+    {
+      "name": "opening",
+      "scene": "s01-hook",
+      "source": 1.5,
+      "time": 0,
+      "local": 0,
+      "sound": "impact-low-hook",
+      "gain_db": -10
+    },
+    {
+      "name": "s02-hidden_entrance",
+      "scene": "s02-hidden",
+      "source": 5.1,
+      "time": 3.434,
+      "local": 0,
+      "sound": "ui-panel-appear",
+      "gain_db": -15
+    },
+    {
+      "name": "s02-hidden_scan",
+      "scene": "s02-hidden",
+      "source": 5.7,
+      "time": 4.034,
+      "local": 0.6,
+      "sound": "whoosh-short-cut",
+      "gain_db": -17
+    },
+    {
+      "name": "s02-hidden_mark",
+      "scene": "s02-hidden",
+      "source": 5.98,
+      "time": 4.314,
+      "local": 0.88,
+      "sound": "soft-pop",
+      "gain_db": -11
+    },
+    {
+      "name": "s02-hidden_count",
+      "scene": "s02-hidden",
+      "source": 7.42,
+      "time": 5.754,
+      "local": 2.32,
+      "sound": "ui-tick",
+      "gain_db": -12
+    },
+    {
+      "name": "camera_2",
+      "scene": "main",
+      "source": 8.85,
+      "time": 6.617,
+      "local": 6.617,
+      "sound": "whoosh-down-cut",
+      "gain_db": -16
+    },
+    {
+      "name": "camera_3",
+      "scene": "main",
+      "source": 11.26,
+      "time": 8.527,
+      "local": 8.527,
+      "sound": "whoosh-down-cut",
+      "gain_db": -16
+    },
+    {
+      "name": "camera_4",
+      "scene": "main",
+      "source": 13.98,
+      "time": 11.247,
+      "local": 11.247,
+      "sound": "whoosh-up-cut",
+      "gain_db": -16
+    },
+    {
+      "name": "s04-repo_title",
+      "scene": "s04-repo",
+      "source": 14.36,
+      "time": 11.627,
+      "local": 0.38,
+      "sound": "ui-tick",
+      "gain_db": -12
+    },
+    {
+      "name": "s04-repo_install",
+      "scene": "s04-repo",
+      "source": 15.8,
+      "time": 12.7,
+      "local": 1.453,
+      "sound": "ui-panel-appear",
+      "gain_db": -14
+    },
+    {
+      "name": "s05-ask_entrance",
+      "scene": "s05-ask",
+      "source": 16.9,
+      "time": 13.8,
+      "local": 0,
+      "sound": "ui-panel-appear",
+      "gain_db": -15
+    },
+    {
+      "name": "s05-ask_paste",
+      "scene": "s05-ask",
+      "source": 17.1,
+      "time": 14.0,
+      "local": 0.2,
+      "sound": "soft-pop",
+      "gain_db": -11
+    },
+    {
+      "name": "s05-ask_type",
+      "scene": "s05-ask",
+      "source": 17.74,
+      "time": 14.64,
+      "local": 0.84,
+      "sound": "ui-tick",
+      "gain_db": -17
+    },
+    {
+      "name": "s05-ask_send",
+      "scene": "s05-ask",
+      "source": 21.98,
+      "time": 18.88,
+      "local": 5.08,
+      "sound": "ui-tick",
+      "gain_db": -14
+    },
+    {
+      "name": "camera_6",
+      "scene": "main",
+      "source": 22.2,
+      "time": 19.0,
+      "local": 19.0,
+      "sound": "whoosh-down-cut",
+      "gain_db": -16
+    },
+    {
+      "name": "camera_7",
+      "scene": "main",
+      "source": 24.1,
+      "time": 20.433,
+      "local": 20.433,
+      "sound": "whoosh-up-cut",
+      "gain_db": -16
+    },
+    {
+      "name": "s07-draft_blog",
+      "scene": "s07-draft",
+      "source": 24.13,
+      "time": 20.463,
+      "local": 0.03,
+      "sound": "soft-pop",
+      "gain_db": -12
+    },
+    {
+      "name": "s07-draft_product",
+      "scene": "s07-draft",
+      "source": 25.1,
+      "time": 21.433,
+      "local": 1.0,
+      "sound": "soft-pop",
+      "gain_db": -12
+    },
+    {
+      "name": "s07-draft_before",
+      "scene": "s07-draft",
+      "source": 26.1,
+      "time": 22.433,
+      "local": 2.0,
+      "sound": "ui-panel-appear",
+      "gain_db": -15
+    },
+    {
+      "name": "s07-draft_check",
+      "scene": "s07-draft",
+      "source": 27.14,
+      "time": 23.473,
+      "local": 3.04,
+      "sound": "ui-tick",
+      "gain_db": -11
+    },
+    {
+      "name": "s08-diff_entrance",
+      "scene": "s08-diff",
+      "source": 28.15,
+      "time": 24.017,
+      "local": 0,
+      "sound": "whoosh-short-cut",
+      "gain_db": -15
+    },
+    {
+      "name": "s08-diff_rev",
+      "scene": "s08-diff",
+      "source": 28.96,
+      "time": 24.827,
+      "local": 0.81,
+      "sound": "soft-pop",
+      "gain_db": -12
+    },
+    {
+      "name": "s08-diff_diff",
+      "scene": "s08-diff",
+      "source": 29.52,
+      "time": 25.387,
+      "local": 1.37,
+      "sound": "ui-tick",
+      "gain_db": -11
+    },
+    {
+      "name": "s08-diff_sum",
+      "scene": "s08-diff",
+      "source": 30.14,
+      "time": 26.007,
+      "local": 1.99,
+      "sound": "soft-pop",
+      "gain_db": -12
+    },
+    {
+      "name": "camera_10",
+      "scene": "main",
+      "source": 32.64,
+      "time": 28.006,
+      "local": 28.006,
+      "sound": "whoosh-up-cut",
+      "gain_db": -16
+    },
+    {
+      "name": "s10-guide_copy",
+      "scene": "s10-guide",
+      "source": 32.7,
+      "time": 28.066,
+      "local": 0.06,
+      "sound": "soft-pop",
+      "gain_db": -14
+    },
+    {
+      "name": "s10-guide_cmd",
+      "scene": "s10-guide",
+      "source": 33.86,
+      "time": 29.226,
+      "local": 1.22,
+      "sound": "ui-tick",
+      "gain_db": -12
+    },
+    {
+      "name": "s10-guide_done",
+      "scene": "s10-guide",
+      "source": 35.38,
+      "time": 30.746,
+      "local": 2.74,
+      "sound": "ui-tick",
+      "gain_db": -13
+    },
+    {
+      "name": "camera_11",
+      "scene": "main",
+      "source": 36.75,
+      "time": 31.817,
+      "local": 31.817,
+      "sound": "whoosh-down-cut",
+      "gain_db": -16
+    },
+    {
+      "name": "s99-comment_comment_type",
+      "scene": "s99-comment",
+      "source": 38.08,
+      "time": 33.147,
+      "local": 1.33,
+      "sound": "ping-comment",
+      "gain_db": -10
+    },
+    {
+      "name": "s99-comment_comment_send",
+      "scene": "s99-comment",
+      "source": 39.588,
+      "time": 34.655,
+      "local": 2.838,
+      "sound": "ui-tick",
+      "gain_db": -11
+    }
+  ]
+}

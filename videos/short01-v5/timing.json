@@ -1,0 +1,1487 @@
+{
+  "captions": [
+    [
+      0.0,
+      0.596,
+      [
+        [
+          "챗GPT가",
+          0.0
+        ]
+      ],
+      "card",
+      "acc",
+      "챗GPT"
+    ],
+    [
+      0.596,
+      1.004,
+      [
+        [
+          "칼을",
+          0.596
+        ]
+      ],
+      "card",
+      "acc",
+      "칼을"
+    ],
+    [
+      1.004,
+      1.649,
+      [
+        [
+          "갈았습니다",
+          1.004
+        ]
+      ],
+      "card",
+      "plain",
+      ""
+    ],
+    [
+      1.649,
+      1.949,
+      [
+        [
+          "이제",
+          1.649
+        ]
+      ],
+      "card",
+      "plain",
+      ""
+    ],
+    [
+      1.949,
+      2.399,
+      [
+        [
+          "AI가",
+          1.949
+        ]
+      ],
+      "card",
+      "acc",
+      "AI"
+    ],
+    [
+      2.399,
+      2.703,
+      [
+        [
+          "쓴",
+          2.399
+        ]
+      ],
+      "card",
+      "plain",
+      ""
+    ],
+    [
+      2.703,
+      3.006,
+      [
+        [
+          "글에",
+          2.703
+        ]
+      ],
+      "card",
+      "acc",
+      "글"
+    ],
+    [
+      3.006,
+      3.381,
+      [
+        [
+          "눈에",
+          3.006
+        ]
+      ],
+      "card",
+      "plain",
+      ""
+    ],
+    [
+      3.381,
+      3.774,
+      [
+        [
+          "안",
+          3.381
+        ],
+        [
+          "보이는",
+          3.542
+        ]
+      ],
+      "card",
+      "acc",
+      "안 보이는"
+    ],
+    [
+      3.774,
+      4.649,
+      [
+        [
+          "워터마크를",
+          3.774
+        ]
+      ],
+      "card",
+      "acc",
+      "워터마크"
+    ],
+    [
+      4.649,
+      5.198,
+      [
+        [
+          "넣기",
+          4.649
+        ]
+      ],
+      "card",
+      "plain",
+      ""
+    ],
+    [
+      5.198,
+      5.863,
+      [
+        [
+          "시작했는데요",
+          5.198
+        ]
+      ],
+      "card",
+      "acc",
+      "시작"
+    ],
+    [
+      5.863,
+      6.309,
+      [
+        [
+          "복사해서",
+          5.863
+        ]
+      ],
+      "full",
+      "acc",
+      "복사"
+    ],
+    [
+      6.309,
+      6.827,
+      [
+        [
+          "붙여넣어도",
+          6.309
+        ]
+      ],
+      "full",
+      "acc",
+      "붙여넣어도"
+    ],
+    [
+      6.827,
+      7.465,
+      [
+        [
+          "따라갑니다",
+          6.827
+        ]
+      ],
+      "full",
+      "acc",
+      "따라갑니다"
+    ],
+    [
+      7.465,
+      7.965,
+      [
+        [
+          "그래서",
+          7.465
+        ],
+        [
+          "이",
+          7.679
+        ]
+      ],
+      "card",
+      "plain",
+      ""
+    ],
+    [
+      7.965,
+      8.286,
+      [
+        [
+          "글을",
+          7.965
+        ]
+      ],
+      "card",
+      "acc",
+      "글"
+    ],
+    [
+      8.286,
+      8.982,
+      [
+        [
+          "검사하고",
+          8.286
+        ]
+      ],
+      "card",
+      "acc",
+      "검사"
+    ],
+    [
+      8.982,
+      9.375,
+      [
+        [
+          "다시",
+          8.982
+        ]
+      ],
+      "card",
+      "plain",
+      ""
+    ],
+    [
+      9.375,
+      9.893,
+      [
+        [
+          "다듬는",
+          9.375
+        ]
+      ],
+      "card",
+      "acc",
+      "다듬는"
+    ],
+    [
+      9.893,
+      10.179,
+      [
+        [
+          "무료",
+          9.893
+        ]
+      ],
+      "card",
+      "acc",
+      "무료"
+    ],
+    [
+      10.179,
+      10.572,
+      [
+        [
+          "도구가",
+          10.179
+        ]
+      ],
+      "card",
+      "plain",
+      ""
+    ],
+    [
+      10.572,
+      11.104,
+      [
+        [
+          "나왔어요",
+          10.572
+        ]
+      ],
+      "card",
+      "acc",
+      "나왔어요"
+    ],
+    [
+      11.104,
+      11.721,
+      [
+        [
+          "설치하고",
+          11.104
+        ]
+      ],
+      "card",
+      "acc",
+      "설치"
+    ],
+    [
+      11.721,
+      12.292,
+      [
+        [
+          "내",
+          11.721
+        ],
+        [
+          "글을",
+          11.953
+        ]
+      ],
+      "card",
+      "plain",
+      "내 글"
+    ],
+    [
+      12.292,
+      12.863,
+      [
+        [
+          "넣은",
+          12.292
+        ],
+        [
+          "다음",
+          12.631
+        ]
+      ],
+      "card",
+      "plain",
+      "넣은"
+    ],
+    [
+      12.863,
+      13.613,
+      [
+        [
+          "내용은",
+          12.863
+        ]
+      ],
+      "card",
+      "plain",
+      ""
+    ],
+    [
+      13.613,
+      13.863,
+      [
+        [
+          "그대로",
+          13.613
+        ]
+      ],
+      "card",
+      "acc",
+      "그대로"
+    ],
+    [
+      13.863,
+      14.435,
+      [
+        [
+          "두고",
+          13.863
+        ]
+      ],
+      "card",
+      "acc",
+      "두고"
+    ],
+    [
+      14.435,
+      14.863,
+      [
+        [
+          "숨은",
+          14.435
+        ]
+      ],
+      "card",
+      "acc",
+      "숨은 문자"
+    ],
+    [
+      14.863,
+      15.328,
+      [
+        [
+          "문자와",
+          14.863
+        ]
+      ],
+      "card",
+      "plain",
+      ""
+    ],
+    [
+      15.328,
+      15.828,
+      [
+        [
+          "어색한",
+          15.328
+        ]
+      ],
+      "card",
+      "acc",
+      "어색한 표현"
+    ],
+    [
+      15.828,
+      16.185,
+      [
+        [
+          "표현을",
+          15.828
+        ]
+      ],
+      "card",
+      "plain",
+      ""
+    ],
+    [
+      16.185,
+      16.744,
+      [
+        [
+          "정리해줘",
+          16.185
+        ]
+      ],
+      "card",
+      "acc",
+      "정리"
+    ],
+    [
+      16.744,
+      16.994,
+      [
+        [
+          "이렇게",
+          16.744
+        ]
+      ],
+      "full",
+      "acc",
+      "이렇게"
+    ],
+    [
+      16.994,
+      17.548,
+      [
+        [
+          "시키면",
+          16.994
+        ]
+      ],
+      "full",
+      "acc",
+      "시키면"
+    ],
+    [
+      17.548,
+      17.943,
+      [
+        [
+          "됩니다",
+          17.548
+        ]
+      ],
+      "full",
+      "plain",
+      ""
+    ],
+    [
+      17.943,
+      18.381,
+      [
+        [
+          "블로그",
+          17.943
+        ]
+      ],
+      "card",
+      "acc",
+      "블로그"
+    ],
+    [
+      18.381,
+      18.81,
+      [
+        [
+          "글이나",
+          18.381
+        ]
+      ],
+      "card",
+      "plain",
+      ""
+    ],
+    [
+      18.81,
+      19.31,
+      [
+        [
+          "상품",
+          18.81
+        ]
+      ],
+      "card",
+      "acc",
+      "상품 소개"
+    ],
+    [
+      19.31,
+      19.702,
+      [
+        [
+          "소개에",
+          19.31
+        ]
+      ],
+      "card",
+      "plain",
+      ""
+    ],
+    [
+      19.702,
+      20.238,
+      [
+        [
+          "올리기",
+          19.702
+        ],
+        [
+          "전에",
+          20.06
+        ]
+      ],
+      "card",
+      "acc",
+      "올리기 전에"
+    ],
+    [
+      20.238,
+      20.774,
+      [
+        [
+          "한번",
+          20.238
+        ]
+      ],
+      "card",
+      "plain",
+      ""
+    ],
+    [
+      20.774,
+      21.131,
+      [
+        [
+          "써보세요",
+          20.774
+        ]
+      ],
+      "card",
+      "acc",
+      "써보세요"
+    ],
+    [
+      21.131,
+      21.809,
+      [
+        [
+          "바뀐",
+          21.131
+        ],
+        [
+          "부분까지",
+          21.357
+        ]
+      ],
+      "card",
+      "plain",
+      "바뀐 부분"
+    ],
+    [
+      21.809,
+      22.309,
+      [
+        [
+          "받아서",
+          21.809
+        ]
+      ],
+      "card",
+      "acc",
+      "받아서"
+    ],
+    [
+      22.309,
+      23.146,
+      [
+        [
+          "비교할",
+          22.309
+        ]
+      ],
+      "card",
+      "acc",
+      "비교"
+    ],
+    [
+      23.146,
+      23.589,
+      [
+        [
+          "수",
+          23.146
+        ],
+        [
+          "있습니다",
+          23.425
+        ]
+      ],
+      "card",
+      "plain",
+      ""
+    ],
+    [
+      23.589,
+      23.923,
+      [
+        [
+          "설치",
+          23.589
+        ]
+      ],
+      "card",
+      "acc",
+      "설치 방법"
+    ],
+    [
+      23.923,
+      24.589,
+      [
+        [
+          "방법부터",
+          23.923
+        ]
+      ],
+      "card",
+      "plain",
+      ""
+    ],
+    [
+      24.589,
+      25.339,
+      [
+        [
+          "복사해서",
+          24.589
+        ]
+      ],
+      "card",
+      "acc",
+      "복사"
+    ],
+    [
+      25.339,
+      25.679,
+      [
+        [
+          "쓸",
+          25.339
+        ]
+      ],
+      "card",
+      "plain",
+      ""
+    ],
+    [
+      25.679,
+      26.304,
+      [
+        [
+          "한글",
+          25.679
+        ]
+      ],
+      "card",
+      "acc",
+      "한글 명령"
+    ],
+    [
+      26.304,
+      27.036,
+      [
+        [
+          "명령까지",
+          26.304
+        ]
+      ],
+      "card",
+      "plain",
+      ""
+    ],
+    [
+      27.036,
+      27.5,
+      [
+        [
+          "정리해",
+          27.036
+        ]
+      ],
+      "card",
+      "acc",
+      "정리"
+    ],
+    [
+      27.5,
+      27.985,
+      [
+        [
+          "뒀습니다",
+          27.5
+        ]
+      ],
+      "card",
+      "plain",
+      ""
+    ],
+    [
+      27.985,
+      28.262,
+      [
+        [
+          "자료",
+          27.985
+        ]
+      ],
+      "full",
+      "acc",
+      "자료"
+    ],
+    [
+      28.262,
+      29.119,
+      [
+        [
+          "궁금하신",
+          28.262
+        ],
+        [
+          "분들은",
+          28.779
+        ]
+      ],
+      "full",
+      "plain",
+      ""
+    ],
+    [
+      29.119,
+      29.762,
+      [
+        [
+          "댓글에",
+          29.119
+        ]
+      ],
+      "full",
+      "acc",
+      "댓글"
+    ],
+    [
+      29.762,
+      30.381,
+      [
+        [
+          "정리",
+          29.762
+        ]
+      ],
+      "full",
+      "acc",
+      "정리"
+    ],
+    [
+      30.381,
+      31.042,
+      [
+        [
+          "남겨",
+          30.381
+        ],
+        [
+          "주세요",
+          30.567
+        ]
+      ],
+      "full",
+      "plain",
+      "남겨"
+    ]
+  ],
+  "camera": [
+    [
+      0.0,
+      "card",
+      1,
+      0
+    ],
+    [
+      3.006,
+      "card",
+      1,
+      0
+    ],
+    [
+      5.833,
+      "full",
+      1.04,
+      0.32
+    ],
+    [
+      6.309,
+      "full",
+      1.14,
+      0.24
+    ],
+    [
+      7.44,
+      "card",
+      1,
+      0.32
+    ],
+    [
+      9.893,
+      "card",
+      1,
+      0
+    ],
+    [
+      11.071,
+      "card",
+      1,
+      0
+    ],
+    [
+      12.247,
+      "card",
+      1,
+      0
+    ],
+    [
+      16.726,
+      "full",
+      1.04,
+      0.32
+    ],
+    [
+      16.994,
+      "full",
+      1.14,
+      0.24
+    ],
+    [
+      17.917,
+      "card",
+      1,
+      0.32
+    ],
+    [
+      21.101,
+      "card",
+      1,
+      0
+    ],
+    [
+      23.571,
+      "card",
+      1,
+      0
+    ],
+    [
+      27.946,
+      "full",
+      1.36,
+      0.32
+    ]
+  ],
+  "scenes": {
+    "s01-hook": [
+      0.0,
+      3.006,
+      "scn"
+    ],
+    "s02-hidden": [
+      3.006,
+      2.827,
+      "scn"
+    ],
+    "s03-paste": [
+      5.833,
+      1.607,
+      "ovl"
+    ],
+    "s04-check": [
+      7.44,
+      2.453,
+      "scn"
+    ],
+    "s05-repo": [
+      9.893,
+      1.178,
+      "scn"
+    ],
+    "s06-install": [
+      11.071,
+      1.176,
+      "scn"
+    ],
+    "s07-ask": [
+      12.247,
+      4.479,
+      "scn"
+    ],
+    "s08-say": [
+      16.726,
+      1.191,
+      "ovl"
+    ],
+    "s09-draft": [
+      17.917,
+      3.184,
+      "scn"
+    ],
+    "s10-diff": [
+      21.101,
+      2.47,
+      "scn"
+    ],
+    "s11-guide": [
+      23.571,
+      4.375,
+      "scn"
+    ],
+    "s99-comment": [
+      27.946,
+      3.096,
+      "ovl"
+    ]
+  },
+  "actions": [
+    {
+      "name": "opening",
+      "scene": "s01-hook",
+      "source": 1.533,
+      "time": 0,
+      "local": 0,
+      "sound": "impact-low-hook",
+      "gain_db": -10
+    },
+    {
+      "name": "s01-hook_line1",
+      "scene": "s01-hook",
+      "source": 2.2,
+      "time": 0.596,
+      "local": 0.596,
+      "sound": null,
+      "gain_db": 0
+    },
+    {
+      "name": "s01-hook_line2",
+      "scene": "s01-hook",
+      "source": 2.68,
+      "time": 1.024,
+      "local": 1.024,
+      "sound": null,
+      "gain_db": 0
+    },
+    {
+      "name": "s01-hook_stamp",
+      "scene": "s01-hook",
+      "source": 3.58,
+      "time": 1.649,
+      "local": 1.649,
+      "sound": "soft-pop",
+      "gain_db": -13
+    },
+    {
+      "name": "s01-hook_scan",
+      "scene": "s01-hook",
+      "source": 4.42,
+      "time": 2.399,
+      "local": 2.399,
+      "sound": "whoosh-short-cut",
+      "gain_db": -18
+    },
+    {
+      "name": "s01-hook_dots",
+      "scene": "s01-hook",
+      "source": 4.8,
+      "time": 2.738,
+      "local": 2.738,
+      "sound": null,
+      "gain_db": 0
+    },
+    {
+      "name": "s02-hidden_entrance",
+      "scene": "s02-hidden",
+      "source": 5.1,
+      "time": 3.006,
+      "local": 0,
+      "sound": "ui-panel-appear",
+      "gain_db": -15
+    },
+    {
+      "name": "s02-hidden_c1",
+      "scene": "s02-hidden",
+      "source": 5.52,
+      "time": 3.381,
+      "local": 0.375,
+      "sound": "soft-pop",
+      "gain_db": -12
+    },
+    {
+      "name": "s02-hidden_c2",
+      "scene": "s02-hidden",
+      "source": 5.96,
+      "time": 3.774,
+      "local": 0.768,
+      "sound": null,
+      "gain_db": 0
+    },
+    {
+      "name": "s02-hidden_c3",
+      "scene": "s02-hidden",
+      "source": 6.5,
+      "time": 4.256,
+      "local": 1.25,
+      "sound": null,
+      "gain_db": 0
+    },
+    {
+      "name": "s02-hidden_kind",
+      "scene": "s02-hidden",
+      "source": 6.94,
+      "time": 4.649,
+      "local": 1.643,
+      "sound": "ui-tick",
+      "gain_db": -13
+    },
+    {
+      "name": "s02-hidden_pulse",
+      "scene": "s02-hidden",
+      "source": 7.7,
+      "time": 5.328,
+      "local": 2.322,
+      "sound": null,
+      "gain_db": 0
+    },
+    {
+      "name": "camera_2",
+      "scene": "main",
+      "source": 8.85,
+      "time": 5.833,
+      "local": 5.833,
+      "sound": "whoosh-down-cut",
+      "gain_db": -19
+    },
+    {
+      "name": "camera_4",
+      "scene": "main",
+      "source": 11.2,
+      "time": 7.44,
+      "local": 7.44,
+      "sound": "whoosh-up-cut",
+      "gain_db": -19
+    },
+    {
+      "name": "s04-check_glow",
+      "scene": "s04-check",
+      "source": 11.82,
+      "time": 7.965,
+      "local": 0.525,
+      "sound": null,
+      "gain_db": 0
+    },
+    {
+      "name": "s04-check_scan",
+      "scene": "s04-check",
+      "source": 12.18,
+      "time": 8.286,
+      "local": 0.846,
+      "sound": "whoosh-short-cut",
+      "gain_db": -17
+    },
+    {
+      "name": "s04-check_clean",
+      "scene": "s04-check",
+      "source": 12.96,
+      "time": 8.982,
+      "local": 1.542,
+      "sound": "ui-tick",
+      "gain_db": -12
+    },
+    {
+      "name": "s04-check_fix",
+      "scene": "s04-check",
+      "source": 13.4,
+      "time": 9.375,
+      "local": 1.935,
+      "sound": null,
+      "gain_db": 0
+    },
+    {
+      "name": "s05-repo_entrance",
+      "scene": "s05-repo",
+      "source": 13.98,
+      "time": 9.893,
+      "local": 0,
+      "sound": "ui-panel-appear",
+      "gain_db": -15
+    },
+    {
+      "name": "s05-repo_title",
+      "scene": "s05-repo",
+      "source": 14.3,
+      "time": 10.179,
+      "local": 0.286,
+      "sound": null,
+      "gain_db": 0
+    },
+    {
+      "name": "s05-repo_mit",
+      "scene": "s05-repo",
+      "source": 14.8,
+      "time": 10.625,
+      "local": 0.732,
+      "sound": null,
+      "gain_db": 0
+    },
+    {
+      "name": "s06-install_cmd1",
+      "scene": "s06-install",
+      "source": 15.77,
+      "time": 11.104,
+      "local": 0.033,
+      "sound": "ui-panel-appear",
+      "gain_db": -15
+    },
+    {
+      "name": "s06-install_cmd2",
+      "scene": "s06-install",
+      "source": 16.1,
+      "time": 11.399,
+      "local": 0.328,
+      "sound": null,
+      "gain_db": 0
+    },
+    {
+      "name": "s06-install_cmd3",
+      "scene": "s06-install",
+      "source": 16.46,
+      "time": 11.721,
+      "local": 0.65,
+      "sound": null,
+      "gain_db": 0
+    },
+    {
+      "name": "s07-ask_paste",
+      "scene": "s07-ask",
+      "source": 17.1,
+      "time": 12.292,
+      "local": 0.045,
+      "sound": "soft-pop",
+      "gain_db": -12
+    },
+    {
+      "name": "s07-ask_t0",
+      "scene": "s07-ask",
+      "source": 17.4,
+      "time": 12.56,
+      "local": 0.313,
+      "sound": null,
+      "gain_db": 0
+    },
+    {
+      "name": "s07-ask_t1",
+      "scene": "s07-ask",
+      "source": 17.74,
+      "time": 12.863,
+      "local": 0.616,
+      "sound": null,
+      "gain_db": 0
+    },
+    {
+      "name": "s07-ask_keep",
+      "scene": "s07-ask",
+      "source": 18.58,
+      "time": 13.613,
+      "local": 1.366,
+      "sound": null,
+      "gain_db": 0
+    },
+    {
+      "name": "s07-ask_t2",
+      "scene": "s07-ask",
+      "source": 19.5,
+      "time": 14.435,
+      "local": 2.188,
+      "sound": null,
+      "gain_db": 0
+    },
+    {
+      "name": "s07-ask_t3",
+      "scene": "s07-ask",
+      "source": 20.5,
+      "time": 15.328,
+      "local": 3.081,
+      "sound": null,
+      "gain_db": 0
+    },
+    {
+      "name": "s07-ask_t4",
+      "scene": "s07-ask",
+      "source": 21.46,
+      "time": 16.185,
+      "local": 3.938,
+      "sound": null,
+      "gain_db": 0
+    },
+    {
+      "name": "s07-ask_send",
+      "scene": "s07-ask",
+      "source": 21.98,
+      "time": 16.649,
+      "local": 4.402,
+      "sound": null,
+      "gain_db": 0
+    },
+    {
+      "name": "camera_8",
+      "scene": "main",
+      "source": 22.2,
+      "time": 16.726,
+      "local": 16.726,
+      "sound": "whoosh-down-cut",
+      "gain_db": -19
+    },
+    {
+      "name": "camera_10",
+      "scene": "main",
+      "source": 24.1,
+      "time": 17.917,
+      "local": 17.917,
+      "sound": "whoosh-up-cut",
+      "gain_db": -19
+    },
+    {
+      "name": "s09-draft_blog",
+      "scene": "s09-draft",
+      "source": 24.13,
+      "time": 17.943,
+      "local": 0.026,
+      "sound": null,
+      "gain_db": 0
+    },
+    {
+      "name": "s09-draft_btxt",
+      "scene": "s09-draft",
+      "source": 24.62,
+      "time": 18.381,
+      "local": 0.464,
+      "sound": null,
+      "gain_db": 0
+    },
+    {
+      "name": "s09-draft_product",
+      "scene": "s09-draft",
+      "source": 25.1,
+      "time": 18.81,
+      "local": 0.893,
+      "sound": null,
+      "gain_db": 0
+    },
+    {
+      "name": "s09-draft_ptxt",
+      "scene": "s09-draft",
+      "source": 25.66,
+      "time": 19.31,
+      "local": 1.393,
+      "sound": null,
+      "gain_db": 0
+    },
+    {
+      "name": "s09-draft_before",
+      "scene": "s09-draft",
+      "source": 26.1,
+      "time": 19.702,
+      "local": 1.785,
+      "sound": "ui-panel-appear",
+      "gain_db": -16
+    },
+    {
+      "name": "s09-draft_check1",
+      "scene": "s09-draft",
+      "source": 26.7,
+      "time": 20.238,
+      "local": 2.321,
+      "sound": null,
+      "gain_db": 0
+    },
+    {
+      "name": "s09-draft_check2",
+      "scene": "s09-draft",
+      "source": 27.14,
+      "time": 20.631,
+      "local": 2.714,
+      "sound": "ui-tick",
+      "gain_db": -12
+    },
+    {
+      "name": "s10-diff_entrance",
+      "scene": "s10-diff",
+      "source": 28.15,
+      "time": 21.101,
+      "local": 0,
+      "sound": "ui-panel-appear",
+      "gain_db": -15
+    },
+    {
+      "name": "s10-diff_rev",
+      "scene": "s10-diff",
+      "source": 28.96,
+      "time": 21.809,
+      "local": 0.708,
+      "sound": "soft-pop",
+      "gain_db": -13
+    },
+    {
+      "name": "s10-diff_s1",
+      "scene": "s10-diff",
+      "source": 29.52,
+      "time": 22.309,
+      "local": 1.208,
+      "sound": null,
+      "gain_db": 0
+    },
+    {
+      "name": "s10-diff_s2",
+      "scene": "s10-diff",
+      "source": 29.82,
+      "time": 22.577,
+      "local": 1.476,
+      "sound": null,
+      "gain_db": 0
+    },
+    {
+      "name": "s10-diff_s3",
+      "scene": "s10-diff",
+      "source": 30.14,
+      "time": 22.863,
+      "local": 1.762,
+      "sound": null,
+      "gain_db": 0
+    },
+    {
+      "name": "s10-diff_sum",
+      "scene": "s10-diff",
+      "source": 30.55,
+      "time": 23.229,
+      "local": 2.128,
+      "sound": "soft-pop",
+      "gain_db": -14
+    },
+    {
+      "name": "s11-guide_r1",
+      "scene": "s11-guide",
+      "source": 31.6,
+      "time": 23.661,
+      "local": 0.09,
+      "sound": null,
+      "gain_db": 0
+    },
+    {
+      "name": "s11-guide_r2",
+      "scene": "s11-guide",
+      "source": 32.64,
+      "time": 24.589,
+      "local": 1.018,
+      "sound": null,
+      "gain_db": 0
+    },
+    {
+      "name": "s11-guide_cmd",
+      "scene": "s11-guide",
+      "source": 33.3,
+      "time": 25.179,
+      "local": 1.608,
+      "sound": "soft-pop",
+      "gain_db": -14
+    },
+    {
+      "name": "s11-guide_r3",
+      "scene": "s11-guide",
+      "source": 33.86,
+      "time": 25.679,
+      "local": 2.108,
+      "sound": null,
+      "gain_db": 0
+    },
+    {
+      "name": "s11-guide_r4",
+      "scene": "s11-guide",
+      "source": 34.56,
+      "time": 26.304,
+      "local": 2.733,
+      "sound": null,
+      "gain_db": 0
+    },
+    {
+      "name": "s11-guide_r5",
+      "scene": "s11-guide",
+      "source": 35.38,
+      "time": 27.036,
+      "local": 3.465,
+      "sound": "ui-tick",
+      "gain_db": -14
+    },
+    {
+      "name": "camera_13",
+      "scene": "main",
+      "source": 36.75,
+      "time": 27.946,
+      "local": 27.946,
+      "sound": "whoosh-down-cut",
+      "gain_db": -19
+    },
+    {
+      "name": "s99-comment_comment_type",
+      "scene": "s99-comment",
+      "source": 38.8,
+      "time": 29.762,
+      "local": 1.816,
+      "sound": "ping-comment",
+      "gain_db": -10
+    },
+    {
+      "name": "s99-comment_comment_send",
+      "scene": "s99-comment",
+      "source": 39.839999999999996,
+      "time": 30.542,
+      "local": 2.596,
+      "sound": "ui-tick",
+      "gain_db": -11
+    }
+  ]
+}

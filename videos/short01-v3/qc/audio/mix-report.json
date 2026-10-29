@@ -1,0 +1,285 @@
+{
+  "events_sha256": "876d42eec9b5adc89e59b27007cce36c3e1a148bc57a2a78d1def5dc1cb0ca11",
+  "cue_count": 25,
+  "cues": [
+    {
+      "name": "opening",
+      "scene": "s01-hook",
+      "source": 1.533,
+      "time": 0,
+      "local": 0,
+      "sound": "impact-low-hook",
+      "gain_db": -10
+    },
+    {
+      "name": "s01-hook_stamp",
+      "scene": "s01-hook",
+      "source": 3.58,
+      "time": 1.649,
+      "local": 1.649,
+      "sound": "soft-pop",
+      "gain_db": -13
+    },
+    {
+      "name": "s01-hook_scan",
+      "scene": "s01-hook",
+      "source": 4.42,
+      "time": 2.399,
+      "local": 2.399,
+      "sound": "whoosh-short-cut",
+      "gain_db": -18
+    },
+    {
+      "name": "s02-hidden_entrance",
+      "scene": "s02-hidden",
+      "source": 5.1,
+      "time": 3.006,
+      "local": 0,
+      "sound": "ui-panel-appear",
+      "gain_db": -15
+    },
+    {
+      "name": "s02-hidden_c1",
+      "scene": "s02-hidden",
+      "source": 5.52,
+      "time": 3.381,
+      "local": 0.375,
+      "sound": "soft-pop",
+      "gain_db": -12
+    },
+    {
+      "name": "s02-hidden_kind",
+      "scene": "s02-hidden",
+      "source": 6.94,
+      "time": 4.649,
+      "local": 1.643,
+      "sound": "ui-tick",
+      "gain_db": -13
+    },
+    {
+      "name": "camera_2",
+      "scene": "main",
+      "source": 8.85,
+      "time": 5.833,
+      "local": 5.833,
+      "sound": "whoosh-down-cut",
+      "gain_db": -19
+    },
+    {
+      "name": "camera_4",
+      "scene": "main",
+      "source": 11.2,
+      "time": 7.44,
+      "local": 7.44,
+      "sound": "whoosh-up-cut",
+      "gain_db": -19
+    },
+    {
+      "name": "s04-check_scan",
+      "scene": "s04-check",
+      "source": 12.18,
+      "time": 8.286,
+      "local": 0.846,
+      "sound": "whoosh-short-cut",
+      "gain_db": -17
+    },
+    {
+      "name": "s04-check_clean",
+      "scene": "s04-check",
+      "source": 12.96,
+      "time": 8.982,
+      "local": 1.542,
+      "sound": "ui-tick",
+      "gain_db": -12
+    },
+    {
+      "name": "s05-repo_entrance",
+      "scene": "s05-repo",
+      "source": 13.98,
+      "time": 9.893,
+      "local": 0,
+      "sound": "ui-panel-appear",
+      "gain_db": -15
+    },
+    {
+      "name": "s06-install_cmd1",
+      "scene": "s06-install",
+      "source": 15.77,
+      "time": 11.104,
+      "local": 0.033,
+      "sound": "ui-panel-appear",
+      "gain_db": -15
+    },
+    {
+      "name": "s07-ask_paste",
+      "scene": "s07-ask",
+      "source": 17.1,
+      "time": 12.292,
+      "local": 0.045,
+      "sound": "soft-pop",
+      "gain_db": -12
+    },
+    {
+      "name": "camera_8",
+      "scene": "main",
+      "source": 22.2,
+      "time": 16.726,
+      "local": 16.726,
+      "sound": "whoosh-down-cut",
+      "gain_db": -19
+    },
+    {
+      "name": "camera_10",
+      "scene": "main",
+      "source": 24.1,
+      "time": 17.917,
+      "local": 17.917,
+      "sound": "whoosh-up-cut",
+      "gain_db": -19
+    },
+    {
+      "name": "s09-draft_before",
+      "scene": "s09-draft",
+      "source": 26.1,
+      "time": 19.702,
+      "local": 1.785,
+      "sound": "ui-panel-appear",
+      "gain_db": -16
+    },
+    {
+      "name": "s09-draft_check2",
+      "scene": "s09-draft",
+      "source": 27.14,
+      "time": 20.631,
+      "local": 2.714,
+      "sound": "ui-tick",
+      "gain_db": -12
+    },
+    {
+      "name": "s10-diff_entrance",
+      "scene": "s10-diff",
+      "source": 28.15,
+      "time": 21.101,
+      "local": 0,
+      "sound": "ui-panel-appear",
+      "gain_db": -15
+    },
+    {
+      "name": "s10-diff_rev",
+      "scene": "s10-diff",
+      "source": 28.96,
+      "time": 21.809,
+      "local": 0.708,
+      "sound": "soft-pop",
+      "gain_db": -13
+    },
+    {
+      "name": "s10-diff_sum",
+      "scene": "s10-diff",
+      "source": 30.55,
+      "time": 23.229,
+      "local": 2.128,
+      "sound": "soft-pop",
+      "gain_db": -14
+    },
+    {
+      "name": "s11-guide_cmd",
+      "scene": "s11-guide",
+      "source": 33.3,
+      "time": 25.179,
+      "local": 1.608,
+      "sound": "soft-pop",
+      "gain_db": -14
+    },
+    {
+      "name": "s11-guide_r5",
+      "scene": "s11-guide",
+      "source": 35.38,
+      "time": 27.036,
+      "local": 3.465,
+      "sound": "ui-tick",
+      "gain_db": -14
+    },
+    {
+      "name": "camera_13",
+      "scene": "main",
+      "source": 36.75,
+      "time": 27.946,
+      "local": 27.946,
+      "sound": "whoosh-down-cut",
+      "gain_db": -19
+    },
+    {
+      "name": "s99-comment_comment_type",
+      "scene": "s99-comment",
+      "source": 38.8,
+      "time": 29.762,
+      "local": 1.816,
+      "sound": "ping-comment",
+      "gain_db": -10
+    },
+    {
+      "name": "s99-comment_comment_send",
+      "scene": "s99-comment",
+      "source": 39.839999999999996,
+      "time": 30.542,
+      "local": 2.596,
+      "sound": "ui-tick",
+      "gain_db": -11
+    }
+  ],
+  "bed_source_lufs": "-14.53",
+  "bed_gain_db": -13.47,
+  "master_gain_db": 2.0500000000000007,
+  "levels": {
+    "voice": {
+      "input_i": "-16.25",
+      "input_tp": "-5.35",
+      "input_lra": "1.30",
+      "input_thresh": "-26.25",
+      "output_i": "-14.01",
+      "output_tp": "-2.99",
+      "output_lra": "1.30",
+      "output_thresh": "-24.01",
+      "normalization_type": "dynamic",
+      "target_offset": "0.01"
+    },
+    "bed": {
+      "input_i": "-33.60",
+      "input_tp": "-17.47",
+      "input_lra": "4.80",
+      "input_thresh": "-44.02",
+      "output_i": "-13.91",
+      "output_tp": "-1.00",
+      "output_lra": "0.90",
+      "output_thresh": "-24.15",
+      "normalization_type": "dynamic",
+      "target_offset": "-0.09"
+    },
+    "sfx": {
+      "input_i": "-27.73",
+      "input_tp": "-10.80",
+      "input_lra": "9.90",
+      "input_thresh": "-38.71",
+      "output_i": "-13.88",
+      "output_tp": "-1.00",
+      "output_lra": "8.60",
+      "output_thresh": "-24.90",
+      "normalization_type": "dynamic",
+      "target_offset": "-0.12"
+    },
+    "final": {
+      "input_i": "-14.03",
+      "input_tp": "-1.46",
+      "input_lra": "1.20",
+      "input_thresh": "-24.03",
+      "output_i": "-14.03",
+      "output_tp": "-1.44",
+      "output_lra": "1.30",
+      "output_thresh": "-24.03",
+      "normalization_type": "dynamic",
+      "target_offset": "0.03"
+    }
+  },
+  "voice_minus_bed_lufs": 17.35
+}

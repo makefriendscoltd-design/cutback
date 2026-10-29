@@ -1,0 +1,78 @@
+{
+  "probe": {
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "codec_name": "h264",
+        "codec_type": "video",
+        "width": 1080,
+        "height": 1920,
+        "r_frame_rate": "30/1",
+        "duration": "31.033333",
+        "nb_frames": "931"
+      },
+      {
+        "codec_name": "aac",
+        "codec_type": "audio",
+        "r_frame_rate": "0/0",
+        "duration": "31.042000",
+        "nb_frames": "1457"
+      }
+    ],
+    "format": {
+      "duration": "31.042000",
+      "size": "53952290"
+    }
+  },
+  "expected_duration": 31.042,
+  "decode_errors": 0,
+  "audio": {
+    "input_i": "-14.03",
+    "input_tp": "-1.46",
+    "input_lra": "1.20",
+    "input_thresh": "-24.03",
+    "output_i": "-14.03",
+    "output_tp": "-1.44",
+    "output_lra": "1.30",
+    "output_thresh": "-24.03",
+    "normalization_type": "dynamic",
+    "target_offset": "0.03"
+  },
+  "scene_midpoints": [
+    1.503,
+    4.419,
+    6.636,
+    8.667,
+    10.482,
+    11.659,
+    14.486,
+    17.322,
+    19.509,
+    22.336,
+    25.759,
+    29.494,
+    30.922
+  ],
+  "captions": {
+    "captions": 40,
+    "card": 31,
+    "full": 9,
+    "autoShrunkBelow60px": 0,
+    "passedAll": 40,
+    "failed": 0,
+    "visible": 40,
+    "actualText": 40,
+    "oneLine": 40,
+    "punctuationFree": 40,
+    "horizontalSafe": 40,
+    "verticalSafe": 40,
+    "midpointInsideClip": 40,
+    "measuredBounds": {
+      "minX": 240.66,
+      "maxX": 723.33,
+      "minY": 920,
+      "maxY": 1408.02
+    }
+  }
+}

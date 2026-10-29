@@ -1,0 +1,1212 @@
+{
+  "generatedAt": "2026-10-29T02:32:15.980Z",
+  "method": "Localhost static server + installed HyperFrames Chrome headless shell + installed puppeteer-core; 1080x1920 viewport; document fonts awaited; main GSAP timeline sought to each caption midpoint; computed DOM text, Range line boxes, opacity, and bounding rectangles measured.",
+  "source": "index.html",
+  "viewport": {
+    "width": 1080,
+    "height": 1920,
+    "deviceScaleFactor": 1
+  },
+  "runtime": {
+    "gsapVersion": "3.14.2",
+    "mainTimelinePresent": true,
+    "fontsStatus": "loaded"
+  },
+  "rules": {
+    "expectedCaptions": 40,
+    "x": [
+      64,
+      1016
+    ],
+    "highCaptionRightLimit": 900,
+    "highCaptionThresholdY": 1000,
+    "y": [
+      300,
+      1440
+    ]
+  },
+  "totals": {
+    "captions": 40,
+    "card": 31,
+    "full": 9,
+    "autoShrunkBelow60px": 0,
+    "passedAll": 40,
+    "failed": 0,
+    "visible": 40,
+    "actualText": 40,
+    "oneLine": 40,
+    "punctuationFree": 40,
+    "horizontalSafe": 40,
+    "verticalSafe": 40,
+    "midpointInsideClip": 40,
+    "measuredBounds": {
+      "minX": 240.66,
+      "maxX": 723.33,
+      "minY": 920,
+      "maxY": 1408.02
+    }
+  },
+  "failureIds": [],
+  "captions": [
+    {
+      "index": 0,
+      "id": "cap-0",
+      "text": "챗GPT가",
+      "mode": "card",
+      "start": 0,
+      "duration": 0.596,
+      "midpoint": 0.298,
+      "fontSize": "60px",
+      "rect": {
+        "x": 371.94,
+        "y": 920,
+        "width": 220.13,
+        "height": 63,
+        "right": 592.06,
+        "bottom": 983
+      },
+      "lineCount": 1,
+      "checks": {
+        "visible": true,
+        "actualText": true,
+        "oneLine": true,
+        "punctuationFree": true,
+        "horizontalSafe": true,
+        "verticalSafe": true,
+        "midpointInsideClip": true
+      },
+      "failures": []
+    },
+    {
+      "index": 1,
+      "id": "cap-1",
+      "text": "칼을 갈았습니다",
+      "mode": "card",
+      "start": 0.596,
+      "duration": 1.053,
+      "midpoint": 1.1225,
+      "fontSize": "60px",
+      "rect": {
+        "x": 297.75,
+        "y": 920,
+        "width": 368.48,
+        "height": 63,
+        "right": 666.23,
+        "bottom": 983
+      },
+      "lineCount": 1,
+      "checks": {
+        "visible": true,
+        "actualText": true,
+        "oneLine": true,
+        "punctuationFree": true,
+        "horizontalSafe": true,
+        "verticalSafe": true,
+        "midpointInsideClip": true
+      },
+      "failures": []
+    },
+    {
+      "index": 2,
+      "id": "cap-2",
+      "text": "이제 AI가",
+      "mode": "card",
+      "start": 1.649,
+      "duration": 0.75,
+      "midpoint": 2.024,
+      "fontSize": "60px",
+      "rect": {
+        "x": 370,
+        "y": 920,
+        "width": 223.98,
+        "height": 63,
+        "right": 593.98,
+        "bottom": 983
+      },
+      "lineCount": 1,
+      "checks": {
+        "visible": true,
+        "actualText": true,
+        "oneLine": true,
+        "punctuationFree": true,
+        "horizontalSafe": true,
+        "verticalSafe": true,
+        "midpointInsideClip": true
+      },
+      "failures": []
+    },
+    {
+      "index": 3,
+      "id": "cap-3",
+      "text": "쓴 글에",
+      "mode": "card",
+      "start": 2.399,
+      "duration": 0.607,
+      "midpoint": 2.7025,
+      "fontSize": "60px",
+      "rect": {
+        "x": 399.47,
+        "y": 920,
+        "width": 165.06,
+        "height": 63,
+        "right": 564.53,
+        "bottom": 983
+      },
+      "lineCount": 1,
+      "checks": {
+        "visible": true,
+        "actualText": true,
+        "oneLine": true,
+        "punctuationFree": true,
+        "horizontalSafe": true,
+        "verticalSafe": true,
+        "midpointInsideClip": true
+      },
+      "failures": []
+    },
+    {
+      "index": 4,
+      "id": "cap-4",
+      "text": "눈에 안 보이는",
+      "mode": "card",
+      "start": 3.006,
+      "duration": 0.768,
+      "midpoint": 3.39,
+      "fontSize": "60px",
+      "rect": {
+        "x": 316.95,
+        "y": 920,
+        "width": 330.09,
+        "height": 63,
+        "right": 647.05,
+        "bottom": 983
+      },
+      "lineCount": 1,
+      "checks": {
+        "visible": true,
+        "actualText": true,
+        "oneLine": true,
+        "punctuationFree": true,
+        "horizontalSafe": true,
+        "verticalSafe": true,
+        "midpointInsideClip": true
+      },
+      "failures": []
+    },
+    {
+      "index": 5,
+      "id": "cap-5",
+      "text": "워터마크를",
+      "mode": "card",
+      "start": 3.774,
+      "duration": 0.875,
+      "midpoint": 4.2115,
+      "fontSize": "60px",
+      "rect": {
+        "x": 354.86,
+        "y": 920,
+        "width": 254.28,
+        "height": 63,
+        "right": 609.14,
+        "bottom": 983
+      },
+      "lineCount": 1,
+      "checks": {
+        "visible": true,
+        "actualText": true,
+        "oneLine": true,
+        "punctuationFree": true,
+        "horizontalSafe": true,
+        "verticalSafe": true,
+        "midpointInsideClip": true
+      },
+      "failures": []
+    },
+    {
+      "index": 6,
+      "id": "cap-6",
+      "text": "넣기 시작했는데요",
+      "mode": "card",
+      "start": 4.649,
+      "duration": 1.214,
+      "midpoint": 5.256,
+      "fontSize": "60px",
+      "rect": {
+        "x": 272.33,
+        "y": 920,
+        "width": 419.33,
+        "height": 63,
+        "right": 691.66,
+        "bottom": 983
+      },
+      "lineCount": 1,
+      "checks": {
+        "visible": true,
+        "actualText": true,
+        "oneLine": true,
+        "punctuationFree": true,
+        "horizontalSafe": true,
+        "verticalSafe": true,
+        "midpointInsideClip": true
+      },
+      "failures": []
+    },
+    {
+      "index": 7,
+      "id": "cap-7",
+      "text": "복사해서",
+      "mode": "full",
+      "start": 5.863,
+      "duration": 0.446,
+      "midpoint": 6.086,
+      "fontSize": "60px",
+      "rect": {
+        "x": 380.28,
+        "y": 1345,
+        "width": 203.44,
+        "height": 63,
+        "right": 583.72,
+        "bottom": 1408
+      },
+      "lineCount": 1,
+      "checks": {
+        "visible": true,
+        "actualText": true,
+        "oneLine": true,
+        "punctuationFree": true,
+        "horizontalSafe": true,
+        "verticalSafe": true,
+        "midpointInsideClip": true
+      },
+      "failures": []
+    },
+    {
+      "index": 8,
+      "id": "cap-8",
+      "text": "붙여넣어도",
+      "mode": "full",
+      "start": 6.309,
+      "duration": 0.518,
+      "midpoint": 6.568,
+      "fontSize": "60px",
+      "rect": {
+        "x": 354.86,
+        "y": 1345,
+        "width": 254.28,
+        "height": 63,
+        "right": 609.14,
+        "bottom": 1408
+      },
+      "lineCount": 1,
+      "checks": {
+        "visible": true,
+        "actualText": true,
+        "oneLine": true,
+        "punctuationFree": true,
+        "horizontalSafe": true,
+        "verticalSafe": true,
+        "midpointInsideClip": true
+      },
+      "failures": []
+    },
+    {
+      "index": 9,
+      "id": "cap-9",
+      "text": "따라갑니다",
+      "mode": "full",
+      "start": 6.827,
+      "duration": 0.638,
+      "midpoint": 7.146,
+      "fontSize": "60px",
+      "rect": {
+        "x": 354.86,
+        "y": 1345,
+        "width": 254.28,
+        "height": 63,
+        "right": 609.14,
+        "bottom": 1408
+      },
+      "lineCount": 1,
+      "checks": {
+        "visible": true,
+        "actualText": true,
+        "oneLine": true,
+        "punctuationFree": true,
+        "horizontalSafe": true,
+        "verticalSafe": true,
+        "midpointInsideClip": true
+      },
+      "failures": []
+    },
+    {
+      "index": 10,
+      "id": "cap-10",
+      "text": "그래서 이 글을",
+      "mode": "card",
+      "start": 7.465,
+      "duration": 0.821,
+      "midpoint": 7.8755,
+      "fontSize": "60px",
+      "rect": {
+        "x": 316.95,
+        "y": 920,
+        "width": 330.09,
+        "height": 63,
+        "right": 647.05,
+        "bottom": 983
+      },
+      "lineCount": 1,
+      "checks": {
+        "visible": true,
+        "actualText": true,
+        "oneLine": true,
+        "punctuationFree": true,
+        "horizontalSafe": true,
+        "verticalSafe": true,
+        "midpointInsideClip": true
+      },
+      "failures": []
+    },
+    {
+      "index": 11,
+      "id": "cap-11",
+      "text": "검사하고",
+      "mode": "card",
+      "start": 8.286,
+      "duration": 0.696,
+      "midpoint": 8.634,
+      "fontSize": "60px",
+      "rect": {
+        "x": 380.28,
+        "y": 920,
+        "width": 203.44,
+        "height": 63,
+        "right": 583.72,
+        "bottom": 983
+      },
+      "lineCount": 1,
+      "checks": {
+        "visible": true,
+        "actualText": true,
+        "oneLine": true,
+        "punctuationFree": true,
+        "horizontalSafe": true,
+        "verticalSafe": true,
+        "midpointInsideClip": true
+      },
+      "failures": []
+    },
+    {
+      "index": 12,
+      "id": "cap-12",
+      "text": "다시 다듬는",
+      "mode": "card",
+      "start": 8.982,
+      "duration": 0.911,
+      "midpoint": 9.4375,
+      "fontSize": "60px",
+      "rect": {
+        "x": 348.61,
+        "y": 920,
+        "width": 266.77,
+        "height": 63,
+        "right": 615.38,
+        "bottom": 983
+      },
+      "lineCount": 1,
+      "checks": {
+        "visible": true,
+        "actualText": true,
+        "oneLine": true,
+        "punctuationFree": true,
+        "horizontalSafe": true,
+        "verticalSafe": true,
+        "midpointInsideClip": true
+      },
+      "failures": []
+    },
+    {
+      "index": 13,
+      "id": "cap-13",
+      "text": "무료 도구가",
+      "mode": "card",
+      "start": 9.893,
+      "duration": 0.679,
+      "midpoint": 10.2325,
+      "fontSize": "60px",
+      "rect": {
+        "x": 348.61,
+        "y": 920,
+        "width": 266.77,
+        "height": 63,
+        "right": 615.38,
+        "bottom": 983
+      },
+      "lineCount": 1,
+      "checks": {
+        "visible": true,
+        "actualText": true,
+        "oneLine": true,
+        "punctuationFree": true,
+        "horizontalSafe": true,
+        "verticalSafe": true,
+        "midpointInsideClip": true
+      },
+      "failures": []
+    },
+    {
+      "index": 14,
+      "id": "cap-14",
+      "text": "나왔어요",
+      "mode": "card",
+      "start": 10.572,
+      "duration": 0.532,
+      "midpoint": 10.838,
+      "fontSize": "60px",
+      "rect": {
+        "x": 380.28,
+        "y": 920,
+        "width": 203.42,
+        "height": 63,
+        "right": 583.7,
+        "bottom": 983
+      },
+      "lineCount": 1,
+      "checks": {
+        "visible": true,
+        "actualText": true,
+        "oneLine": true,
+        "punctuationFree": true,
+        "horizontalSafe": true,
+        "verticalSafe": true,
+        "midpointInsideClip": true
+      },
+      "failures": []
+    },
+    {
+      "index": 15,
+      "id": "cap-15",
+      "text": "설치하고",
+      "mode": "card",
+      "start": 11.104,
+      "duration": 0.617,
+      "midpoint": 11.4125,
+      "fontSize": "60px",
+      "rect": {
+        "x": 380.28,
+        "y": 920,
+        "width": 203.44,
+        "height": 63,
+        "right": 583.72,
+        "bottom": 983
+      },
+      "lineCount": 1,
+      "checks": {
+        "visible": true,
+        "actualText": true,
+        "oneLine": true,
+        "punctuationFree": true,
+        "horizontalSafe": true,
+        "verticalSafe": true,
+        "midpointInsideClip": true
+      },
+      "failures": []
+    },
+    {
+      "index": 16,
+      "id": "cap-16",
+      "text": "내 글을",
+      "mode": "card",
+      "start": 11.721,
+      "duration": 0.571,
+      "midpoint": 12.0065,
+      "fontSize": "60px",
+      "rect": {
+        "x": 399.47,
+        "y": 920,
+        "width": 165.05,
+        "height": 63,
+        "right": 564.52,
+        "bottom": 983
+      },
+      "lineCount": 1,
+      "checks": {
+        "visible": true,
+        "actualText": true,
+        "oneLine": true,
+        "punctuationFree": true,
+        "horizontalSafe": true,
+        "verticalSafe": true,
+        "midpointInsideClip": true
+      },
+      "failures": []
+    },
+    {
+      "index": 17,
+      "id": "cap-17",
+      "text": "넣은 다음",
+      "mode": "card",
+      "start": 12.292,
+      "duration": 0.571,
+      "midpoint": 12.5775,
+      "fontSize": "60px",
+      "rect": {
+        "x": 374.05,
+        "y": 920,
+        "width": 215.91,
+        "height": 63,
+        "right": 589.95,
+        "bottom": 983
+      },
+      "lineCount": 1,
+      "checks": {
+        "visible": true,
+        "actualText": true,
+        "oneLine": true,
+        "punctuationFree": true,
+        "horizontalSafe": true,
+        "verticalSafe": true,
+        "midpointInsideClip": true
+      },
+      "failures": []
+    },
+    {
+      "index": 18,
+      "id": "cap-18",
+      "text": "내용은 그대로",
+      "mode": "card",
+      "start": 12.863,
+      "duration": 1,
+      "midpoint": 13.363,
+      "fontSize": "60px",
+      "rect": {
+        "x": 323.19,
+        "y": 920,
+        "width": 317.63,
+        "height": 63,
+        "right": 640.81,
+        "bottom": 983
+      },
+      "lineCount": 1,
+      "checks": {
+        "visible": true,
+        "actualText": true,
+        "oneLine": true,
+        "punctuationFree": true,
+        "horizontalSafe": true,
+        "verticalSafe": true,
+        "midpointInsideClip": true
+      },
+      "failures": []
+    },
+    {
+      "index": 19,
+      "id": "cap-19",
+      "text": "두고",
+      "mode": "card",
+      "start": 13.863,
+      "duration": 0.572,
+      "midpoint": 14.149,
+      "fontSize": "60px",
+      "rect": {
+        "x": 431.14,
+        "y": 920,
+        "width": 101.72,
+        "height": 63,
+        "right": 532.86,
+        "bottom": 983
+      },
+      "lineCount": 1,
+      "checks": {
+        "visible": true,
+        "actualText": true,
+        "oneLine": true,
+        "punctuationFree": true,
+        "horizontalSafe": true,
+        "verticalSafe": true,
+        "midpointInsideClip": true
+      },
+      "failures": []
+    },
+    {
+      "index": 20,
+      "id": "cap-20",
+      "text": "숨은 문자와",
+      "mode": "card",
+      "start": 14.435,
+      "duration": 0.893,
+      "midpoint": 14.8815,
+      "fontSize": "60px",
+      "rect": {
+        "x": 348.61,
+        "y": 920,
+        "width": 266.77,
+        "height": 63,
+        "right": 615.38,
+        "bottom": 983
+      },
+      "lineCount": 1,
+      "checks": {
+        "visible": true,
+        "actualText": true,
+        "oneLine": true,
+        "punctuationFree": true,
+        "horizontalSafe": true,
+        "verticalSafe": true,
+        "midpointInsideClip": true
+      },
+      "failures": []
+    },
+    {
+      "index": 21,
+      "id": "cap-21",
+      "text": "어색한 표현을",
+      "mode": "card",
+      "start": 15.328,
+      "duration": 0.857,
+      "midpoint": 15.7565,
+      "fontSize": "60px",
+      "rect": {
+        "x": 323.19,
+        "y": 920,
+        "width": 317.63,
+        "height": 63,
+        "right": 640.81,
+        "bottom": 983
+      },
+      "lineCount": 1,
+      "checks": {
+        "visible": true,
+        "actualText": true,
+        "oneLine": true,
+        "punctuationFree": true,
+        "horizontalSafe": true,
+        "verticalSafe": true,
+        "midpointInsideClip": true
+      },
+      "failures": []
+    },
+    {
+      "index": 22,
+      "id": "cap-22",
+      "text": "정리해줘",
+      "mode": "card",
+      "start": 16.185,
+      "duration": 0.559,
+      "midpoint": 16.4645,
+      "fontSize": "60px",
+      "rect": {
+        "x": 380.28,
+        "y": 920,
+        "width": 203.44,
+        "height": 63,
+        "right": 583.72,
+        "bottom": 983
+      },
+      "lineCount": 1,
+      "checks": {
+        "visible": true,
+        "actualText": true,
+        "oneLine": true,
+        "punctuationFree": true,
+        "horizontalSafe": true,
+        "verticalSafe": true,
+        "midpointInsideClip": true
+      },
+      "failures": []
+    },
+    {
+      "index": 23,
+      "id": "cap-23",
+      "text": "이렇게",
+      "mode": "full",
+      "start": 16.744,
+      "duration": 0.25,
+      "midpoint": 16.869,
+      "fontSize": "60px",
+      "rect": {
+        "x": 405.65,
+        "y": 1344.98,
+        "width": 152.68,
+        "height": 63.04,
+        "right": 558.33,
+        "bottom": 1408.02
+      },
+      "lineCount": 1,
+      "checks": {
+        "visible": true,
+        "actualText": true,
+        "oneLine": true,
+        "punctuationFree": true,
+        "horizontalSafe": true,
+        "verticalSafe": true,
+        "midpointInsideClip": true
+      },
+      "failures": []
+    },
+    {
+      "index": 24,
+      "id": "cap-24",
+      "text": "시키면 됩니다",
+      "mode": "full",
+      "start": 16.994,
+      "duration": 0.949,
+      "midpoint": 17.4685,
+      "fontSize": "60px",
+      "rect": {
+        "x": 323.19,
+        "y": 1345,
+        "width": 317.63,
+        "height": 63,
+        "right": 640.81,
+        "bottom": 1408
+      },
+      "lineCount": 1,
+      "checks": {
+        "visible": true,
+        "actualText": true,
+        "oneLine": true,
+        "punctuationFree": true,
+        "horizontalSafe": true,
+        "verticalSafe": true,
+        "midpointInsideClip": true
+      },
+      "failures": []
+    },
+    {
+      "index": 25,
+      "id": "cap-25",
+      "text": "블로그 글이나",
+      "mode": "card",
+      "start": 17.943,
+      "duration": 0.867,
+      "midpoint": 18.3765,
+      "fontSize": "60px",
+      "rect": {
+        "x": 323.19,
+        "y": 920,
+        "width": 317.63,
+        "height": 63,
+        "right": 640.81,
+        "bottom": 983
+      },
+      "lineCount": 1,
+      "checks": {
+        "visible": true,
+        "actualText": true,
+        "oneLine": true,
+        "punctuationFree": true,
+        "horizontalSafe": true,
+        "verticalSafe": true,
+        "midpointInsideClip": true
+      },
+      "failures": []
+    },
+    {
+      "index": 26,
+      "id": "cap-26",
+      "text": "상품 소개에",
+      "mode": "card",
+      "start": 18.81,
+      "duration": 0.892,
+      "midpoint": 19.256,
+      "fontSize": "60px",
+      "rect": {
+        "x": 348.61,
+        "y": 920,
+        "width": 266.77,
+        "height": 63,
+        "right": 615.38,
+        "bottom": 983
+      },
+      "lineCount": 1,
+      "checks": {
+        "visible": true,
+        "actualText": true,
+        "oneLine": true,
+        "punctuationFree": true,
+        "horizontalSafe": true,
+        "verticalSafe": true,
+        "midpointInsideClip": true
+      },
+      "failures": []
+    },
+    {
+      "index": 27,
+      "id": "cap-27",
+      "text": "올리기 전에",
+      "mode": "card",
+      "start": 19.702,
+      "duration": 0.536,
+      "midpoint": 19.97,
+      "fontSize": "60px",
+      "rect": {
+        "x": 348.61,
+        "y": 920,
+        "width": 266.77,
+        "height": 63,
+        "right": 615.38,
+        "bottom": 983
+      },
+      "lineCount": 1,
+      "checks": {
+        "visible": true,
+        "actualText": true,
+        "oneLine": true,
+        "punctuationFree": true,
+        "horizontalSafe": true,
+        "verticalSafe": true,
+        "midpointInsideClip": true
+      },
+      "failures": []
+    },
+    {
+      "index": 28,
+      "id": "cap-28",
+      "text": "한번 써보세요",
+      "mode": "card",
+      "start": 20.238,
+      "duration": 0.893,
+      "midpoint": 20.6845,
+      "fontSize": "60px",
+      "rect": {
+        "x": 323.19,
+        "y": 920,
+        "width": 317.61,
+        "height": 63,
+        "right": 640.8,
+        "bottom": 983
+      },
+      "lineCount": 1,
+      "checks": {
+        "visible": true,
+        "actualText": true,
+        "oneLine": true,
+        "punctuationFree": true,
+        "horizontalSafe": true,
+        "verticalSafe": true,
+        "midpointInsideClip": true
+      },
+      "failures": []
+    },
+    {
+      "index": 29,
+      "id": "cap-29",
+      "text": "바뀐 부분까지",
+      "mode": "card",
+      "start": 21.131,
+      "duration": 0.678,
+      "midpoint": 21.47,
+      "fontSize": "60px",
+      "rect": {
+        "x": 323.19,
+        "y": 920,
+        "width": 317.63,
+        "height": 63,
+        "right": 640.81,
+        "bottom": 983
+      },
+      "lineCount": 1,
+      "checks": {
+        "visible": true,
+        "actualText": true,
+        "oneLine": true,
+        "punctuationFree": true,
+        "horizontalSafe": true,
+        "verticalSafe": true,
+        "midpointInsideClip": true
+      },
+      "failures": []
+    },
+    {
+      "index": 30,
+      "id": "cap-30",
+      "text": "받아서",
+      "mode": "card",
+      "start": 21.809,
+      "duration": 0.5,
+      "midpoint": 22.059,
+      "fontSize": "60px",
+      "rect": {
+        "x": 405.7,
+        "y": 920,
+        "width": 152.58,
+        "height": 63,
+        "right": 558.28,
+        "bottom": 983
+      },
+      "lineCount": 1,
+      "checks": {
+        "visible": true,
+        "actualText": true,
+        "oneLine": true,
+        "punctuationFree": true,
+        "horizontalSafe": true,
+        "verticalSafe": true,
+        "midpointInsideClip": true
+      },
+      "failures": []
+    },
+    {
+      "index": 31,
+      "id": "cap-31",
+      "text": "비교할 수 있습니다",
+      "mode": "card",
+      "start": 22.309,
+      "duration": 1.28,
+      "midpoint": 22.949,
+      "fontSize": "60px",
+      "rect": {
+        "x": 266.09,
+        "y": 920,
+        "width": 431.81,
+        "height": 63,
+        "right": 697.91,
+        "bottom": 983
+      },
+      "lineCount": 1,
+      "checks": {
+        "visible": true,
+        "actualText": true,
+        "oneLine": true,
+        "punctuationFree": true,
+        "horizontalSafe": true,
+        "verticalSafe": true,
+        "midpointInsideClip": true
+      },
+      "failures": []
+    },
+    {
+      "index": 32,
+      "id": "cap-32",
+      "text": "설치 방법부터",
+      "mode": "card",
+      "start": 23.589,
+      "duration": 1,
+      "midpoint": 24.089,
+      "fontSize": "60px",
+      "rect": {
+        "x": 323.19,
+        "y": 920,
+        "width": 317.63,
+        "height": 63,
+        "right": 640.81,
+        "bottom": 983
+      },
+      "lineCount": 1,
+      "checks": {
+        "visible": true,
+        "actualText": true,
+        "oneLine": true,
+        "punctuationFree": true,
+        "horizontalSafe": true,
+        "verticalSafe": true,
+        "midpointInsideClip": true
+      },
+      "failures": []
+    },
+    {
+      "index": 33,
+      "id": "cap-33",
+      "text": "복사해서 쓸",
+      "mode": "card",
+      "start": 24.589,
+      "duration": 1.09,
+      "midpoint": 25.134,
+      "fontSize": "60px",
+      "rect": {
+        "x": 348.61,
+        "y": 920,
+        "width": 266.77,
+        "height": 63,
+        "right": 615.38,
+        "bottom": 983
+      },
+      "lineCount": 1,
+      "checks": {
+        "visible": true,
+        "actualText": true,
+        "oneLine": true,
+        "punctuationFree": true,
+        "horizontalSafe": true,
+        "verticalSafe": true,
+        "midpointInsideClip": true
+      },
+      "failures": []
+    },
+    {
+      "index": 34,
+      "id": "cap-34",
+      "text": "한글 명령까지",
+      "mode": "card",
+      "start": 25.679,
+      "duration": 1.357,
+      "midpoint": 26.3575,
+      "fontSize": "60px",
+      "rect": {
+        "x": 323.19,
+        "y": 920,
+        "width": 317.63,
+        "height": 63,
+        "right": 640.81,
+        "bottom": 983
+      },
+      "lineCount": 1,
+      "checks": {
+        "visible": true,
+        "actualText": true,
+        "oneLine": true,
+        "punctuationFree": true,
+        "horizontalSafe": true,
+        "verticalSafe": true,
+        "midpointInsideClip": true
+      },
+      "failures": []
+    },
+    {
+      "index": 35,
+      "id": "cap-35",
+      "text": "정리해 뒀습니다",
+      "mode": "card",
+      "start": 27.036,
+      "duration": 0.949,
+      "midpoint": 27.5105,
+      "fontSize": "60px",
+      "rect": {
+        "x": 297.75,
+        "y": 920,
+        "width": 368.48,
+        "height": 63,
+        "right": 666.23,
+        "bottom": 983
+      },
+      "lineCount": 1,
+      "checks": {
+        "visible": true,
+        "actualText": true,
+        "oneLine": true,
+        "punctuationFree": true,
+        "horizontalSafe": true,
+        "verticalSafe": true,
+        "midpointInsideClip": true
+      },
+      "failures": []
+    },
+    {
+      "index": 36,
+      "id": "cap-36",
+      "text": "자료 궁금하신 분들은",
+      "mode": "full",
+      "start": 27.985,
+      "duration": 1.134,
+      "midpoint": 28.552,
+      "fontSize": "60px",
+      "rect": {
+        "x": 240.66,
+        "y": 1345,
+        "width": 482.67,
+        "height": 63,
+        "right": 723.33,
+        "bottom": 1408
+      },
+      "lineCount": 1,
+      "checks": {
+        "visible": true,
+        "actualText": true,
+        "oneLine": true,
+        "punctuationFree": true,
+        "horizontalSafe": true,
+        "verticalSafe": true,
+        "midpointInsideClip": true
+      },
+      "failures": []
+    },
+    {
+      "index": 37,
+      "id": "cap-37",
+      "text": "댓글에",
+      "mode": "full",
+      "start": 29.119,
+      "duration": 0.643,
+      "midpoint": 29.4405,
+      "fontSize": "60px",
+      "rect": {
+        "x": 405.7,
+        "y": 1345,
+        "width": 152.58,
+        "height": 63,
+        "right": 558.28,
+        "bottom": 1408
+      },
+      "lineCount": 1,
+      "checks": {
+        "visible": true,
+        "actualText": true,
+        "oneLine": true,
+        "punctuationFree": true,
+        "horizontalSafe": true,
+        "verticalSafe": true,
+        "midpointInsideClip": true
+      },
+      "failures": []
+    },
+    {
+      "index": 38,
+      "id": "cap-38",
+      "text": "정리",
+      "mode": "full",
+      "start": 29.762,
+      "duration": 0.619,
+      "midpoint": 30.0715,
+      "fontSize": "60px",
+      "rect": {
+        "x": 431.14,
+        "y": 1345,
+        "width": 101.72,
+        "height": 63,
+        "right": 532.86,
+        "bottom": 1408
+      },
+      "lineCount": 1,
+      "checks": {
+        "visible": true,
+        "actualText": true,
+        "oneLine": true,
+        "punctuationFree": true,
+        "horizontalSafe": true,
+        "verticalSafe": true,
+        "midpointInsideClip": true
+      },
+      "failures": []
+    },
+    {
+      "index": 39,
+      "id": "cap-39",
+      "text": "남겨 주세요",
+      "mode": "full",
+      "start": 30.381,
+      "duration": 0.661,
+      "midpoint": 30.7115,
+      "fontSize": "60px",
+      "rect": {
+        "x": 348.61,
+        "y": 1345,
+        "width": 266.77,
+        "height": 63,
+        "right": 615.38,
+        "bottom": 1408
+      },
+      "lineCount": 1,
+      "checks": {
+        "visible": true,
+        "actualText": true,
+        "oneLine": true,
+        "punctuationFree": true,
+        "horizontalSafe": true,
+        "verticalSafe": true,
+        "midpointInsideClip": true
+      },
+      "failures": []
+    }
+  ]
+}

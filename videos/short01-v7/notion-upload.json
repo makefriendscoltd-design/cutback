@@ -1,0 +1,14 @@
+{
+  "row": "새로운 14탄",
+  "page": "https://app.notion.com/p/3ecb31f1da558000a225f5284029246c",
+  "완성본": ["AI학교_새로운영상14탄_워터마크_v7.mp4"],
+  "source_render": "renders/숏폼1회차_워터마크도구_owen_v7.mp4",
+  "bytes": 51672280,
+  "sha256": "430e1a3c1dda087b1584fde636a1ed4b3b3578171cd396d898c757bc7af3e0c5",
+  "replaced": "AI학교_새로운영상14탄_워터마크.mp4 삭제",
+  "리틀리": "변경 안 함",
+  "촬영본": "비어 있음(변경 안 함)",
+  "persistedAfterReload": true,
+  "method": "Aside repl: sessions/_upload14 스테이징 → 세션폴더 copyFile → input.click 가로채기 → locator.setInputFiles",
+  "verifiedAt": "2026-10-29"
+}

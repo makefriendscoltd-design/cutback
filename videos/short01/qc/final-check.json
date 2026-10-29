@@ -1,0 +1,197 @@
+{
+  "ok": true,
+  "strict": false,
+  "lint": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "filesScanned": 1
+  },
+  "runtime": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": []
+  },
+  "layout": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 3,
+    "findings": [
+      {
+        "code": "text_occluded",
+        "severity": "info",
+        "time": 13.793,
+        "selector": "div.source",
+        "message": "Text is hidden beneath an opaque element.",
+        "rect": {
+          "left": 711.5,
+          "top": 779,
+          "right": 987,
+          "bottom": 800,
+          "width": 275.5,
+          "height": 21
+        },
+        "containerSelector": "div.term",
+        "text": "실제 GitHub 화면 · 2026-10-29 캡처",
+        "fixHint": "Give the text its own zone, raise its stacking order above the covering element, or mark intentional layering with data-layout-allow-occlusion.",
+        "coveredFraction": 1,
+        "dataAttributes": {},
+        "sourceFile": "scenes/s04-repo.html",
+        "bbox": {
+          "x": 711.5,
+          "y": 779,
+          "width": 275.5,
+          "height": 21
+        },
+        "firstSeen": 13.793,
+        "lastSeen": 13.793,
+        "occurrences": 1,
+        "heldMs": 0
+      },
+      {
+        "code": "container_overflow",
+        "severity": "info",
+        "time": 13.793,
+        "selector": "div.pan",
+        "message": "Element extends outside a clipping layout container.",
+        "rect": {
+          "left": 61.5,
+          "top": 286.75,
+          "right": 1917.5,
+          "bottom": 3766.75,
+          "width": 1856,
+          "height": 3480
+        },
+        "containerSelector": "div.vp",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 65,
+          "top": 349,
+          "right": 1015,
+          "bottom": 819,
+          "width": 950,
+          "height": 470
+        },
+        "overflow": {
+          "left": 3.5,
+          "right": 902.5,
+          "top": 62.25,
+          "bottom": 2947.75
+        },
+        "dataAttributes": {},
+        "sourceFile": "scenes/s04-repo.html",
+        "bbox": {
+          "x": 61.5,
+          "y": 286.75,
+          "width": 1856,
+          "height": 3480
+        },
+        "firstSeen": 13.793,
+        "lastSeen": 13.793,
+        "occurrences": 1,
+        "heldMs": 0
+      },
+      {
+        "code": "escaped_container",
+        "severity": "info",
+        "time": 13.793,
+        "selector": "div.pan",
+        "message": "Positioned element renders far outside its offset parent — its coordinates were likely computed in a different frame (canvas/viewport pixels).",
+        "rect": {
+          "left": 61.5,
+          "top": 286.75,
+          "right": 1917.5,
+          "bottom": 3766.75,
+          "width": 1856,
+          "height": 3480
+        },
+        "containerSelector": "div.vp",
+        "text": "",
+        "fixHint": "Compute left/top in the offset parent's frame (subtract its rect), or mark intentional placement with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 65,
+          "top": 349,
+          "right": 1015,
+          "bottom": 819,
+          "width": 950,
+          "height": 470
+        },
+        "dataAttributes": {},
+        "sourceFile": "scenes/s04-repo.html",
+        "bbox": {
+          "x": 61.5,
+          "y": 286.75,
+          "width": 1856,
+          "height": 3480
+        },
+        "firstSeen": 13.793,
+        "lastSeen": 13.793,
+        "occurrences": 1,
+        "heldMs": 0
+      }
+    ],
+    "duration": 35.467,
+    "samples": [
+      1.97,
+      5.911,
+      9.852,
+      13.793,
+      17.734,
+      21.674,
+      25.615,
+      29.556,
+      33.497
+    ],
+    "transitionSamples": [],
+    "transitionSamplesDropped": 0,
+    "tolerance": 2,
+    "totalIssueCount": 3,
+    "truncated": false
+  },
+  "motion": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": false,
+    "samples": 0
+  },
+  "contrast": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": true,
+    "samples": [
+      1.97,
+      9.852,
+      17.734,
+      25.615,
+      33.497
+    ],
+    "checked": 41,
+    "passed": 41
+  },
+  "hdr": {
+    "autoPromotion": null,
+    "inspection": "available"
+  },
+  "snapshots": {
+    "enabled": false,
+    "files": [],
+    "times": [],
+    "findingFiles": []
+  },
+  "_meta": {
+    "version": "0.8.62",
+    "latestVersion": "0.8.210",
+    "updateAvailable": true
+  }
+}
