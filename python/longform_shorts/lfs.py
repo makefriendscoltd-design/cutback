@@ -4,6 +4,7 @@
   .venv/bin/python lfs.py review <job_id>          # 검수 페이지만 다시 열기
   .venv/bin/python lfs.py recopy <job_id>          # 구간은 그대로 두고 헤드카피만 다시 뽑기
   .venv/bin/python lfs.py render <job_id> [c01 ..] # 검수 없이 바로 렌더 (기본: selected=true 전부)
+  .venv/bin/python lfs.py prepare <URL> --status s.json  # 팀 허브용: 검수 페이지 없이 후보까지만, 진행 상태를 파일로
 """
 from __future__ import annotations
 
@@ -21,20 +22,46 @@ STATUS: dict[str, dict] = {}   # clip id → {state, msg}
 LOCK = threading.Lock()
 
 
-def render_many(d: Path, ids: list[str] | None = None):
+def render_many(d: Path, ids: list[str] | None = None, status_file: Path | None = None):
     plan = core.load_json(d / "plan.json")
     clips = [c for c in plan["clips"] if (c["id"] in ids if ids else c.get("selected"))]
+
+    def put(cid, state, msg):
+        STATUS[cid] = {"state": state, "msg": msg}
+        if status_file:
+            core.save_json(status_file, {"stage": "render", "job": d.name, "clips": STATUS})
     for c in clips:
-        STATUS[c["id"]] = {"state": "queued", "msg": "대기"}
+        put(c["id"], "queued", "대기")
     for c in clips:
-        STATUS[c["id"]] = {"state": "running", "msg": "렌더 중"}
+        put(c["id"], "running", "렌더 중")
         try:
-            out = core.render_clip(d, c, lambda m, cid=c["id"]: STATUS.__setitem__(cid, {"state": "running", "msg": m}))
-            STATUS[c["id"]] = {"state": "done", "msg": out.name}
+            out = core.render_clip(d, c, lambda m, cid=c["id"]: put(cid, "running", m))
+            put(c["id"], "done", out.name)
             core.log("완료:", out)
         except Exception as e:  # noqa: BLE001 — 한 클립 실패가 전체를 멈추지 않게
-            STATUS[c["id"]] = {"state": "error", "msg": str(e)[-300:]}
+            put(c["id"], "error", str(e)[-300:])
             core.log("실패:", c["id"], e)
+
+
+def prepare(url: str, max_n: int, status_file: Path) -> Path:
+    """다운로드 → 전사 → 구간·헤드카피. 단계마다 status_file 갱신, 실패도 기록"""
+    st = {"stage": "download", "msg": "영상 받는 중"}
+    core.save_json(status_file, st)
+    try:
+        d = core.download(url)
+        st.update(job=d.name, stage="transcribe", msg="음성 받아쓰는 중")
+        core.save_json(status_file, st)
+        core.transcribe(d)
+        st.update(stage="plan", msg="숏폼 구간·헤드카피 뽑는 중")
+        core.save_json(status_file, st)
+        core.plan(d, max_n)
+        st.update(stage="ready", msg="후보 완성")
+        core.save_json(status_file, st)
+        return d
+    except Exception as e:  # noqa: BLE001
+        st.update(stage="error", msg=str(e)[-400:])
+        core.save_json(status_file, st)
+        raise
 
 
 def serve(d: Path, port: int = 8765, open_browser: bool = True):
@@ -117,12 +144,13 @@ def serve(d: Path, port: int = 8765, open_browser: bool = True):
                     edits = {c["id"]: c for c in body.get("clips", [])}
                     for c in plan["clips"]:
                         if c["id"] in edits:
-                            for k in ("selected", "head1", "head2", "alts", "yt_title", "yt_desc"):
-                                c[k] = edits[c["id"]].get(k, c[k])
+                            for k in ("selected", "head1", "head2", "alts", "yt_title", "yt_desc", "color1", "color2", "cap_color"):
+                                if k in edits[c["id"]]:
+                                    c[k] = edits[c["id"]][k]
                     core.save_json(d / "plan.json", plan)
                     if "config" in body:
                         cfg = core.load_json(d / "config.json", {})
-                        cfg.update({k: body["config"][k] for k in ("footer1", "footer2", "caption_pos", "theme") if k in body["config"]})
+                        cfg.update({k: body["config"][k] for k in ("footer1", "footer2", "caption_pos", "theme", "color1", "color2", "cap_color") if k in body["config"]})
                         core.save_json(d / "config.json", cfg)
                 self._json({"ok": True})
             elif self.path == "/api/render":
@@ -158,6 +186,11 @@ def main():
     rn = sub.add_parser("render")
     rn.add_argument("job")
     rn.add_argument("ids", nargs="*")
+    rn.add_argument("--status")
+    pr = sub.add_parser("prepare")
+    pr.add_argument("url")
+    pr.add_argument("--max", type=int, default=10)
+    pr.add_argument("--status", required=True)
     a = ap.parse_args()
 
     if a.cmd == "run":
@@ -170,11 +203,13 @@ def main():
             serve(d, a.port)
     elif a.cmd == "review":
         serve(core.JOBS / a.job, a.port)
+    elif a.cmd == "prepare":
+        prepare(a.url, a.max, Path(a.status))
     elif a.cmd == "recopy":
         for c in core.recopy(core.JOBS / a.job)["clips"]:
             print(c["id"], c["hook"], "|", c["head1"], "/", c["head2"], "| alts:", c.get("alts"))
     elif a.cmd == "render":
-        render_many(core.JOBS / a.job, a.ids or None)
+        render_many(core.JOBS / a.job, a.ids or None, Path(a.status) if a.status else None)
 
 
 if __name__ == "__main__":

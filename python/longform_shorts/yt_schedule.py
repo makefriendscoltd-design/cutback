@@ -26,7 +26,8 @@ KST = dt.timezone(dt.timedelta(hours=9))
 TOKEN = Path(os.environ.get("LFS_YT_TOKEN", str(core.ROOT / "secrets" / "token.naminsoo.json")))
 CLIENT = Path(os.environ.get("LFS_YT_CLIENT", "/Users/apple/coding/youtubereply/client_secret.json"))
 SCOPES = ["https://www.googleapis.com/auth/youtube.force-ssl"]   # 업로드 + 비공개 예약 영상 조회
-EXPECT_CHANNEL = os.environ.get("LFS_YT_CHANNEL", "나민수")   # 다른 채널 토큰이면 중단
+# 다른 채널 토큰이면 중단. 채널명은 바뀌므로(나민수 AI → 나교장의 AI사장학교) 채널 ID 로 확인한다
+EXPECT_CHANNEL_ID = os.environ.get("LFS_YT_CHANNEL_ID") or (core.ROOT / "secrets" / "channel_id").read_text().strip()
 SLOTS = ["07:30", "13:30", "15:30", "17:30", "22:30"]       # 기존 09:00·11:00·20:00 과 90분 이상 떨어진 후보
 BUFFER_MIN = 90
 PER_DAY = 5
@@ -84,8 +85,8 @@ def channel(svc):
             raise
         ch = core.load_json(CACHE)["channel"]
         core.log("쿼터 막힘 — 채널 정보는 마지막 조회본 사용")
-    if EXPECT_CHANNEL not in ch["snippet"]["title"]:
-        sys.exit(f"토큰 채널이 '{ch['snippet']['title']}' — '{EXPECT_CHANNEL}' 아님. 중단")
+    if ch.get("id") != EXPECT_CHANNEL_ID:
+        sys.exit(f"토큰 채널이 '{ch['snippet']['title']}'({ch.get('id')}) — {EXPECT_CHANNEL_ID} 아님. 중단")
     return ch
 
 
@@ -179,23 +180,26 @@ def clashes(when: dt.datetime, busy: list[dt.datetime], recur: list[dt.time]) ->
 def make_plan(d: Path, svc, save=True) -> dict:
     ch = channel(svc)
     busy, recur = busy_and_recurring(svc, ch, d)
+    if core.config_of(d).get("ignore_recurring"):   # 실제 예약된 영상만 피한다(과거 반복 시간대는 무시)
+        recur = []
     old = core.load_json(d / "schedule.json", {"items": []})
     done = {i["clip"]: i for i in old["items"] if i.get("video_id") or i.get("hold")}
     plan = core.load_json(d / "plan.json")
     clips = [c for c in plan["clips"] if c.get("selected") and (d / "out" / f"{c['id']}.mp4").exists()]
     # 후킹 점수 높은 것부터 먼저 공개
-    clips.sort(key=lambda c: -int(c.get("hook") or 0))
+    clips.sort(key=lambda c: (c.get("rank", 999), -int(c.get("hook") or 0)))   # rank 를 주면 그 순서가 우선
     taken = [dt.datetime.fromisoformat(i["publish_at"]) for i in done.values()]
     items = list(done.values())
     now = dt.datetime.now(KST)
     day = now.date()
     pending = [c for c in clips if c["id"] not in done]
+    per_day = int(core.config_of(d).get("per_day") or PER_DAY)   # 영상별로 하루 개수를 줄일 수 있다(config.json per_day)
     while pending:
         if day > now.date() + dt.timedelta(days=180):
             raise RuntimeError("180일 안에 빈 칸이 없음 — SLOTS/BUFFER 확인")
         count = sum(1 for t in taken if t.date() == day)
         for s in SLOTS:
-            if not pending or count >= PER_DAY:
+            if not pending or count >= per_day:
                 break
             when = dt.datetime.combine(day, dt.time.fromisoformat(s), KST)
             if when < now + dt.timedelta(hours=2) or clashes(when, busy + taken, recur):
@@ -268,6 +272,8 @@ def upload(d: Path, svc, limit=PER_RUN):
     sched = core.load_json(d / "schedule.json")
     ch = channel(svc)
     busy, recur = busy_and_recurring(svc, ch, d)   # 올리기 직전에 다시 조회해서 그 사이 생긴 예약과도 안 겹치게
+    if core.config_of(d).get("ignore_recurring"):
+        recur = []
     n = 0
     for it in sched["items"]:
         if it.get("video_id") or it.get("hold") or n >= limit:

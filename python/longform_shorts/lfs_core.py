@@ -6,13 +6,14 @@
 from __future__ import annotations
 
 import json
+import os
 import re
 import subprocess
 import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
-JOBS = ROOT / "jobs"
+JOBS = Path(os.environ["LFS_JOBS"]) if os.environ.get("LFS_JOBS") else ROOT / "jobs"   # 팀 허브는 자기 폴더를 넘겨 채널 배치와 섞이지 않게
 FONTS_DIR = ROOT.parents[1] / "packages" / "shorts-composer" / "assets" / "fonts"
 AGENT_RUN = Path("/Users/apple/orca/projects/loopguard/bin/agent-run")
 WHISPER_MODEL = "mlx-community/whisper-large-v3-turbo"
@@ -30,6 +31,11 @@ DEFAULT_CONFIG = {
     "footer2": "",            # 예: <원본 영상 제목>
     "theme": "aimax",         # aimax(기존 쇼츠) / naminsoo(썸네일) / yellow
     "caption_pos": "inside",  # inside = 영상 하단 안쪽, below = 영상 바로 아래, off = 안 넣음(원본에 자막 있을 때)
+    "caption_src": "stt",     # stt = 음성 인식 / burned = 원본에 박힌 자막을 OCR 로 읽어 옮김(영어 인터뷰를 한글 번역 자막으로)
+    "burned_band": None,      # burned 일 때 원본 자막 띠 [x, y, w, h] (원본 픽셀)
+    "color1": None,           # 헤드카피 윗줄 색(RRGGBB). 비우면 테마 색. 클립에 color1 이 있으면 그게 우선
+    "color2": None,           # 헤드카피 아랫줄 색
+    "cap_color": None,        # 자막 색(기본 흰색)
     "min_clip_sec": 30,
     "max_clip_sec": 75,
     "max_gap_sec": 0.25,      # 말 사이 이 이상 비면 잘라냄
@@ -433,7 +439,12 @@ def build_ass(clip, chunks, cfg, video_h, total):
     cap_y = bottom - 36 if pos == "inside" else bottom + 100
     foot_shift = 110 if pos == "below" else 0   # 영상 아래 자막이면 하단 문구를 밀어냄
     font = "Pretendard"
-    th = THEMES.get(cfg.get("theme"), THEMES["aimax"])
+    th = dict(THEMES.get(cfg.get("theme"), THEMES["aimax"]))
+    for k in ("color1", "color2"):
+        v = clip.get(k) or cfg.get(k)
+        if v:
+            th[k] = v.lstrip("#")
+    cap_c = ass_color((clip.get("cap_color") or cfg.get("cap_color") or "FFFFFF").lstrip("#"))
     s1 = fit_size(clip["head1"], th["size1"], th["outline1"])
     s2 = fit_size(clip["head2"], th["size2"], th["outline2"])
     head = [
@@ -443,7 +454,7 @@ def build_ass(clip, chunks, cfg, video_h, total):
         "Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding",
         f"Style: Head1,{th['font1']},{s1},{ass_color(th['color1'])},&H00FFFFFF,{ass_color(th['oc1'])},&H00000000,0,0,0,0,100,100,0,0,1,{th['outline1']},0,2,40,40,0,1",
         f"Style: Head2,{th['font2']},{s2},{ass_color(th['color2'])},&H00FFFFFF,{ass_color(th['oc2'])},&H00000000,0,0,0,0,100,100,0,0,1,{th['outline2']},0,2,40,40,0,1",
-        f"Style: Cap,{font} Bold,54,&H00FFFFFF,&H00FFFFFF,&H00000000,&H80000000,1,0,0,0,100,100,0,0,1,5,1,2,60,60,0,1",
+        f"Style: Cap,{font} Bold,{CAP_SIZE},{cap_c},&H00FFFFFF,&H00000000,&H80000000,1,0,0,0,100,100,0,0,1,5,1,2,60,60,0,1",
         f"Style: Foot1,{font} Bold,42,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,1,0,0,0,100,100,0,0,1,0,0,8,40,40,0,1",
         f"Style: Foot2,{font} Bold,32,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,1,0,0,0,100,100,0,0,1,0,0,8,40,40,0,1",
         "", "[Events]", "Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text",
@@ -461,8 +472,87 @@ def build_ass(clip, chunks, cfg, video_h, total):
     add("Foot1", ass_time(0), end, W // 2, FOOTER1_TOP + foot_shift, cfg["footer1"])
     add("Foot2", ass_time(0), end, W // 2, FOOTER2_TOP + foot_shift, cfg["footer2"])
     for c in (chunks if pos != "off" else []):
-        add("Cap", ass_time(c["s"]), ass_time(c["e"]), W // 2, cap_y, c["text"])
+        if pos == "below":   # 영상 바로 아래, 항상 한 줄. 길면 글자 수 비율로 시간을 나눠 차례로 띄운다
+            parts = wrap_cap(c["text"])
+            n = sum(len(x) for x in parts)
+            t = c["s"]
+            for x in parts:
+                e = t + (c["e"] - c["s"]) * len(x) / n
+                ev.append(f"Dialogue: 0,{ass_time(t)},{ass_time(e)},Cap,,0,0,0,,"
+                          f"{{\\an8\\pos({W // 2},{bottom + 44})\\fs{fit_size(x, CAP_SIZE, 0, W - 120)}}}{ass_escape(x)}")
+                t = e
+        else:
+            add("Cap", ass_time(c["s"]), ass_time(c["e"]), W // 2, cap_y, c["text"])
     return "\n".join(head + ev) + "\n"
+
+
+CAP_SIZE = 54
+OCR_BIN = ROOT / ".cache" / "ocr"
+
+
+def wrap_cap(text: str, max_w: int = W - 120) -> list[str]:
+    """한 줄에 안 들어가면 가운데에 가까운 띄어쓰기에서 나눈다(차례로 띄울 조각들). 조각도 길면 다시 나눈다."""
+    if text_width(text, CAP_SIZE) <= max_w or " " not in text:
+        return [text]
+    mid = len(text) / 2
+    cut = min((i for i, ch in enumerate(text) if ch == " "), key=lambda i: abs(i - mid))
+    return wrap_cap(text[:cut], max_w) + wrap_cap(text[cut + 1:], max_w)
+
+
+def clean_cap(text: str) -> str:
+    """자막 규칙: 문장부호 제거(숫자 사이 쉼표는 남김)."""
+    text = re.sub(r"(?<!\d),|,(?!\d)", " ", text)
+    text = re.sub(r"[.?!…\"'“”‘’·~]", " ", text)
+    text = re.sub(r"\bAl\b", "AI", text)   # OCR 이 AI 를 Al(소문자 L)로 읽음
+    # OCR 잡티(_ - | 같은 기호만 있는 토큰) 제거
+    return " ".join(t for t in text.split() if re.search(r"[가-힣A-Za-z0-9]", t.replace("_", "")))
+
+
+def ocr(paths: list[Path]) -> list[str]:
+    src = ROOT / "tools" / "ocr.swift"
+    if not OCR_BIN.exists() or OCR_BIN.stat().st_mtime < src.stat().st_mtime:
+        OCR_BIN.parent.mkdir(exist_ok=True)
+        run(["swiftc", "-O", str(ROOT / "tools" / "ocr.swift"), "-o", str(OCR_BIN)])
+    out = []
+    for i in range(0, len(paths), 200):
+        res = subprocess.run([str(OCR_BIN), *map(str, paths[i:i + 200])], capture_output=True, text=True, check=True)
+        for ln in res.stdout.splitlines():
+            # 화면 속 다른 글자(트윗 숫자 등)가 같이 읽히면 버리고 한글이 든 줄(=번역 자막)만 남긴다
+            lines = ln.split("\t", 1)[1].split("\x1f") if "\t" in ln else []
+            out.append(" ".join(x for x in lines if re.search(r"[가-힣]", x)))
+    return out
+
+
+def burned_chunks(d: Path, clip: dict, ranges, cfg, fps=4) -> list[dict]:
+    """원본 영상에 박힌 자막을 OCR 로 읽어 편집 후 타임라인 자막으로 옮긴다."""
+    import difflib
+    import tempfile
+    x, y, w, h = cfg["burned_band"]
+    t0, t1 = ranges[0][0], ranges[-1][1]
+    with tempfile.TemporaryDirectory() as tmp:
+        run(["ffmpeg", "-v", "error", "-ss", f"{t0:.3f}", "-to", f"{t1:.3f}", "-i", str(d / "source.mp4"),
+             "-vf", f"fps={fps},crop={w}:{h}:{x}:{y}", str(Path(tmp) / "%05d.png")])
+        frames = sorted(Path(tmp).glob("*.png"))
+        texts = ocr(frames)
+    groups = []   # [시작, 끝, [읽은 글자들]]
+    for i, t in enumerate(texts):
+        t = t.strip()
+        s = t0 + i / fps
+        if not re.search(r"[가-힣]", t):
+            continue
+        g = groups[-1] if groups else None
+        if g and s - g[1] <= 1.01 / fps and difflib.SequenceMatcher(None, g[2][-1], t).ratio() > 0.7:
+            g[1] = s + 1 / fps
+            g[2].append(t)
+        else:
+            groups.append([s, s + 1 / fps, [t]])
+    out = []
+    for s, e, ts in groups:
+        ns, ne = remap(s, ranges), remap(e, ranges)
+        text = clean_cap(max(set(ts), key=ts.count))
+        if ne - ns >= 0.3 and text:
+            out.append({"text": text, "s": ns, "e": ne})
+    return out
 
 
 # ---------------------------------------------------------------- 6. render
@@ -484,9 +574,13 @@ def render_clip(d: Path, clip: dict, progress=lambda msg: None) -> Path:
     if vh > H:
         raise RuntimeError("세로 원본은 아직 미지원")
     total = sum(e - s for s, e in ranges)
-    chunks = caption_chunks(kept, ranges, load_json(d / "plan.json", {}).get("fixes", []))
     outdir = d / "out"
     outdir.mkdir(exist_ok=True)
+    if cfg.get("caption_src") == "burned" and cfg["caption_pos"] != "off":
+        progress("원본 자막 읽는 중")
+        chunks = burned_chunks(d, clip, ranges, cfg)
+    else:
+        chunks = caption_chunks(kept, ranges, load_json(d / "plan.json", {}).get("fixes", []))
     ass_p = outdir / f"{clip['id']}.ass"
     ass_p.write_text(build_ass(clip, chunks, cfg, vh, total))
 
