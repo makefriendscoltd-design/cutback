@@ -209,6 +209,7 @@ def make_plan(d: Path, svc, save=True) -> dict:
     day = now.date()
     pending = [c for c in clips if c["id"] not in done]
     per_day = int(core.config_of(d).get("per_day") or PER_DAY)   # 영상별로 하루 개수를 줄일 수 있다(config.json per_day)
+    gap = dt.timedelta(minutes=int(core.config_of(d).get("gap_min") or 0))   # 이 롱폼 숏폼끼리 최소 간격(config.json gap_min)
     while pending:
         if day > now.date() + dt.timedelta(days=180):
             raise RuntimeError("180일 안에 빈 칸이 없음 — SLOTS/BUFFER 확인")
@@ -218,6 +219,8 @@ def make_plan(d: Path, svc, save=True) -> dict:
                 break
             when = dt.datetime.combine(day, dt.time.fromisoformat(s), KST)
             if when < now + dt.timedelta(hours=2) or clashes(when, busy + taken, recur):
+                continue
+            if gap and any(abs(when - t) < gap for t in taken):
                 continue
             c = pending.pop(0)
             taken.append(when)
@@ -341,6 +344,23 @@ def set_related(video_id: str, target_title: str, target_id: str) -> str:
         out = subprocess.run(["aside", "repl", code], capture_output=True, text=True, timeout=240).stdout
     except subprocess.TimeoutExpired:
         return "FAIL timeout"
+    except FileNotFoundError:   # aside 가 PATH 에 없으면 업로드 전체를 실패로 만들지 말고 이 항목만 실패
+        return "FAIL aside not found"
+    line = [l for l in out.splitlines() if "RESULT:" in l]
+    return line[-1].split("RESULT:", 1)[1].strip() if line else "FAIL no result"
+
+
+def switch_studio_channel(name: str) -> str:
+    """Aside 의 YouTube 활성 채널을 name 으로 전환(다른 브랜드 채널이면 Studio 편집 화면이 '오류'로 뜬다)."""
+    import subprocess
+    code = (f"const p = await openTab('https://www.youtube.com/channel_switcher'); await sleep(6000);"
+            f"const r = await p.evaluate(`(() => {{ const el=[...document.querySelectorAll('ytd-account-item-renderer')].find(e=>e.innerText.trim().startsWith({json.dumps(name, ensure_ascii=False)}));"
+            f" if(!el) return 'not found'; el.click(); return 'switched'; }})()`); await sleep(6000);"
+            f"console.log('RESULT: ' + r); await closeTab?.(p);")
+    try:
+        out = subprocess.run(["aside", "repl", code], capture_output=True, text=True, timeout=120).stdout
+    except (subprocess.TimeoutExpired, FileNotFoundError) as e:
+        return f"FAIL {e}"
     line = [l for l in out.splitlines() if "RESULT:" in l]
     return line[-1].split("RESULT:", 1)[1].strip() if line else "FAIL no result"
 
@@ -348,9 +368,14 @@ def set_related(video_id: str, target_title: str, target_id: str) -> str:
 def related_all(d: Path):
     sched = core.load_json(d / "schedule.json")
     meta = core.load_json(d / "meta.json", {})
+    switched = False
     for it in sched["items"]:
         if it.get("video_id") and not str(it.get("related", "")).startswith("OK"):
             it["related"] = set_related(it["video_id"], meta.get("title", ""), meta.get("id", d.name))
+            if it["related"] == "FAIL no related-video field" and not switched:   # Aside 가 다른 채널에 있으면 한 번 전환 후 재시도
+                switched = True
+                core.log("Studio 채널 전환:", switch_studio_channel(sched.get("channel") or CHANNEL_NAME))
+                it["related"] = set_related(it["video_id"], meta.get("title", ""), meta.get("id", d.name))
             core.log(f"관련 동영상 {it['clip']}: {it['related']}")
             core.save_json(d / "schedule.json", sched)
     return sched
