@@ -27,7 +27,9 @@ TOKEN = Path(os.environ.get("LFS_YT_TOKEN", str(core.ROOT / "secrets" / "token.n
 CLIENT = Path(os.environ.get("LFS_YT_CLIENT", "/Users/apple/coding/youtubereply/client_secret.json"))
 SCOPES = ["https://www.googleapis.com/auth/youtube.force-ssl"]   # 업로드 + 비공개 예약 영상 조회
 # 다른 채널 토큰이면 중단. 채널명은 바뀌므로(나민수 AI → 나교장의 AI사장학교) 채널 ID 로 확인한다
-EXPECT_CHANNEL_ID = os.environ.get("LFS_YT_CHANNEL_ID") or (core.ROOT / "secrets" / "channel_id").read_text().strip()
+DEFAULT_CHANNEL_ID = (core.ROOT / "secrets" / "channel_id").read_text().strip()   # 나민수(나교장의 AI사장학교)
+EXPECT_CHANNEL_ID = os.environ.get("LFS_YT_CHANNEL_ID") or DEFAULT_CHANNEL_ID
+CHANNEL_NAME = os.environ.get("LFS_YT_CHANNEL_NAME") or "나민수 AI"   # 제목·설명 프롬프트에 들어가는 채널 이름
 SLOTS = ["07:30", "13:30", "15:30", "17:30", "22:30"]       # 기존 09:00·11:00·20:00 과 90분 이상 떨어진 후보
 BUFFER_MIN = 90
 PER_DAY = 5
@@ -53,6 +55,12 @@ def auth():
     TOKEN.parent.mkdir(exist_ok=True)
     TOKEN.write_text(creds.to_json())
     os.chmod(TOKEN, 0o600)
+    if os.environ.get("LFS_YT_CHANNEL_ID") == "new":   # 새 채널 연결: 검사 대신 어떤 채널인지 기록
+        from googleapiclient.discovery import build
+        ch = build("youtube", "v3", credentials=creds, cache_discovery=False).channels().list(part="snippet", mine=True).execute()["items"][0]
+        TOKEN.with_suffix(".channel.json").write_text(json.dumps({"id": ch["id"], "title": ch["snippet"]["title"]}, ensure_ascii=False))
+        print("채널:", ch["snippet"]["title"], ch["id"])
+        return
     print("채널:", channel(yt())["snippet"]["title"])
 
 
@@ -68,7 +76,14 @@ class Offline:
         self.times = [dt.datetime.fromtimestamp(int(t), KST) for t in ts if t.isdigit()]
 
 
-CACHE = core.JOBS / "_channel_cache.json"   # 쿼터 막혔을 때 쓰는 마지막 조회 결과
+# 쿼터 막혔을 때 쓰는 마지막 조회 결과. 채널마다 따로
+CACHE = core.JOBS / ("_channel_cache.json" if EXPECT_CHANNEL_ID == DEFAULT_CHANNEL_ID else f"_channel_cache.{EXPECT_CHANNEL_ID}.json")
+
+
+def schedules():
+    """이 채널의 schedule.json 들. channel_id 가 없는 예전 기록은 나민수 채널 것"""
+    return [f for f in core.JOBS.glob("*/schedule.json")
+            if core.load_json(f, {}).get("channel_id", DEFAULT_CHANNEL_ID) == EXPECT_CHANNEL_ID]
 
 
 def _quota(e) -> bool:
@@ -91,13 +106,13 @@ def channel(svc):
 
 
 def our_video_ids() -> set[str]:
-    return {i["video_id"] for f in core.JOBS.glob("*/schedule.json")
+    return {i["video_id"] for f in schedules()
             for i in core.load_json(f, {"items": []})["items"] if i.get("video_id")}
 
 
 def other_jobs_planned(d: Path) -> list[dt.datetime]:
     """다른 작업에서 배정만 되고 아직 안 올라간 시각도 자리 차지로 본다."""
-    return [dt.datetime.fromisoformat(i["publish_at"]) for f in core.JOBS.glob("*/schedule.json") if f.parent != d
+    return [dt.datetime.fromisoformat(i["publish_at"]) for f in schedules() if f.parent != d
             for i in core.load_json(f, {"items": []})["items"] if not i.get("video_id")]
 
 
@@ -143,13 +158,13 @@ def busy_and_recurring(svc, ch, d: Path):
         pairs = [(dt.datetime.fromisoformat(t), v) for t, v in c["pairs"]]
         # 캐시 이후 우리가 올린 것(Aside 포함)도 자리 차지로 추가
         known = {v for _, v in pairs}
-        pairs += [(dt.datetime.fromisoformat(i["publish_at"]), i["video_id"]) for f in core.JOBS.glob("*/schedule.json")
+        pairs += [(dt.datetime.fromisoformat(i["publish_at"]), i["video_id"]) for f in schedules()
                   for i in core.load_json(f, {"items": []})["items"] if i.get("video_id") and i["video_id"] not in known]
         core.log(f"쿼터 막힘 — 채널 예약 목록은 {c['at'][:16]} 조회본 + 우리 업로드분으로 판단")
     ours = our_video_ids()
     # Studio(Aside)로 올린 영상은 업로드 목록에 늦게 잡힌다 → 우리 기록(schedule.json)도 항상 합친다
     known = {v for _, v in pairs}
-    pairs = pairs + [(dt.datetime.fromisoformat(i["publish_at"]), i["video_id"]) for f in core.JOBS.glob("*/schedule.json")
+    pairs = pairs + [(dt.datetime.fromisoformat(i["publish_at"]), i["video_id"]) for f in schedules()
                      for i in core.load_json(f, {"items": []})["items"] if i.get("video_id") and i["video_id"] not in known]
     # 반복 시간대는 '남의' 쇼츠로만 판단 — 우리 07:30·13:30 칸이 반복으로 잡혀 스스로 막히는 걸 방지
     recur = recurring_times([t for t, vid in pairs if vid not in ours])
@@ -210,21 +225,21 @@ def make_plan(d: Path, svc, save=True) -> dict:
             items.append({"clip": c["id"], "publish_at": when.isoformat(), "title": title_of(c)})
         day += dt.timedelta(days=1)
     items.sort(key=lambda i: i["publish_at"])
-    out = {"channel": ch["snippet"]["title"], "recurring_avoided": [t.strftime("%H:%M") for t in recur],
+    out = {"channel": ch["snippet"]["title"], "channel_id": ch.get("id", EXPECT_CHANNEL_ID), "recurring_avoided": [t.strftime("%H:%M") for t in recur],
            "buffer_min": BUFFER_MIN, "items": items}
     if save:
         core.save_json(d / "schedule.json", out)
     return out
 
 
-META_PROMPT = """너는 유튜브 '나민수 AI' 채널 쇼츠 담당이야. 아래 쇼츠들은 나민수 본인 롱폼에서 잘라낸 거야.
+META_PROMPT = """너는 유튜브 '{channel}' 채널 쇼츠 담당이야. 아래 쇼츠들은 {owner} 롱폼에서 잘라낸 거야.
 쇼츠마다 유튜브 제목과 설명글을 써.
 
 채널 기존 쇼츠 형식(따라 할 것):
 - 제목: 20자 안팎, "~하는 법", "~한 실제 사례" 처럼 무슨 내용인지 한눈에. 해시태그·이모지·따옴표 없음
   예) "클로드 코드로 왓츠앱 상담 봇 만들기", "프롬프트는 짧게, 클로드 결과는 더 좋게", "내 컴퓨터에 AI를 직접 깔아 쓰는 법"
 - 설명: 첫 문단 1~2문장 후킹 + "저장하고 끝까지 보세요!" / 빈 줄 / 핵심 2~3개를 "첫째, ~입니다." 식으로 한 문단씩
-- 기존 쇼츠는 남의 영상 소개라 "이 남자 미쳤습니다"로 시작하지만, 이건 나민수 본인 이야기니 그 문장은 쓰지 마.
+- "이 남자 미쳤습니다" 같은 남의 영상 소개 문장은 쓰지 마.
 - 영상에서 실제로 한 말만. 숫자·사례 지어내지 마.
 - 설명 맨 끝 줄에 넣지 마: 링크, 해시태그 (코드가 붙임)
 
@@ -245,7 +260,8 @@ def write_meta(d: Path) -> dict:
         for f in fixes:
             text = text.replace(f["from"], f["to"])
         blocks.append(f"## {c['id']} (헤드카피: {c['head1']} / {c['head2']})\n{text}")
-    raw = core.ask_llm(META_PROMPT.format(clips="\n\n".join(blocks)))
+    owner = "나민수 본인" if EXPECT_CHANNEL_ID == DEFAULT_CHANNEL_ID else "원본"
+    raw = core.ask_llm(META_PROMPT.format(channel=CHANNEL_NAME, owner=owner, clips="\n\n".join(blocks)))
     new = {x["id"]: x for x in raw["clips"]}
     for c in plan["clips"]:
         if c["id"] in new:
@@ -497,7 +513,7 @@ def audit_fix(d: Path, svc) -> list[str]:
             continue
         pairs = occupied(svc, ch, with_ids=True)
         known = {v for _, v in pairs}
-        pairs += [(dt.datetime.fromisoformat(i["publish_at"]), i["video_id"]) for f in core.JOBS.glob("*/schedule.json")
+        pairs += [(dt.datetime.fromisoformat(i["publish_at"]), i["video_id"]) for f in schedules()
                   for i in core.load_json(f, {"items": []})["items"] if i.get("video_id") and i["video_id"] not in known]
         real = {v: t for t, v in pairs}
         t = real.get(vid)
@@ -531,13 +547,60 @@ def show(s):
         print(i["publish_at"][:16].replace("T", " "), i["clip"], "|", i["title"], "|", st)
 
 
+TRACK = "/Users/apple/orca/projects/aimax-crm-observability/bin/aimax-crm-track"
+
+
+def hub_upload(d: Path, status_file: Path, slug: str):
+    """팀 허브 '예약 업로드' 버튼: 제목·설명 → 빈 시간 배정(하루 3개, 센 것부터) → 비공개 예약 업로드 → 관련 동영상(롱폼).
+    단계마다 status_file 갱신. 이미 올라간 클립은 schedule.json 의 video_id 로 건너뛴다(다시 눌러도 중복 업로드 없음)."""
+    import subprocess
+    st = {"stage": "upload", "job": d.name, "channel": slug, "msg": "채널 확인 중"}
+
+    def put(**kw):
+        st.update(kw)
+        core.save_json(status_file, st)
+    put()
+    try:
+        cfg = core.load_json(d / "config.json", {})
+        cfg.setdefault("per_day", 3)
+        cfg.setdefault("ignore_recurring", True)
+        core.save_json(d / "config.json", cfg)
+        svc = yt()
+        channel(svc)
+        old = core.load_json(d / "schedule.json")
+        if old and old.get("channel_id", DEFAULT_CHANNEL_ID) != EXPECT_CHANNEL_ID and any(i.get("video_id") for i in old["items"]):
+            raise RuntimeError(f"이 작업은 이미 '{old.get('channel')}' 채널에 올렸어요. 다른 채널에는 새 작업으로 올려 주세요.")
+        plan = core.load_json(d / "plan.json")
+        if any(c.get("selected") and not c.get("yt_title") for c in plan["clips"]):
+            put(msg="유튜브 제목·설명 쓰는 중")
+            write_meta(d)
+        put(msg="빈 시간 찾는 중")
+        make_plan(d, svc)
+        put(msg="예약 업로드 중")
+        sched = upload(d, svc, limit=100)
+        errs = [f"{i['clip']}: {i['error']}" for i in sched["items"] if i.get("error") and not i.get("video_id")]
+        new = [i for i in sched["items"] if i.get("video_id") and not str(i.get("related", "")).startswith("OK")]
+        put(msg="관련 동영상(롱폼) 지정 중", items=sched["items"])
+        sched = related_all(d)
+        if new:
+            subprocess.run([TRACK, "emit", "--source-system", "youtube-data-api", "--channel", "youtube_shorts", "--stage", "planned",
+                            "--status", "success", "--count", str(len(new)), "--campaign", f"hub-shorts-{slug}-{d.name}"],
+                           capture_output=True, timeout=60, check=False)
+        put(stage="uploaded", msg=("일부 실패: " + " / ".join(errs))[:600] if errs else "예약 완료", items=sched["items"])
+    except BaseException as e:  # noqa: BLE001 — sys.exit 포함
+        put(stage="upload_error", msg=str(e)[-600:])
+        raise
+
+
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("cmd", choices=["auth", "meta", "plan", "upload", "aside-upload", "verify", "audit", "related", "status"])
+    ap.add_argument("cmd", choices=["auth", "hub-upload", "meta", "plan", "upload", "aside-upload", "verify", "audit", "related", "status"])
     ap.add_argument("job", nargs="?")
     ap.add_argument("--offline", action="store_true", help="로그인 없이 공개 쇼츠만 보고 배정 미리보기(저장 안 함)")
     ap.add_argument("--yes", action="store_true", help="실제 업로드 확인")
     ap.add_argument("--limit", type=int, default=PER_RUN)
+    ap.add_argument("--status", help="hub-upload 진행 상태 파일")
+    ap.add_argument("--slug", default="naminsoo")
     a = ap.parse_args()
     if a.cmd == "auth":
         return auth()
@@ -552,6 +615,10 @@ def main():
         if not a.yes:
             sys.exit("실제 업로드는 --yes 를 붙여야 실행됨")
         return show(aside_upload_pending(d, a.limit, yt()))
+    if a.cmd == "hub-upload":
+        if not a.yes or not a.status:
+            sys.exit("hub-upload 는 --yes --status 필요")
+        return hub_upload(d, Path(a.status), a.slug)
     if a.cmd == "related":
         return show(related_all(d))
     if a.cmd == "status":
